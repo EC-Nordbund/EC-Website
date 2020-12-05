@@ -1,0 +1,114 @@
+@import '~vuetify/src/styles/settings/_variables';
+
+.nuxt-content {
+  & > *:first-child {
+    margin-top: 0 !important;
+  }
+  & > *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  @for $i from 1 to 6 {
+    h#{$i} {
+      line-height: 1.125em;
+      padding-top: 0.125em;
+      padding-bottom: 0.333em;
+
+      @media #{map-get($display-breakpoints, 'md-and-up')} {
+        > a {
+          float: left;
+          margin-left: -1em;
+          opacity: 0;
+          will-change: opacity;
+          transition: opacity 100ms ease-in-out;
+
+          .icon-link::before {
+            padding-right: 0;
+          }
+        }
+
+        &:hover > a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .icon-link::before {
+    content: '#';
+    display: inline-block;
+    padding-right: 6px;
+  }
+
+  ol li ul:first-of-type {
+    margin-top: 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 30px;
+    margin-bottom: 16px;
+
+    & li > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  hr {
+    border: 0 none;
+    border-bottom: 1px solid #ccc;
+    height: 4px;
+    margin: 15px 0;
+    padding: 0;
+  }
+
+  blockquote {
+    border-left: 4px solid #ddd;
+    padding: 0 15px;
+    color: #777;
+    & > :first-child {
+      margin-top: 0;
+    }
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  table th {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 6px 13px;
+  }
+  table td {
+    border: 1px solid #ccc;
+    padding: 6px 13px;
+  }
+  table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+  }
+  table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+
+  video,
+  img {
+    width: 100%;
+
+    $max-media-width: 720;
+
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      max-width: #{$max-media-width}px;
+      margin-left: calc((100% - #{$max-media-width}px) / 2);
+      margin-right: calc((100% - #{$max-media-width}px) / 2);
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+}

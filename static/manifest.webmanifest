@@ -1,0 +1,17 @@
+{
+  "name": "EC-Nordbund",
+  "short_name": "EC-Nordbund",
+  "description": "Webseite des EC-Nordbundes.",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#92c355",
+  "background_color": "#eee",
+  "icons": [
+    {
+      "src": "/favicon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

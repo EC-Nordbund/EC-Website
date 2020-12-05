@@ -1,0 +1,25 @@
+@import '~/node_modules/typeface-montserrat/index.css';
+
+@for $i from 1 through 10 {
+  @font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-weight: #{$i * 100};
+    src: url('../fonts/EC-EXTRA-SYM.woff');
+  }
+}
+
+@font-face {
+  font-family: 'Goldney-Regular';
+  font-display: swap;
+  src: url('../fonts/Goldney-Regular.otf');
+}
+
+.ec-font-extra {
+  font-family: 'Goldney-Reqular';
+  font-size: 40pt;
+}
+
+* {
+  font-family: 'Montserrat';
+}

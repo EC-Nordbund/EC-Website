@@ -1,0 +1,117 @@
+// Angled edges
+// Source: https://codepen.io/nigelotoole/pen/pwVNga
+
+@mixin angle-edge($angle, $angle-position-y, $angle-position-x, $angle-position-bottom-x: '') {
+
+    position: relative;
+    overflow: hidden;
+  
+    @if $angle-position-bottom-x == '' {
+      $angle-position-bottom-x: $angle-position-x;
+    }
+  
+    $angle-calc-top: calc(0% + #{$angle}vw);
+    $angle-calc-bottom: calc(100% - #{$angle}vw);
+  
+    $clip-path-top: 0 0, 100% 0;
+    $clip-path-bottom: 100% 100%, 0 100%;
+  
+    $padding-top: '';
+    $padding-bottom: '';
+  
+  
+    @if $angle-position-y == 'top' or $angle-position-y == 'both' {
+      
+      @if $angle-position-x == 'left' {
+        $clip-path-top: 0 $angle-calc-top, 100% 0;
+      }
+  
+      @if $angle-position-x == 'right' {
+        $clip-path-top: 0 0, 100% $angle-calc-top;
+      }
+
+      padding-top: #{$angle}vw !important;
+
+      &.clip-angle > * {
+        margin-top: -#{$angle}vw;
+      }
+    }
+  
+  
+    @if $angle-position-y == 'bottom' or $angle-position-y == 'both' {
+  
+      @if $angle-position-y == 'both' and $angle-position-x != $angle-position-bottom-x {
+        $angle-position-x: $angle-position-bottom-x;
+      }
+  
+      @if $angle-position-x == 'left' {
+        $clip-path-bottom: 100% 100%, 0 $angle-calc-bottom;
+      }
+  
+      @if $angle-position-x == 'right' {
+        $clip-path-bottom: 100% $angle-calc-bottom, 0 100%;
+      }
+
+      padding-bottom: #{$angle}vw !important;
+
+      &.clip-angle > * {
+        margin-bottom: -#{$angle}vw;
+      }
+    }
+  
+    $clip-path: polygon($clip-path-top, $clip-path-bottom);
+    clip-path: $clip-path;
+  }
+  
+  // Classes for Angled Edges
+  .angle--top-left {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'top', $angle-position-x: 'left');
+  }
+  
+  .angle--top-right {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'top', $angle-position-x: 'right');
+  }
+  
+  .angle--bottom-left {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'bottom', $angle-position-x: 'left');
+  }
+  
+  .angle--bottom-right {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'bottom', $angle-position-x: 'right');
+  }
+  
+  .angle--both-left-left {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'both', $angle-position-x: 'left');
+  }
+  
+  .angle--both-right-right {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'both', $angle-position-x: 'right');
+  }
+  
+  .angle--both-left-right {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'both', $angle-position-x: 'left', $angle-position-bottom-x: 'right');
+  }
+  
+  .angle--both-right-left {
+    @include angle-edge($angle: 3.492, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
+  }
+
+  .angle--bottom-left,
+  .angle--both-left-left,
+  .angle--both-right-left {
+      + .angle--top-right,
+      + .angle--both-right-left,
+      + .angle--both-right-right {
+        margin-top: -3.492vw;
+      }
+  }
+
+  .angle--bottom-right,
+  .angle--both-left-right,
+  .angle--both-right-right {
+      + .angle--top-left,
+      + .angle--both-left-left,
+      + .angle--both-left-right {
+        margin-top: -3.492vw;
+      }
+  }
