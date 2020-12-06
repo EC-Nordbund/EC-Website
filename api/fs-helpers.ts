@@ -3,6 +3,11 @@ import * as path from 'path'
 import { sha3_224 as sha } from 'js-sha3';
 
 const ANMELDUNG_SAVE_DIR = '../confirm'
+
+function isToken(token: string) {
+  return /[A-Za-z0-9]*/.test(token)
+}
+
 export function cleanup() {
   // fs.readdirSync(path.join(__dirname, ANMELDUNG_SAVE_DIR)).forEach(file => {
     // if (file.split('.')[1] !== 'json') { return }
@@ -36,6 +41,7 @@ export function saveForConfirm(data: any, type: number): string {
   return token;
 }
 export function validateToken(token: string): any {
+  if(isToken(token)) throw 'Token not valid';
   const filename = path.join(__dirname, ANMELDUNG_SAVE_DIR, token + '.json');
   // console.log(filename)
   if (!fs.existsSync(filename)) {
