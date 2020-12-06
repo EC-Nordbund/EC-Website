@@ -41,7 +41,7 @@ export function saveForConfirm(data: any, type: number): string {
   return token;
 }
 export function validateToken(token: string): any {
-  if(isToken(token)) throw 'Token not valid';
+  if(!isToken(token)) throw 'Token not valid';
   const filename = path.join(__dirname, ANMELDUNG_SAVE_DIR, token + '.json');
   // console.log(filename)
   if (!fs.existsSync(filename)) {
