@@ -60,7 +60,7 @@ export const ruleLib = {
         ? 'Bitte schreibe bei der Ländervorwahl 00. (+... => 00...)'
         : true,
     (v: string) =>
-      v && /\d*/.test(v) === false
+      v && /^((?!\d).)*$/gm.test(v)
         ? 'Die Telefonnummer darf nur aus Ziffern besetehen!'
         : true,
   ],
