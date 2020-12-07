@@ -5,7 +5,7 @@ import { sha3_224 as sha } from 'js-sha3';
 const ANMELDUNG_SAVE_DIR = '../confirm'
 
 function isToken(token: string) {
-  return /[A-Za-z0-9]*/.test(token)
+  return /[A-Za-z0-9]+/.test(token)
 }
 
 export function cleanup() {
