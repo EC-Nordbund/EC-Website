@@ -250,7 +250,7 @@ app.post('/confirm/:token', async (req, res) => {
         }
       `
 
-      const gqlRes = await axios.post('https://api.tmp.ec-nordbund.de/graphql', {
+      const gqlRes = await axios.post('http://api:4000/graphql', {
         query: gqlCode
       })
 
