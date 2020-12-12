@@ -1339,12 +1339,12 @@
     webpack-node-externals "^2.5.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/composition-api@^0.16.4":
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/composition-api/-/composition-api-0.16.4.tgz#8f0aa7c9378b262fed71ad9fc46f87f1ef0e2a6f"
-  integrity sha512-L+r6WBYNI9/LokmCXMJQqpvff0aeghpT9Qi1zlUWpUwkVyym/HUV8thfENL0SzrswJrjT0XXrqfiyTH0uPs3gA==
+"@nuxtjs/composition-api@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/composition-api/-/composition-api-0.17.0.tgz#533402f82dc860cbed17d9612ac8b41333789b26"
+  integrity sha512-hc/1amRpu1sr4/0jkb4T0N37YgvM00jcBTQeur5ymdUd52eJExKiOu+EwbWvTPRFz8IU29x6PhdLZ5LcJT6FgA==
   dependencies:
-    "@vue/composition-api" "1.0.0-beta.20"
+    "@vue/composition-api" "1.0.0-beta.21"
     defu "^3.2.2"
     normalize-path "^3.0.0"
 
@@ -2008,10 +2008,10 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/composition-api@1.0.0-beta.20":
-  version "1.0.0-beta.20"
-  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-beta.20.tgz#9909ed5844b7bf565a220b26d85b9f0158856dd7"
-  integrity sha512-Lpaxt9+3cy97QJoCJ81qNe6TeGg092iHtqilKdbE5NapHqoSwiuYUSHX2ANIaO+C1Q1J7bITv1/saLUMNuwQOg==
+"@vue/composition-api@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-beta.21.tgz#d5a3c68afc8b569dfc3eccd69998388bb7f6a16c"
+  integrity sha512-tgbvDpLvKQ1GrII424wsoyzPCsG0oTFf38emMq495SfLY7RmUqhVIl81pvnC5489PPrCxDkbauJHJrhlcXfbTQ==
   dependencies:
     tslib "^2.0.1"
 
@@ -8777,10 +8777,10 @@ node-res@^5.0.1:
     on-finished "^2.3.0"
     vary "^1.1.2"
 
-nodemailer@^6.4.16:
-  version "6.4.16"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.16.tgz#5cb6391b1d79ab7eff32d6f9f48366b5a7117293"
-  integrity sha512-68K0LgZ6hmZ7PVmwL78gzNdjpj5viqBdFqKrTtr9bZbJYj6BRj5W6WGkxXrEnUl3Co3CBXi3CZBUlpV/foGnOQ==
+nodemailer@^6.4.17:
+  version "6.4.17"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.17.tgz#8de98618028953b80680775770f937243a7d7877"
+  integrity sha512-89ps+SBGpo0D4Bi5ZrxcrCiRFaMmkCt+gItMXQGzEtZVR3uAD3QAQIDoxTWnx3ky0Dwwy/dhFrQ+6NNGXpw/qQ==
 
 normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
   version "2.5.0"
