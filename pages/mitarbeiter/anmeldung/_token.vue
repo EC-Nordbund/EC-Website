@@ -69,7 +69,7 @@ export default defineComponent({
         bemerkungen: data.bemerkungen,
         token: ctx.parent?.$route.params.token,
       }
-      post('/api/anmeldung/ma', submitData)
+      post('/api/anmeldung/ma/veranstaltung', submitData)
     }
     const validation = useValidation(
       data,
