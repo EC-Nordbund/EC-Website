@@ -49,7 +49,7 @@ function handleGebDat(gebDat, menu) {
   watch(gebDat, watchHandler)
   watchHandler()
 
-  return { picker }
+  return picker
 }
 
 export default defineComponent({
