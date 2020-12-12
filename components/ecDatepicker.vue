@@ -1,18 +1,18 @@
 <template lang="pug">
-  v-dialog(v-model="menu" :close-on-content-click="false" max-width="290" open-on-focus)
-    template(v-slot:activator="{ on }")
-      v-text-field(
-        :value="germanDate"
-        readonly
-        v-bind="$attrs"
-        v-on="on"
-      )
-    v-date-picker(
-      ref="picker"
-      :value="value"
-      v-bind="$attrs"
-      @change="changeDate"
-    )
+v-dialog(
+  v-model='menu',
+  :close-on-content-click='false',
+  max-width='290',
+  open-on-focus
+)
+  template(v-slot:activator='{ on }')
+    v-text-field(:value='germanDate', readonly, v-bind='$attrs', v-on='on')
+  v-date-picker(
+    ref='picker',
+    :value='value',
+    v-bind='$attrs',
+    @change='changeDate'
+  )
 </template>
 <script lang="js">
 import {
@@ -49,7 +49,7 @@ function handleGebDat(gebDat, menu) {
   watch(gebDat, watchHandler)
   watchHandler()
 
-  return picker
+  return { picker }
 }
 
 export default defineComponent({
@@ -66,10 +66,11 @@ export default defineComponent({
   setup(props, { emit }) {
     const menu = ref(false)
 
-    const picker = handleGebDat(toRefs(props).gebDat, menu)
+    const {picker} = handleGebDat(toRefs(props).gebDat, menu)
 
     const changeDate = (date) => {
       emit('input', date)
+      menu.value = false
     }
 
     const germanDate = computed(() => {
