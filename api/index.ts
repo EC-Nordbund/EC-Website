@@ -6,6 +6,7 @@ import { validate } from './validate'
 import { sendMail } from './sendMail'
 import axios from 'axios'
 import { createMailContentTN } from './mailContent'
+import { checkToken } from './jwt'
 
 // console.log('test')
 
@@ -77,7 +78,15 @@ app.post('/anmeldung/ma/ort', (req, res) => {
     })
   }
 })
-app.post('/anmeldung/ma/veranstaltung', (req, res) => {
+app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
+
+  const tk: string = await checkToken(req.body.token)
+
+  const [veranstaltungsID, position] = tk.split('|').map(v => parseInt(v))
+
+  req.body.veranstaltungsID = veranstaltungsID
+  req.body.position = position
+
   const rules = {
     vorname: ruleLib.vorname,
     nachname: ruleLib.nachname,
@@ -106,12 +115,26 @@ app.post('/anmeldung/ma/veranstaltung', (req, res) => {
     return
   }
 
+  if (!req.body.token) {
+    res.status(400)
+    res.json({
+      status: 'ERROR',
+      context: "Token not valid",
+    })
+    return
+  }
+
   try {
     const token = saveForConfirm(req.body, 10)
 
     const { email } = req.body
 
-    // TODO: send Email
+    const mail = await sendMail({
+      to: email,
+      from: 'anmeldung@ec-nordbund.de',
+      subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${vData[parseInt(req.params.id) as keyof typeof vData]})`,
+      html: await createMailContentTN(req.body, token)
+    })
 
     res.status(200)
     res.json({
@@ -209,12 +232,6 @@ app.post('/confirm/:token', async (req, res) => {
     const type = data.__internals.type
 
     if (type === 1) {
-      // TN Anmeldung
-      // console.log(data)
-
-      // __VERANSTALTUNGS_DATA__[]
-
-      // TODO: Send to other API, inject TOkken from env
       const gqlCode = `
         mutation {
           anmelden(
@@ -254,17 +271,6 @@ app.post('/confirm/:token', async (req, res) => {
         query: gqlCode
       })
 
-      // if(gqlRes.data.data.anmelden.status < 0) {
-      //   res.status(500)
-
-      //   return
-      // }
-
-      // console.log(gqlRes)
-      // console.log(gqlRes.data)
-
-      // console.log(gqlCode)
-      // console.log('test')
 
       if (!data.alter && gqlRes.data.data.anmelden.status >= 0) {
         await sendMail({
@@ -276,13 +282,6 @@ app.post('/confirm/:token', async (req, res) => {
         })
       }
 
-      // await sendMail({
-      //   to: data.email,
-      //   from: 'anmeldung@ec-nordbund.de',
-      //   subject: `Anmeldung erfolgreich abgeschlossen.`,
-      //   html: `<p>Deine Anmeldung wurde bestätigt.</p>`
-      // })
-
       res.status(200)
       res.json({
         status: 'OK',
@@ -293,13 +292,50 @@ app.post('/confirm/:token', async (req, res) => {
     }
 
     if (type === 10) {
-      // MA Anmeldung
+      const gqlCode = `
+        mutation {
+          anmelden(
+            isWP: true, 
+            token: "${process.env.WPToken || 'NO WP-TOKEN'}", 
+            vorname: ${escape(data.vorname)}, 
+            nachname: ${escape(data.nachname)}, 
+            gebDat: ${escape(data.gebDat)}, 
+            geschlecht: ${escape(data.geschlecht)}, 
+            position: ${data.position}, 
+            veranstaltungsID: ${data.veranstaltungsID}, 
+            eMail: ${escape(data.email)}, 
+            telefon: ${escape(data.telefon)}, 
+            strasse: ${escape(data.strasse)}, 
+            plz: ${escape(data.plz)}, 
+            ort: ${escape(data.ort)}, 
+            anmeldeZeitpunkt: ${escape(data.__internals.time.split('.')[0])}, 
+            vegetarisch: ${!!data.vegetarisch}, 
+            lebensmittelAllergien: ${escape(data.lebensmittelallergien)}, 
+            gesundheitsinformationen: "", 
+            bemerkungen: ${escape(data.bemerkungen)}, 
+            radfahren: true, 
+            schwimmen: 3, 
+            fahrgemeinschaften: true, 
+            klettern: true, 
+            sichEntfernen: true, 
+            bootFahren: true, 
+            extra_json: "{}"
+          ) {
+            status
+            anmeldeID
+          }
+        }
+      `
 
-      // TODO: Send to other API
+      const gqlRes = await axios.post('http://api:4000/graphql', {
+        query: gqlCode
+      })
 
       res.status(200)
       res.json({
         status: 'OK',
+        anmeldeID: gqlRes.data.data.anmelden.anmeldeID,
+        wList: gqlRes.data.data.anmelden.status
       })
       return
     }

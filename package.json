@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "inline-css": "^3.0.0",
     "js-sha3": "^0.8.0",
+    "jsonwebtoken": "^8.5.1",
     "leaflet": "https://github.com/EC-Nordbund/Leaflet.git",
     "nodemailer": "^6.4.16",
     "nuxt": "2.14.11",
