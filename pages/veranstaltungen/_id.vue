@@ -70,8 +70,7 @@
       ec-location(v-if="!(page.lat == 0 && page.long == 0)" :zoom="12" :marker="[{...page, marker: [page.lat, page.long], noMore: true}]" style="width: 100%; min-height: calc(400px + 3.492vw * 2); max-height: 100%; z-index: 0;")
 
     //- anmeldung
-    v-container(v-if="page.anmeldung")
-      h2(id="anmeldung" class="mb-2 text-center") Anmeldung
+    ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required gebDat :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="gebDatEvent" :error-messages="gebDatErrors")
       ec-anmeldung(
         v-bind="page.anmeldung"
         :veranstaltungsBegin="page.begin"
