@@ -129,13 +129,13 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
     const mail = await sendMail({
       to: email,
       from: 'anmeldung@ec-nordbund.de',
-      subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${vData[parseInt(req.params.id) as keyof typeof vData]})`,
+      subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${vData[veranstaltungsID as keyof typeof vData]})`,
       html: await createMailContentMA(req.body, token)
     })
 
     res.status(200)
     res.json({
-      status: 'OK',
+      status: 'OK'
     })
   } catch (ex) {
     res.status(500)
@@ -284,7 +284,8 @@ app.post('/confirm/:token', async (req, res) => {
       res.json({
         status: 'OK',
         anmeldeID: gqlRes.data.data.anmelden.anmeldeID,
-        wList: gqlRes.data.data.anmelden.status
+        wList: gqlRes.data.data.anmelden.status,
+        type
       })
       return
     }
@@ -333,7 +334,8 @@ app.post('/confirm/:token', async (req, res) => {
       res.json({
         status: 'OK',
         anmeldeID: gqlRes.data.data.anmelden.anmeldeID,
-        wList: gqlRes.data.data.anmelden.status
+        wList: gqlRes.data.data.anmelden.status,
+        type
       })
       return
     }
@@ -351,6 +353,7 @@ app.post('/confirm/:token', async (req, res) => {
       res.status(200)
       res.json({
         status: 'OK',
+        type
       })
       return
     }
@@ -362,6 +365,7 @@ app.post('/confirm/:token', async (req, res) => {
       res.status(200)
       res.json({
         status: 'OK',
+        type
       })
       return
     }
