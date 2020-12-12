@@ -1,97 +1,159 @@
 <template lang="pug">
-  div
-    //- cover
-    v-img(:src="page.featuredImage.split('.')[0] + (supportWebp() ? '.webp' : '.jpg')" height="420" class="white--text" gradient="180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%")
-      v-container(class="d-flex flex-column justify-space-between" style="height:100%")
-        v-row(no-gutters align="start" class="flex-grow-0" justify="space-between")
-          //- go back to overview
-          v-col(cols="2" sm="1")
-            ec-hexa-button(to="/veranstaltungen" exact icon="mdi-arrow-left" :size="64" aria-label="Zurück zur Übersicht.")
+div
+  //- cover
+  v-img.white--text(
+    :src='page.featuredImage.split(".")[0] + (supportWebp() ? ".webp" : ".jpg")',
+    height='420',
+    gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
+  )
+    v-container.d-flex.flex-column.justify-space-between(style='height: 100%')
+      v-row.flex-grow-0(no-gutters, align='start', justify='space-between')
+        //- go back to overview
+        v-col(cols='2', sm='1')
+          ec-hexa-button(
+            to='/veranstaltungen',
+            exact,
+            icon='mdi-arrow-left',
+            :size='64',
+            aria-label='Zurück zur Übersicht.'
+          )
 
-          v-spacer
+        v-spacer
 
-          //- display indicators
-          v-col(cols="auto" class="d-flex flex-column")
-            v-row(v-if="Object.values(page.warteliste).some((e)=>e)" class="text-right")
-              v-col
-                v-chip(color="warning" text-color="white" class="ml-auto mb-1 elevation-8 font-weight-medium" small v-if="page.warteliste.männlich")
-                  v-icon(small class="ml-n1 mr-1") mdi-alert-circle
-                  | Für Männer nur noch Warteliste
+        //- display indicators
+        v-col.d-flex.flex-column(cols='auto')
+          v-row.text-right(v-if='Object.values(page.warteliste).some((e) => e)')
+            v-col
+              v-chip.ml-auto.mb-1.elevation-8.font-weight-medium(
+                color='warning',
+                text-color='white',
+                small,
+                v-if='page.warteliste.männlich'
+              )
+                v-icon.ml-n1.mr-1(small) mdi-alert-circle
+                | Für Männer nur noch Warteliste
 
-                v-chip(color="warning" text-color="white" class="ml-auto mb-1 elevation-8 font-weight-medium" small v-if="page.warteliste.weiblich")
-                  v-icon(small class="ml-n1 mr-1") mdi-alert-circle
-                  | Für Frauen nur noch Warteliste
+              v-chip.ml-auto.mb-1.elevation-8.font-weight-medium(
+                color='warning',
+                text-color='white',
+                small,
+                v-if='page.warteliste.weiblich'
+              )
+                v-icon.ml-n1.mr-1(small) mdi-alert-circle
+                | Für Frauen nur noch Warteliste
 
-                v-chip(color="warning" text-color="white" class="ml-auto mb-1 elevation-8 font-weight-medium" small v-if="page.warteliste.allgemein")
-                  v-icon(small class="ml-n1 mr-1") mdi-alert-circle
-                  | Nur noch Warteliste
+              v-chip.ml-auto.mb-1.elevation-8.font-weight-medium(
+                color='warning',
+                text-color='white',
+                small,
+                v-if='page.warteliste.allgemein'
+              )
+                v-icon.ml-n1.mr-1(small) mdi-alert-circle
+                | Nur noch Warteliste
 
-            //- JuLeiCa Fortbildung
-            v-row(v-if="page.juleica" no-gutters)
-              v-col
-                v-img( max-height="160" max-width="160" width="auto" height="auto" :src="require('~/assets/img/juLeiCa.png')")
-          
-        v-row(no-gutters align="end" class="flex-grow-0 mb-n1")
-          //- title
-          v-col(cols="12" md="6" class="order-last order-md-0")
-            h1(class="d-block d-md-inline-block ec-gradient py-3 py-sm-1 px-5 my-2 elevation-16 text-h5 text-sm-h4 font-weight-bold text-truncate") {{page.title}}
+          //- JuLeiCa Fortbildung
+          v-row(v-if='page.juleica', no-gutters)
+            v-col
+              v-img(
+                max-height='160',
+                max-width='160',
+                width='auto',
+                height='auto',
+                :src='require("~/assets/img/juLeiCa.png")'
+              )
 
-          //- categories
-          //- v-col(cols="12" md="6" class="d-flex justify-start justify-sm-end flex-wrap-reverse")
-          //-   v-chip(color="offWhite" text-color="secondary" class="mr-2 mb-1 font-weight-medium" small v-for="tag in page.tags" :key="tag")
-          //-     | {{ tag }}
+      v-row.flex-grow-0.mb-n1(no-gutters, align='end')
+        //- title
+        v-col.order-last.order-md-0(cols='12', md='6')
+          h1.d-block.d-md-inline-block.ec-gradient.py-3.py-sm-1.px-5.my-2.elevation-16.text-h5.text-sm-h4.font-weight-bold.text-truncate {{ page.title }}
 
-    //- hardfacts
-    .ec-gradient.text-body-2.font-weight-medium
-      v-container
-        v-row(no-gutters justify="space-between" align="center")
-          v-col(v-if="page.begin||page.ende") Vom {{page.begin.split('-').reverse().join('.')}} bis {{page.ende.split('-').reverse().join('.')}}
-          v-spacer
-          v-chip(color="offWhite" text-color="secondary" class="mr-2 mb-1 font-weight-medium" small v-for="tag in page.tags" :key="tag")
-            | {{ tag }}
+        //- categories
+        //- v-col(cols="12" md="6" class="d-flex justify-start justify-sm-end flex-wrap-reverse")
+        //-   v-chip(color="offWhite" text-color="secondary" class="mr-2 mb-1 font-weight-medium" small v-for="tag in page.tags" :key="tag")
+        //-     | {{ tag }}
 
-    //- description
+  //- hardfacts
+  .ec-gradient.text-body-2.font-weight-medium
     v-container
-      nuxt-content(:document="page")
-    
-    //- bilder
-    ec-image-container(v-if="page.images" :class="'angle--both-left-' + (page.preise || !(page.lat == 0 && page.long == 0) ? 'left' : 'right') + ' clip-angle'" :images="page.images")
+      v-row(no-gutters, justify='space-between', align='center')
+        v-col(v-if='page.begin || page.ende') Vom {{ page.begin.split("-").reverse().join(".") }} bis {{ page.ende.split("-").reverse().join(".") }}
+        v-spacer
+        v-chip.mr-2.mb-1.font-weight-medium(
+          color='offWhite',
+          text-color='secondary',
+          small,
+          v-for='tag in page.tags',
+          :key='tag'
+        )
+          | {{ tag }}
 
-    //- preise
-    div(v-if="page.preise" class="angle--both-right-left" style="background: #f5f5f5;")
-      v-container(py-0)
-        v-row(no-gutters justify="center")
-          v-col(cols="12" md="9")
-            h2(class="mb-2 text-center") Preisstaffelung
-            ec-preis-staffel(:preise="page.preise" fill-dot dot-color="white" denseBreakpoint="xsOnly")
+  //- description
+  v-container
+    nuxt-content(:document='page')
 
-    //- standort
-    div(v-if="!(page.lat == 0 && page.long == 0)" :class="'angle--both-right-right'  +' clip-angle'")
-      ec-location(v-if="!(page.lat == 0 && page.long == 0)" :zoom="12" :marker="[{...page, marker: [page.lat, page.long], noMore: true}]" style="width: 100%; min-height: calc(400px + 3.492vw * 2); max-height: 100%; z-index: 0;")
+  //- bilder
+  ec-image-container(
+    v-if='page.images',
+    :class='"angle--both-left-" + (page.preise || !(page.lat == 0 && page.long == 0) ? "left" : "right") + " clip-angle"',
+    :images='page.images'
+  )
 
-    //- anmeldung
-    ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required gebDat :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="gebDatEvent" :error-messages="gebDatErrors")
-      ec-anmeldung(
-        v-bind="page.anmeldung"
-        :veranstaltungsBegin="page.begin"
-        :minAlter="page.minAlter"
-        :maxAlter="page.maxAlter"
-        :veranstaltungsID="page.veranstaltungsID"
-      )
-        v-alert(slot="disabled" type="info" color="hellGrau" dense text outlined) Die Anmeldung zu dieser Veranstaltung ist deaktiviert.
-        v-row(slot="countdown" justify="center")
-          v-col(cols="12" sm="8" md="6" xl="6")
-            v-card(class="ec-gradient")
-              v-card-title(class="text-body-1 text-md-h6 text-lg-h6 text-xl-h6 text--secondary justify-center pb-2") Die Anmeldung wird freigeschaltet in:
-              v-card-text
-                ec-countdown(:target="page.anmeldung.startAt")
-                  template(v-slot:digits="slotProp")
-                    span(slot="digits" class="text-h4 font-weight-bold white--text") {{slotProp.digits}}
-                  template(v-slot:units="slotProp")
-                    span(slot="units" class="text-caption text-uppercase") {{slotProp.unit}}
+  //- preise
+  .angle--both-right-left(v-if='page.preise', style='background: #f5f5f5')
+    v-container(py-0)
+      v-row(no-gutters, justify='center')
+        v-col(cols='12', md='9')
+          h2.mb-2.text-center Preisstaffelung
+          ec-preis-staffel(
+            :preise='page.preise',
+            fill-dot,
+            dot-color='white',
+            denseBreakpoint='xsOnly'
+          )
+
+  //- standort
+  div(
+    v-if='!(page.lat == 0 && page.long == 0)',
+    :class='"angle--both-right-right" + " clip-angle"'
+  )
+    ec-location(
+      v-if='!(page.lat == 0 && page.long == 0)',
+      :zoom='12',
+      :marker='[{ ...page, marker: [page.lat, page.long], noMore: true }]',
+      style='width: 100%; min-height: calc(400px + 3.492vw * 2); max-height: 100%; z-index: 0'
+    )
+
+  //- anmeldung
+  v-container(v-if='page.anmeldung')
+    h2#anmeldung.mb-2.text-center Anmeldung
+    ec-anmeldung(
+      v-bind='page.anmeldung',
+      :veranstaltungsBegin='page.begin',
+      :minAlter='page.minAlter',
+      :maxAlter='page.maxAlter',
+      :veranstaltungsID='page.veranstaltungsID'
+    )
+      v-alert(
+        slot='disabled',
+        type='info',
+        color='hellGrau',
+        dense,
+        text,
+        outlined
+      ) Die Anmeldung zu dieser Veranstaltung ist deaktiviert.
+      v-row(slot='countdown', justify='center')
+        v-col(cols='12', sm='8', md='6', xl='6')
+          v-card.ec-gradient
+            v-card-title.text-body-1.text-md-h6.text-lg-h6.text-xl-h6.text--secondary.justify-center.pb-2 Die Anmeldung wird freigeschaltet in:
+            v-card-text
+              ec-countdown(:target='page.anmeldung.startAt')
+                template(v-slot:digits='slotProp')
+                  span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
+                template(v-slot:units='slotProp')
+                  span.text-caption.text-uppercase(slot='units') {{ slotProp.unit }}
 </template>
 <script>
-import { supportWebp } from "../../helpers/webp";
+import { supportWebp } from '../../helpers/webp'
 
 export default {
   async asyncData({ $content, params, redirect, route }) {
@@ -105,7 +167,7 @@ export default {
   },
   setup() {
     return {
-      supportWebp
+      supportWebp,
     }
   },
   head() {
