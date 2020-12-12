@@ -5,7 +5,7 @@ import { saveForConfirm, validateToken, cleanup } from './fs-helpers'
 import { validate } from './validate'
 import { sendMail } from './sendMail'
 import axios from 'axios'
-import { createMailContentTN } from './mailContent'
+import { createMailContentMA, createMailContentTN } from './mailContent'
 import { checkToken } from './jwt'
 
 // console.log('test')
@@ -130,7 +130,7 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
       to: email,
       from: 'anmeldung@ec-nordbund.de',
       subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${vData[parseInt(req.params.id) as keyof typeof vData]})`,
-      html: await createMailContentTN(req.body, token)
+      html: await createMailContentMA(req.body, token)
     })
 
     res.status(200)
@@ -143,6 +143,7 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
       status: 'ERROR',
       context: ex,
     })
+    throw ex
   }
 })
 // app.use(async (req, res, next) => {
