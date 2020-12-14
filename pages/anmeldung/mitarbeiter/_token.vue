@@ -101,7 +101,7 @@ v-container.page-wrapper
     ) Absenden
   v-alert(type='error', v-if='error')
     p Es sind folgende Fehler aufgetreten:
-      template(v-for='e in typeof error === 'string' ? [error] : error') 
+      template(v-for='e in typeof error === "string" ? [error] : error') 
         br
         | {{ e }}
   div(v-else)
