@@ -100,34 +100,57 @@ v-container.fill-height
             v-responsive(aspect-ratio='2')
               .d-flex.flex-column.justify-space-around.align-center.fill-height
                 template(v-if='!loadingStep2 && !loadingStep3')
-                  //- successful
-                  v-row(v-if='isSuccessful', no-gutters, align='center')
-                    v-col(cols='3', align='center')
-                      v-avatar(size='42', color='success')
-                        v-icon(size='24', color='white') mdi-email
-                    v-col.text-body-2(cols='9') Du erhälst von uns eine schriftliche Teilnahmebestätigung per Post.
+                  template(v-if="type===1")
+                    //- successful
+                    v-row(v-else-if='isSuccessful', no-gutters, align='center')
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='success')
+                          v-icon(size='24', color='white') mdi-email
+                      v-col.text-body-2(cols='9') Du erhälst von uns eine schriftliche Teilnahmebestätigung per Post.
 
-                    v-col(cols='3', align='center')
-                      v-avatar(size='42', color='success')
-                        v-icon(size='24', color='white') mdi-handshake
-                    v-col.text-body-2(cols='9') Du überweist ggf. die nötige Anzahlung
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='success')
+                          v-icon(size='24', color='white') mdi-handshake
+                      v-col.text-body-2(cols='9') Du überweist ggf. die nötige Anzahlung
 
-                  //- warteliste
-                  v-row(v-else-if='isOnWarteliste', no-gutters, align='center')
-                    v-col(cols='3', align='center')
-                      v-avatar(size='42', color='warning')
-                        v-icon(size='24', color='white') mdi-bell
-                    v-col.text-body-2(cols='9') Wir melden uns bei dir, wenn durch Nachrücken auf den Wartelistenplätzen die Möglichkeit besteht, dass du doch noch an der gewählten Veranstaltung teilnehmen kannst.
+                    //- warteliste
+                    v-row(v-else-if='isOnWarteliste', no-gutters, align='center')
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='warning')
+                          v-icon(size='24', color='white') mdi-bell
+                      v-col.text-body-2(cols='9') Wir melden uns bei dir, wenn durch Nachrücken auf den Wartelistenplätzen die Möglichkeit besteht, dass du doch noch an der gewählten Veranstaltung teilnehmen kannst.
 
-                  //- error
-                  v-row(v-else, no-gutters, align='center')
-                    v-col(cols='3', align='center')
-                      v-avatar(size='42', color='error')
-                        v-icon(size='24', color='white') mdi-bell
-                    v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein: 
-                      pre {{myStatus}}
-                      br
-                      | Wir wissen dadurch dann was zu tun ist.
+                    //- error
+                    v-row(v-else, no-gutters, align='center')
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='error')
+                          v-icon(size='24', color='white') mdi-bell
+                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein: 
+                        pre {{myStatus}}
+                        br
+                        | Wir wissen dadurch dann was zu tun ist.
+                  template(v-else-if="type===10")
+                    //- successful
+                    v-row(v-else-if='isSuccessful', no-gutters, align='center')
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='success')
+                          v-icon(size='24', color='white') mdi-email
+                      v-col.text-body-2(cols='9') Du erhälst von uns - wenn benötigt - in den nächsten 5 min einen Antrag auf ein erweiteres Führungszeugnis.
+
+                      //- v-col(cols='3', align='center')
+                      //-   v-avatar(size='42', color='success')
+                      //-     v-icon(size='24', color='white') mdi-handshake
+                      //- v-col.text-body-2(cols='9') Du überweist ggf. die nötige Anzahlung
+
+                    //- error
+                    v-row(v-else, no-gutters, align='center')
+                      v-col(cols='3', align='center')
+                        v-avatar(size='42', color='error')
+                          v-icon(size='24', color='white') mdi-bell
+                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein: 
+                        pre {{myStatus}}
+                        br
+                        | Wir wissen dadurch dann was zu tun ist.
             v-responsive(aspect-ratio='4')
 </template>
 <script lang="ts">
@@ -153,6 +176,7 @@ export default defineComponent({
     const loadingStep3 = ref(false)
     const anmeldeID = ssrRef(null as null | string)
     const wList = ssrRef(0)
+    const type = ref(1)
 
     const isMobile = computed(() => ctx.root.$vuetify.breakpoint.smAndDown)
     const isSuccessful = computed(() => wList.value === 0)
@@ -239,7 +263,8 @@ export default defineComponent({
           status: 'OK' | 'ERROR'
           context: string
           anmeldeID?: string
-          wList?: number
+          wList?: number,
+          type?: number
         }>('/api/confirm/' + token, {})
 
         myStatus.value = res
@@ -252,6 +277,10 @@ export default defineComponent({
               '/anmeldung/token?error=Fehler beim Senden an API. Bitte kontaktiere uns unter app@ec-nordbund.de.'
             )
             return
+          }
+
+          if(res.type) {
+            type.value = res.type
           }
 
           if (res.wList) {

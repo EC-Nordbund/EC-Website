@@ -91,19 +91,19 @@ v-container.page-wrapper
           | zwischengespeichert werden und mir eine&nbsp;
           strong E-Mail zur Bestätigung und Vervollständigung meiner Anmeldung&nbsp;
           | zugeschickt wird.
-  v-row(no-gutters, justify='end')
-    v-btn.align-self-end(
-      @click='submit',
-      :disabled='!valid',
-      color='primary',
-      depressed,
-      tile
-    ) Absenden
-  v-alert(type='error', v-if='error')
-    p Es sind folgende Fehler aufgetreten:
-      template(v-for='e in typeof error === "string" ? [error] : error') 
-        br
-        | {{ e }}
+    v-row(no-gutters, justify='end')
+      v-btn.align-self-end(
+        @click='submit',
+        :disabled='!valid',
+        color='primary',
+        depressed,
+        tile
+      ) Absenden
+    v-alert(type='error', v-if='error')
+      p Es sind folgende Fehler aufgetreten:
+        template(v-for='e in typeof error === "string" ? [error] : error') 
+          br
+          | {{ e }}
   div(v-else)
     v-alert(type='success', tile) Daten erfolgreich übertragen.
 
