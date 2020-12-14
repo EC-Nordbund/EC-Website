@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container.page-wrapper
-  v-form(@submit='submit', autocomplete='off', v-if='!success')
+  v-form(@submit='submit', autocomplete='off' v-if='!success')
     v-radio-group(
       v-model='data.geschlecht',
       required,
@@ -205,6 +205,7 @@ export default defineComponent({
       data,
       submit,
       success,
+      error,
     }
   },
 })

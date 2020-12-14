@@ -102,7 +102,7 @@ v-container.fill-height
                 template(v-if='!loadingStep2 && !loadingStep3')
                   template(v-if='type === 1')
                     //- successful
-                    v-row(v-else-if='isSuccessful', no-gutters, align='center')
+                    v-row(v-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
@@ -133,9 +133,9 @@ v-container.fill-height
                         pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
-                  template(v-else-if='type === 10')
+                  template(v-if='type === 10')
                     //- successful
-                    v-row(v-else-if='isSuccessful', no-gutters, align='center')
+                    v-row(v-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
