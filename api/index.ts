@@ -31,7 +31,7 @@ const app = express()
 
 app.use(json())
 
-app.post('/api/anmeldung/ma/checkToken', (req, res) => {
+app.post('/anmeldung/ma/checkToken', (req, res) => {
   checkToken(req.body.token).then(() => {
     res.json({
       ok: true
