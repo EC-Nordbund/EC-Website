@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container.page-wrapper
-  v-form(@submit='submit', autocomplete='off' v-if='!success')
+  v-form(@submit='submit', autocomplete='off', v-if='!success')
     v-radio-group(
       v-model='data.geschlecht',
       required,
@@ -199,6 +199,25 @@ export default defineComponent({
         'bemerkungen',
       ]
     )
+
+    ;(async () => {
+      if (process.server) {
+        return
+      }
+
+      const valid = (
+        await post<{ ok: boolean }>('/api/anmeldung/ma/checkToken', {
+          token: ctx.parent?.$route.params.token,
+        })
+      ).ok
+
+      if (!valid) {
+        ctx.parent?.$router.push(
+          '/anmeldung/mitarbeiter/veranstaltung?notvalid=1'
+        )
+      }
+    })()
+
     return {
       ...validation.rootMapper,
       ...validation,

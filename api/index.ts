@@ -31,6 +31,18 @@ const app = express()
 
 app.use(json())
 
+app.post('/api/anmeldung/ma/checkToken', (req, res) => {
+  checkToken(req.body.token).then(() => {
+    res.json({
+      ok: true
+    })
+  }).catch(() => {
+    res.json({
+      ok: false
+    })
+  })
+})
+
 app.post('/anmeldung/ma/ort', (req, res) => {
   const rules = {
     vorname: ruleLib.vorname,
