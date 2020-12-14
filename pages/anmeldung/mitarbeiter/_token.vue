@@ -104,7 +104,7 @@ v-container.page-wrapper
         template(v-for='e in typeof error === "string" ? [error] : error') 
           br
           | {{ e }}
-  div(v-else)
+  div(v-if='success')
     v-alert(type='success', tile) Daten erfolgreich übertragen.
 
     v-alert.secondary--text(type='warning', tile, icon='mdi-information')
