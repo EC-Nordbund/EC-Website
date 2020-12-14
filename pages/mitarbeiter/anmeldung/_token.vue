@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container.page-wrapper
-  v-form(@submit='submit', autocomplete='off')
+  v-form(@submit='submit', autocomplete='off', v-if='!success')
     v-radio-group(
       v-model='data.geschlecht',
       required,
@@ -99,14 +99,27 @@ v-container.page-wrapper
       depressed,
       tile
     ) Absenden
+  v-alert(type='error', v-if='error')
+    p Es sind folgende Fehler aufgetreten:
+      template(v-for='e in typeof error === 'string' ? [error] : error') 
+        br
+        | {{ e }}
+  div(v-else)
+    v-alert(type='success', tile) Daten erfolgreich übertragen.
+
+    v-alert.secondary--text(type='warning', tile, icon='mdi-information')
+      p.font-weight-bold Anmmeldung noch nicht fertig!
+      p Wir haben dir eine E-Mail zum bestätigen deiner Anmeldung geschickt.
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from '@nuxtjs/composition-api'
+import { defineComponent, reactive, ref } from '@nuxtjs/composition-api'
 import { post } from '~/helpers/fetch'
 import { ruleLib, useValidation } from '../../../plugins/validate'
 
 export default defineComponent({
   setup(_props, ctx) {
+    const success = ref(false)
+    const error = ref<false | string | string[]>(false)
     const data = reactive({
       vorname: '',
       nachname: '',
@@ -124,7 +137,7 @@ export default defineComponent({
       bemerkungen: '',
       datenschutz: false,
     })
-    const submit = () => {
+    const submit = async () => {
       const submitData = {
         vorname: data.vorname,
         nachname: data.nachname,
@@ -140,7 +153,20 @@ export default defineComponent({
         bemerkungen: data.bemerkungen,
         token: ctx.parent?.$route.params.token,
       }
-      post('/api/anmeldung/ma/veranstaltung', submitData)
+      try {
+        const ret = await post<{
+          status: 'OK' | 'ERROR'
+          context: string | string[]
+        }>('/api/anmeldung/ma/veranstaltung', submitData)
+        if (ret.status !== 'OK') {
+          error.value = ret.context
+        } else {
+          error.value = false
+          success.value = true
+        }
+      } catch (e) {
+        error.value = e
+      }
     }
     const validation = useValidation(
       data,
@@ -178,6 +204,7 @@ export default defineComponent({
       ...validation,
       data,
       submit,
+      success,
     }
   },
 })
