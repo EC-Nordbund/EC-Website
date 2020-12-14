@@ -100,7 +100,7 @@ v-container.fill-height
             v-responsive(aspect-ratio='2')
               .d-flex.flex-column.justify-space-around.align-center.fill-height
                 template(v-if='!loadingStep2 && !loadingStep3')
-                  template(v-if="type===1")
+                  template(v-if='type === 1')
                     //- successful
                     v-row(v-else-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
@@ -114,7 +114,11 @@ v-container.fill-height
                       v-col.text-body-2(cols='9') Du überweist ggf. die nötige Anzahlung
 
                     //- warteliste
-                    v-row(v-else-if='isOnWarteliste', no-gutters, align='center')
+                    v-row(
+                      v-else-if='isOnWarteliste',
+                      no-gutters,
+                      align='center'
+                    )
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='warning')
                           v-icon(size='24', color='white') mdi-bell
@@ -125,11 +129,11 @@ v-container.fill-height
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='error')
                           v-icon(size='24', color='white') mdi-bell
-                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein: 
-                        pre {{myStatus}}
+                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein:
+                        pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
-                  template(v-else-if="type===10")
+                  template(v-else-if='type === 10')
                     //- successful
                     v-row(v-else-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
@@ -147,8 +151,8 @@ v-container.fill-height
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='error')
                           v-icon(size='24', color='white') mdi-bell
-                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein: 
-                        pre {{myStatus}}
+                      v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein:
+                        pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
             v-responsive(aspect-ratio='4')
@@ -263,7 +267,7 @@ export default defineComponent({
           status: 'OK' | 'ERROR'
           context: string
           anmeldeID?: string
-          wList?: number,
+          wList?: number
           type?: number
         }>('/api/confirm/' + token, {})
 
@@ -279,7 +283,7 @@ export default defineComponent({
             return
           }
 
-          if(res.type) {
+          if (res.type) {
             type.value = res.type
           }
 
@@ -315,6 +319,7 @@ export default defineComponent({
       wList,
       myStatus,
       copy2clip: copy,
+      type,
     }
   },
   head: {
