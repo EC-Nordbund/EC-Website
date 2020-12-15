@@ -11,7 +11,7 @@
         v-list-item-content
           v-list-item-title Zurück
       v-divider
-      v-list-item(v-for="el in data.files" :key="$route.fullpath + el.filename" :href="`${el.filename}`" two-line)
+      v-list-item(v-for="el in data.files" :key="$route.fullpath + el.filename" :to="`${el.filename}`" two-line download link)
         v-list-item-avatar
           v-icon(size="32") {{ {pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage}[el.filename.split('.')[1].toLowerCase()] || mdiFile }}
         v-list-item-content

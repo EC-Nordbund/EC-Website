@@ -92,7 +92,7 @@ v-app
             //- TODO: Krisenintervention
             v-btn(
               style='float: right; text-transform: none',
-              to='/downloads/Krisenintervention/',
+              to='/krisenintervention/',
               color='error',
               depressed,
               :x-small='$vuetify.breakpoint.smAndDown',
