@@ -5,7 +5,7 @@
         h1 Kinder- und Jugendschutz
         h4.text-subtitle-1 Jugendschutz, Kindeswohl und Krisenintervention – Diese Seite bietet erste Hilfe für alle Notfälle.
 
-    //- Ansprechpartner 
+    //- Ansprechpartner
     v-row(justify="center")
       v-col(cols="12" sm="10" md="8").pb-0
         h2.text-h5 Ansprechpartner
@@ -133,19 +133,14 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const explanation = useAsync(
-      async () => await $content('krisenintervention/explanation').fetch<any>()
-    )
+    const explanation = useAsync(() => $content('krisenintervention/explanation').fetch<any>())
 
-    const fileData = useAsync(
-      async () => await $content('downloads').fetch<any>()
-    )
+    const fileData = useAsync( () => $content('downloads').fetch<any>())
 
     const data = computed(() => {
       if (fileData.value === null) {
         return { files: [], folders: [] }
       } else {
-        console.log(fileData.value.folders?.Krisenintervention)
         return (
           fileData.value.folders?.Krisenintervention || {
             files: [],
