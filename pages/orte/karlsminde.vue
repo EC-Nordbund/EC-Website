@@ -130,6 +130,47 @@ div
             style='color: #fff'
           ) https://www.ebz-wittensee.de
 </template>
+<script>
+export default {
+  head() {
+    return {
+      title: 'EC-Ferienlager Karlsminde',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'EC-Ferienlager Karlsminde so heißt der Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+        },
+        // Open Graph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'EC-Ferienlager Karlsminde',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'EC-Ferienlager Karlsminde so heißt der Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+        },
+        // Twitter Card
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'EC-Ferienlager Karlsminde',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'EC-Ferienlager Karlsminde so heißt der Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+        },
+      ],
+    }
+  },
+}
+</script>
 <style lang="scss" scoped>
 h1,
 h2,
