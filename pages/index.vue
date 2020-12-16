@@ -8,11 +8,11 @@
       min-width='100%',
       gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.02) 80%, rgba(0,0,0,0.48) 100%'
     )
-      v-container.countdown.pb-0.pb-md-1.pb-lg-2.pb-xl-4
-        v-row(justify='center', no-gutters)
-          v-col(cols='12', md='7')
-            v-card.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
-              span.text-h6.pb-5.white--text Die Anmeldephase hat begonnen!
+      //- v-container.countdown.pb-0.pb-md-1.pb-lg-2.pb-xl-4
+      //-   v-row(justify='center', no-gutters)
+      //-     v-col(cols='12', md='7')
+      //-       v-card.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
+      //-         span.text-h6.pb-5.white--text Die Anmeldephase hat begonnen!
               //- ec-countdown(target='2020-11-08T14:00:00Z', keep-zeros)
               //-   template(v-slot:digits='slotProp')
               //-     span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
