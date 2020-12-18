@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.hellGrau.align-end.angle--bottom-right(
-      :src='require("~/assets/img/hero-image.webp")',
+      :src='require("~/assets/img/hero-image.jpg")',
       height='400',
       width='auto',
       min-width='100%',
