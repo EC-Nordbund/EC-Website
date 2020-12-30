@@ -90,6 +90,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'google-site-verification', content: 'vSmp7129Uj6Kdz8krkwXDruN7HNXYYeCRfGJgBQuCKI' },
       // Open Graph
       { hid: 'og:site_name', property: 'og:site_name', content: 'EC-Nordbund' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
