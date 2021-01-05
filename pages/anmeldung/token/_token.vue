@@ -133,7 +133,7 @@ v-container.fill-height
                         pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
-                  template(v-if='type >= 10')
+                  template(v-if='type !== 1')
                     //- successful
                     v-row(v-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
@@ -247,17 +247,6 @@ export default defineComponent({
 
     const iconSize = computed(() => (isMobile.value ? 48 : 96))
 
-    onMounted(() =>
-      ctx.root.$nextTick(() => {
-        setTimeout(() => {
-          loadingStep3.value = true
-          loadingStep2.value = false
-
-          setTimeout(() => (loadingStep3.value = false), 1000)
-        }, 2000)
-      })
-    )
-
     const myStatus = ref(null as any)
 
     if (process.browser) {
@@ -274,6 +263,10 @@ export default defineComponent({
 
         if (res.status === 'OK') {
           loaded.value = true
+          loadingStep3.value = true
+          loadingStep2.value = false
+
+          setTimeout(() => (loadingStep3.value = false), 1000)
 
           if (res.wList && res.wList < 0) {
             ctx.root.$router.push(
