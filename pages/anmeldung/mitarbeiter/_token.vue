@@ -216,6 +216,7 @@ export default defineComponent({
           }
         ).then((v) => {
           ort.value = v.ort
+          return v
         })
       ).ok
 
@@ -233,7 +234,7 @@ export default defineComponent({
       submit,
       success,
       error,
-      ort
+      ort,
     }
   },
 })
