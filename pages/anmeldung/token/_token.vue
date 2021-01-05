@@ -133,7 +133,7 @@ v-container.fill-height
                         pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
-                  template(v-if='type === 10')
+                  template(v-if='type >= 10')
                     //- successful
                     v-row(v-if='isSuccessful', no-gutters, align='center')
                       v-col(cols='3', align='center')
