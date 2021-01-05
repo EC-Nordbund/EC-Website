@@ -32,9 +32,10 @@ app.use(json())
 
 app.post('/anmeldung/ma/checkToken', (req, res) => {
   checkToken(req.body.token)
-    .then(() => {
+    .then((d) => {
       res.json({
         ok: true,
+        ort: d.d.includes('|'),
       })
     })
     .catch(() => {
