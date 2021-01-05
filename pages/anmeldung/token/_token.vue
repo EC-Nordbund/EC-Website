@@ -167,7 +167,6 @@ import {
   useAsync,
   computed,
   onMounted,
-  onBeforeMount,
 } from '@nuxtjs/composition-api'
 import { post } from '~/helpers/fetch'
 import copy from '~/helpers/copy'
@@ -262,7 +261,7 @@ export default defineComponent({
     const myStatus = ref(null as any)
 
     if (process.browser) {
-      const status = useAsync(async () => {
+      useAsync(async () => {
         const res = await post<{
           status: 'OK' | 'ERROR'
           context: string
