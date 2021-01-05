@@ -39,7 +39,7 @@ app.post('/anmeldung/ma/checkToken', (req, res) => {
     .then((d) => {
       res.json({
         ok: true,
-        ort: d.d.includes('|'),
+        ort: !d.d.includes('|'),
       })
     })
     .catch(() => {
