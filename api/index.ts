@@ -32,9 +32,10 @@ app.use(json())
 
 app.post('/anmeldung/ma/checkToken', (req, res) => {
   checkToken(req.body.token)
-    .then(() => {
+    .then((d) => {
       res.json({
         ok: true,
+        ort: d.d.includes('|'),
       })
     })
     .catch(() => {
@@ -94,7 +95,9 @@ app.post('/anmeldung/ma/ort', (req, res) => {
 app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
   const tk: string = (await checkToken(req.body.token)).d
 
-  const [veranstaltungsID, position] = tk.split('|').map((v) => parseInt(v))
+  const [veranstaltungsID, position] = tk
+    .split('|')
+    .map((v) => parseInt(v) || v)
 
   req.body.veranstaltungsID = veranstaltungsID
   req.body.position = position
