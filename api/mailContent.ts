@@ -1,16 +1,49 @@
-const dsgvoTN = require('remark')().use(require('remark-html')).processSync('\n' + require('fs').readFileSync('./content/datenschutz/teilnehmer.md', 'utf8').replace(/\n\s*#/, '\n##')).toString()
-const dsgvoMA = require('remark')().use(require('remark-html')).processSync('\n' + require('fs').readFileSync('./content/datenschutz/mitarbeiter.md', 'utf8').replace(/\n\s*#/, '\n##')).toString()
-const footer = require('remark')().use(require('remark-html')).processSync('\n' + require('fs').readFileSync('./content/datenschutz/kontakt.md', 'utf8').replace(/\n\s*#/, '\n##')).toString()
+const dsgvoTN = require('remark')()
+  .use(require('remark-html'))
+  .processSync(
+    '\n' +
+      require('fs')
+        .readFileSync('./content/datenschutz/teilnehmer.md', 'utf8')
+        .replace(/\n\s*#/, '\n##')
+  )
+  .toString()
+const dsgvoMA = require('remark')()
+  .use(require('remark-html'))
+  .processSync(
+    '\n' +
+      require('fs')
+        .readFileSync('./content/datenschutz/mitarbeiter.md', 'utf8')
+        .replace(/\n\s*#/, '\n##')
+  )
+  .toString()
+const dsgvoMAOrt = require('remark')()
+  .use(require('remark-html'))
+  .processSync(
+    '\n' +
+      require('fs')
+        .readFileSync('./content/datenschutz/mitglieder.md', 'utf8')
+        .replace(/\n\s*#/, '\n##')
+  )
+  .toString()
+const footer = require('remark')()
+  .use(require('remark-html'))
+  .processSync(
+    '\n' +
+      require('fs')
+        .readFileSync('./content/datenschutz/kontakt.md', 'utf8')
+        .replace(/\n\s*#/, '\n##')
+  )
+  .toString()
 
 const erlaubnisse = [
-  "klettern",
-  "bootfahren",
-  "fahrrad",
-  "sichEntfernen",
-  "fahrgemeinschaften",
-  "datenschutz",
-  "freizeitLeitung",
-  "tnBedingungen",
+  'klettern',
+  'bootfahren',
+  'fahrrad',
+  'sichEntfernen',
+  'fahrgemeinschaften',
+  'datenschutz',
+  'freizeitLeitung',
+  'tnBedingungen',
 ]
 
 function longText(data: any, key: string) {
@@ -19,8 +52,12 @@ function longText(data: any, key: string) {
   return `<h3>${key[0].toUpperCase() + key.slice(1)}</h3><p>${data[key]}</p>`
 }
 
-export async function createMailContentTN(data: any, token: string): Promise<string> {
-  return require('inline-css')(`
+export async function createMailContentTN(
+  data: any,
+  token: string
+): Promise<string> {
+  return require('inline-css')(
+    `
     <html lang="de">
     <head>
       <style>
@@ -134,7 +171,11 @@ export async function createMailContentTN(data: any, token: string): Promise<str
       <b>Hallo ${data.vorname} ${data.nachname},</b><br><br>
       danke für deine Anmeldung!
     </p>
-    ${!data.alter ? `<p>Du hast nicht das richtige Alter um an dieser Veranstaltung teilzunehmen! Du kannst dich trotzdem anmelden, musst aber damit rechnen, dass deine Anmeldung im Nachhinein noch abgelehnt wird!</p>` : ``}
+    ${
+      !data.alter
+        ? `<p>Du hast nicht das richtige Alter um an dieser Veranstaltung teilzunehmen! Du kannst dich trotzdem anmelden, musst aber damit rechnen, dass deine Anmeldung im Nachhinein noch abgelehnt wird!</p>`
+        : ``
+    }
     <p>
       Um deine Anmeldung zu bestätigen überprüfe deine Daten, lese bitte die Datenschutzhinweise und klicke dann
       auf Anmeldung bestätigen.
@@ -151,7 +192,9 @@ export async function createMailContentTN(data: any, token: string): Promise<str
     <div>
       <h1>Deine Daten</h1>
       <h2>Persönliche Daten</h2>
-      <p>${data.geschlecht === 'm' ? 'Herr' : 'Frau'} ${data.vorname} ${data.nachname}, geb. am ${data.gebDat.split('-').reverse().join('.')}</p>
+      <p>${data.geschlecht === 'm' ? 'Herr' : 'Frau'} ${data.vorname} ${
+      data.nachname
+    }, geb. am ${data.gebDat.split('-').reverse().join('.')}</p>
       <h2>Kontakt Daten</h2>
       <p>
         <b>Mail:</b> ${data.email}<br>
@@ -162,31 +205,59 @@ export async function createMailContentTN(data: any, token: string): Promise<str
         ${data.plz} ${data.ort}
       </p>
       <h2>Sonstige Daten</h2>
-      ${(data.vegetarisch === null || data.vegetarisch === undefined) ? '' : `<p>${data.vegetarisch ? 'Vegetarische Verpflegung ausgewählt.' : '<b>Keine</b> vegetarische Verpflegung ausgewählt.'}</p>`}
+      ${
+        data.vegetarisch === null || data.vegetarisch === undefined
+          ? ''
+          : `<p>${
+              data.vegetarisch
+                ? 'Vegetarische Verpflegung ausgewählt.'
+                : '<b>Keine</b> vegetarische Verpflegung ausgewählt.'
+            }</p>`
+      }
       ${longText(data, 'lebensmittelallergien')}
       ${longText(data, 'bemerkungen')}
       ${longText(data, 'gesundheit')}
       <h2>Erlaubnisse Daten</h2>
       <table>
-        ${(data.schwimmen !== undefined && data.schwimmen !== null && `
+        ${
+          (data.schwimmen !== undefined &&
+            data.schwimmen !== null &&
+            `
           <tr>
             <td>Schwimmen</td>
-            <td>${['Nicht Erlaubt', 'Erlaubt, Nichtschwimmer', 'Erlaubt, Mittelmäßiger Schwimmer', 'Erlaubt, Guter Schwimmer'][data.schwimmen]}</td>
+            <td>${
+              [
+                'Nicht Erlaubt',
+                'Erlaubt, Nichtschwimmer',
+                'Erlaubt, Mittelmäßiger Schwimmer',
+                'Erlaubt, Guter Schwimmer',
+              ][data.schwimmen]
+            }</td>
           </tr>
-        `) || ''}
-        ${Object.entries(data).filter(v => erlaubnisse.includes(v[0])).map(([key, val]) => `
+        `) ||
+          ''
+        }
+        ${Object.entries(data)
+          .filter((v) => erlaubnisse.includes(v[0]))
+          .map(
+            ([key, val]) => `
             <tr>
               <td>${key[0].toUpperCase() + key.slice(1)}</td>
               <td>${val ? 'Ja' : 'Nein'}</td>
             </tr>
-          `).join('')
-    }
+          `
+          )
+          .join('')}
       </table>
-      ${Object.keys(data.extra).length !== 0 ? `
+      ${
+        Object.keys(data.extra).length !== 0
+          ? `
         <h2>Extra Daten</h2>
         <p>Folgende besondere Daten wurden uns übermittelt:</p>
         <code>${JSON.stringify(data.extra, null, 4)}</code>
-      ` : ''}
+      `
+          : ''
+      }
     </div>
     <hr>
     <div>
@@ -204,11 +275,17 @@ export async function createMailContentTN(data: any, token: string): Promise<str
     </div>
     </body>
     </html>
-  `, { url: 'https://www.ec-nordbund.de/', removeStyleTags: false })
+  `,
+    { url: 'https://www.ec-nordbund.de/', removeStyleTags: false }
+  )
 }
 
-export async function createMailContentMA(data: any, token: string): Promise<string> {
-  return require('inline-css')(`
+export async function createMailContentMA(
+  data: any,
+  token: string
+): Promise<string> {
+  return require('inline-css')(
+    `
     <html lang="de">
     <head>
       <style>
@@ -338,7 +415,9 @@ export async function createMailContentMA(data: any, token: string): Promise<str
     <div>
       <h1>Deine Daten</h1>
       <h2>Persönliche Daten</h2>
-      <p>${data.geschlecht === 'm' ? 'Herr' : 'Frau'} ${data.vorname} ${data.nachname}, geb. am ${data.gebDat.split('-').reverse().join('.')}</p>
+      <p>${data.geschlecht === 'm' ? 'Herr' : 'Frau'} ${data.vorname} ${
+      data.nachname
+    }, geb. am ${data.gebDat.split('-').reverse().join('.')}</p>
       <h2>Kontakt Daten</h2>
       <p>
         <b>Mail:</b> ${data.email}<br>
@@ -349,7 +428,15 @@ export async function createMailContentMA(data: any, token: string): Promise<str
         ${data.plz} ${data.ort}
       </p>
       <h2>Sonstige Daten</h2>
-      ${(data.vegetarisch === null || data.vegetarisch === undefined) ? '' : `<p>${data.vegetarisch ? 'Vegetarische Verpflegung ausgewählt.' : '<b>Keine</b> vegetarische Verpflegung ausgewählt.'}</p>`}
+      ${
+        data.vegetarisch === null || data.vegetarisch === undefined
+          ? ''
+          : `<p>${
+              data.vegetarisch
+                ? 'Vegetarische Verpflegung ausgewählt.'
+                : '<b>Keine</b> vegetarische Verpflegung ausgewählt.'
+            }</p>`
+      }
       ${longText(data, 'lebensmittelallergien')}
       ${longText(data, 'bemerkungen')}
     </div>
@@ -369,7 +456,9 @@ export async function createMailContentMA(data: any, token: string): Promise<str
     </div>
     </body>
     </html>
-  `, { url: 'https://www.ec-nordbund.de/', removeStyleTags: false })
+  `,
+    { url: 'https://www.ec-nordbund.de/', removeStyleTags: false }
+  )
 }
 
 export async function createMailContentMAOrt(
@@ -523,7 +612,7 @@ export async function createMailContentMAOrt(
     <hr>
     <div>
       <h1>Datenschutz</h1>
-      ${dsgvoMA}
+      ${dsgvoMAOrt}
     </div>
     <div style="overflow: hidden; height: 1px; width: 1px;">
       <h1>Rohdaten</h1>

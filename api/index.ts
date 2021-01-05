@@ -5,7 +5,11 @@ import { saveForConfirm, validateToken, cleanup } from './fs-helpers'
 import { validate } from './validate'
 import { sendMail } from './sendMail'
 import axios from 'axios'
-import { createMailContentMA, createMailContentTN } from './mailContent'
+import {
+  createMailContentMA,
+  createMailContentTN,
+  createMailContentMAOrt,
+} from './mailContent'
 import { checkToken } from './jwt'
 
 // console.log('test')
@@ -146,9 +150,13 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
       from: 'anmeldung@ec-nordbund.de',
       subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${
         vData[veranstaltungsID as keyof typeof vData] ||
-        `EC-${veranstaltungsID}`
+        // @ts-ignore veranstaltungsID kann hier ein String sein.
+        `EC-${veranstaltungsID[0].toUpperCase()}${veranstaltungsID.slice(1)}`
       })`,
-      html: await createMailContentMA(req.body, token),
+      html:
+        typeof veranstaltungsID !== 'number'
+          ? await createMailContentMAOrt(req.body, token)
+          : await createMailContentMA(req.body, token),
     })
 
     res.status(200)
