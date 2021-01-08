@@ -17,7 +17,7 @@
     "@mdi/js": "^5.8.55",
     "@nuxt/content": "1.11.1",
     "@nuxt/typescript-runtime": "2.0.0",
-    "@nuxtjs/composition-api": "^0.17.0",
+    "@nuxtjs/composition-api": "^0.18.0",
     "@nuxtjs/pwa": "3.3.4",
     "ackee-tracker": "^4.2.0",
     "axios": "0.21.1",
