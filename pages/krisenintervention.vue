@@ -75,7 +75,7 @@
             v-row
               v-col(cols="12" sm="auto").d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3
                 v-img.flex-grow-0.hexagon-shape(
-                  :src='undefined',
+                  :src='require("~/assets/img/Jutta-Nordsiek_1301x974[1].jpg")',
                   :width='128',
                   :height='128')
               v-col.px-sm-5
