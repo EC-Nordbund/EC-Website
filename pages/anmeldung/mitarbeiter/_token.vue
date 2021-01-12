@@ -61,24 +61,25 @@ v-container.page-wrapper
       @input='telefonEvent',
       :error-messages='telefonErrors'
     )
-    v-checkbox(
-      label='Ich möchte vegetarisches Essen',
-      v-model='data.vegetarisch'
-    )
-    v-textarea(
-      label='Lebensmittelallergien',
-      v-model='data.lebensmittelallergien',
-      counter='250',
-      @change='lebensmittelallergienEvent',
-      :error-messages='lebensmittelallergienErrors'
-    )
-    v-textarea(
-      label='Bemerkungen',
-      v-model='data.bemerkungen',
-      counter='250',
-      @change='bemerkungenEvent',
-      :error-messages='bemerkungenErrors'
-    )
+    template(v-if='!ort')
+      v-checkbox(
+        label='Ich möchte vegetarisches Essen',
+        v-model='data.vegetarisch'
+      )
+      v-textarea(
+        label='Lebensmittelallergien',
+        v-model='data.lebensmittelallergien',
+        counter='250',
+        @change='lebensmittelallergienEvent',
+        :error-messages='lebensmittelallergienErrors'
+      )
+      v-textarea(
+        label='Bemerkungen',
+        v-model='data.bemerkungen',
+        counter='250',
+        @change='bemerkungenEvent',
+        :error-messages='bemerkungenErrors'
+      )
     v-checkbox(
       required,
       v-model='data.datenschutz',
@@ -200,14 +201,22 @@ export default defineComponent({
       ]
     )
 
+    const ort = ref(false)
+
     ;(async () => {
       if (process.server) {
         return
       }
 
       const valid = (
-        await post<{ ok: boolean }>('/api/anmeldung/ma/checkToken', {
-          token: ctx.parent?.$route.params.token,
+        await post<{ ok: boolean; ort: boolean }>(
+          '/api/anmeldung/ma/checkToken',
+          {
+            token: ctx.parent?.$route.params.token,
+          }
+        ).then((v) => {
+          ort.value = v.ort
+          return v
         })
       ).ok
 
@@ -225,6 +234,7 @@ export default defineComponent({
       submit,
       success,
       error,
+      ort,
     }
   },
 })
