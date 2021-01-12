@@ -1,6 +1,6 @@
 import { sign, verify } from "jsonwebtoken";
 
-const secret_token = process.env.JWT_SECRET || "dsfsöldfjjöldsf";
+const secret_token = process.env.JWT_SECRET!;
 
 export function createToken(payload: any) {
   return new Promise<string>((res, rej) => {
