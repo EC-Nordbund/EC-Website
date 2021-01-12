@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-btn(v-bind="$attrs" color="primary" class="ec-gradient" depressed tile :width="size_px" :height="size_px" :style="`transform: rotate(${rotate}deg);`")
+  v-btn(v-bind="$attrs" color="primary" class="hexagon-shape" depressed tile :width="size_px" :height="size_px" :style="`transform: rotate(${rotate}deg);`")
     v-icon(:style="`transform: rotate(-${rotate}deg);`" :size="icon_size") {{icon}}
 </template>
 <script lang="ts">
@@ -29,8 +29,3 @@ export default defineComponent({
   }
 })
 </script>
-<style scoped>
-.ec-gradient {
-  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
-}
-</style>

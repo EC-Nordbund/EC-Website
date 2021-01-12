@@ -16,6 +16,10 @@
   ) !important;
 }
 
+.hexagon-shape {
+  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
+}
+
 .v-main,
 footer {
   .container:not(.container--fluid):not(.container--wide) {
