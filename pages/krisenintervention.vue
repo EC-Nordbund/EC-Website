@@ -22,7 +22,7 @@
                   :height='128')
               v-col.px-sm-5
                 h4.text-h6 Thomas Seeger
-                p.subtitle-1 Zuständigkeitsbereich
+                p.subtitle-1 Jugendreferent
 
                 //- Telefon
                 .d-flex.flex-row.align-center.mb-2
@@ -51,7 +51,7 @@
                   :height='128')
               v-col.px-sm-5
                 h4.text-h6 Dortje Gaertner
-                p.subtitle-1 Zuständigkeitsbereich
+                p.subtitle-1 Kinder- und Jungschararbeit
 
                 //- Telefon
                 .d-flex.flex-row.align-center.mb-2
@@ -80,7 +80,7 @@
                   :height='128')
               v-col.px-sm-5
                 h4.text-h6 Jutta Nordsiek
-                p.subtitle-1 Zuständigkeitsbereich
+                p.subtitle-1 Seelsorge und Beratungsstelle des VG
 
                 //- Telefon
                 .d-flex.flex-row.align-center.mb-2
@@ -114,11 +114,6 @@
               v-list-item-title {{file.title}}
               v-list-item-subtitle {{file.description}}
 </template>
-<style lang="scss" scoped>
-.hexagon-shape {
-  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
-}
-</style>
 <script lang="ts">
 import {
   defineComponent,
@@ -133,9 +128,11 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const explanation = useAsync(() => $content('krisenintervention/explanation').fetch<any>())
+    const explanation = useAsync(() =>
+      $content('krisenintervention/explanation').fetch<any>()
+    )
 
-    const fileData = useAsync( () => $content('downloads').fetch<any>())
+    const fileData = useAsync(() => $content('downloads').fetch<any>())
 
     const data = computed(() => {
       if (fileData.value === null) {
@@ -197,3 +194,8 @@ export default defineComponent({
   },
 })
 </script>
+<style lang="scss" scoped>
+.hexagon-shape {
+  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
+}
+</style>
