@@ -89,7 +89,6 @@ v-app
                   | )
           v-spacer
           v-col(cols='1')
-            //- TODO: Krisenintervention
             v-btn(
               style='float: right; text-transform: none',
               to='/krisenintervention/',
@@ -402,10 +401,10 @@ export default defineComponent({
   font-size: 0.625rem;
 
   &-extended {
-    border-radius: 14px;
-    height: 28px;
-    padding: 0 #{28/2.25}px;
-    font-size: 0.75rem;
+    border-radius: 14px !important;
+    height: 28px !important;
+    padding: 0 #{(28/2.25)}px !important;
+    font-size: 0.75rem !important;
   }
 }
 footer * {
