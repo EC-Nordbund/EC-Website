@@ -149,10 +149,6 @@ p(v-else) Loading...
   }
 }
 
-.hexagon-shape {
-  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
-}
-
 .hexa-image-overlay {
   height: 128px;
   background: var(--v-primary-base);

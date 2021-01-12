@@ -234,9 +234,6 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.hexagon-shape {
-  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
-}
 .ki-icon {
   padding: 3px;
 }
