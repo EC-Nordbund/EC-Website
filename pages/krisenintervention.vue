@@ -58,8 +58,8 @@
                   v-btn(fab x-small color="primary" depressed href="tel:???")
                     v-icon mdi-phone
                   span.text-subtitle-2.font-weight-medium.pl-3
-                    a(href="tel:???" title="Dortje Gaertner anrufen").text-decoration-none
-                      | ???
+                    a(href="tel:00494122489036" title="Dortje Gaertner anrufen").text-decoration-none
+                      | 04122 48 90 36 
 
                 //- E-Mail
                 .d-flex.flex-row.align-center
@@ -87,8 +87,8 @@
                   v-btn(fab x-small color="primary" depressed href="tel:???")
                     v-icon mdi-phone
                   span.text-subtitle-2.font-weight-medium.pl-3
-                    a(href="tel:???" title="Jutta Nordsiek anrufen").text-decoration-none
-                      | ???
+                    a(href="tel:004941224048694" title="Jutta Nordsiek anrufen").text-decoration-none
+                      | 04122 404 86 94
 
                 //- E-Mail
                 .d-flex.flex-row.align-center
