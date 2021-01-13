@@ -33,7 +33,7 @@ div
             | Eine Waschmaschine und ein Wäschetrockner sind ebenfalls vorhanden.
 
         v-col(cols="12" md="6")
-          v-carousel(cycle, hide-delimiter-background, show-arrows-on-hover)
+          v-carousel(cycle, hide-delimiters, show-arrows-on-hover)
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (1).jpg")')
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (2).jpg")')
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (3).jpg")')
@@ -145,9 +145,5 @@ export default {
       rgba(0, 0, 0, 0.16) 100%
     );
   }
-}
-
-.v-carousel ::v-deep .v-carousel__controls__item {
-    margin: 0 2px;
 }
 </style>
