@@ -2,15 +2,16 @@ import { set, get } from 'idb-keyval'
 
 async function webP() {
   if (!self.createImageBitmap) {
-    return false;
+    return false
   }
 
-  const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-  const blob = await fetch(webpData).then(r => r.blob());
+  const webpData =
+    'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA='
+  const blob = await fetch(webpData).then((r) => r.blob())
 
   try {
     await createImageBitmap(blob)
-    return true;
+    return true
   } catch (ex) {
     return false
   }

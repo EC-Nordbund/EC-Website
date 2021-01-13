@@ -14,56 +14,6 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 // TODO: highlight current price
 // TODO: display alerts when the next category is in a few days
 export default defineComponent({
-  setup(props, ctx) {
-    const dense = computed(
-      // @ts-expect-error
-      () => ctx.root.$vuetify.breakpoint[props.denseBreakpoint] || false
-    )
-
-    const subtitle = (preis: { begin: string; ende: string }) => {
-      if (preis.begin) {
-        return `ab dem ${preis.begin.split('-').reverse().join('.')}`
-      } else if (preis.ende) {
-        return `bis zum ${preis.ende.split('-').reverse().join('.')}`
-      }
-      return ''
-    }
-
-    const myPreise = computed(() => {
-      let hadActive = false;
-
-      return props.preise.map((v: any, i)=>{
-        v.active = false
-        const nowStr = new Date().toISOString().split('T')[0]
-
-        if(hadActive) {
-          return v
-        } else {
-          if((v.begin && v.begin > nowStr) || (v.ende && v.ende < nowStr)) {
-            return v
-          }
-
-          if(!v.begin && !v.ende) {
-            const next: any = props.preise[i + 1]
-            if(next && ((next.begin && next.begin > nowStr) || (next.ende && next.ende < nowStr))) {
-              return v
-            }
-          }
-
-          hadActive = true
-
-          v.active = true
-          return v
-        }
-      })
-    })
-
-    return {
-      dense,
-      subtitle,
-      myPreise
-    }
-  },
   props: {
     preise: {
       type: Array,
@@ -82,6 +32,60 @@ export default defineComponent({
       type: String,
       required: false,
     },
+  },
+  setup(props, ctx) {
+    const dense = computed(
+      // @ts-expect-error
+      () => ctx.root.$vuetify.breakpoint[props.denseBreakpoint] || false
+    )
+
+    const subtitle = (preis: { begin: string; ende: string }) => {
+      if (preis.begin) {
+        return `ab dem ${preis.begin.split('-').reverse().join('.')}`
+      } else if (preis.ende) {
+        return `bis zum ${preis.ende.split('-').reverse().join('.')}`
+      }
+      return ''
+    }
+
+    const myPreise = computed(() => {
+      let hadActive = false
+
+      return props.preise.map((v: any, i) => {
+        v.active = false
+        const nowStr = new Date().toISOString().split('T')[0]
+
+        if (hadActive) {
+          return v
+        } else {
+          if ((v.begin && v.begin > nowStr) || (v.ende && v.ende < nowStr)) {
+            return v
+          }
+
+          if (!v.begin && !v.ende) {
+            const next: any = props.preise[i + 1]
+            if (
+              next &&
+              ((next.begin && next.begin > nowStr) ||
+                (next.ende && next.ende < nowStr))
+            ) {
+              return v
+            }
+          }
+
+          hadActive = true
+
+          v.active = true
+          return v
+        }
+      })
+    })
+
+    return {
+      dense,
+      subtitle,
+      myPreise,
+    }
   },
 })
 </script>

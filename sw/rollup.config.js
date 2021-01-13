@@ -5,12 +5,12 @@ export default {
   input: 'src/main.js',
   output: {
     file: '../static/sw.js',
-    format: 'esm'
+    format: 'esm',
   },
   plugins: [
     esbuild({
-      include: /\.ts$/
+      include: /\.ts$/,
     }),
-    nodeResolve()
-  ]
-};
+    nodeResolve(),
+  ],
+}

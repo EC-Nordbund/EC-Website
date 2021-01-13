@@ -55,19 +55,19 @@ export default defineComponent({
     },
   },
   setup(_, ctx) {
-    const height = computed(()=> {
+    const height = computed(() => {
       if (ctx.root.$vuetify.breakpoint.xsOnly) {
-        return 300;
+        return 300
       }
 
       if (ctx.root.$vuetify.breakpoint.mdAndDown) {
-        return 400;
+        return 400
       }
 
-      return 500;
+      return 500
     })
 
     return { height }
-  }
+  },
 })
 </script>

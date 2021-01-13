@@ -31,7 +31,7 @@ import {
   useAsync,
   computed,
 } from '@nuxtjs/composition-api'
-import {mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile} from '@mdi/js'
+import { mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile } from '@mdi/js'
 
 export default defineComponent({
   setup() {
@@ -90,7 +90,15 @@ export default defineComponent({
       return item
     }
 
-    return { fileRoute, data, toBreadcrumb, mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile }
+    return {
+      fileRoute,
+      data,
+      toBreadcrumb,
+      mdiFilePdfOutline,
+      mdiFileWord,
+      mdiFileImage,
+      mdiFile,
+    }
   },
   head: {
     title: 'Downloads',
