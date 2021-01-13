@@ -53,7 +53,6 @@ export default defineComponent({
   },
 })
 </script>
-
 <style scoped>
 /* Workaround until https://github.com/elmarquis/Leaflet.GestureHandling/pull/59 is merged */
 .leaflet-container:after {
