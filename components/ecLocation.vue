@@ -17,7 +17,7 @@
               nuxt-link(v-if="!m.noMore" :to="m.more" style="cursor: pointer") mehr...
 </template>
 <script>
-import { defineComponent, onMounted } from '@nuxtjs/composition-api'
+import { defineComponent, ref, onMounted } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -29,23 +29,29 @@ export default defineComponent({
       type: Number,
       default: 7,
     },
-  },
-  setup() {
-    const mapOptions = {
-      zoomSnap: 0.5,
-      gestureHandling: true,
+    disableGestureHandling: {
+      type: Boolean,
+      default: false
     }
+  },
+  setup(props) {
+    const mapOptions = ref({
+      zoomSnap: 0.5,
+      gestureHandling: !props.disableGestureHandling,
+    })
 
     // add leaflet gesture handler
     onMounted(() => {
-      const L = require('leaflet')
-      require('leaflet/dist/leaflet.css')
+      if (!props.disableGestureHandling) {
+        const L = require('leaflet')
+        require('leaflet/dist/leaflet.css')
 
-      globalThis.L = L
-      const { GestureHandling } = require('leaflet-gesture-handling')
-      require('leaflet-gesture-handling/dist/leaflet-gesture-handling.css')
+        globalThis.L = L
+        const { GestureHandling } = require('leaflet-gesture-handling')
+        require('leaflet-gesture-handling/dist/leaflet-gesture-handling.css')
 
-      L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling)
+        L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling)
+      }
     })
 
     return { mapOptions }
