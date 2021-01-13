@@ -50,13 +50,13 @@ div
     v-container
       v-row
 
-        v-col(cols="12" md="6" order-md="2")
+        v-col(cols="12" md="6" order-md="last")
           h2#lage Lage
           p Etwa 15 Kilometer nordöstlich von Eckernförde liegt das Ferienlager Karlsminde. Es ist über den gleichnamigen Campingplatz zu erreichen. Durch die separate Lage ist aber vom Campingbetrieb kaum etwas zu spüren.
           p Die Lage ist wunderschön inmitten eines Naturschutzgebietes, umgeben von zwei Seen und der Ostsee, von Wäldern und Wiesen.
           p In der Umgebung liegen viele reizvolle Ausflugsziele, wie z.B. Eckernförde mit Hafen und der Möglichkeit zu Schifffahrten, das Ostseebad Damp mit diversen Freizeiteinrichtungen und Erlebnisbad, Schleswig mit dem Wikingerdorf Haithabu und dem Schloss Gottorf. Auch die Landeshauptstadt Kiel ist in einer Autostunde gut zu erreichen.
 
-        v-col(cols="12" md="6" order-md="1")
+        v-col(cols="12" md="6" order-md="first")
           ec-location(
             :marker='[{ marker: [54.5, 9.9484807], noMore: true }]',
             style='width: 100%; min-height: 333px; z-index: 0'
