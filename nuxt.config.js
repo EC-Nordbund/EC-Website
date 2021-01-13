@@ -85,12 +85,15 @@ export default {
       return 'EC-Nordbund'
     },
     htmlAttrs: {
-      lang: 'de'
+      lang: 'de',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'google-site-verification', content: 'vSmp7129Uj6Kdz8krkwXDruN7HNXYYeCRfGJgBQuCKI' },
+      {
+        name: 'google-site-verification',
+        content: 'vSmp7129Uj6Kdz8krkwXDruN7HNXYYeCRfGJgBQuCKI',
+      },
       // Open Graph
       { hid: 'og:site_name', property: 'og:site_name', content: 'EC-Nordbund' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
@@ -128,16 +131,16 @@ export default {
       },
       {
         name: 'theme-color',
-        content: '#92c355'
-      }
+        content: '#92c355',
+      },
     ],
     link: [
       { rel: 'icon', href: '/favicon_512.png', hid: 'favicon' },
       { rel: 'manifest', href: '/manifest.webmanifest' },
       { rel: 'apple-touch-icon', href: '/apple-icon.png' },
-      ...(process && process.env && process.env.CI ? [
-        { rel: 'preconnect', href: 'https://www.ec-nordbund.de' }
-      ] : [])
+      ...(process && process.env && process.env.CI
+        ? [{ rel: 'preconnect', href: 'https://www.ec-nordbund.de' }]
+        : []),
     ],
   },
 
@@ -146,7 +149,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '~/plugins/analytics.ts', mode: 'client' }, { src: '~/plugins/swUpdate.ts', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/analytics.ts', mode: 'client' },
+    { src: '~/plugins/swUpdate.ts', mode: 'client' },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -161,7 +167,7 @@ export default {
     // '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
   ],
-  // '@nuxtjs/pwa', 
+  // '@nuxtjs/pwa',
   modules: ['@nuxt/content', 'vue2-leaflet-nuxt'],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
@@ -200,9 +206,12 @@ export default {
       vue: {
         compilerOptions: {
           modules: [
-            getIconInjector({}, {
-              'ec-hexa-button': ['icon']
-            }),
+            getIconInjector(
+              {},
+              {
+                'ec-hexa-button': ['icon'],
+              }
+            ),
           ],
         },
       },
@@ -239,11 +248,11 @@ export default {
     extractCSS: true,
   },
   serverMiddleware: {
-    '/api': '~/api'
+    '/api': '~/api',
   },
   render: {
     bundleRenderer: {
-      shouldPreload: () => false
-    }
-  }
+      shouldPreload: () => false,
+    },
+  },
 }

@@ -119,18 +119,19 @@ v-app
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Veranstaltungen
+            //- Später nur Orte
+            v-btn.hidden-sm-and-down.mr-2(
+              text,
+              to='/orte/karlsminde',
+              color='primary'
+            )
+              span.subtitle-1.text-capitalize.font-weight-medium Karlsminde
             v-btn.hidden-sm-and-down.mr-2(
               text,
               to='/downloads/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Downloads
-            //- TODO: Orte
-            //- v-btn(text class="hidden-sm-and-down mr-2" to="/orte" color="primary")
-            //-   span(class="subtitle-1 text-capitalize font-weight-medium") Vor Ort
-            //- TODO: MA-Anmeldung
-            //- v-btn(text class="hidden-sm-and-down" to="/mitarbeiter/anmeldung" color="primary")
-            //-   span(class="subtitle-1 text-capitalize font-weight-medium") Anmeldung
             v-app-bar-nav-icon.hidden-md-and-up(
               @click.stop='drawer = !drawer',
               aria-label='Menü'
@@ -154,23 +155,16 @@ v-app
           v-icon mdi-calendar
         v-list-item-content
           v-list-item-title Veranstaltungen
+      v-list-item(link, to='/orte/karlsminde')
+        v-list-item-icon
+          v-icon mdi-home
+        v-list-item-content
+          v-list-item-title Karlsminde
       v-list-item(link, to='/downloads/')
         v-list-item-icon
           v-icon mdi-cloud-download
         v-list-item-content
           v-list-item-title Downloads
-      //- TODO: Orte
-      //- v-list-item(link to="/orte")
-      //-   v-list-item-icon
-      //-     v-icon mdi-map-marker
-      //-   v-list-item-content
-      //-     v-list-item-title Vor Ort
-      //- TODO: MA-Anmeldung
-      //- v-list-item(link to="/mitarbeiter/anmeldung")
-      //-   v-list-item-icon
-      //-     v-icon mdi-account-plus
-      //-   v-list-item-content
-      //-     v-list-item-title Anmeldung
   v-main
     nuxt
   footer.secondary.white--text.angle--top-left
@@ -232,7 +226,6 @@ v-app
 import {
   defineComponent,
   ref,
-  onMounted,
   useContext,
   computed,
   useAsync,

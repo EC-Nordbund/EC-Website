@@ -4,18 +4,18 @@
       slot
 </template>
 <script lang="ts">
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 export default defineComponent({
   props: {
     color: {
       type: String,
-      default: 'none'
+      default: 'none',
     },
     length: {
       type: Number,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 <style scoped lang="scss">

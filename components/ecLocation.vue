@@ -5,7 +5,7 @@ client-only
     :center='marker[0].marker',
     gestureHandling,
     :options='mapOptions'
-  )
+  ).overflow-hidden
     l-tile-layer(
       :email='`app@ec-nordbund.de`',
       url='https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
@@ -23,7 +23,7 @@ client-only
           br(v-if='m.email')
           a(v-if='m.email', :href='`mailto:${m.email}`') {{ m.email }}
           br(v-if='!m.noMore')
-          nuxt-link(v-if='!m.noMore', :to='m.more', style='cursor: pointer') mehr...
+          nuxt-link(v-if='!m.noMore', :to='m.more', style='cursor: pointer') mehr...       
 </template>
 <script>
 import { defineComponent, computed } from '@nuxtjs/composition-api'

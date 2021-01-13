@@ -156,6 +156,11 @@ div
 import { supportWebp } from '../../helpers/webp'
 
 export default {
+  setup() {
+    return {
+      supportWebp,
+    }
+  },
   async asyncData({ $content, params, redirect, route }) {
     try {
       const page = await $content('veranstaltung', params.id).fetch()
@@ -163,11 +168,6 @@ export default {
       return { page }
     } catch (e) {
       redirect('/404', { path: route.path })
-    }
-  },
-  setup() {
-    return {
-      supportWebp,
     }
   },
   head() {

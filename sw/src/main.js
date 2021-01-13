@@ -11,8 +11,8 @@ const __CONFIG__ = {
 }
 
 /**
- * 
- * @param {Request} request 
+ *
+ * @param {Request} request
  */
 async function CACHE_FIRST(request, t = false) {
   const cachedResponse = await caches.match(request)
@@ -25,63 +25,67 @@ async function CACHE_FIRST(request, t = false) {
   if (network.status === 200 && network.ok) {
     const cache = await caches.open(__CONFIG__.CACHE_NAME)
     await cache.put(request, network.clone())
-  } else {
-    if (t) {
-      throw '...'
-    }
+  } else if (t) {
+    throw '...'
   }
 
   return network
 }
 
-
-_self.addEventListener('install', ev => {
-  ev.waitUntil((async () => {
-    const cache = await caches.open(__CONFIG__.CACHE_NAME)
-    await cache.add(__CONFIG__.OFFLINE_URL)
-  })())
-})
-
-
-_self.addEventListener('activate', ev => {
+_self.addEventListener('install', (ev) => {
   ev.waitUntil(
     (async () => {
-      const keys = await caches.keys();
+      const cache = await caches.open(__CONFIG__.CACHE_NAME)
+      await cache.add(__CONFIG__.OFFLINE_URL)
+    })()
+  )
+})
+
+_self.addEventListener('activate', (ev) => {
+  ev.waitUntil(
+    (async () => {
+      const keys = await caches.keys()
 
       await Promise.all(
         keys.map(async (key) => {
           if (key === __CONFIG__.CACHE_NAME) {
-            return true;
+            return true
           }
-          return caches.delete(key);
+          return caches.delete(key)
         })
-      );
+      )
     })()
-  );
+  )
 })
 
-_self.addEventListener("message", (ev) => {
-  if (ev.data && ev.data.msg === "update-sw") {
-    _self.skipWaiting();
-    _self.clients.claim();
+_self.addEventListener('message', (ev) => {
+  if (ev.data && ev.data.msg === 'update-sw') {
+    _self.skipWaiting()
+    _self.clients.claim()
   }
-});
+})
 
-_self.addEventListener('fetch', async ev => {
+_self.addEventListener('fetch', async (ev) => {
   if (ev.request.mode === 'navigate') {
     return
   }
 
   if (ev.request.url.endsWith('.jpg')) {
-    ev.respondWith((async () => {
-      if (await supportsWebp()) {
-        const webPRequest = new Request(ev.request.url.slice(0, ev.request.url.length - 4) + '.webp')
+    ev.respondWith(
+      (async () => {
+        if (await supportsWebp()) {
+          const webPRequest = new Request(
+            ev.request.url.slice(0, ev.request.url.length - 4) + '.webp'
+          )
 
-        return CACHE_FIRST(webPRequest, true).catch(() => CACHE_FIRST(ev.request))
-      } else {
-        return CACHE_FIRST(ev.request)
-      }
-    })())
+          return CACHE_FIRST(webPRequest, true).catch(() =>
+            CACHE_FIRST(ev.request)
+          )
+        } else {
+          return CACHE_FIRST(ev.request)
+        }
+      })()
+    )
   }
 
   const url = new URL(ev.request.url)
@@ -92,8 +96,8 @@ _self.addEventListener('fetch', async ev => {
 
   if (url.pathname.includes('_content')) {
     const network = fetch(request).catch(() => cache)
-    const cache = caches.match(request).then(c => c ? c : network)
-   
+    const cache = caches.match(request).then((c) => c || network)
+
     ev.respondWith(Promise.race([network, cache]))
   }
 

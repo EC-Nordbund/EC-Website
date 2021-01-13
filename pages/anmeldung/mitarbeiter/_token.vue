@@ -114,8 +114,8 @@ v-container.page-wrapper
 </template>
 <script lang="ts">
 import { defineComponent, reactive, ref } from '@nuxtjs/composition-api'
-import { post } from '~/helpers/fetch'
 import { ruleLib, useValidation } from '../../../plugins/validate'
+import { post } from '~/helpers/fetch'
 
 export default defineComponent({
   setup(_props, ctx) {
