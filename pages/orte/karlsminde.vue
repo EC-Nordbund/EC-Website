@@ -17,7 +17,7 @@ div
         br
         | Das weitläufige Gelände mit eigenem Bootssteg am Aassee, der Ostseestrand in nur 300m Entfernung, Lagerfeuerplatz und Bolzplatz sind der ideale Ort für Freizeiten aller Art.
       p.text-center.text-h6 Wer Karlsminde nicht kennt, hat was verpasst!
-  //- v-parallax(:src='require("@/assets/img/karlsminde/karlsminde (7).jpg")' class="with-gradient")
+
   .angle--both-right-right(style='background: #f5f5f5')
     v-container
       v-row
@@ -46,6 +46,7 @@ div
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (10).jpg")')
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (11).jpg")')
             v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (12).jpg")')
+
   .angle--both-left-left
     v-container
       v-row
