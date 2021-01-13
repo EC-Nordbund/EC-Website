@@ -46,7 +46,7 @@ import {
   useContext,
   computed,
 } from '@nuxtjs/composition-api'
-import { supportWebp } from "../../helpers/webp";
+import { supportWebp } from '../../helpers/webp'
 
 export default defineComponent({
   setup(props, ctx) {

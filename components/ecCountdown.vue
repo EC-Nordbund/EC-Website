@@ -48,12 +48,12 @@ export default defineComponent({
     target: String,
     keepZeros: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hideUnits: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
     const now = ref(null)
@@ -62,15 +62,25 @@ export default defineComponent({
     const diff = computed(() =>
       Math.trunc((target.getTime() - now.value.getTime()) / 1000)
     )
-    const days = computed(() => Math.max(Math.trunc(diff.value / 60 / 60 / 24), 0))
-    const hours = computed(() => Math.max(Math.trunc(diff.value / 60 / 60) % 24, 0))
-    const minutes = computed(() => Math.max(Math.trunc(diff.value / 60) % 60, 0))
+    const days = computed(() =>
+      Math.max(Math.trunc(diff.value / 60 / 60 / 24), 0)
+    )
+    const hours = computed(() =>
+      Math.max(Math.trunc(diff.value / 60 / 60) % 24, 0)
+    )
+    const minutes = computed(() =>
+      Math.max(Math.trunc(diff.value / 60) % 60, 0)
+    )
     const seconds = computed(() => Math.max(Math.trunc(diff.value) % 60, 0))
 
-    const dayLabel = computed(() => days.value !== 1 ? 'Tagen' : 'Tag')
-    const hourLabel = computed(() => hours.value !== 1 ? 'Stunden' : 'Stunde')
-    const minuteLabel = computed(() => minutes.value !== 1 ? 'Minuten' : 'Minute')
-    const secondLabel = computed(() => seconds.value !== 1 ? 'Sekunden' : 'Sekunde')
+    const dayLabel = computed(() => (days.value !== 1 ? 'Tagen' : 'Tag'))
+    const hourLabel = computed(() => (hours.value !== 1 ? 'Stunden' : 'Stunde'))
+    const minuteLabel = computed(() =>
+      minutes.value !== 1 ? 'Minuten' : 'Minute'
+    )
+    const secondLabel = computed(() =>
+      seconds.value !== 1 ? 'Sekunden' : 'Sekunde'
+    )
 
     const ended = computed(() => diff.value < 0)
 
@@ -98,7 +108,17 @@ export default defineComponent({
       return value.toString()
     }
 
-    return { days, formatDigits, hours, minutes, seconds, dayLabel, hourLabel, minuteLabel, secondLabel }
+    return {
+      days,
+      formatDigits,
+      hours,
+      minutes,
+      seconds,
+      dayLabel,
+      hourLabel,
+      minuteLabel,
+      secondLabel,
+    }
   },
 })
 </script>

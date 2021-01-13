@@ -66,34 +66,6 @@ const pagination = {
 }
 
 export default {
-  computed: {
-    detailsMaxHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-        case 'sm':
-          return ''
-        default:
-          return 'max-height: 300px;'
-      }
-    },
-    imgHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-        case 'sm':
-          return undefined
-        default:
-          return 300
-      }
-    },
-  },
-  methods: {
-    getDescription(item) {
-      if (typeof item.description == 'string' && item.description.length > 0) {
-        return item.description
-      }
-      return 'Klicke auf "Mehr Anzeigen" um den Betrag zu vollständig zu lesen.'
-    },
-  },
   async asyncData({ $content, query }) {
     const page = parseInt(query.page || '1') || 1
 
@@ -110,12 +82,6 @@ export default {
       page: 1,
       pageCount: 1,
     }
-  },
-  watch: {
-    async page() {
-      this.$router.replace({ path: '/blog', query: { page: this.page } })
-      this.posts = await pagination.getPostsOfPage(this.$content, this.page)
-    },
   },
 
   head() {
@@ -154,6 +120,40 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    detailsMaxHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+        case 'sm':
+          return ''
+        default:
+          return 'max-height: 300px;'
+      }
+    },
+    imgHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+        case 'sm':
+          return undefined
+        default:
+          return 300
+      }
+    },
+  },
+  watch: {
+    async page() {
+      this.$router.replace({ path: '/blog', query: { page: this.page } })
+      this.posts = await pagination.getPostsOfPage(this.$content, this.page)
+    },
+  },
+  methods: {
+    getDescription(item) {
+      if (typeof item.description === 'string' && item.description.length > 0) {
+        return item.description
+      }
+      return 'Klicke auf "Mehr Anzeigen" um den Betrag zu vollständig zu lesen.'
+    },
   },
 }
 </script>

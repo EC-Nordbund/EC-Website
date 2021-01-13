@@ -30,8 +30,8 @@
 </template>
 <script>
 import { defineComponent, ref, reactive } from '@nuxtjs/composition-api'
-import { post } from "~/helpers/fetch";
 import { ruleLib, useValidation } from '../../../plugins/validate'
+import { post } from '~/helpers/fetch'
 export default defineComponent({
   setup() {
     const data = reactive({

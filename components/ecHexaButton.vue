@@ -17,15 +17,15 @@ export default defineComponent({
     },
     size: {
       type: Number,
-      default: 72
-    }
+      default: 72,
+    },
   },
   setup(props) {
     const size_px = computed(() => props.size + 'px')
 
-    const icon_size = computed(() => Math.floor(props.size*.45))
+    const icon_size = computed(() => Math.floor(props.size * 0.45))
 
     return { size_px, icon_size }
-  }
+  },
 })
 </script>

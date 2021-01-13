@@ -23,7 +23,6 @@
           v-col(class="text-center") © by EC-Nordbund
 </template>
 
-
 <style lang="scss" scoped>
 header.v-toolbar {
   height: 64px !important;
@@ -38,12 +37,12 @@ header.v-toolbar {
 }
 
 footer {
-    a {
-      color: #fff !important;
+  a {
+    color: #fff !important;
 
-      &:hover {
-        color: var(--v-primary-base) !important;
-      }
-   }
+    &:hover {
+      color: var(--v-primary-base) !important;
+    }
+  }
 }
 </style>

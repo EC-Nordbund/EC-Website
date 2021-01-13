@@ -122,9 +122,9 @@ import {
   ref,
   useContext,
 } from '@nuxtjs/composition-api'
-import { post } from '~/helpers/fetch'
 import { useValidation, ruleLib } from '../plugins/validate'
 import { useAlter } from '../plugins/alter'
+import { post } from '~/helpers/fetch'
 function useExtraFields(extraFields) {
   const extra = {}
   const extraRules = {}
@@ -353,7 +353,7 @@ export default defineComponent({
       // startAt: props.startAt,
       forceValidate: () => {
         Object.keys(validation.rootMapper).forEach((key) => {
-          if(typeof validation.rootMapper[key] === 'function') {
+          if (typeof validation.rootMapper[key] === 'function') {
             validation.rootMapper[key]()
           }
         })

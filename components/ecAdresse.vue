@@ -11,8 +11,8 @@ import {
   watchEffect,
   useAsync,
 } from '@nuxtjs/composition-api'
-import { get } from "~/helpers/fetch";
 import { mapper } from '../plugins/validate'
+import { get } from '~/helpers/fetch'
 
 export default defineComponent({
   props: {
@@ -28,7 +28,7 @@ export default defineComponent({
   setup(props, ctx) {
     const orte = ref([])
     const plzs = useAsync(async () => {
-      return (await get('/plz/plz.json'))
+      return await get('/plz/plz.json')
     })
 
     const localState = reactive({
@@ -52,7 +52,7 @@ export default defineComponent({
       localState.ort = ''
       ctx.emit('input', localState)
 
-      const orteForPLZ = (await get(`/plz/${plz}.json`))
+      const orteForPLZ = await get(`/plz/${plz}.json`)
 
       if (orteForPLZ.length === 1) {
         orte.value = orteForPLZ
