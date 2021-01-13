@@ -80,7 +80,7 @@ div
           .text-body-1 Telefon: 04356 / 99 77 0
           .text-body-1 E-Mail : info(at)ec-karlsminde.de
           .text-body-1 Web:&nbsp;
-            a(href='https://www.ebz-wittensee.de', alt="https://www.ebz-wittensee.de" title="Zur Website").secondary--text https://www.ebz-wittensee.de
+            a(href='https://www.ebz-wittensee.de', alt="https://www.ebz-wittensee.de" title="Zur Website" rel="noopener").secondary--text https://www.ebz-wittensee.de
 
 </template>
 <script>
