@@ -77,7 +77,7 @@ div
           h2#kontakt Kontakt
           .text-subtitle-1.font-weight-medium.mb-1 Erholungs- & Bildungszentrum Wittensee
           .text-body-1 An See 7, 24794 Bünsdorf
-          .text-body-1 Telefon: +49 04356 / 99 77 0
+          .text-body-1 Telefon: 04356 / 99 77 0
           .text-body-1 E-Mail : info(at)ec-karlsminde.de
           .text-body-1 Web:&nbsp;
             a(href='https://www.ebz-wittensee.de', alt="https://www.ebz-wittensee.de" title="Zur Website").secondary--text https://www.ebz-wittensee.de
