@@ -2,6 +2,32 @@ import de from 'vuetify/es5/locale/de'
 import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
 import { getIconInjector } from 'vuetify-icon-injector'
 
+const createSitemapRoutes = async () => {
+  const routes = []
+  const { $content } = require('@nuxt/content')
+
+  const posts = await $content('blog').fetch()
+
+  for (const post of posts) {
+    // routes.push(`blog/${post.slug}`);
+    routes.push({
+      url: `blog/${post.slug}`,
+      lastmod: post.updatedAt,
+    })
+  }
+
+  const veranstaltungen = await $content('veranstaltung').fetch()
+
+  for (const veranstaltung of veranstaltungen) {
+    routes.push({
+      url: `veranstaltungen/${veranstaltung.slug}`,
+      lastmod: veranstaltung.updatedAt,
+    })
+  }
+
+  return routes
+}
+
 const URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/'
@@ -134,6 +160,7 @@ export default {
         content: '#92c355',
       },
     ],
+
     link: [
       { rel: 'icon', href: '/favicon_512.png', hid: 'favicon' },
       { rel: 'manifest', href: '/manifest.webmanifest' },
@@ -142,6 +169,22 @@ export default {
         ? [{ rel: 'preconnect', href: 'https://www.ec-nordbund.de' }]
         : []),
     ],
+  },
+
+  sitemap: {
+    hostname: 'https://www.ec-nordbund.de',
+    exclude: [
+      '/empty',
+      '/anmeldung/**',
+      '/blog/all',
+      '/orte',
+      '/404',
+      '/admin',
+    ],
+    gzip: true,
+    routes: createSitemapRoutes,
+    // cacheTime: 10000000000,
+    cacheTime: -1,
   },
 
   css: ['~/assets/styles/global.scss'],
@@ -154,11 +197,6 @@ export default {
     { src: '~/plugins/swUpdate.ts', mode: 'client' },
   ],
   /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
-  components: true,
-  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
@@ -168,7 +206,7 @@ export default {
     '@nuxtjs/vuetify',
   ],
   // '@nuxtjs/pwa',
-  modules: ['@nuxt/content', 'vue2-leaflet-nuxt'],
+  modules: ['@nuxt/content', 'vue2-leaflet-nuxt', '@nuxtjs/sitemap'],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
     theme: {
