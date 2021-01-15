@@ -12,7 +12,7 @@ const createSitemapRoutes = async () => {
     // routes.push(`blog/${post.slug}`);
     routes.push({
       url: `blog/${post.slug}`,
-      lastmod: post.updatedAt,
+      lastmod: post.slug.startsWith('20') ? post.updatedAt : '2020-01-01',
     })
   }
 
