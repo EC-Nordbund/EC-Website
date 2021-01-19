@@ -2,32 +2,6 @@ import de from 'vuetify/es5/locale/de'
 import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
 import { getIconInjector } from 'vuetify-icon-injector'
 
-const createSitemapRoutes = async () => {
-  const routes = []
-  const { $content } = require('@nuxt/content')
-
-  const posts = await $content('blog').fetch()
-
-  for (const post of posts) {
-    // routes.push(`blog/${post.slug}`);
-    routes.push({
-      url: `blog/${post.slug}`,
-      lastmod: post.slug.startsWith('20') ? post.updatedAt : '2020-01-01',
-    })
-  }
-
-  const veranstaltungen = await $content('veranstaltung').fetch()
-
-  for (const veranstaltung of veranstaltungen) {
-    routes.push({
-      url: `veranstaltungen/${veranstaltung.slug}`,
-      lastmod: veranstaltung.updatedAt,
-    })
-  }
-
-  return routes
-}
-
 const URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/'
@@ -73,6 +47,9 @@ const vuetifyTheme = {
   youtube: '#f00',
 }
 
+/**
+ * @type {import('@nuxt/types').NuxtConfig}
+ */
 export default {
   target: 'server',
   modern: true,
@@ -116,10 +93,6 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        name: 'google-site-verification',
-        content: 'vSmp7129Uj6Kdz8krkwXDruN7HNXYYeCRfGJgBQuCKI',
-      },
       // Open Graph
       { hid: 'og:site_name', property: 'og:site_name', content: 'EC-Nordbund' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
@@ -160,7 +133,6 @@ export default {
         content: '#92c355',
       },
     ],
-
     link: [
       { rel: 'icon', href: '/favicon_512.png', hid: 'favicon' },
       { rel: 'manifest', href: '/manifest.webmanifest' },
@@ -169,22 +141,6 @@ export default {
         ? [{ rel: 'preconnect', href: 'https://www.ec-nordbund.de' }]
         : []),
     ],
-  },
-
-  sitemap: {
-    hostname: 'https://www.ec-nordbund.de',
-    exclude: [
-      '/empty',
-      '/anmeldung/**',
-      '/blog/all',
-      '/orte',
-      '/404',
-      '/admin',
-    ],
-    gzip: true,
-    routes: createSitemapRoutes,
-    // cacheTime: 10000000000,
-    cacheTime: -1,
   },
 
   css: ['~/assets/styles/global.scss'],
@@ -202,11 +158,9 @@ export default {
   buildModules: [
     '@nuxtjs/composition-api',
     '@nuxt/typescript-build',
-    // '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
   ],
-  // '@nuxtjs/pwa',
-  modules: ['@nuxt/content', 'vue2-leaflet-nuxt', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/content', 'vue2-leaflet-nuxt'],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
     theme: {
@@ -264,13 +218,13 @@ export default {
         config.optimization = {
           splitChunks: {
             // Minimize init load.
-            maxAsyncRequests: 30,
-            maxInitialRequests: 30,
+            maxAsyncRequests: 30000,
+            maxInitialRequests: 30000,
 
             cacheGroups: {
               // Handle aller anderen Module.
               default: {
-                minChunks: 2,
+                minChunks: 1,
                 priority: -20,
                 reuseExistingChunk: true,
               },
@@ -290,7 +244,9 @@ export default {
   },
   render: {
     bundleRenderer: {
-      shouldPreload: () => false,
+      shouldPreload: (_file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      },
     },
   },
 }
