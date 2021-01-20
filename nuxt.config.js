@@ -123,6 +123,10 @@ export default {
         name: 'google-site-verification',
         content: 'vSmp7129Uj6Kdz8krkwXDruN7HNXYYeCRfGJgBQuCKI',
       },
+      {
+        name: 'msvalidate.01',
+        content: '9B2EEA71D47D41B62AA711DC11FCD3D0',
+      },
       // Open Graph
       { hid: 'og:site_name', property: 'og:site_name', content: 'EC-Nordbund' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
