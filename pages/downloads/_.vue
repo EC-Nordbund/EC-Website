@@ -1,28 +1,45 @@
 <template lang="pug">
-  v-container
-    v-breadcrumbs(:items="['Downloads',...fileRoute].map(toBreadcrumb)" divider="/" large)
-    h1 {{data.title}}
-    p {{data.description}}
+v-container
+  v-breadcrumbs(
+    :items='["Downloads", ...fileRoute].map(toBreadcrumb)',
+    divider='/',
+    large
+  )
+  h1 {{ data.title }}
+  p {{ data.description }}
 
-    v-list(:key="$route.fullpath")
-      v-list-item(v-if="fileRoute.length > 0" :to="`/downloads/${fileRoute.slice(0, -1).join('/')}`")
-        v-list-item-avatar
-          v-icon(size="26") mdi-arrow-up
-        v-list-item-content
-          v-list-item-title Zurück
-      v-divider
-      v-list-item(v-for="el in data.files" :key="$route.fullpath + el.filename" :href="`${el.filename}`" two-line)
-        v-list-item-avatar
-          v-icon(size="32") {{ {pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage}[el.filename.split('.')[1].toLowerCase()] || mdiFile }}
-        v-list-item-content
-          v-list-item-title {{el.title}}
-          v-list-item-subtitle {{el.description}}
-      v-list-item(v-for="key in Object.keys(data.folders)" :key="$route.fullpath + key" :to="key + '/'" two-line)
-        v-list-item-avatar
-          v-icon(size="36") mdi-folder
-        v-list-item-content
-          v-list-item-title {{data.folders[key].title}}
-          v-list-item-subtitle {{data.folders[key].description}}
+  v-list(:key='$route.fullpath')
+    v-list-item(
+      v-if='fileRoute.length > 0',
+      :to='`/downloads/${fileRoute.slice(0, -1).join("/")}`'
+    )
+      v-list-item-avatar
+        v-icon(size='26') mdi-arrow-up
+      v-list-item-content
+        v-list-item-title Zurück
+    v-divider
+    v-list-item(
+      v-for='el in data.files',
+      :key='$route.fullpath + el.filename',
+      :href='`${el.filename}`',
+      two-line
+    )
+      v-list-item-avatar
+        v-icon(size='32') {{ { pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage }[el.filename.split(".")[1].toLowerCase()] || mdiFile }}
+      v-list-item-content
+        v-list-item-title {{ el.title }}
+        v-list-item-subtitle {{ el.description }}
+    v-list-item(
+      v-for='key in Object.keys(data.folders)',
+      :key='$route.fullpath + key',
+      :to='key + "/"',
+      two-line
+    )
+      v-list-item-avatar
+        v-icon(size='36') mdi-folder
+      v-list-item-content
+        v-list-item-title {{ data.folders[key].title }}
+        v-list-item-subtitle {{ data.folders[key].description }}
 </template>
 <script lang="ts">
 import {
@@ -100,29 +117,35 @@ export default defineComponent({
       mdiFile,
     }
   },
-  head: {
-    title: 'Downloads',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Download von Vorlagen, Dokumenten etc.',
-      },
-      // Open Graph
-      { hid: 'og:title', property: 'og:title', content: 'Downloads' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Download von Vorlagen, Dokumenten etc.',
-      },
-      // Twitter Card
-      { hid: 'twitter:title', name: 'twitter:title', content: 'Downloads' },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: 'Download von Vorlagen, Dokumenten etc..',
-      },
-    ],
+  head() {
+    return {
+      title: 'Downloads',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Download von Vorlagen, Dokumenten etc.',
+        },
+        // Open Graph
+        { hid: 'og:title', property: 'og:title', content: 'Downloads' },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Download von Vorlagen, Dokumenten etc.',
+        },
+        // Twitter Card
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Downloads' },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: 'Download von Vorlagen, Dokumenten etc..',
+        },
+        ...(this.$route.params.pathMatch.split('/').filter((v) => v !== '')
+          .length > 0
+          ? [{ hid: 'seo:index', property: 'robots', content: 'noindex' }]
+          : []),
+      ],
+    }
   },
 })
 </script>

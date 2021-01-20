@@ -37,5 +37,10 @@ export default defineComponent({
       verify: () => vueCtx.root.$router.push(`/anmeldung/token/${token.value}`),
     }
   },
+  head() {
+    return {
+      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
+    }
+  },
 })
 </script>

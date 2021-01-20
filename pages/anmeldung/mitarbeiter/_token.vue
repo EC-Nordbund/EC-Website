@@ -237,5 +237,10 @@ export default defineComponent({
       ort,
     }
   },
+  head() {
+    return {
+      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
+    }
+  },
 })
 </script>

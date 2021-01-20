@@ -19,5 +19,10 @@ export default {
       redirect('/404', { path: route.path })
     }
   },
+  head() {
+    return {
+      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
+    }
+  },
 }
 </script>

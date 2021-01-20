@@ -39,6 +39,13 @@ export default defineComponent({
         content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
       },
     ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de/impressum',
+        hid: 'canonical',
+      },
+    ],
   },
 })
 </script>

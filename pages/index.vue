@@ -116,60 +116,6 @@
           | Kinder- und Jungschararbeit
 p(v-else) Loading...
 </template>
-<style lang="scss" scoped>
-@import '~vuetify/src/styles/settings/_variables';
-
-.hero-image {
-  height: calc(100vh + 3.492vw - 96px);
-
-  @media #{map-get($display-breakpoints, 'md-and-up')} {
-    height: 400px;
-  }
-}
-
-.section-wrapper > div:last-child {
-  &.angle--bottom-left,
-  &.angle--bottom-right,
-  &.angle--both-right-right,
-  &.angle--both-left-right,
-  &.angle--both-right-left,
-  &.angle--both-left-left {
-    margin-bottom: -3.492vw;
-  }
-}
-
-.countdown {
-  margin-bottom: -3.493vw;
-
-  .v-sheet {
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-      0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-      0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;
-  }
-}
-
-.hexa-image-overlay {
-  height: 128px;
-  background: var(--v-primary-base);
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity 0.3s;
-}
-
-.person {
-  cursor: pointer;
-
-  // transition: background-color .3s;
-  &:hover {
-    // background-color: var(--v-primary-base);
-
-    & .hexa-image-overlay {
-      opacity: 0.7;
-    }
-  }
-}
-</style>
 <script>
 import {
   defineComponent,
@@ -244,6 +190,67 @@ export default defineComponent({
           'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus“ und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
       },
     ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de',
+        hid: 'canonical',
+      },
+    ],
   },
 })
 </script>
+<style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
+.hero-image {
+  height: calc(100vh + 3.492vw - 96px);
+
+  @media #{map-get($display-breakpoints, 'md-and-up')} {
+    height: 400px;
+  }
+}
+
+.section-wrapper > div:last-child {
+  &.angle--bottom-left,
+  &.angle--bottom-right,
+  &.angle--both-right-right,
+  &.angle--both-left-right,
+  &.angle--both-right-left,
+  &.angle--both-left-left {
+    margin-bottom: -3.492vw;
+  }
+}
+
+.countdown {
+  margin-bottom: -3.493vw;
+
+  .v-sheet {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
+      0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;
+  }
+}
+
+.hexa-image-overlay {
+  height: 128px;
+  background: var(--v-primary-base);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.3s;
+}
+
+.person {
+  cursor: pointer;
+
+  // transition: background-color .3s;
+  &:hover {
+    // background-color: var(--v-primary-base);
+
+    & .hexa-image-overlay {
+      opacity: 0.7;
+    }
+  }
+}
+</style>

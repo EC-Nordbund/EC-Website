@@ -314,8 +314,11 @@ export default defineComponent({
       type,
     }
   },
-  head: {
-    title: 'Anmelde-Bestätigung',
+  head() {
+    return {
+      title: 'Anmelde-Bestätigung',
+      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
+    }
   },
 })
 </script>

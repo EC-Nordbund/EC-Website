@@ -1,6 +1,6 @@
 <template lang="pug">
-  v-container
-    nuxt-content(:document="page")
+v-container
+  nuxt-content(:document='page')
 </template>
 <script>
 export default {
@@ -49,6 +49,13 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.page.featuredImage,
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/blog/' + this.page.slug,
+          hid: 'canonical',
         },
       ],
     }

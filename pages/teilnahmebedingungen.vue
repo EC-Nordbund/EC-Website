@@ -53,6 +53,13 @@ export default defineComponent({
           'Unsere Teilnahmebedingungen. Welche Rechte hast du? Welche Rechte hat der EC?',
       },
     ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de/teilnahmebedingungen',
+        hid: 'canonical',
+      },
+    ],
   },
 })
 </script>

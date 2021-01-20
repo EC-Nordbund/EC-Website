@@ -41,6 +41,13 @@ export default {
           content: 'Überblick über alle EC Standorte.',
         },
       ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/orte',
+          hid: 'canonical',
+        },
+      ],
     }
   },
 }

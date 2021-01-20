@@ -1,30 +1,30 @@
 <template lang="pug">
-  //- main
-  v-container(v-if="pages")
-    v-row
-      v-col
-        h1 Datenschutz
-    v-row
-      v-col
-        v-tabs(v-model="tab")
-          v-tab Website
-          v-tab Veranstaltungs Teilnehmer
-          v-tab Veranstaltungs Mitarbeiter
-          v-tab EC-Mitglieder + EC-Mitarbeiter
-        v-tabs-items(v-model="tab")
-          v-tab-item(title="Website")
-            nuxt-content(:document="pages.website")
-          v-tab-item(title="Veranstaltungs Teilnehmer")
-            nuxt-content(:document="pages.teilnehmer")
-          v-tab-item(title="Veranstaltungs Mitarbeiter")
-            nuxt-content(:document="pages.mitarbeiter")
-          v-tab-item(title="EC-Mitglieder + EC-Mitarbeiter")
-            nuxt-content(:document="pages.mitglieder")
-    v-row
-      v-col
-        nuxt-content(:document="pages.kontakt")
-  v-container(v-else)
-    p Lade Inhalt...
+//- main
+v-container(v-if='pages')
+  v-row
+    v-col
+      h1 Datenschutz
+  v-row
+    v-col
+      v-tabs(v-model='tab')
+        v-tab Website
+        v-tab Veranstaltungs Teilnehmer
+        v-tab Veranstaltungs Mitarbeiter
+        v-tab EC-Mitglieder + EC-Mitarbeiter
+      v-tabs-items(v-model='tab')
+        v-tab-item(title='Website')
+          nuxt-content(:document='pages.website')
+        v-tab-item(title='Veranstaltungs Teilnehmer')
+          nuxt-content(:document='pages.teilnehmer')
+        v-tab-item(title='Veranstaltungs Mitarbeiter')
+          nuxt-content(:document='pages.mitarbeiter')
+        v-tab-item(title='EC-Mitglieder + EC-Mitarbeiter')
+          nuxt-content(:document='pages.mitglieder')
+  v-row
+    v-col
+      nuxt-content(:document='pages.kontakt')
+v-container(v-else)
+  p Lade Inhalt...
 </template>
 <script lang="ts">
 import {
@@ -90,6 +90,13 @@ export default defineComponent({
         hid: 'twitter:description',
         name: 'twitter:description',
         content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de/datenschutz',
+        hid: 'canonical',
       },
     ],
   },

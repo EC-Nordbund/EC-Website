@@ -129,6 +129,13 @@ export default defineComponent({
         content: 'Liste aller Veranstaltungen des EC-Nordbundes..',
       },
     ],
+    link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/veranstaltungen',
+          hid: 'canonical',
+        },
+      ],
   },
 })
 </script>

@@ -121,6 +121,13 @@ export default {
             'Ein Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
       ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/orte/karlsminde',
+          hid: 'canonical',
+        },
+      ],
     }
   },
 }

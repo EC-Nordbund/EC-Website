@@ -42,6 +42,13 @@ export default {
           content: 'Alles über den Standort.',
         },
       ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/orte/' + this.page.slug,
+          hid: 'canonical',
+        },
+      ],
     }
   },
 }

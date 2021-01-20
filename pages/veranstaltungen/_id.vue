@@ -22,7 +22,9 @@ div
 
         //- display indicators
         v-col.d-flex.flex-column(cols='auto')
-          v-row.text-right(v-if='Object.values(page.warteliste).some((e) => e)')
+          v-row.text-right(
+            v-if='Object.values(page.warteliste).some((e) => e)'
+          )
             v-col
               v-chip.ml-auto.mb-1.elevation-8.font-weight-medium(
                 color='warning',
@@ -220,6 +222,13 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.page.featuredImage,
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/veranstaltungen/' + this.page.slug,
+          hid: 'canonical',
         },
       ],
     }

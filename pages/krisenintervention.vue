@@ -230,6 +230,13 @@ export default defineComponent({
           'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
       },
     ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de/krisenintervention',
+        hid: 'canonical',
+      },
+    ],
   },
 })
 </script>

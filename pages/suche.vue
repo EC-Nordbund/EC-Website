@@ -7,12 +7,7 @@ v-container
     h2 Blog
     v-row(v-if='posts.length > 0')
       v-col(cols='12', sm='6', md='4', v-for='item in posts', :key='item.slug')
-        v-card(
-          tile,
-          hover,
-          outlined,
-          :to='`/blog/${item.slug}`'
-        )
+        v-card(tile, hover, outlined, :to='`/blog/${item.slug}`')
           ec-image-item(
             :image='item.featuredImage',
             :title='item.title',
@@ -29,12 +24,7 @@ v-container
         v-for='item in veranstaltungen',
         :key='item.slug'
       )
-        v-card(
-          tile,
-          hover,
-          outlined,
-          :to="`/veranstaltungen/${item.slug}`"
-        )
+        v-card(tile, hover, outlined, :to='`/veranstaltungen/${item.slug}`')
           ec-image-item(
             :image='item.featuredImage',
             :title='item.title',
@@ -91,6 +81,17 @@ export default defineComponent({
       suche,
       posts,
       veranstaltungen,
+    }
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/suche',
+          hid: 'canonical',
+        },
+      ],
     }
   },
 })

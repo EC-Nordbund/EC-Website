@@ -1,46 +1,77 @@
 <template lang="pug">
-  v-container
-    h1 Beiträge
-    //- TODO: filter by tags, author, source (if instagram-feed is included)
-    v-row
-      v-col(v-for="item in posts" cols="12" :key="item.slug")
-        v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/blog/${item.slug}`")
-          v-row(no-gutters) 
-            //-  @click="$router.push(`/blog/${item.slug}`)"
-            v-col(cols="12" sm="6" md="5" lg="4" class="hellGrau")
-                //- image
-                v-img(:src="item.featuredImage" height="300" aspectRatio="1" class="white--text" gradient="180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 24%, rgba(0,0,0,0.02) 64%, rgba(0,0,0,0.24) 100%")
-                  v-card-actions(class="pa-3 hidden-sm-and-up")
-                    v-spacer
-                    ec-hexa-button(:to="`/blog/${item.slug}`" icon="mdi-arrow-right" :aria-label="`Zum Beitrag: ${item.title}`" :size="64")
-            v-col(cols="12" sm="6" md="7" lg="8" class="d-flex flex-column justify-space-between" :style="detailsMaxHeight")
-              v-flex()
-                //- title
-                div(class="ec-gradient white--text")
-                  v-card-title(class="d-block pt-2 font-weight-bold text-truncate") {{item.title}}
-                  v-card-subtitle(class="pb-2 secondary--text d-flex justify-space-between")
-                    span Vom {{item.published.split('T')[0].split('-').reverse().join('.')}}
-                v-card-text(class="full-heigth overflow-hidden py-0 hidden-xs-only")
-                  //- labels
-                  v-row(no-gutters)
-                    //- categories
-                    v-col(cols="12" lg="8" class="d-flex flex-wrap mb-n1 ml-n2 mt-3")
-                      v-chip(color="secondary" text-color="primary" class="ml-2 mb-1 font-weight-medium" outlined small v-for="tag in item.tags" :key="tag")
-                        | {{ tag }}
-                  //- description
-                  v-row
-                    v-col(cols="12") {{getDescription(item)}}
-
-              //- actions/buttons
-              v-card-actions(class="pa-4 hidden-xs-only")
+v-container
+  h1 Beiträge
+  //- TODO: filter by tags, author, source (if instagram-feed is included)
+  v-row
+    v-col(v-for='item in posts', cols='12', :key='item.slug')
+      v-card.overflow-hidden(
+        outlined,
+        tile,
+        hover,
+        color='offWhite',
+        :to='`/blog/${item.slug}`'
+      )
+        v-row(no-gutters) 
+          //-  @click="$router.push(`/blog/${item.slug}`)"
+          v-col.hellGrau(cols='12', sm='6', md='5', lg='4')
+            //- image
+            v-img.white--text(
+              :src='item.featuredImage',
+              height='300',
+              aspectRatio='1',
+              gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 24%, rgba(0,0,0,0.02) 64%, rgba(0,0,0,0.24) 100%'
+            )
+              v-card-actions.pa-3.hidden-sm-and-up
                 v-spacer
-                ec-hexa-button(:to="`/blog/${item.slug}`" exact icon="mdi-arrow-right" :rotate="30" :aria-label="`Zum Beitrag: ${item.title}`")
+                ec-hexa-button(
+                  :to='`/blog/${item.slug}`',
+                  icon='mdi-arrow-right',
+                  :aria-label='`Zum Beitrag: ${item.title}`',
+                  :size='64'
+                )
+          v-col.d-flex.flex-column.justify-space-between(
+            cols='12',
+            sm='6',
+            md='7',
+            lg='8',
+            :style='detailsMaxHeight'
+          )
+            v-flex
+              //- title
+              .ec-gradient.white--text
+                v-card-title.d-block.pt-2.font-weight-bold.text-truncate {{ item.title }}
+                v-card-subtitle.pb-2.secondary--text.d-flex.justify-space-between
+                  span Vom {{ item.published.split("T")[0].split("-").reverse().join(".") }}
+              v-card-text.full-heigth.overflow-hidden.py-0.hidden-xs-only
+                //- labels
+                v-row(no-gutters)
+                  //- categories
+                  v-col.d-flex.flex-wrap.mb-n1.ml-n2.mt-3(cols='12', lg='8')
+                    v-chip.ml-2.mb-1.font-weight-medium(
+                      color='secondary',
+                      text-color='primary',
+                      outlined,
+                      small,
+                      v-for='tag in item.tags',
+                      :key='tag'
+                    )
+                      | {{ tag }}
+                //- description
+                v-row
+                  v-col(cols='12') {{ getDescription(item) }}
 
-    v-pagination(
-      v-model="page"
-      :length="pageCount"
-      :total-visible="7"
-    )
+            //- actions/buttons
+            v-card-actions.pa-4.hidden-xs-only
+              v-spacer
+              ec-hexa-button(
+                :to='`/blog/${item.slug}`',
+                exact,
+                icon='mdi-arrow-right',
+                :rotate='30',
+                :aria-label='`Zum Beitrag: ${item.title}`'
+              )
+
+  v-pagination(v-model='page', :length='pageCount', :total-visible='7')
 </template>
 <script>
 const pagination = {
@@ -117,6 +148,13 @@ export default {
           name: 'twitter:description',
           content:
             'Blog des EC-Nordbundes mit allen wichtigen Informationen, Veranstaltungsberichten etc.',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/blog',
+          hid: 'canonical',
         },
       ],
     }
