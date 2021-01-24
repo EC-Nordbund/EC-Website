@@ -20,7 +20,7 @@
     "@nuxtjs/composition-api": "^0.18.0",
     "@nuxtjs/pwa": "3.3.4",
     "@nuxtjs/sitemap": "^2.4.0",
-    "ackee-tracker": "^4.2.0",
+    "ackee-tracker": "^5.0.1",
     "axios": "0.21.1",
     "body-parser": "^1.19.0",
     "copy-to-clipboard": "3.3.1",
