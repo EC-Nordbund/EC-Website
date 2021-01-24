@@ -37,7 +37,7 @@ module.exports = {
         'uses-optimized-images': 'warn',
         'content-width': 'warn',
          // Probleme in CI
-        'canonical': 'off'
+        'canonical': 'off',
         // NO PWA
         'works-offline': 'off',
         'offline-start-url': 'off'
