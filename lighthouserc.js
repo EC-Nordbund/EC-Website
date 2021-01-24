@@ -38,6 +38,9 @@ module.exports = {
         'content-width': 'warn',
          // Probleme in CI
         'canonical': 'off'
+        // NO PWA
+        'works-offline': 'off',
+        'offline-start-url': 'off'
       },
     },
   },
