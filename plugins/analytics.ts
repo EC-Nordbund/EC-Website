@@ -28,7 +28,7 @@ const plugin: Plugin = (ctx) => {
     return
   }
   const tracker = create(__URL__, {
-    ignoreLocalhost: false,
+    ignoreLocalhost: true,
     detailed: true,
     ignoreOwnVisits: false,
   })
@@ -49,7 +49,7 @@ const plugin: Plugin = (ctx) => {
       'NO-BOUNCE tracked',
       'Du hast auf dieser Seite navigiert und sie nicht direkt verlassen.'
     )
-    tracker.updateAction(bouncedId, { key: 'bounced', value: 0 })
+    tracker.updateAction(bouncedId, { key: 'bounced', value: 0.0001 })
   }
 
   tracker.action(
