@@ -49,14 +49,14 @@ const plugin: Plugin = (ctx) => {
       'NO-BOUNCE tracked',
       'Du hast auf dieser Seite navigiert und sie nicht direkt verlassen.'
     )
-    tracker.updateAction(bouncedId, { key: 'bounced', value: 0.0001 })
+    tracker.updateAction(bouncedId, { key: 'bounced', value: 0.000001 })
   }
 
   tracker.action(
     __BOUNCE_EVENT_ID__,
     {
       key: 'bounced',
-      value: 1,
+      value: 100,
     },
     (eventId: string) => {
       bouncedId = eventId
