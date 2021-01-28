@@ -1,5 +1,6 @@
 User-agent: *
 # Old pages (Bing)
+Disallow: /karlsminde
 Disallow: /veranstaltung/
 Disallow: /news
 Disallow: /freizeiten
@@ -10,7 +11,7 @@ Disallow: /wp-content
 Disallow: /events
 Disallow: /kategorie
 Disallow: /download
-# Old pages (Google)
+
 # private pages
 Disallow: /anmeldung
 Disallow: /admin
