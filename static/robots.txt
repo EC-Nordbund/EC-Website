@@ -12,8 +12,8 @@ Disallow: /kategorie
 Disallow: /download
 # Old pages (Google)
 # private pages
-Disallow /anmeldung
-Disallow /admin
+Disallow: /anmeldung
+Disallow: /admin
 # 404
 Disallow: /404
 # Old slugs
