@@ -851,6 +851,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@ec-nordbund/nuxt-vue2-leaflet@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-2.1.0.tgz#98564bb5971c8ddbb04bd5bcb5d5e73157d11d52"
+  integrity sha512-rqTR7W/7qrSP3DkDiZqKS/2Ko0wf5vKiYQkx2IwDS1RqHuysSCe+pQm26/6KIC4566NVJmAWFGlGj5CQAriA4w==
+
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.3.0.tgz#d736d6963d7003b6514e6324bec9c602ac340318"

@@ -210,7 +210,11 @@ export default {
     '@nuxtjs/vuetify',
   ],
   // '@nuxtjs/pwa',
-  modules: ['@nuxt/content', 'vue2-leaflet-nuxt', '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxt/content',
+    '@ec-nordbund/nuxt-vue2-leaflet',
+    '@nuxtjs/sitemap',
+  ],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
     theme: {
