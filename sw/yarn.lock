@@ -58,10 +58,10 @@ deepmerge@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
-esbuild@0.8.31:
-  version "0.8.31"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.31.tgz#c21e7adb3ad283c951a53de7ad64a5ae2df2ed34"
-  integrity sha512-7EIU0VdUxltwivjVezX3HgeNzeIVR1snkrAo57WdUnuBMykdzin5rTrxwCDM6xQqj0RL/HjOEm3wFr2ijHKeaA==
+esbuild@0.8.39:
+  version "0.8.39"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.39.tgz#18b84a3d56173c55ee8f45bc6c7b5374b0a98ecb"
+  integrity sha512-/do5H74a5ChyeKRWfkDh3EpICXpsz6dWTtFFbotb7BlIHvWqnRrZYDb8IBubOHdEtKzuiksilRO19aBtp3/HHQ==
 
 estree-walker@^1.0.1:
   version "1.0.1"
