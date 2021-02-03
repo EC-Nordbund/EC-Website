@@ -14,7 +14,7 @@
     "docker:builder": "yarn && yarn build"
   },
   "dependencies": {
-    "@mdi/js": "5.8.55",
+    "@mdi/js": "5.9.55",
     "@nuxt/content": "1.12.0",
     "@nuxt/typescript-runtime": "2.0.1",
     "@nuxtjs/composition-api": "0.18.1",
