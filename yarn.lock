@@ -851,7 +851,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@ec-nordbund/nuxt-vue2-leaflet@^2.1.0":
+"@ec-nordbund/nuxt-vue2-leaflet@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-2.1.0.tgz#98564bb5971c8ddbb04bd5bcb5d5e73157d11d52"
   integrity sha512-rqTR7W/7qrSP3DkDiZqKS/2Ko0wf5vKiYQkx2IwDS1RqHuysSCe+pQm26/6KIC4566NVJmAWFGlGj5CQAriA4w==
@@ -7617,7 +7617,7 @@ launch-editor@^2.2.1:
     chalk "^2.3.0"
     shell-quote "^1.6.1"
 
-leaflet-gesture-handling@1.2.1, leaflet-gesture-handling@^1.2.1:
+leaflet-gesture-handling@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/leaflet-gesture-handling/-/leaflet-gesture-handling-1.2.1.tgz#d88c9524be8a971a088b6a136b4f292d3016dae8"
   integrity sha512-MEod/3BmosTud0n/sw3iUecnOUDBz2U21gzwaOZS62voaNRkMj4Sm3XPjtnmivyMgYYF0tRHCMfVEYwcRsprUg==
@@ -13240,20 +13240,6 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
-
-vue2-leaflet-nuxt@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/vue2-leaflet-nuxt/-/vue2-leaflet-nuxt-1.1.1.tgz#406b922514b1ed9425fdb306353d1e0ea57ebd9d"
-  integrity sha512-R9c4SlE4xE8LQwj0ZSPagIAgs9DdBu0DDXVcAjJVwNzQ5WLqPpowEEeNmzxfMSQF2C1K3mJLqLBg4gr5LGuJwg==
-  dependencies:
-    vue2-leaflet "^2.5.2"
-  optionalDependencies:
-    leaflet-gesture-handling "^1.2.1"
-
-vue2-leaflet@^2.5.2:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/vue2-leaflet/-/vue2-leaflet-2.6.0.tgz#c83c60a745fbc2a74d9dbd0f75b2a5ae07d220a9"
-  integrity sha512-JG+w9TtNuk1yRpPta+RjzH6J+opdRUPzSo8UuBnwk+a/6XD0f2tsaB6g3D6ZpBgIE4wZA2dbZ0dZFz2ulYMj3A==
 
 vue@^2.6.12:
   version "2.6.12"
