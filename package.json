@@ -14,6 +14,7 @@
     "docker:builder": "yarn && yarn build"
   },
   "dependencies": {
+    "@ec-nordbund/leaflet": "^1.7.1-436430db4",
     "@ec-nordbund/nuxt-vue2-leaflet": "3.2.1",
     "@mdi/js": "5.9.55",
     "@nuxt/content": "1.12.0",
@@ -29,8 +30,6 @@
     "inline-css": "3.0.0",
     "js-sha3": "0.8.0",
     "jsonwebtoken": "8.5.1",
-    "@ec-nordbund/leaflet": "latest",
-
     "nodemailer": "6.4.17",
     "nuxt": "2.14.12",
     "nuxt-content-editor": "1.0.1",
