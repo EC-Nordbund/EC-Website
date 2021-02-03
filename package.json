@@ -35,7 +35,7 @@
     "nuxt-content-editor": "1.0.1",
     "remark-html": "13.0.1",
     "typeface-montserrat": "1.1.13",
-    "vue2-leaflet-nuxt": "1.1.0",
+    "vue2-leaflet-nuxt": "1.1.1",
     "vuetify": "2.3.15",
     "vuetify-icon-injector": "1.3.0",
     "web-vitals": "1.1.0"

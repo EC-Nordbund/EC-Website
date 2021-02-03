@@ -13236,10 +13236,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue2-leaflet-nuxt@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue2-leaflet-nuxt/-/vue2-leaflet-nuxt-1.1.0.tgz#22a433de4fa44b8b5f44d8b867d3f0dc0723c1a2"
-  integrity sha512-eiNLMyqqE9fwaW3qAYcrB3px/RzXbY0ius/EdVu7LAEPRBrCpg4J9uURUqD665F+rarP9ijhYXjxm5IAMsJYiA==
+vue2-leaflet-nuxt@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue2-leaflet-nuxt/-/vue2-leaflet-nuxt-1.1.1.tgz#406b922514b1ed9425fdb306353d1e0ea57ebd9d"
+  integrity sha512-R9c4SlE4xE8LQwj0ZSPagIAgs9DdBu0DDXVcAjJVwNzQ5WLqPpowEEeNmzxfMSQF2C1K3mJLqLBg4gr5LGuJwg==
   dependencies:
     vue2-leaflet "^2.5.2"
   optionalDependencies:
