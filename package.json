@@ -41,7 +41,7 @@
     "web-vitals": "1.1.0"
   },
   "devDependencies": {
-    "@lhci/cli": "0.6.1",
+    "@lhci/cli": "0.7.0",
     "@nuxt/types": "2.14.12",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxtjs/eslint-config": "5.0.0",
