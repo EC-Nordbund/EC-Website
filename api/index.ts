@@ -17,7 +17,7 @@ import { checkToken } from './jwt'
 const vData = {
   428: 'TimeOut 2020/21',
   440: "EC'ler auf der Kanzel",
-  441: 'Mitarbeiter Wochenende',
+  441: 'Mitarbeiter Wochenende [ABGESAGT!]',
   442: 'PfingstCamp',
   443: 'Landesjungscharfreizeit I',
   444: 'Landesjungscharfreizeit II',
@@ -28,6 +28,7 @@ const vData = {
   449: 'Reiterfreizeit',
   450: 'MaTag',
   451: 'TimeOut 2021/22',
+  452: 'MiWoE compact'
 }
 
 const app = express()
