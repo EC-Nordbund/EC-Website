@@ -90,10 +90,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-idb-keyval@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-5.0.0.tgz#68e638e973ac641a7bb7416fdacd511238565023"
-  integrity sha512-/1pWu89XEgjIud81IMj1Ctxvm2fkUnNXbodUEDZIvoa9T7C2yqkZhJjNGti3vtZOG8rlNMk+EPIb/YcyC94ZCA==
+idb-keyval@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-5.0.2.tgz#243cf2b7db1bee2a8a41b78c14a18a85db0e1646"
+  integrity sha512-1DYjY/nX2U9pkTkwFoAmKcK1ZWmkNgO32Oon9tp/9+HURizxUQ4fZRxMJZs093SldP7q6dotVj03kIkiqOILyA==
 
 is-core-module@^2.1.0:
   version "2.2.0"
