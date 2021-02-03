@@ -856,10 +856,10 @@
   resolved "https://registry.yarnpkg.com/@ec-nordbund/leaflet/-/leaflet-1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2.tgz#6bdf127cd7080f83e88ad19dea88e60e79f82aa0"
   integrity sha512-Y+CYxkldogssEd5nY5esMoMPGmo8+Qk8zaXSn6QEr1XT6ej7os7Cgg9oNWQhHGosWrGbhFfAab3nm5hVWPxSRQ==
 
-"@ec-nordbund/nuxt-vue2-leaflet@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-3.2.0.tgz#d9d764d514963dac3a04b4d1910a751712049caa"
-  integrity sha512-b4hTrG8qsRLy9vVmVI/i+7xw2q53ODAlzt2lnSwVGrZBfsH2Ll4VTXZeDZpET3HSAysQiJwMadnCIFGU11oySg==
+"@ec-nordbund/nuxt-vue2-leaflet@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-3.2.1.tgz#42c123290e4f9d84a93de366b5f8b055d4bf3726"
+  integrity sha512-D0hHUZRL1Fmi1mMAeoHkz3VwyGHkiV7pEvEailJLVkXgJVUnjp/P38iohnqaYQfO2nXmPexnLk3daKt82+6kdQ==
 
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
