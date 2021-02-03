@@ -851,10 +851,15 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@ec-nordbund/nuxt-vue2-leaflet@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-2.1.0.tgz#98564bb5971c8ddbb04bd5bcb5d5e73157d11d52"
-  integrity sha512-rqTR7W/7qrSP3DkDiZqKS/2Ko0wf5vKiYQkx2IwDS1RqHuysSCe+pQm26/6KIC4566NVJmAWFGlGj5CQAriA4w==
+"@ec-nordbund/leaflet@latest":
+  version "1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"
+  resolved "https://registry.yarnpkg.com/@ec-nordbund/leaflet/-/leaflet-1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2.tgz#6bdf127cd7080f83e88ad19dea88e60e79f82aa0"
+  integrity sha512-Y+CYxkldogssEd5nY5esMoMPGmo8+Qk8zaXSn6QEr1XT6ej7os7Cgg9oNWQhHGosWrGbhFfAab3nm5hVWPxSRQ==
+
+"@ec-nordbund/nuxt-vue2-leaflet@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@ec-nordbund/nuxt-vue2-leaflet/-/nuxt-vue2-leaflet-3.2.0.tgz#d9d764d514963dac3a04b4d1910a751712049caa"
+  integrity sha512-b4hTrG8qsRLy9vVmVI/i+7xw2q53ODAlzt2lnSwVGrZBfsH2Ll4VTXZeDZpET3HSAysQiJwMadnCIFGU11oySg==
 
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
@@ -7616,15 +7621,6 @@ launch-editor@^2.2.1:
   dependencies:
     chalk "^2.3.0"
     shell-quote "^1.6.1"
-
-leaflet-gesture-handling@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/leaflet-gesture-handling/-/leaflet-gesture-handling-1.2.1.tgz#d88c9524be8a971a088b6a136b4f292d3016dae8"
-  integrity sha512-MEod/3BmosTud0n/sw3iUecnOUDBz2U21gzwaOZS62voaNRkMj4Sm3XPjtnmivyMgYYF0tRHCMfVEYwcRsprUg==
-
-"leaflet@https://github.com/EC-Nordbund/Leaflet.git":
-  version "1.7.1"
-  resolved "https://github.com/EC-Nordbund/Leaflet.git#2dde9fc34eddea3e97ebe8bc8170ce4f38545dfb"
 
 levn@^0.4.1:
   version "0.4.1"
