@@ -851,7 +851,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@ec-nordbund/leaflet@^1.7.1-436430db4":
+"@ec-nordbund/leaflet@1.7.1-436430db4":
   version "1.7.1-436430db4"
   resolved "https://registry.yarnpkg.com/@ec-nordbund/leaflet/-/leaflet-1.7.1-436430db4.tgz#3cef84e215febef32b16de21d07bfc44bdec2e07"
   integrity sha512-/BsaUjG1U8NeyQAN27lRRyyLp9nGcL4uQwSnxyyXjK6tNoPF9rftz0qubDMrf4zQ/oTmygFCkuJUP8icdK+RkA==
