@@ -7,7 +7,7 @@
     "@rollup/plugin-node-resolve": "11.0.1",
     "esbuild": "0.8.31",
     "idb-keyval": "5.0.0",
-    "rollup": "2.36.1",
+    "rollup": "2.36.2",
     "rollup-plugin-esbuild": "2.6.1"
   }
 }
