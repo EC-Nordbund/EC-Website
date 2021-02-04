@@ -1,13 +1,5 @@
 <template lang="pug">
   v-form(v-if="(force || (!disabled && !countdown)) && !success")
-    //- Mitarbeiter Hinweis
-    v-alert(type="info" tile)
-      v-expansion-panels(flat tile light).transparent.ma-n3
-        v-expansion-panel.transparent
-          v-expansion-panel-header.pr-0.text-subtitle-2.font-weight-medium Anmeldung für Mitarbeiter
-          v-expansion-panel-content.pr-0.mr-n6
-            | Die Anmeldung für  Mitarbeiter läuft ab sofort anders als bissher bitte wende dich an deinen Verantsaltungsleiter für weitere Informationen.
-
     v-radio-group(v-model="data.geschlecht" required label="Geschlecht" @change="geschlechtEvent" :error-messages="geschlechtErrors")
       v-radio(value="m" label="Männlich")
       v-radio(value="w" label="Weiblich")
