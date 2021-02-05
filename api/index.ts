@@ -28,7 +28,8 @@ const vData = {
   449: 'Reiterfreizeit',
   450: 'MaTag',
   451: 'TimeOut 2021/22',
-  452: 'MiWoE compact'
+  452: 'MiWoE compact',
+  453: 'Kalmi Kurz Camp'
 }
 
 const app = express()
