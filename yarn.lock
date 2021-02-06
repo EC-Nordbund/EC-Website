@@ -851,10 +851,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@ec-nordbund/leaflet@1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2":
-  version "1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"
-  resolved "https://registry.yarnpkg.com/@ec-nordbund/leaflet/-/leaflet-1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2.tgz#6bdf127cd7080f83e88ad19dea88e60e79f82aa0"
-  integrity sha512-Y+CYxkldogssEd5nY5esMoMPGmo8+Qk8zaXSn6QEr1XT6ej7os7Cgg9oNWQhHGosWrGbhFfAab3nm5hVWPxSRQ==
+"@ec-nordbund/leaflet@1.7.1-436430db4-436430db4":
+  version "1.7.1-436430db4-436430db4"
+  resolved "https://registry.yarnpkg.com/@ec-nordbund/leaflet/-/leaflet-1.7.1-436430db4-436430db4.tgz#4437b9c4ea2e4446644c99f6e8e66b84f9eb2332"
+  integrity sha512-VVi8m4+hlcF7iBWAqFLJSqEeijJZoSch3o/btt0SEV2XTURvipuBEf/lNFBknLychBU6EaarhtAw2dmr846scg==
 
 "@ec-nordbund/nuxt-vue2-leaflet@3.2.1":
   version "3.2.1"
@@ -1352,10 +1352,10 @@
     webpack-node-externals "^2.5.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/composition-api@0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/composition-api/-/composition-api-0.19.0.tgz#06ed97e70e4c5522bad151aa1890d85afb252b49"
-  integrity sha512-eej0MNm2KE4BSzAq+iZ2NrL8abDBfZoFrbBHV/GxuOVOQce2aKOEVZ3HB7UgEvdJywKmhM1/RajkGNG+YvT4CA==
+"@nuxtjs/composition-api@0.19.1":
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/composition-api/-/composition-api-0.19.1.tgz#28389d7af569dbb0f32f9011fe8d88a8a1379cab"
+  integrity sha512-O2l/ciMwypWKDa9fIAWnAx/ZDHYH3yiXKNYlvv0a4vl2dBTFQQKAZTHjtqiuyejMJ4RuKBjGvBY+4LZ/w3HFEA==
   dependencies:
     "@vue/composition-api" "1.0.0-rc.1"
     defu "^3.2.2"
