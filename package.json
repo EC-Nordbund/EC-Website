@@ -17,7 +17,7 @@
     "@ec-nordbund/leaflet": "1.7.1-436430db4-436430db4",
     "@ec-nordbund/nuxt-vue2-leaflet": "3.2.1",
     "@mdi/js": "5.9.55",
-    "@nuxt/content": "1.12.0",
+    "@nuxt/content": "1.13.1",
     "@nuxt/typescript-runtime": "2.0.1",
     "@nuxtjs/composition-api": "0.19.1",
     "@nuxtjs/pwa": "3.3.5",
