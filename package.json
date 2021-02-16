@@ -31,7 +31,7 @@
     "js-sha3": "0.8.0",
     "jsonwebtoken": "8.5.1",
     "nodemailer": "6.4.18",
-    "nuxt": "2.14.12",
+    "nuxt": "2.15.0",
     "nuxt-content-editor": "1.0.1",
     "remark-html": "13.0.1",
     "typeface-montserrat": "1.1.13",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "0.7.0",
-    "@nuxt/types": "2.14.12",
+    "@nuxt/types": "2.15.0",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxtjs/eslint-config": "5.0.0",
     "@nuxtjs/eslint-config-typescript": "5.0.0",
