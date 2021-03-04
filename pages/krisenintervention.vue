@@ -22,7 +22,7 @@ v-container
               )
             v-col.px-sm-5
               h4.text-h6 Thomas Seeger
-              p.subtitle-1 Teen- unde Jugendreferent
+              p.subtitle-1 Teen- und Jugendreferent
 
               //- Telefon
               .d-flex.flex-row.align-center.mb-2
