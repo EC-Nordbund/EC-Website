@@ -22,7 +22,7 @@ v-container
               )
             v-col.px-sm-5
               h4.text-h6 Thomas Seeger
-              p.subtitle-1 Jugendreferent
+              p.subtitle-1 Teen- unde Jugendreferent
 
               //- Telefon
               .d-flex.flex-row.align-center.mb-2
@@ -67,7 +67,7 @@ v-container
               )
             v-col.px-sm-5
               h4.text-h6 Dortje Gaertner
-              p.subtitle-1 Kinder- und Jungschararbeit
+              p.subtitle-1 Kinder- und Jungscharreferentin
 
               //- Telefon
               .d-flex.flex-row.align-center.mb-2
