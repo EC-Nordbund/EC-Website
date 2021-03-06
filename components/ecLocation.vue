@@ -9,7 +9,8 @@ client-only
     l-tile-layer(
       :email='`app@ec-nordbund.de`',
       url='https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
-      attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+      :options="{crossOrigin: true}"
     )
     l-control-scale(position='topright', metric)
     l-marker(v-for='m in marker', :lat-lng='m.marker', :key='m.title')
