@@ -228,7 +228,7 @@ import {
   ref,
   useContext,
   computed,
-  useAsync,
+  useStatic,
 } from '@nuxtjs/composition-api'
 
 import copy from '~/helpers/copy'
@@ -241,7 +241,7 @@ export default defineComponent({
     const { isDev, $content } = useContext()
 
     // could be optimized
-    const losungen = useAsync(async () => {
+    const losungen = useStatic(async () => {
       return (
         await $content('api', 'losungen').fetch()
       ).body.FreeXml.Losungen.filter((v) =>
@@ -257,7 +257,7 @@ export default defineComponent({
           }`
         )
       )[0]
-    })
+    }, undefined, 'losungen')
 
     const isStartPage = computed(() => ctx.root.$nuxt.$route.path == '/')
 

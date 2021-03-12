@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useAsync, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, useStatic, useContext, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const page = useAsync(() => $content('impressum').fetch())
+    const page = useStatic(() => $content('impressum').fetch(), undefined, 'impressum')
 
     return { page }
   },

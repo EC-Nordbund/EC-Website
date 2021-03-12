@@ -17,3 +17,6 @@ $ yarn start
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+# CHANGES
+1. Global css removed (deps error)
+2. Removed API

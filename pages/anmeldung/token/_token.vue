@@ -163,10 +163,7 @@ import {
   defineComponent,
   useContext,
   ref,
-  ssrRef,
-  useAsync,
-  computed,
-  onMounted,
+  computed
 } from '@nuxtjs/composition-api'
 import { post } from '~/helpers/fetch'
 import copy from '~/helpers/copy'
@@ -174,11 +171,11 @@ export default defineComponent({
   layout: 'minimal',
   setup(_, ctx) {
     const token = useContext().params.value.token
-    const loaded = ssrRef(false)
+    const loaded = ref(false)
     const loadingStep2 = ref(true)
     const loadingStep3 = ref(false)
-    const anmeldeID = ssrRef(null as null | string)
-    const wList = ssrRef(0)
+    const anmeldeID = ref(null as null | string)
+    const wList = ref(0)
     const type = ref(1)
 
     const isMobile = computed(() => ctx.root.$vuetify.breakpoint.smAndDown)
@@ -250,7 +247,7 @@ export default defineComponent({
     const myStatus = ref(null as any)
 
     if (process.browser) {
-      useAsync(async () => {
+      (async () => {
         const res = await post<{
           status: 'OK' | 'ERROR'
           context: string
@@ -288,7 +285,7 @@ export default defineComponent({
         } else {
           ctx.root.$router.push('/anmeldung/token?error=' + res.context)
         }
-      })
+      })()
     }
 
     // console.log(`isOnWarteliste ${isOnWarteliste}`)

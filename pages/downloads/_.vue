@@ -45,7 +45,7 @@ v-container
 import {
   defineComponent,
   useContext,
-  useAsync,
+  useStatic,
   computed,
 } from '@nuxtjs/composition-api'
 import { mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile } from '@mdi/js'
@@ -58,8 +58,8 @@ export default defineComponent({
       .split('/')
       .filter((v) => v !== '')
 
-    const fileData = useAsync(
-      async () => await $content('downloads').fetch<any>()
+    const fileData = useStatic(
+      async () => await $content('downloads').fetch<any>(), undefined, 'downloads'
     )
 
     const data = computed(() => {

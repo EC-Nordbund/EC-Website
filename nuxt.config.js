@@ -1,6 +1,5 @@
 import de from 'vuetify/es5/locale/de'
 import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
-import { getIconInjector } from 'vuetify-icon-injector'
 
 const createSitemapRoutes = async () => {
   const routes = []
@@ -78,7 +77,7 @@ const vuetifyTheme = {
  */
 export default {
   target: 'server',
-  modern: true,
+  // modern: true,
 
   components: true,
 
@@ -102,7 +101,6 @@ export default {
         theme: false,
       },
     },
-    editor: '../../node_modules/nuxt-content-editor/editor.vue',
   },
 
   head: {
@@ -201,15 +199,15 @@ export default {
    */
   buildModules: [
     '@nuxtjs/composition-api',
-    '@nuxt/typescript-build',
+    '@ec-nordbund/typescript-module',
+    '@ec-nordbund/vuetify-module'
     // '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify',
   ],
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
     '@ec-nordbund/nuxt-vue2-leaflet',
-    '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap'
   ],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
@@ -239,25 +237,15 @@ export default {
       locales: { de },
     },
     preset: undefined,
-    defaultAssets: false,
+    iconInjector: {
+      icons: {},
+      components: {
+        'ec-hexa-button': ['icon'],
+      }
+    }
   },
 
   build: {
-    transpile: ['leaflet', 'Vue2Leaflet'],
-    loaders: {
-      vue: {
-        compilerOptions: {
-          modules: [
-            getIconInjector(
-              {},
-              {
-                'ec-hexa-button': ['icon'],
-              }
-            ),
-          ],
-        },
-      },
-    },
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
@@ -266,20 +254,6 @@ export default {
       if (ctx.isClient) {
         // Optimierungen auf Chunk level
         config.optimization = {
-          splitChunks: {
-            // Minimize init load.
-            maxAsyncRequests: 30,
-            maxInitialRequests: 30,
-
-            cacheGroups: {
-              // Handle aller anderen Module.
-              default: {
-                minChunks: 2,
-                priority: -20,
-                reuseExistingChunk: true,
-              },
-            },
-          },
           concatenateModules: false,
         }
 
@@ -289,9 +263,9 @@ export default {
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
     extractCSS: true,
   },
-  serverMiddleware: {
-    '/api': '~/api',
-  },
+  // serverMiddleware: {
+  //   '/api': '~/api',
+  // },
   render: {
     bundleRenderer: {
       shouldPreload: () => false,
