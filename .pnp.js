@@ -79,6 +79,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.2.1"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
+            ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.1"],
             ["sass", "npm:1.32.8"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.1"],
@@ -7029,6 +7030,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.2.1"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
+            ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.1"],
             ["sass", "npm:1.32.8"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.1"],
@@ -17055,6 +17057,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["remark", [
+        ["npm:13.0.0", {
+          "packageLocation": "./.yarn/cache/remark-npm-13.0.0-7879967618-eac686868c.zip/node_modules/remark/",
+          "packageDependencies": [
+            ["remark", "npm:13.0.0"],
+            ["remark-parse", "npm:9.0.0"],
+            ["remark-stringify", "npm:9.0.1"],
+            ["unified", "npm:9.2.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["remark-autolink-headings", [
         ["npm:6.0.1", {
           "packageLocation": "./.yarn/cache/remark-autolink-headings-npm-6.0.1-fde1e30d55-c15999101e.zip/node_modules/remark-autolink-headings/",
@@ -17152,6 +17166,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["remark-squeeze-paragraphs", "npm:4.0.0"],
             ["mdast-squeeze-paragraphs", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["remark-stringify", [
+        ["npm:9.0.1", {
+          "packageLocation": "./.yarn/cache/remark-stringify-npm-9.0.1-1b51d227a7-34f5807981.zip/node_modules/remark-stringify/",
+          "packageDependencies": [
+            ["remark-stringify", "npm:9.0.1"],
+            ["mdast-util-to-markdown", "npm:0.6.2"]
           ],
           "linkType": "HARD",
         }]

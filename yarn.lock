@@ -5271,7 +5271,8 @@ __metadata:
     prettier: 2.2.1
     pug: 3.0.2
     pug-plain-loader: 1.1.0
-    remark-html: 13.0.1
+    remark: ^13.0.0
+    remark-html: ^13.0.1
     sass: ^1.32.8
     sass-loader: 10
     typeface-montserrat: 1.1.13
@@ -13974,7 +13975,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"remark-html@npm:13.0.1":
+"remark-html@npm:^13.0.1":
   version: 13.0.1
   resolution: "remark-html@npm:13.0.1"
   dependencies:
@@ -14020,6 +14021,26 @@ fsevents@~2.3.1:
   dependencies:
     mdast-squeeze-paragraphs: ^4.0.0
   checksum: 3ff09ba3e47452dfddef98a0a53d064b20bcdd6d568f4f02766651e60f506ee970b25d282683c25820515856b48a068ae0032cc01151110d605b6ba07b40a30d
+  languageName: node
+  linkType: hard
+
+"remark-stringify@npm:^9.0.0":
+  version: 9.0.1
+  resolution: "remark-stringify@npm:9.0.1"
+  dependencies:
+    mdast-util-to-markdown: ^0.6.0
+  checksum: 34f5807981f59d6878f4dc5b67c8af908c5736886cc4f7d959e583c8dcb47d7693f09253510a46fdb1d60d3dbb2551f815666c433473bb38cd495df2abfecdcd
+  languageName: node
+  linkType: hard
+
+"remark@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "remark@npm:13.0.0"
+  dependencies:
+    remark-parse: ^9.0.0
+    remark-stringify: ^9.0.0
+    unified: ^9.1.0
+  checksum: eac686868cbf71a59a24e3b5a5946439ce124dbc6b26bb5da5197ad1eaf91290950fef46eb4a7ffecd7fcf17bb84ae0d1a4e2719b15fbeaf2372e059a0b81572
   languageName: node
   linkType: hard
 
@@ -16127,7 +16148,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"unified@npm:^9.2.1":
+"unified@npm:^9.1.0, unified@npm:^9.2.1":
   version: 9.2.1
   resolution: "unified@npm:9.2.1"
   dependencies:
