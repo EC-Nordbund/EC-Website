@@ -185,7 +185,8 @@ export default {
     cacheTime: -1,
   },
 
-  css: ['@fontsource/montserrat/latin-ext.css', '~/assets/styles/global.scss'],
+  // '@fontsource/montserrat/latin-ext.css', 
+  css: ['~/assets/styles/global.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
