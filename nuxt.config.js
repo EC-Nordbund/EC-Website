@@ -1,5 +1,6 @@
 import de from 'vuetify/es5/locale/de'
 import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
+import { getIconInjector } from 'vuetify-icon-injector'
 
 const createSitemapRoutes = async () => {
   const routes = []
@@ -77,7 +78,7 @@ const vuetifyTheme = {
  */
 export default {
   target: 'server',
-  // modern: true,
+  modern: true,
 
   components: true,
 
@@ -101,6 +102,7 @@ export default {
         theme: false,
       },
     },
+    editor: '../../node_modules/nuxt-content-editor/editor.vue',
   },
 
   head: {
@@ -185,7 +187,7 @@ export default {
     cacheTime: -1,
   },
 
-  css: ['@fontsource/montserrat/latin-ext.css', '~/assets/styles/global.scss'],
+  css: ['~/assets/styles/global.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -199,15 +201,15 @@ export default {
    */
   buildModules: [
     '@nuxtjs/composition-api',
-    '@ec-nordbund/typescript-module',
-    '@ec-nordbund/vuetify-module'
+    '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module',
+    '@nuxtjs/vuetify',
   ],
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
     '@ec-nordbund/nuxt-vue2-leaflet',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
@@ -237,17 +239,25 @@ export default {
       locales: { de },
     },
     preset: undefined,
-    iconInjector: {
-      icons: {},
-      components: {
-        'ec-hexa-button': ['icon'],
-      }
-    }
+    defaultAssets: false,
   },
 
   build: {
-    cache: true,
-    transpile: ['vuetify/lib'],
+    transpile: ['leaflet', 'Vue2Leaflet'],
+    loaders: {
+      vue: {
+        compilerOptions: {
+          modules: [
+            getIconInjector(
+              {},
+              {
+                'ec-hexa-button': ['icon'],
+              }
+            ),
+          ],
+        },
+      },
+    },
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
@@ -256,6 +266,20 @@ export default {
       if (ctx.isClient) {
         // Optimierungen auf Chunk level
         config.optimization = {
+          splitChunks: {
+            // Minimize init load.
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+
+            cacheGroups: {
+              // Handle aller anderen Module.
+              default: {
+                minChunks: 2,
+                priority: -20,
+                reuseExistingChunk: true,
+              },
+            },
+          },
           concatenateModules: false,
         }
 
@@ -263,18 +287,7 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    // extractCSS: true,
-    optimizeCSS: true,
-    filenames: {
-      app: ({ isModern }) => `[name]${isModern ? '.modern' : ''}.js`,
-      chunk: ({ isModern }) => `[name]${isModern ? '.modern' : ''}.js`,
-      css: () => '[name].css',
-      img: () => '[path][name].[ext]',
-      font: () => '[path][name].[ext]',
-      video: () => '[path][name].[ext]',
-    },
-    parallel: true,
-    quiet: false
+    extractCSS: true,
   },
   serverMiddleware: {
     '/api': '~/api',
