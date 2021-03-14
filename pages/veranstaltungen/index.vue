@@ -3,6 +3,28 @@
     h1 Freizeiten & Events
     //- TODO: sortby by date (asc/desc), alphabetic (asc/desc) 
     //- TODO: filter by tags, age, date-range
+
+    v-row(v-if="veranstaltungen")
+      v-col(cols="12" sm="6" md="4")
+        v-menu(
+          :value="scopeMenu"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          min-width="290")
+          template(v-slot:activator="{ on, attrs }")
+            v-text-field(label="Zeitraum" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on" :value="dateRangeText")
+          v-card(tile)
+            v-list
+              v-list-item-group(mandatory :value="Object.values(Scope).indexOf(currentScope)")
+                v-list-item(v-for="scope in Scope" v-if="scope !== Scope.CUSTOM" :key="scope" @click="saveScope(scope)")
+                  v-list-item-title {{ scope }} 
+                v-list-group(:value="false")
+                  template(v-slot:activator)
+                    v-list-item-content
+                      v-list-item-title {{ Scope.CUSTOM }}
+                  v-date-picker(v-model="customDateRange" range no-title scrollable @input="saveScope(Scope.CUSTOM)")
+
     v-row(v-if="veranstaltungen")
       v-col(v-for="item in veranstaltungen" cols="12" sm="6" md="12" :key="item.slug")
         v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
@@ -40,16 +62,66 @@
     p(v-else) Loading...
 </template>
 <script lang="ts">
+import { IContentDocument } from '@nuxt/content/types/content';
 import {
   defineComponent,
   useAsync,
   useContext,
   computed,
+  ref
 } from '@nuxtjs/composition-api'
 import { supportWebp } from '../../helpers/webp'
 
+
 export default defineComponent({
-  setup(props, ctx) {
+  setup(_, ctx) {
+    enum Scope {
+      TODAY = "Heute",
+      ALL = "Alle",
+      FUTURE = "Zukünftige",
+      PAST = "Vergangene",
+      CUSTOM = "Benutzerdefiniert" };
+
+    const scopeMenu = ref(false)
+    const currentScope = ref(Scope.FUTURE)
+    const customDateRange = ref([])
+
+    const dateRangeText = computed(() => {
+      if (currentScope.value === Scope.CUSTOM) {
+        return customDateRange.value.join(" bis ")
+      }
+
+      return currentScope.value
+    });
+
+    const saveScope = (scope: Scope) => {
+      if (scope == Scope.CUSTOM && customDateRange.value.length < 2) return; // wait for the second date
+      scopeMenu.value = false
+      currentScope.value = scope
+    }
+
+    const filter = (veranstaltung: IContentDocument) => {
+      const today = new Date().toISOString().substring(0, 10);
+
+      switch (currentScope.value) {
+        case Scope.CUSTOM:
+          return veranstaltung.begin > customDateRange.value[0] && veranstaltung.ende < customDateRange.value[1]
+
+        case Scope.ALL:
+          return true
+
+        case Scope.TODAY:
+          return veranstaltung.start <= today && veranstaltung.ende >= today
+
+        case Scope.PAST:
+          return veranstaltung.ende <= today
+
+        case Scope.FUTURE:
+        default:
+          return veranstaltung.begin >= today
+      }
+    }
+
     const detailsMaxHeight = computed(() => {
       switch (ctx.root.$vuetify.breakpoint.name) {
         case 'md':
@@ -74,7 +146,7 @@ export default defineComponent({
 
     const { $content } = useContext()
 
-    const veranstaltungen = useAsync(async () => {
+    const veranstaltungContent = useAsync(async () => {
       const veranstaltungen = await $content('veranstaltung')
         .only([
           'slug',
@@ -95,11 +167,21 @@ export default defineComponent({
       return veranstaltungen
     })
 
+    const veranstaltungen = computed(() =>{
+      return veranstaltungContent.value?.filter(filter)
+    })
+
     return {
       detailsMaxHeight,
       textWaitingQueue,
       veranstaltungen,
       supportWebp,
+      currentScope,
+      scopeMenu,
+      customDateRange,
+      dateRangeText,
+      Scope,
+      saveScope
     }
   },
   head: {
