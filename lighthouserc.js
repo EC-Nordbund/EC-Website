@@ -36,7 +36,8 @@ module.exports = {
         // Sollte bald wieder rein
         'uses-optimized-images': 'warn',
         'content-width': 'warn',
-         // Probleme in CI
+        'non-composited-animations': 'warn',
+        // Probleme in CI
         'canonical': 'off',
         // NO PWA
         'works-offline': 'off',
