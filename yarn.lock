@@ -1427,9 +1427,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ec-nordbund/vuetify-module@npm:^0.3.4":
-  version: 0.3.4
-  resolution: "@ec-nordbund/vuetify-module@npm:0.3.4"
+"@ec-nordbund/vuetify-module@npm:^0.3.6":
+  version: 0.3.6
+  resolution: "@ec-nordbund/vuetify-module@npm:0.3.6"
   dependencies:
     "@ec-nordbund/vuetify-icon-injector": 2.1.0
     consola: 2.15.3
@@ -1438,7 +1438,7 @@ __metadata:
   peerDependencies:
     nuxt: ">=2.15"
     vuetify: 2
-  checksum: 7c69e7b01ab7010eac008f34a4d84b19b099575d0d6228b35eaca1caadecaa26180de66185e51c1ca861b2b49a6adb278a960b17f34b6ba200a09d147956482f
+  checksum: 61297211f5d4133111baa7b215767c099c539682fad6e101d1b8034885d6d3e68da860e62e326afff21b12183a34ab74a9f6c0279ceb4d91abc29f7ef5ea0daf
   languageName: node
   linkType: hard
 
@@ -1687,7 +1687,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/content@npm:1.14.0":
+"@nuxt/content@npm:^1.14.0":
   version: 1.14.0
   resolution: "@nuxt/content@npm:1.14.0"
   dependencies:
@@ -2509,12 +2509,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/nodemailer@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@types/nodemailer@npm:6.4.0"
+"@types/nodemailer@npm:6.4.1":
+  version: 6.4.1
+  resolution: "@types/nodemailer@npm:6.4.1"
   dependencies:
     "@types/node": "*"
-  checksum: 490553de5408b30793246cdd1476885a26649d1403d9530a84730d87644aa515ad52a1eacda4f4fc2dcfd40762d737007fffbf1bf40ed62d628ae8ef04c8a87b
+  checksum: 3c25dc14c829bb5dc00de2d1308c208faa395446f357b55d36f28b6640b19f97cd1f8a1596ef1cb7938897a685619b4bd2adfc1f47375afce048c11e7ee52d65
   languageName: node
   linkType: hard
 
@@ -5232,11 +5232,11 @@ __metadata:
     "@ec-nordbund/leaflet": 1.7.1-436430db4-436430db4
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": ^0.2.0
-    "@ec-nordbund/vuetify-module": ^0.3.4
+    "@ec-nordbund/vuetify-module": ^0.3.6
     "@fontsource/montserrat": ^4.2.2
     "@lhci/cli": 0.7.0
     "@mdi/js": 5.9.55
-    "@nuxt/content": 1.14.0
+    "@nuxt/content": ^1.14.0
     "@nuxt/types": 2.15.3
     "@nuxt/typescript-build": 2.1.0
     "@nuxt/typescript-runtime": 2.1.0
@@ -5249,13 +5249,13 @@ __metadata:
     "@types/body-parser": 1.19.0
     "@types/express": 4.17.11
     "@types/jsonwebtoken": ^8.5.0
-    "@types/nodemailer": 6.4.0
+    "@types/nodemailer": 6.4.1
     ackee-tracker: 5.0.1
     axios: 0.21.1
     babel-eslint: 10.1.0
     body-parser: 1.19.0
     copy-to-clipboard: 3.3.1
-    eslint: 7.21.0
+    eslint: 7.22.0
     eslint-config-prettier: 8.1.0
     eslint-plugin-nuxt: 2.0.0
     eslint-plugin-prettier: 3.3.1
@@ -5265,7 +5265,7 @@ __metadata:
     inline-css: 3.0.0
     js-sha3: 0.8.0
     jsonwebtoken: ^8.5.1
-    nodemailer: 6.4.18
+    nodemailer: 6.5.0
     nuxt: 2.15.3
     nuxt-content-editor: 1.0.1
     prettier: 2.2.1
@@ -5274,11 +5274,11 @@ __metadata:
     remark: ^13.0.0
     remark-html: ^13.0.1
     sass: ^1.32.8
-    sass-loader: 10
+    sass-loader: 10.1.1
     typeface-montserrat: 1.1.13
-    vuetify: 2.3.15
-    web-vitals: 1.1.0
-    webpack: 4
+    vuetify: 2.4.6
+    web-vitals: 1.1.1
+    webpack: 4.46.0
   languageName: unknown
   linkType: soft
 
@@ -6867,9 +6867,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:7.21.0":
-  version: 7.21.0
-  resolution: "eslint@npm:7.21.0"
+"eslint@npm:7.22.0":
+  version: 7.22.0
+  resolution: "eslint@npm:7.22.0"
   dependencies:
     "@babel/code-frame": 7.12.11
     "@eslint/eslintrc": ^0.4.0
@@ -6888,7 +6888,7 @@ __metadata:
     file-entry-cache: ^6.0.1
     functional-red-black-tree: ^1.0.1
     glob-parent: ^5.0.0
-    globals: ^12.1.0
+    globals: ^13.6.0
     ignore: ^4.0.6
     import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
@@ -6896,7 +6896,7 @@ __metadata:
     js-yaml: ^3.13.1
     json-stable-stringify-without-jsonify: ^1.0.1
     levn: ^0.4.1
-    lodash: ^4.17.20
+    lodash: ^4.17.21
     minimatch: ^3.0.4
     natural-compare: ^1.4.0
     optionator: ^0.9.1
@@ -6910,7 +6910,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: aa8fd50cddc4ab259e2d0ff8f43f0601060543c12e335d76ee074bf25ad02a885bea9d48a367de736d3bdb871de7eb62e6d67930c0173cc46280ddd0f236e740
+  checksum: 9be0a215b6b1e2941318b3e0c11ada8ba9a4adacf5960ab916d07f1d619828af40cba00e8ed7d151b8c715ba8ea81f4c2a56e46a2558d9795788b4f410a95ec4
   languageName: node
   linkType: hard
 
@@ -7942,6 +7942,15 @@ fsevents@~2.3.1:
   dependencies:
     type-fest: ^0.8.1
   checksum: 0b9764bdeab0bc9762dea8954a0d4c5db029420bd8bf693df9098ce7e045ccaf9b2d259185396fd048b051d42fdc8dc7ab02af62e3dbeb2324a78a05aac8d33c
+  languageName: node
+  linkType: hard
+
+"globals@npm:^13.6.0":
+  version: 13.6.0
+  resolution: "globals@npm:13.6.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: 0322d9c1b210be233060aa79592bc65c45572237be8dbedabf830dbd70120ac21f8721309a396782463e60c4cc0b92a6476a348b4b13e481f35e361195328b8e
   languageName: node
   linkType: hard
 
@@ -11349,10 +11358,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.4.18":
-  version: 6.4.18
-  resolution: "nodemailer@npm:6.4.18"
-  checksum: 56b5e39bc5d34988102bbc6c7eb8eaa7ac64a4daed55d2610c379ad04268d76399ab51b74965001fd2768763750b290785488b8fd1ccdf8274b91ff6ca3ec793
+"nodemailer@npm:6.5.0":
+  version: 6.5.0
+  resolution: "nodemailer@npm:6.5.0"
+  checksum: 9611c14a6f52475a0bea626fa342cf263a67d324c30b6349da099164ab66c6d63bc3d67453fe5d41ae7ab13d9a42cfb45cb5623f1a2e91135a929bada7f9bf83
   languageName: node
   linkType: hard
 
@@ -14406,7 +14415,7 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:10, sass-loader@npm:^10.1.1":
+"sass-loader@npm:10.1.1, sass-loader@npm:^10.1.1":
   version: 10.1.1
   resolution: "sass-loader@npm:10.1.1"
   dependencies:
@@ -16841,12 +16850,12 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vuetify@npm:2.3.15":
-  version: 2.3.15
-  resolution: "vuetify@npm:2.3.15"
+"vuetify@npm:2.4.6":
+  version: 2.4.6
+  resolution: "vuetify@npm:2.4.6"
   peerDependencies:
     vue: ^2.6.4
-  checksum: 2cd9f2cadfb40f35d3403482ca7abb83679ccac8fb1f15810e037b8bc42183ef04ac204ad1302db818fc88ddf9042ad4d0d82178aa0bd9672c6e964e046f3bcc
+  checksum: 6b4d1d2ab0ff4eb18ff5ee1f49e17e8cd9b2caee7a2a1eb75cd8d88200c02e80595d28baaa00ca453aadb39d4d480299c4ca2de30c0bcee7c7bbba33031dea0e
   languageName: node
   linkType: hard
 
@@ -16892,10 +16901,10 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:1.1.0":
-  version: 1.1.0
-  resolution: "web-vitals@npm:1.1.0"
-  checksum: b75f7929f0b0bbd055c67eab95024c16038dcc808873dd7406225318c79491f011d9c2cf7c8cf68109c21fb0e9fa292eee3977b9ac780626d17ad25b36cd2ffe
+"web-vitals@npm:1.1.1":
+  version: 1.1.1
+  resolution: "web-vitals@npm:1.1.1"
+  checksum: e84e449f46d5bdae9bc3d9d03647e654970bbe7fd448ecc8051ae06bcb869aa29cdcd16486786db416ca7a6e43a2f87e0f66662437ec5679761bcdd753a8c055
   languageName: node
   linkType: hard
 
@@ -16973,7 +16982,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"webpack@npm:4, webpack@npm:^4.46.0":
+"webpack@npm:4.46.0, webpack@npm:^4.46.0":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
   dependencies:

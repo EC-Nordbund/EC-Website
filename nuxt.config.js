@@ -76,7 +76,7 @@ const vuetifyTheme = {
  * @type {import('@nuxt/types').NuxtConfig}
  */
 export default {
-  target: 'static',
+  target: 'server',
   // modern: true,
   // ssr: process.env.NODE_ENV === 'production',
 

@@ -19,7 +19,7 @@
     "@ec-nordbund/typescript-module": "^0.2.0",
     "@fontsource/montserrat": "^4.2.2",
     "@mdi/js": "5.9.55",
-    "@nuxt/content": "1.14.0",
+    "@nuxt/content": "^1.14.0",
     "@nuxt/typescript-runtime": "2.1.0",
     "@nuxtjs/composition-api": "0.22.1",
     "@nuxtjs/pwa": "3.3.5",
@@ -33,19 +33,19 @@
     "inline-css": "3.0.0",
     "js-sha3": "0.8.0",
     "jsonwebtoken": "^8.5.1",
-    "nodemailer": "6.4.18",
+    "nodemailer": "6.5.0",
     "nuxt": "2.15.3",
     "nuxt-content-editor": "1.0.1",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "sass": "^1.32.8",
-    "sass-loader": "10",
+    "sass-loader": "10.1.1",
     "typeface-montserrat": "1.1.13",
-    "vuetify": "2.3.15",
-    "web-vitals": "1.1.0"
+    "vuetify": "2.4.6",
+    "web-vitals": "1.1.1"
   },
   "devDependencies": {
-    "@ec-nordbund/vuetify-module": "^0.3.4",
+    "@ec-nordbund/vuetify-module": "^0.3.6",
     "@lhci/cli": "0.7.0",
     "@nuxt/types": "2.15.3",
     "@nuxt/typescript-build": "2.1.0",
@@ -55,9 +55,9 @@
     "@types/body-parser": "1.19.0",
     "@types/express": "4.17.11",
     "@types/jsonwebtoken": "^8.5.0",
-    "@types/nodemailer": "6.4.0",
+    "@types/nodemailer": "6.4.1",
     "babel-eslint": "10.1.0",
-    "eslint": "7.21.0",
+    "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-nuxt": "2.0.0",
     "eslint-plugin-prettier": "3.3.1",
@@ -65,6 +65,6 @@
     "prettier": "2.2.1",
     "pug": "3.0.2",
     "pug-plain-loader": "1.1.0",
-    "webpack": "4"
+    "webpack": "4.46.0"
   }
 }
