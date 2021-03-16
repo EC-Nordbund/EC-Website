@@ -76,8 +76,9 @@ const vuetifyTheme = {
  * @type {import('@nuxt/types').NuxtConfig}
  */
 export default {
-  target: 'server',
+  target: 'static',
   // modern: true,
+  // ssr: process.env.NODE_ENV === 'production',
 
   components: true,
 
@@ -246,8 +247,6 @@ export default {
   },
 
   build: {
-    cache: true,
-    transpile: ['vuetify/lib'],
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
@@ -263,18 +262,7 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    extractCSS: true,
-    optimizeCSS: true,
-    filenames: {
-      app: ({ isModern }) => `[name]${isModern ? '.modern' : ''}.js`,
-      chunk: ({ isModern }) => `[name]${isModern ? '.modern' : ''}.js`,
-      css: () => '[name].css',
-      img: () => '[path][name].[ext]',
-      font: () => '[path][name].[ext]',
-      video: () => '[path][name].[ext]',
-    },
-    parallel: true,
-    quiet: false
+    // extractCSS: true
   },
   serverMiddleware: {
     '/api': '~/api',

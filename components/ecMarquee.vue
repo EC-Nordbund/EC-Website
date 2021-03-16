@@ -1,4 +1,4 @@
-<template lang="pug" functional>
+<template lang="pug">
   div(class="marquee text-no-wrap" :style="{'background-color':props.color}")
     span(:style="{animationDuration: `${ props.length * 0.15 || 15 }s`}")
       slot

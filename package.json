@@ -45,7 +45,7 @@
     "web-vitals": "1.1.0"
   },
   "devDependencies": {
-    "@ec-nordbund/vuetify-module": "^0.2.1",
+    "@ec-nordbund/vuetify-module": "^0.3.4",
     "@lhci/cli": "0.7.0",
     "@nuxt/types": "2.15.3",
     "@nuxt/typescript-build": "2.1.0",
