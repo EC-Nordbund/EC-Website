@@ -1,9 +1,9 @@
-<template lang="pug" functional>
+<template lang="pug">
   svg(
     xmlns="http://www.w3.org/2000/svg"
     xml:space="preserve"
-    :width="props.size"
-    :height="props.size"
+    :width="size"
+    :height="size"
     style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
     viewBox="0 0 63 63"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -20,3 +20,14 @@
         d="M56.6474 13.3959c-5.81337,-8.38812 -15.3701,-13.3959 -25.5636,-13.3959 -8.30295,0 -16.1081,3.23292 -21.9795,9.10373 -5.87107,5.87064 -9.10434,13.6763 -9.10434,21.979 0,17.1396 13.9443,31.0838 31.0839,31.0838 9.89424,0 19.2874,-4.77834 25.1264,-12.7822 1.09912,-1.50612 0.768131,-3.61781 -0.737986,-4.71667 -1.50586,-1.0986 -3.61729,-0.76839 -4.71615,0.737468 -4.57286,6.26857 -11.9269,10.0109 -19.6723,10.0109 -13.4174,0 -24.3334,-10.916 -24.3334,-24.3333 0,-13.4169 10.916,-24.3323 24.3334,-24.3323 7.98034,0 15.462,3.92202 20.0148,10.4907 1.06258,1.53238 3.16503,1.91363 4.6968,0.851656 1.53212,-1.06206 1.91424,-3.16503 0.852001,-4.69689z"
       )
 </template>
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+export default defineComponent({
+  props: {
+    size: {
+      type: String,
+      required: true
+    },
+  },
+})
+</script>
