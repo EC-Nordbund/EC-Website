@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.3.6"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@fontsource/montserrat", "npm:4.2.2"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],
@@ -2421,17 +2421,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@ec-nordbund/vuetify-module", [
-        ["npm:0.3.6", {
-          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-module-npm-0.3.6-f455f6048a-61297211f5.zip/node_modules/@ec-nordbund/vuetify-module/",
+        ["npm:0.4.0", {
+          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-module-npm-0.4.0-fc5ca7af40-9be2f01ddf.zip/node_modules/@ec-nordbund/vuetify-module/",
           "packageDependencies": [
-            ["@ec-nordbund/vuetify-module", "npm:0.3.6"]
+            ["@ec-nordbund/vuetify-module", "npm:0.4.0"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.3.6", {
-          "packageLocation": "./.yarn/$$virtual/@ec-nordbund-vuetify-module-virtual-ef1b4c94e8/0/cache/@ec-nordbund-vuetify-module-npm-0.3.6-f455f6048a-61297211f5.zip/node_modules/@ec-nordbund/vuetify-module/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0", {
+          "packageLocation": "./.yarn/$$virtual/@ec-nordbund-vuetify-module-virtual-bfdc5d5fb4/0/cache/@ec-nordbund-vuetify-module-npm-0.4.0-fc5ca7af40-9be2f01ddf.zip/node_modules/@ec-nordbund/vuetify-module/",
           "packageDependencies": [
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.3.6"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-icon-injector", "npm:2.1.0"],
             ["@types/nuxt", null],
             ["@types/vuetify", null],
@@ -6793,7 +6793,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.3.6"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@fontsource/montserrat", "npm:4.2.2"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],

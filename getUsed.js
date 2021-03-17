@@ -1,37 +1,37 @@
-const files = ['./.nuxt/stats/client.json', './.nuxt/stats/modern.json']
+const files = ['./.nuxt/stats/client.json']
 
 const addPackages = ['@nuxtjs/composition-api', '@nuxt/content', 'nuxt']
 
 const okPackages = [
-  'vue',
-  'vue-meta',
-  'vuetify',
-  'vue2-leaflet',
-  'vue2-leaflet-nuxt',
-  'leaflet',
-  'vue-router',
-  'vue-client-only',
+  // 'vue',
+  // 'vue-meta',
+  // 'vuetify',
+  // 'vue2-leaflet',
+  // 'vue2-leaflet-nuxt',
+  // 'leaflet',
+  // 'vue-router',
+  // 'vue-client-only',
 
-  '@nuxt/components',
-  '@nuxt/content',
-  '@nuxtjs/composition-api',
-  '@vue/composition-api',
+  // '@nuxt/components',
+  // '@nuxt/content',
+  // '@nuxtjs/composition-api',
+  // '@vue/composition-api',
 
-  'core-js',
-  'property-information',
-  'nuxt',
+  // 'core-js',
+  // 'property-information',
+  // 'nuxt',
 
-  'regenerator-runtime',
-  'setimmediate',
-  'timers-browserify',
-  'process',
-  'defu',
-  'deepmerge',
-  '@babel/runtime',
-  'html-webpack-plugin',
-  'xtend',
-  'webpack',
-  'extract-css-chunks-webpack-plugin',
+  // 'regenerator-runtime',
+  // 'setimmediate',
+  // 'timers-browserify',
+  // 'process',
+  // 'defu',
+  // 'deepmerge',
+  // '@babel/runtime',
+  // 'html-webpack-plugin',
+  // 'xtend',
+  // 'webpack',
+  // 'extract-css-chunks-webpack-plugin',
 ]
 
 const packs = []

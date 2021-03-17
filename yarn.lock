@@ -1428,9 +1428,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ec-nordbund/vuetify-module@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "@ec-nordbund/vuetify-module@npm:0.3.6"
+"@ec-nordbund/vuetify-module@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@ec-nordbund/vuetify-module@npm:0.4.0"
   dependencies:
     "@ec-nordbund/vuetify-icon-injector": 2.1.0
     consola: 2.15.3
@@ -1439,7 +1439,7 @@ __metadata:
   peerDependencies:
     nuxt: ">=2.15"
     vuetify: 2
-  checksum: 61297211f5d4133111baa7b215767c099c539682fad6e101d1b8034885d6d3e68da860e62e326afff21b12183a34ab74a9f6c0279ceb4d91abc29f7ef5ea0daf
+  checksum: 9be2f01ddf610dcd28b51b2a52ad4ad7a9a5e4048380721e4b3c3637f3ed1650843bc6c547c058d04026c2320ce1c2aacf742778d9ff2be65ab9aecc33f60f06
   languageName: node
   linkType: hard
 
@@ -5131,7 +5131,7 @@ __metadata:
     "@ec-nordbund/leaflet": 1.7.1-436430db4-436430db4
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": ^0.4.0
-    "@ec-nordbund/vuetify-module": ^0.3.6
+    "@ec-nordbund/vuetify-module": ^0.4.0
     "@fontsource/montserrat": ^4.2.2
     "@lhci/cli": 0.7.0
     "@mdi/js": 5.9.55

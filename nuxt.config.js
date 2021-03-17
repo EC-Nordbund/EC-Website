@@ -258,13 +258,28 @@ export default {
         // Optimierungen auf Chunk level
         config.optimization = {
           concatenateModules: false,
+          splitChunks: {
+            minChunks: 1,
+            // extract shared dependencies from entry bundles:
+            chunks: 'all',
+            // allow any size dependency to be shared:
+            minSize: 0,
+            name: true,
+            maxAsyncRequests: 5000,
+            maxInitialRequests: 5000,
+            // automaticNameDelimiter: '~',
+            // automaticNameMaxLength: 30,
+            cacheGroups: {
+              default: false
+            }
+          },
         }
 
         config.stats = 'verbose'
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    // extractCSS: true
+    extractCSS: true
   },
   serverMiddleware: {
     '/api': '~/api',

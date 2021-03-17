@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build && node ./postCssProcessing.mjs",
+    "build": "nuxt build",
     "start": "nuxt start",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@ec-nordbund/typescript-module": "^0.4.0",
-    "@ec-nordbund/vuetify-module": "^0.3.6",
+    "@ec-nordbund/vuetify-module": "^0.4.0",
     "@lhci/cli": "0.7.0",
     "@nuxt/types": "2.15.3",
     "@nuxtjs/eslint-config": "6.0.0",
