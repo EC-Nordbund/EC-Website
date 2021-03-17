@@ -205,6 +205,9 @@ export default {
     'nuxt-build-optimisations'
     // '@nuxtjs/stylelint-module',
   ],
+  buildOptimisations: {
+    profile: 'expiremental'
+  },
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
