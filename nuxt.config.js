@@ -265,8 +265,10 @@ export default {
             // allow any size dependency to be shared:
             minSize: 0,
             name: true,
-            maxAsyncRequests: 5000,
-            maxInitialRequests: 5000,
+            maxAsyncRequests: 15,
+            maxInitialRequests: 5,
+            // maxAsyncRequests: 5000,
+            // maxInitialRequests: 5000,
             // automaticNameDelimiter: '~',
             // automaticNameMaxLength: 30,
             cacheGroups: {
