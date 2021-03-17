@@ -65,7 +65,7 @@ v-container.fill-height
                       .text-h3.font-weight-bold.white--text(
                         v-if='isOnWarteliste'
                       ) {{ wList }}
-                      v-icon(v-else, color='white', size='96') {{ statusIcon }}
+                      v-icon(v-else, color='white', size='96') {{ isOnWarteliste.value ? 'mdi-clipboard-list' : 'mdi-check-all' }}
 
                   v-card-text.text-body-1.font-weight-medium(
                     v-if='!loadingStep2 && (anmeldeID || isOnWarteliste)'
@@ -158,7 +158,6 @@ v-container.fill-height
             v-responsive(aspect-ratio='4')
 </template>
 <script lang="ts">
-import { mdiCheckAll } from '@mdi/js'
 import {
   defineComponent,
   useContext,
@@ -230,10 +229,6 @@ export default defineComponent({
       return 'error'
     })
 
-    const statusIcon = computed(() =>
-      isOnWarteliste.value ? 'mdi-clipboard-list' : mdiCheckAll
-    )
-
     const avatarSize = computed(() => (isMobile.value ? 160 : 128))
 
     const avatarMaxSize = computed(() =>
@@ -300,7 +295,6 @@ export default defineComponent({
       iconSize,
       statusText,
       statusColor,
-      statusIcon,
       mdiCheckAll,
       isSuccessful,
       isOnWarteliste,

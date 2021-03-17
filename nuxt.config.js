@@ -201,7 +201,8 @@ export default {
   buildModules: [
     '@nuxtjs/composition-api',
     '@ec-nordbund/typescript-module',
-    '@ec-nordbund/vuetify-module'
+    '@ec-nordbund/vuetify-module',
+    'nuxt-build-optimisations'
     // '@nuxtjs/stylelint-module',
   ],
   // '@nuxtjs/pwa',
@@ -230,7 +231,7 @@ export default {
       },
     },
     icons: {
-      values: icons,
+      // values: icons,
       iconfont: 'mdiSvg',
     },
     lang: {

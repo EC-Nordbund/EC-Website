@@ -25,7 +25,7 @@ v-container
       two-line
     )
       v-list-item-avatar
-        v-icon(size='32') {{ { pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage }[el.filename.split(".")[1].toLowerCase()] || mdiFile }}
+        v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[file.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
       v-list-item-content
         v-list-item-title {{ el.title }}
         v-list-item-subtitle {{ el.description }}
@@ -48,7 +48,6 @@ import {
   useStatic,
   computed,
 } from '@nuxtjs/composition-api'
-import { mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile } from '@mdi/js'
 
 export default defineComponent({
   setup() {
@@ -110,11 +109,7 @@ export default defineComponent({
     return {
       fileRoute,
       data,
-      toBreadcrumb,
-      mdiFilePdfOutline,
-      mdiFileWord,
-      mdiFileImage,
-      mdiFile,
+      toBreadcrumb
     }
   },
   head() {
