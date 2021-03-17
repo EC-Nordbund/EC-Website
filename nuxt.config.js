@@ -186,7 +186,7 @@ export default {
     cacheTime: -1,
   },
 
-  css: ['@fontsource/montserrat/latin-ext.css', '~/assets/styles/global.scss'],
+  css: ['@fontsource/montserrat/latin.css', '~/assets/styles/global.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -279,7 +279,7 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    // extractCSS: truey
+    // extractCSS: false
   },
   serverMiddleware: {
     '/api': '~/api',

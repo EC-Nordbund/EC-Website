@@ -5,10 +5,13 @@ export async function get<T = {}>(url: string): Promise<T> {
 
   console.log('err1')
   if (process.server) {
-    fetch = require('node-fetch')
+    fetch = require('node-fetch').default
   } else {
     fetch = window.fetch
   }
+
+  console.log(fetch)
+
   console.log('err2')
   const res = await fetch(base + url)
   console.log('err3')
@@ -21,10 +24,12 @@ export async function post<T = {}>(url: string, data: any): Promise<T> {
   let fetch: Window['fetch']
 
   if (process.server) {
-    fetch = require('node-fetch')
+    fetch = require('node-fetch').default
   } else {
     fetch = window.fetch
   }
+
+  console.log(fetch)
 
   const res = await fetch(base + url, {
     method: 'POST',
