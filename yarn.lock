@@ -1428,9 +1428,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ec-nordbund/vuetify-module@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@ec-nordbund/vuetify-module@npm:0.4.0"
+"@ec-nordbund/vuetify-module@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@ec-nordbund/vuetify-module@npm:0.4.2"
   dependencies:
     "@ec-nordbund/vuetify-icon-injector": 2.1.0
     consola: 2.15.3
@@ -1439,7 +1439,7 @@ __metadata:
   peerDependencies:
     nuxt: ">=2.15"
     vuetify: 2
-  checksum: 9be2f01ddf610dcd28b51b2a52ad4ad7a9a5e4048380721e4b3c3637f3ed1650843bc6c547c058d04026c2320ce1c2aacf742778d9ff2be65ab9aecc33f60f06
+  checksum: 0167e518499fbe21080dea7e9bffc6efa3306ccae5f6f6e02dfb053862d598fbcaa5b2b8519f4214e61045099323005b2e9df901f93375c503d77332de99ffd6
   languageName: node
   linkType: hard
 
@@ -3206,12 +3206,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ackee-tracker@npm:5.0.1":
+"ackee-tracker@https://github.com/electerious/ackee-tracker.git#develop":
   version: 5.0.1
-  resolution: "ackee-tracker@npm:5.0.1"
+  resolution: "ackee-tracker@https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"
   dependencies:
     platform: ^1.3.6
-  checksum: a68074b2788b4b69bc921a50126eabd60b151f9ff46315989b23b10e2f85d67df37e91ead44cbc11d99c533a9c23c2235afde5d626288523884c41d7f2575884
+  checksum: a670de0a91b7d8079e31aff305f84a151ae919c4d43f63c7a905aa9fec5b48dfead8307315b13d0d6680b64000e3e12c20206abf55354d5e1f4bc9f6786ad0cb
   languageName: node
   linkType: hard
 
@@ -4422,6 +4422,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"capture-stack-trace@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "capture-stack-trace@npm:1.0.1"
+  checksum: c857f977ca42626cf9187b753ae7e891c894689b917f7d83510c89cec58bdd2fbf77055987226efa862cf95c15ade4e02ccd463f53fdec49819170c0905d1071
+  languageName: node
+  linkType: hard
+
 "caseless@npm:~0.12.0":
   version: 0.12.0
   resolution: "caseless@npm:0.12.0"
@@ -5131,7 +5138,7 @@ __metadata:
     "@ec-nordbund/leaflet": 1.7.1-436430db4-436430db4
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": ^0.4.0
-    "@ec-nordbund/vuetify-module": ^0.4.0
+    "@ec-nordbund/vuetify-module": ^0.4.2
     "@fontsource/montserrat": ^4.2.2
     "@lhci/cli": 0.7.0
     "@mdi/js": 5.9.55
@@ -5149,7 +5156,7 @@ __metadata:
     "@types/jsonwebtoken": ^8.5.1
     "@types/node": ^14.14.35
     "@types/nodemailer": 6.4.1
-    ackee-tracker: 5.0.1
+    ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.21.1
     babel-eslint: 10.1.0
     body-parser: 1.19.0
@@ -5167,6 +5174,7 @@ __metadata:
     nodemailer: 6.5.0
     nuxt: 2.15.3
     nuxt-build-optimisations: ^1.0.2
+    package-info: ^4.0.0
     prettier: 2.2.1
     pug: 3.0.2
     pug-plain-loader: 1.1.0
@@ -5300,6 +5308,15 @@ __metadata:
     bn.js: ^4.1.0
     elliptic: ^6.5.3
   checksum: e8f87322b18a79e0c795c95608838ff293c3154ff8a243171e2b4d97eebb9d099b2042c265e0f1231938c6bd7945ddaf640d32bb7b43967090c377ec8c5b542d
+  languageName: node
+  linkType: hard
+
+"create-error-class@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "create-error-class@npm:3.0.2"
+  dependencies:
+    capture-stack-trace: ^1.0.0
+  checksum: cbd6512694a5bf8cd3f8742cb58cd4b85c67812316878d9515cbbc8f531b22b4fb14e074de6b564fc4951be4e7ce223ed4bf245865ac0cb09e1209d8e6cae0ec
   languageName: node
   linkType: hard
 
@@ -5790,6 +5807,13 @@ __metadata:
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
   checksum: 856d7f52db152c19fc5a70439ea938461cfb9338a632496fe370050dc73d3291cd76fc6713f604a5c126612dee9cac0f6da1d4b88ba4b0caa4f7214345879b89
+  languageName: node
+  linkType: hard
+
+"deep-extend@npm:~0.2.5":
+  version: 0.2.11
+  resolution: "deep-extend@npm:0.2.11"
+  checksum: 58c6242cf8f7c3aa682c404bc9e5b5933e081560f13445e89dd6bdc2d03512638361515ff38dc1e2a96b21f52306d05490f4e1617d7f1674fccbb078cc148d48
   languageName: node
   linkType: hard
 
@@ -7824,6 +7848,25 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"got@npm:^6.3.0":
+  version: 6.7.1
+  resolution: "got@npm:6.7.1"
+  dependencies:
+    create-error-class: ^3.0.0
+    duplexer3: ^0.1.4
+    get-stream: ^3.0.0
+    is-redirect: ^1.0.0
+    is-retry-allowed: ^1.0.0
+    is-stream: ^1.0.0
+    lowercase-keys: ^1.0.0
+    safe-buffer: ^5.0.1
+    timed-out: ^4.0.0
+    unzip-response: ^2.0.1
+    url-parse-lax: ^1.0.0
+  checksum: bf19ee1cbb915bf67b93c13cd441023b209562f4fd2d965099d40c05746a8a550e09787d94558a5e6d7064e91e7a4529a2c919f7e8c4a482517a38e98930ef5e
+  languageName: node
+  linkType: hard
+
 "got@npm:^9.6.0":
   version: 9.6.0
   resolution: "got@npm:9.6.0"
@@ -9142,6 +9185,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"is-redirect@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-redirect@npm:1.0.0"
+  checksum: 24c2aef7dbc710f7ec4534c6ba617b62d938cfcdf366db319563ff32cf9d6a20047b0fd44dfb018f389e60d76ff96f4801ae39ddbde2ad124d2a51330760b605
+  languageName: node
+  linkType: hard
+
 "is-regex@npm:^1.0.3, is-regex@npm:^1.1.1":
   version: 1.1.1
   resolution: "is-regex@npm:1.1.1"
@@ -9158,6 +9208,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"is-retry-allowed@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "is-retry-allowed@npm:1.2.0"
+  checksum: 739384d2662f38fe0edd1bcdf7f88551c6f1b1fdc7fde3ba86442cd675d337f14100d6479bcbb4635f7e38d11e1a2c2e173a52ba39547631960641d9fbe65531
+  languageName: node
+  linkType: hard
+
 "is-ssh@npm:^1.3.0":
   version: 1.3.2
   resolution: "is-ssh@npm:1.3.2"
@@ -9167,7 +9224,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"is-stream@npm:^1.1.0":
+"is-stream@npm:^1.0.0, is-stream@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-stream@npm:1.1.0"
   checksum: 39843ee9ff68ebda05237199f18831eb6e0e28db7799ee9ddaac5573b0681f18b4dc427afdb7b7ad906db545e4648999c42a1810b277acc8451593ff59da00fa
@@ -10781,6 +10838,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"minimist@npm:~0.0.7":
+  version: 0.0.10
+  resolution: "minimist@npm:0.0.10"
+  checksum: 2e45f013789db167eaffc5954531cd6adc9d1bcf86498b1a1de87f8aa4a3bb8ff393226107046a3e681e04e3ca8997156c9d7cf3a03a223ed5b535ae71d2e66e
+  languageName: node
+  linkType: hard
+
 "minipass-collect@npm:^1.0.2":
   version: 1.0.2
   resolution: "minipass-collect@npm:1.0.2"
@@ -11685,6 +11749,19 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"package-info@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "package-info@npm:4.0.0"
+  dependencies:
+    got: ^6.3.0
+    pinkie-promise: ^2.0.0
+    registry-url: ^2.0.0
+  bin:
+    package-info: cli.js
+  checksum: ff68a46a195870b32734d0979ee7c38ad7768dd06bca55790686c9ed5d7cabfeb0b6bb80b69b215b16da7ef0b5132b0784d35f5898bd2c70e04e3653b7147959
+  languageName: node
+  linkType: hard
+
 "package-json@npm:^6.3.0":
   version: 6.5.0
   resolution: "package-json@npm:6.5.0"
@@ -12028,6 +12105,22 @@ fsevents@~2.3.1:
   version: 5.0.0
   resolution: "pify@npm:5.0.0"
   checksum: 4c28d29597a49bbf320c0c6526fac7858d53b8398a46bfa6ed1a120a922773c7ef50bea166e27952bbc476bce1c72cf3e7d648462ac82e704e62431bdec95cec
+  languageName: node
+  linkType: hard
+
+"pinkie-promise@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "pinkie-promise@npm:2.0.1"
+  dependencies:
+    pinkie: ^2.0.0
+  checksum: 1e32e05ffdfb691b04a42d05d5452698853099efe1bab70bfa538e9a793e609b66cc59180cc5fc2158062a2fc5991c9c268a82b2b655247aa005020167e31d75
+  languageName: node
+  linkType: hard
+
+"pinkie@npm:^2.0.0":
+  version: 2.0.4
+  resolution: "pinkie@npm:2.0.4"
+  checksum: 2cb484c9da47b2f420fddffe7cbfeac950106a848343d147c2b2668d12b71aa3d09297bfe37ec32539a27c6dc7db414414f5ee166d6b2ca0d95f6dfe9dde60d7
   languageName: node
   linkType: hard
 
@@ -12897,7 +12990,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"prepend-http@npm:^1.0.0":
+"prepend-http@npm:^1.0.0, prepend-http@npm:^1.0.1":
   version: 1.0.4
   resolution: "prepend-http@npm:1.0.4"
   checksum: f723f34a23394b568a9ff0cd502bdda244b343c03b12a259343566eab1184cf41a6c7e9975d9e6010ccb2901b7c428d296e56a67a72d0a6ecb0f13531a3fa44e
@@ -13447,6 +13540,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"rc@npm:^0.5.1":
+  version: 0.5.5
+  resolution: "rc@npm:0.5.5"
+  dependencies:
+    deep-extend: ~0.2.5
+    ini: ~1.3.0
+    minimist: ~0.0.7
+    strip-json-comments: 0.1.x
+  bin:
+    rc: ./index.js
+  checksum: 6f974e543c4bce80168793f457cf9b63bfb82921bfb15cd00c1dc14f3e352691933af068d8b2151fd8e3a9849a74f6e110531964b7d249b3e289f517f34099eb
+  languageName: node
+  linkType: hard
+
 "rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -13669,6 +13776,15 @@ fsevents@~2.3.1:
   dependencies:
     rc: ^1.2.8
   checksum: 10ca9caeea81da4a9e52f1932c5aa0fc67cc7301df48a768260e946df354dfde8ccd0c2f1caa1b66b49620bb696d18eb2f4be93c55f0217439e2ab116d6c32a4
+  languageName: node
+  linkType: hard
+
+"registry-url@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "registry-url@npm:2.1.0"
+  dependencies:
+    rc: ^0.5.1
+  checksum: 74a52aa83d2097359fec07b2153fa22178b07a7651f93370e15d944328ed38cb1b47071d8fddc31e4fa8dd778affea5b784f0fd1ee941ba8bb3506839e49a106
   languageName: node
   linkType: hard
 
@@ -15143,6 +15259,15 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
+"strip-json-comments@npm:0.1.x":
+  version: 0.1.3
+  resolution: "strip-json-comments@npm:0.1.3"
+  bin:
+    strip-json-comments: cli.js
+  checksum: 3923bc30d60ef8f54ec689efcbbbc026af52c24073703613afff5651341ae392ee4adf3754830fbe3e540cd7a81f5648f7e57945b7035b2966dc561544dac07a
+  languageName: node
+  linkType: hard
+
 "strip-json-comments@npm:^3.1.0, strip-json-comments@npm:^3.1.1":
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
@@ -15462,7 +15587,7 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
-"timed-out@npm:4.0.1":
+"timed-out@npm:4.0.1, timed-out@npm:^4.0.0":
   version: 4.0.1
   resolution: "timed-out@npm:4.0.1"
   checksum: e3046640806b0aca3ce65214f026277280f31df9aa6ff407d7ebb3cc7706d404ae02a3e024b47c06443c89e54e3823ef76b2d67ac54a12d338591938011d51e0
@@ -16092,6 +16217,13 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
+"unzip-response@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "unzip-response@npm:2.0.1"
+  checksum: ba0ef3428f3d55c07bfac4ed27497b37cc782c2fa3b93030dce965499d029447f8d6e7a92b1246661abf484d5678c40e67a739eff7836e6e2e66db5f47b4f8c7
+  languageName: node
+  linkType: hard
+
 "upath@npm:^1.1.1":
   version: 1.2.0
   resolution: "upath@npm:1.2.0"
@@ -16202,6 +16334,15 @@ resolve@^1.14.2:
     file-loader:
       optional: true
   checksum: 871e8c8df26a985bbc8c1fb345f26565ee920a36bd7f48bece74aa541675b1ff3583e1ca5e9338d0525fbf5e5f6de96d84d9f6e6aa76657a68a5fc13832b009f
+  languageName: node
+  linkType: hard
+
+"url-parse-lax@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "url-parse-lax@npm:1.0.0"
+  dependencies:
+    prepend-http: ^1.0.1
+  checksum: 454fddd78658293a03b7e978c3aef8487e9e926c44d903f40de4bf4470148e6df2cb9aea6df62f44c51bd6fb148f2fe2096756a7778e1dcf78f7cc6badbfbfdd
   languageName: node
   linkType: hard
 

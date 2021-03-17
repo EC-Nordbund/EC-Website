@@ -1,6 +1,9 @@
 const files = ['./.nuxt/stats/client.json']
 
-const addPackages = ['@nuxtjs/composition-api', '@nuxt/content', 'nuxt']
+const addPackages = [
+  '@nuxtjs/composition-api', '@nuxt/content', 'nuxt', '@ec-nordbund/vuetify-module', '@nuxt/components', '@ec-nordbund/typescript-module',
+  '@nuxtjs/sitemap',
+  'nuxt-build-optimisations']
 
 const okPackages = [
   // 'vue',
@@ -59,94 +62,92 @@ files.forEach((f) => {
 
   console.log(
     filItems
-      .filter((v) => !v.split('-').some((k) => k === 'loader'))
-      .filter((v) => !okPackages.includes(v))
-  )
-
-  console.log(
-    filItems
-      .map((v) => ({
-        package: v,
-        license: require(`${v}/package.json`).license,
-      }))
-      .filter((v) => v.license !== 'MIT'),
-    filItems.length
+    // .filter((v) => !v.split('-').some((k) => k === 'loader'))
+    // .filter((v) => !okPackages.includes(v))
   )
 
   packs.push(...filItems)
 })
 
-const infos = packs
-  .sort()
-  .filter((v, i, t) => v !== t[i - 1])
-  .map((p) => {
-    const pp = require(p + '/package.json')
-
-    return {
-      name: pp.name,
-      version: pp.version,
-      repository: pp.repository,
-      license: pp.license,
-      author: pp.author || pp.contributors,
+packs.forEach(p => {
+  require('package-info')(p).then((data) => {
+    if (data.license !== 'MIT' && data.license !== 'BSD-2-Clause') {
+      console.log(data)
     }
   })
-  .map((p) => {
-    if (typeof p.author === 'object' && p.author.name) {
-      p.author = p.author.name
-    } else if (Array.isArray(p.author)) {
-      p.author = p.author.map((v) => v.name || v).join(' und ')
-    }
+})
 
-    p.author = p.author
-      ?.split(/(.*)/)
-      .join('')
-      .split(/<.*>/)
-      .join('')
-      .split('  ')
-      .join('')
-      .split('  ')
-      .join('')
-      .split('  ')
-      .join('')
-      .split('  ')
-      .join('')
-      .split('  ')
-      .join('')
-      .split('  ')
-      .join('')
-      .trim()
+// const infos = packs
+//   .sort()
+//   .filter((v, i, t) => v !== t[i - 1])
+//   .map((p) => {
+//     const pp = require(p + '/package.json')
 
-    p.repository = p.repository?.url || p.repository
+//     return {
+//       name: pp.name,
+//       version: pp.version,
+//       repository: pp.repository,
+//       license: pp.license,
+//       author: pp.author || pp.contributors,
+//     }
+//   })
+//   .map((p) => {
+//     if (typeof p.author === 'object' && p.author.name) {
+//       p.author = p.author.name
+//     } else if (Array.isArray(p.author)) {
+//       p.author = p.author.map((v) => v.name || v).join(' und ')
+//     }
 
-    if (typeof p.repository === 'string') {
-      p.repository = p.repository
-        .split('.git')
-        .join('')
-        .split('git+')
-        .join('')
-        .split('git@')
-        .join('')
-        .split('git://')
-        .join('')
-        .split('github.com:')
-        .join('')
+//     p.author = p.author
+//       ?.split(/(.*)/)
+//       .join('')
+//       .split(/<.*>/)
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .split('  ')
+//       .join('')
+//       .trim()
 
-      if (!p.repository.startsWith('http')) {
-        if (p.repository.startsWith('github.com/')) {
-          p.repository = 'https://' + p.repository
-        } else {
-          p.repository = 'https://github.com/' + p.repository
-        }
-      }
-    }
+//     p.repository = p.repository?.url || p.repository
 
-    if (!p.author) {
-      if (p.repository) {
-        p.author = p.repository.split('/')[3]
-      }
-    }
+//     if (typeof p.repository === 'string') {
+//       p.repository = p.repository
+//         .split('.git')
+//         .join('')
+//         .split('git+')
+//         .join('')
+//         .split('git@')
+//         .join('')
+//         .split('git://')
+//         .join('')
+//         .split('github.com:')
+//         .join('')
 
-    return p
-  })
+//       if (!p.repository.startsWith('http')) {
+//         if (p.repository.startsWith('github.com/')) {
+//           p.repository = 'https://' + p.repository
+//         } else {
+//           p.repository = 'https://github.com/' + p.repository
+//         }
+//       }
+//     }
 
-require('fs').writeFileSync('./content/packages.json', JSON.stringify(infos))
+//     if (!p.author) {
+//       if (p.repository) {
+//         p.author = p.repository.split('/')[3]
+//       }
+//     }
+
+//     return p
+//   })
+
+// require('fs').writeFileSync('./content/packages.json', JSON.stringify(infos))
