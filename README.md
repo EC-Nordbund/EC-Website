@@ -17,3 +17,6 @@ $ yarn start
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+## Environment
+
+ - `EC_NUXT_CONTENT`: custom path to `content` and `static` directories

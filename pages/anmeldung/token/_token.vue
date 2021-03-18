@@ -65,7 +65,7 @@ v-container.fill-height
                       .text-h3.font-weight-bold.white--text(
                         v-if='isOnWarteliste'
                       ) {{ wList }}
-                      v-icon(v-else, color='white', size='96') {{ statusIcon }}
+                      v-icon(v-else, color='white', size='96') {{ isOnWarteliste.value ? 'mdi-clipboard-list' : 'mdi-check-all' }}
 
                   v-card-text.text-body-1.font-weight-medium(
                     v-if='!loadingStep2 && (anmeldeID || isOnWarteliste)'
@@ -158,15 +158,11 @@ v-container.fill-height
             v-responsive(aspect-ratio='4')
 </template>
 <script lang="ts">
-import { mdiCheckAll } from '@mdi/js'
 import {
   defineComponent,
   useContext,
   ref,
-  ssrRef,
-  useAsync,
-  computed,
-  onMounted,
+  computed
 } from '@nuxtjs/composition-api'
 import { post } from '~/helpers/fetch'
 import copy from '~/helpers/copy'
@@ -174,11 +170,11 @@ export default defineComponent({
   layout: 'minimal',
   setup(_, ctx) {
     const token = useContext().params.value.token
-    const loaded = ssrRef(false)
+    const loaded = ref(false)
     const loadingStep2 = ref(true)
     const loadingStep3 = ref(false)
-    const anmeldeID = ssrRef(null as null | string)
-    const wList = ssrRef(0)
+    const anmeldeID = ref(null as null | string)
+    const wList = ref(0)
     const type = ref(1)
 
     const isMobile = computed(() => ctx.root.$vuetify.breakpoint.smAndDown)
@@ -233,10 +229,6 @@ export default defineComponent({
       return 'error'
     })
 
-    const statusIcon = computed(() =>
-      isOnWarteliste.value ? 'mdi-clipboard-list' : mdiCheckAll
-    )
-
     const avatarSize = computed(() => (isMobile.value ? 160 : 128))
 
     const avatarMaxSize = computed(() =>
@@ -250,7 +242,7 @@ export default defineComponent({
     const myStatus = ref(null as any)
 
     if (process.browser) {
-      useAsync(async () => {
+      (async () => {
         const res = await post<{
           status: 'OK' | 'ERROR'
           context: string
@@ -288,7 +280,7 @@ export default defineComponent({
         } else {
           ctx.root.$router.push('/anmeldung/token?error=' + res.context)
         }
-      })
+      })()
     }
 
     // console.log(`isOnWarteliste ${isOnWarteliste}`)
@@ -303,7 +295,6 @@ export default defineComponent({
       iconSize,
       statusText,
       statusColor,
-      statusIcon,
       mdiCheckAll,
       isSuccessful,
       isOnWarteliste,

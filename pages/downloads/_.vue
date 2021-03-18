@@ -25,7 +25,7 @@ v-container
       two-line
     )
       v-list-item-avatar
-        v-icon(size='32') {{ { pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage }[el.filename.split(".")[1].toLowerCase()] || mdiFile }}
+        v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[el.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
       v-list-item-content
         v-list-item-title {{ el.title }}
         v-list-item-subtitle {{ el.description }}
@@ -45,10 +45,9 @@ v-container
 import {
   defineComponent,
   useContext,
-  useAsync,
+  useStatic,
   computed,
 } from '@nuxtjs/composition-api'
-import { mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile } from '@mdi/js'
 
 export default defineComponent({
   setup() {
@@ -58,8 +57,8 @@ export default defineComponent({
       .split('/')
       .filter((v) => v !== '')
 
-    const fileData = useAsync(
-      async () => await $content('downloads').fetch<any>()
+    const fileData = useStatic(
+      async () => await $content('downloads').fetch<any>(), undefined, 'downloads'
     )
 
     const data = computed(() => {
@@ -110,11 +109,7 @@ export default defineComponent({
     return {
       fileRoute,
       data,
-      toBreadcrumb,
-      mdiFilePdfOutline,
-      mdiFileWord,
-      mdiFileImage,
-      mdiFile,
+      toBreadcrumb
     }
   },
   head() {

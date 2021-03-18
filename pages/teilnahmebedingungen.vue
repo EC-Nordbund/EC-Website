@@ -4,17 +4,17 @@
 </template>
 
 <script>
-import { defineComponent, useContext, useAsync } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, useStatic } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const page = useAsync(async () => {
+    const page = useStatic(async () => {
       const page = await $content('teilnahmebedingungen').fetch()
 
       return page
-    })
+    }, undefined, 'TN-Bedingungen')
 
     return { page }
   },

@@ -3,8 +3,9 @@ const base = process.browser ? window.origin : 'http://localhost:3000'
 export async function get<T = {}>(url: string): Promise<T> {
   let fetch: Window['fetch']
 
+  console.log('err1')
   if (process.server) {
-    fetch = require('node-fetch')
+    fetch = require('node-fetch').default
   } else {
     fetch = window.fetch
   }
@@ -19,7 +20,7 @@ export async function post<T = {}>(url: string, data: any): Promise<T> {
   let fetch: Window['fetch']
 
   if (process.server) {
-    fetch = require('node-fetch')
+    fetch = require('node-fetch').default
   } else {
     fetch = window.fetch
   }

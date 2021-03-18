@@ -1,4 +1,4 @@
-<template lang="pug" functional>
+<template lang="pug">
   div(class="marquee text-no-wrap" :style="{'background-color':props.color}")
     span(:style="{animationDuration: `${ props.length * 0.15 || 15 }s`}")
       slot
@@ -16,6 +16,9 @@ export default defineComponent({
       required: true,
     },
   },
+  setup(props) {
+    return {props}
+  }
 })
 </script>
 <style scoped lang="scss">

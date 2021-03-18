@@ -1,6 +1,4 @@
 import de from 'vuetify/es5/locale/de'
-import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
-import { getIconInjector } from 'vuetify-icon-injector'
 
 const createSitemapRoutes = async () => {
   const routes = []
@@ -73,12 +71,17 @@ const vuetifyTheme = {
   youtube: '#f00',
 }
 
+import { join } from 'path'
+
+const useCustomPath = !!process.env.EC_NUXT_CONTENT
+
 /**
  * @type {import('@nuxt/types').NuxtConfig}
  */
 export default {
   target: 'server',
-  modern: true,
+  // modern: true,
+  // ssr: process.env.NODE_ENV === 'production',
 
   components: true,
 
@@ -102,8 +105,10 @@ export default {
         theme: false,
       },
     },
-    editor: '../../node_modules/nuxt-content-editor/editor.vue',
+    dir: useCustomPath ? join(process.env.EC_NUXT_CONTENT, 'content') : 'content',
   },
+
+  dir: useCustomPath ? { static: join(process.env.EC_NUXT_CONTENT, 'static') } : undefined,
 
   head: {
     titleTemplate: (chunk) => {
@@ -187,7 +192,7 @@ export default {
     cacheTime: -1,
   },
 
-  css: ['~/assets/styles/global.scss'],
+  css: ['@fontsource/montserrat/latin.css', '~/assets/styles/global.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -201,15 +206,19 @@ export default {
    */
   buildModules: [
     '@nuxtjs/composition-api',
-    '@nuxt/typescript-build',
+    '@ec-nordbund/typescript-module',
+    '@ec-nordbund/vuetify-module',
+    'nuxt-build-optimisations'
     // '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify',
   ],
+  buildOptimisations: {
+    profile: 'expiremental'
+  },
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
     '@ec-nordbund/nuxt-vue2-leaflet',
-    '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap'
   ],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
@@ -231,7 +240,7 @@ export default {
       },
     },
     icons: {
-      values: icons,
+      // values: icons,
       iconfont: 'mdiSvg',
     },
     lang: {
@@ -239,55 +248,46 @@ export default {
       locales: { de },
     },
     preset: undefined,
-    defaultAssets: false,
+    iconInjector: {
+      icons: {},
+      components: {
+        'ec-hexa-button': ['icon'],
+      }
+    }
   },
 
   build: {
-    transpile: ['leaflet', 'Vue2Leaflet'],
-    loaders: {
-      vue: {
-        compilerOptions: {
-          modules: [
-            getIconInjector(
-              {},
-              {
-                'ec-hexa-button': ['icon'],
-              }
-            ),
-          ],
-        },
-      },
-    },
     extend(config, ctx) {
-      if (ctx.isDev) {
-        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
-      }
+      config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
 
       if (ctx.isClient) {
         // Optimierungen auf Chunk level
         config.optimization = {
-          splitChunks: {
-            // Minimize init load.
-            maxAsyncRequests: 30,
-            maxInitialRequests: 30,
-
-            cacheGroups: {
-              // Handle aller anderen Module.
-              default: {
-                minChunks: 2,
-                priority: -20,
-                reuseExistingChunk: true,
-              },
-            },
-          },
           concatenateModules: false,
+          splitChunks: {
+            minChunks: 1,
+            // extract shared dependencies from entry bundles:
+            chunks: 'all',
+            // allow any size dependency to be shared:
+            minSize: 0,
+            name: true,
+            maxAsyncRequests: 15,
+            maxInitialRequests: 5,
+            // maxAsyncRequests: 5000,
+            // maxInitialRequests: 5000,
+            // automaticNameDelimiter: '~',
+            // automaticNameMaxLength: 30,
+            cacheGroups: {
+              default: false
+            }
+          },
         }
 
         config.stats = 'verbose'
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    extractCSS: true,
+    // extractCSS: false
   },
   serverMiddleware: {
     '/api': '~/api',

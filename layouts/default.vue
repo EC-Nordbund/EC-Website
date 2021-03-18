@@ -102,7 +102,7 @@ v-app
               v-icon.ml-n1.mr-n1(small) mdi-alarm-light
               span.pl-2.subtitle-2.font-weight-medium(
                 style='text-transform: none',
-                v-if='$vuetify.breakpoint.mdAndUp'
+                v-show='$vuetify.breakpoint.mdAndUp'
               ) Kinder- und Jugenschutz
     v-app-bar(color='white')
       v-container
@@ -228,7 +228,7 @@ import {
   ref,
   useContext,
   computed,
-  useAsync,
+  useStatic,
 } from '@nuxtjs/composition-api'
 
 import copy from '~/helpers/copy'

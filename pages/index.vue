@@ -120,8 +120,7 @@ p(v-else) Loading...
 import {
   defineComponent,
   useContext,
-  useAsync,
-  ssrRef,
+  useStatic,
   computed,
 } from '@nuxtjs/composition-api'
 import { supportWebp } from '../helpers/webp'
@@ -129,7 +128,7 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const pages_loading = useAsync(async () => {
+    const pages_loading = useStatic(async () => {
       const upcomingEvents = await $content('veranstaltung')
         .only(['slug', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
         .sortBy('begin') // TODO: compare to today's date
@@ -150,7 +149,7 @@ export default defineComponent({
         .fetch()
 
       return { upcomingEvents, recentPosts }
-    })
+    }, undefined, 'homeData')
 
     const pages = computed(() =>
       pages_loading.value

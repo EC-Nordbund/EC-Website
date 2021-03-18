@@ -148,7 +148,7 @@ v-container
           :href='`${file.filename}`'
         )
           v-list-item-avatar
-            v-icon(size='32') {{ { pdf: mdiFilePdfOutline, docx: mdiFileWord, jpg: mdiFileImage, png: mdiFileImage }[file.filename.split(".")[1].toLowerCase()] || mdiFile }}
+            v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[file.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
           v-list-item-content
             v-list-item-title {{ file.title }}
             v-list-item-subtitle {{ file.description }}
@@ -157,21 +157,20 @@ v-container
 import {
   defineComponent,
   useContext,
-  useAsync,
+  useStatic,
   computed,
 } from '@nuxtjs/composition-api'
-import { mdiFilePdfOutline, mdiFileWord, mdiFileImage, mdiFile } from '@mdi/js'
 
 export default defineComponent({
   layout: 'minimal',
   setup() {
     const { $content } = useContext()
 
-    const explanation = useAsync(() =>
+    const explanation = useStatic(() =>
       $content('krisenintervention/explanation').fetch<any>()
-    )
+    , undefined, 'kriesen-1')
 
-    const fileData = useAsync(() => $content('downloads').fetch<any>())
+    const fileData = useStatic(() => $content('downloads').fetch<any>(), undefined, 'kriesen-2')
 
     const data = computed(() => {
       if (fileData.value === null) {
@@ -188,11 +187,7 @@ export default defineComponent({
 
     return {
       explanation,
-      data,
-      mdiFilePdfOutline,
-      mdiFileWord,
-      mdiFileImage,
-      mdiFile,
+      data
     }
   },
 
