@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.2"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
             ["@fontsource/montserrat", "npm:4.2.2"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],
@@ -2413,27 +2413,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@ec-nordbund/vuetify-icon-injector", [
-        ["npm:2.1.0", {
-          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-icon-injector-npm-2.1.0-d954db444e-23e5bce684.zip/node_modules/@ec-nordbund/vuetify-icon-injector/",
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-icon-injector-npm-2.2.0-ef7698c6da-c79862871b.zip/node_modules/@ec-nordbund/vuetify-icon-injector/",
           "packageDependencies": [
-            ["@ec-nordbund/vuetify-icon-injector", "npm:2.1.0"]
+            ["@ec-nordbund/vuetify-icon-injector", "npm:2.2.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@ec-nordbund/vuetify-module", [
-        ["npm:0.4.2", {
-          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-module-npm-0.4.2-fa2af96759-0167e51849.zip/node_modules/@ec-nordbund/vuetify-module/",
+        ["npm:0.4.3", {
+          "packageLocation": "./.yarn/cache/@ec-nordbund-vuetify-module-npm-0.4.3-9f7f482359-173c452199.zip/node_modules/@ec-nordbund/vuetify-module/",
           "packageDependencies": [
-            ["@ec-nordbund/vuetify-module", "npm:0.4.2"]
+            ["@ec-nordbund/vuetify-module", "npm:0.4.3"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.2", {
-          "packageLocation": "./.yarn/$$virtual/@ec-nordbund-vuetify-module-virtual-70c60d0f94/0/cache/@ec-nordbund-vuetify-module-npm-0.4.2-fa2af96759-0167e51849.zip/node_modules/@ec-nordbund/vuetify-module/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3", {
+          "packageLocation": "./.yarn/$$virtual/@ec-nordbund-vuetify-module-virtual-b2ab2054ad/0/cache/@ec-nordbund-vuetify-module-npm-0.4.3-9f7f482359-173c452199.zip/node_modules/@ec-nordbund/vuetify-module/",
           "packageDependencies": [
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.2"],
-            ["@ec-nordbund/vuetify-icon-injector", "npm:2.1.0"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
+            ["@ec-nordbund/vuetify-icon-injector", "npm:2.2.0"],
             ["@types/nuxt", null],
             ["@types/vuetify", null],
             ["consola", "npm:2.15.3"],
@@ -5215,7 +5215,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", null],
             ["eslint", "npm:7.22.0"],
             ["eslint-visitor-keys", "npm:1.3.0"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"]
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "packagePeers": [
             "@types/eslint",
@@ -6225,7 +6225,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.5.0"],
             ["anymatch", "npm:3.1.1"],
             ["braces", "npm:3.0.2"],
-            ["fsevents", "patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea"],
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"],
             ["glob-parent", "npm:5.1.1"],
             ["is-binary-path", "npm:2.1.0"],
             ["is-glob", "npm:4.0.1"],
@@ -6240,7 +6240,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.5.1"],
             ["anymatch", "npm:3.1.1"],
             ["braces", "npm:3.0.2"],
-            ["fsevents", "patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea"],
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"],
             ["glob-parent", "npm:5.1.1"],
             ["is-binary-path", "npm:2.1.0"],
             ["is-glob", "npm:4.0.1"],
@@ -6803,7 +6803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
-            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.2"],
+            ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
             ["@fontsource/montserrat", "npm:4.2.2"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],
@@ -8447,7 +8447,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["eslint-import-resolver-node", "npm:0.3.4"],
             ["debug", "virtual:d49388645023d1a9f290827e9892b2e5d87cf8aef7f18e9b163bebe9b849c3ea732fb1652f58447c27db955ea8e477790f0e823fd8080dd79265ddfc0a4c9d89#npm:2.6.9"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"]
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "linkType": "HARD",
         }]
@@ -8512,7 +8512,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["minimatch", "npm:3.0.4"],
             ["object.values", "npm:1.1.2"],
             ["read-pkg-up", "npm:2.0.0"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
             ["tsconfig-paths", "npm:3.9.0"]
           ],
           "packagePeers": [
@@ -8567,7 +8567,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-utils", "npm:2.1.0"],
             ["ignore", "npm:5.1.8"],
             ["minimatch", "npm:3.0.4"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
             ["semver", "npm:6.3.0"]
           ],
           "packagePeers": [
@@ -9687,10 +9687,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea", {
-          "packageLocation": "./.yarn/unplugged/fsevents-patch-762d4cc204/node_modules/fsevents/",
+        ["patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea", {
+          "packageLocation": "./.yarn/unplugged/fsevents-patch-3bc6df0d9f/node_modules/fsevents/",
           "packageDependencies": [
-            ["fsevents", "patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea"],
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"],
             ["node-gyp", "npm:7.1.2"]
           ],
           "linkType": "HARD",
@@ -13782,7 +13782,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["normalize-package-data", "npm:2.5.0"],
             ["hosted-git-info", "npm:2.8.8"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
             ["semver", "npm:5.7.1"],
             ["validate-npm-package-license", "npm:3.0.4"]
           ],
@@ -15112,7 +15112,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:7.0.35"],
             ["postcss-value-parser", "npm:3.3.1"],
             ["read-cache", "npm:1.0.0"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"]
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "linkType": "HARD",
         }]
@@ -16043,7 +16043,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jstransformer", "npm:1.0.0"],
             ["pug-error", "npm:2.0.0"],
             ["pug-walk", "npm:2.0.0"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"]
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "linkType": "HARD",
         }]
@@ -16922,15 +16922,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["resolve", [
-        ["patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa", {
-          "packageLocation": "./.yarn/cache/resolve-patch-46f4fba2f6-188d5167e8.zip/node_modules/resolve/",
-          "packageDependencies": [
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"],
-            ["is-core-module", "npm:2.2.0"],
-            ["path-parse", "npm:1.0.6"]
-          ],
-          "linkType": "HARD",
-        }],
         ["patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa", {
           "packageLocation": "./.yarn/cache/resolve-patch-55fcdb097c-c4a515b760.zip/node_modules/resolve/",
           "packageDependencies": [
@@ -19942,7 +19933,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["he", "npm:1.2.0"],
             ["lodash.template", "npm:4.5.0"],
             ["lodash.uniq", "npm:4.5.0"],
-            ["resolve", "patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
             ["serialize-javascript", "npm:3.1.0"],
             ["source-map", "npm:0.5.6"]
           ],

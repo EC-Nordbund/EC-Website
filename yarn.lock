@@ -1421,25 +1421,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ec-nordbund/vuetify-icon-injector@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@ec-nordbund/vuetify-icon-injector@npm:2.1.0"
-  checksum: 23e5bce684ffe2bedd7f9732cddc4a2819a9ddd701f9eaecd85dbdc246782ba745604825bf80dd7dc95d62335d056f50ac68761e82a35728976201d90cd33b67
+"@ec-nordbund/vuetify-icon-injector@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@ec-nordbund/vuetify-icon-injector@npm:2.2.0"
+  checksum: c79862871b2eb44e681fa5c514ed53efa97d2c4d98e1197a2516c5b0fa8452a69d71a727eaebc540f5b0b4d2269ea6fb48cb90af84b864fa0ce2128246543381
   languageName: node
   linkType: hard
 
-"@ec-nordbund/vuetify-module@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@ec-nordbund/vuetify-module@npm:0.4.2"
+"@ec-nordbund/vuetify-module@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "@ec-nordbund/vuetify-module@npm:0.4.3"
   dependencies:
-    "@ec-nordbund/vuetify-icon-injector": 2.1.0
+    "@ec-nordbund/vuetify-icon-injector": ^2.2.0
     consola: 2.15.3
     deepmerge: 4.2.2
     sass: 1.32.8
   peerDependencies:
     nuxt: ">=2.15"
     vuetify: 2
-  checksum: 0167e518499fbe21080dea7e9bffc6efa3306ccae5f6f6e02dfb053862d598fbcaa5b2b8519f4214e61045099323005b2e9df901f93375c503d77332de99ffd6
+  checksum: 173c452199ae0c0967ff2be0ba81ef5e92b721826216d9bc1895019a532c9cf68f2bcbd2c9da86cb923a459328122847b26a145981b0b9f0fae237b058f044ea
   languageName: node
   linkType: hard
 
@@ -5138,7 +5138,7 @@ __metadata:
     "@ec-nordbund/leaflet": 1.7.1-436430db4-436430db4
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": ^0.4.0
-    "@ec-nordbund/vuetify-module": ^0.4.2
+    "@ec-nordbund/vuetify-module": ^0.4.3
     "@fontsource/montserrat": ^4.2.2
     "@lhci/cli": 0.7.0
     "@mdi/js": 5.9.55
@@ -7561,20 +7561,20 @@ fsevents@^1.2.7:
   linkType: hard
 
 "fsevents@patch:fsevents@~2.3.1#builtin<compat/fsevents>":
-  version: 2.3.1
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea"
+  version: 2.3.2
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
   dependencies:
     node-gyp: latest
-  checksum: 66b24358e15cdd0f705b456346e58b4613f2bf54206b47874decda4152614fb0632d2d662c92b0ea54810109f646e5233e4cdd64dbb2a1949070ee5dc14dab87
+  checksum: 7b25d9251aefe433d508a0eb614217f0495ae05a9e8af15f7dbf9998e08c4e675acd1cf32361e0fcf71d917d9e8c4b76301fdc72a1ec1105a3ea0994f5e15a8d
   languageName: node
   linkType: hard
 
 fsevents@~2.3.1:
-  version: 2.3.1
-  resolution: "fsevents@npm:2.3.1"
+  version: 2.3.2
+  resolution: "fsevents@npm:2.3.2"
   dependencies:
     node-gyp: latest
-  checksum: 32619a121e7f9ac8a5ce4954f5fdf06be68b7b1c16e4ac8fa6e5e13cbf97d83c86cdcdf872ab7b188ebb07b34d2271b7818aebfc305b4a7d5b35f4bc2117f8be
+  checksum: a1883f4ca12b8b403ec528f1a4cb312b0877eacd24719da535cabea78d6fdd78530e3538bdba590a1c0f6c295128f964a89182621885296353a44dcfa4f9db53
   languageName: node
   linkType: hard
 
@@ -8901,7 +8901,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.1.0, is-core-module@npm:^2.2.0":
+"is-core-module@npm:^2.2.0":
   version: 2.2.0
   resolution: "is-core-module@npm:2.2.0"
   dependencies:
@@ -14085,17 +14085,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.2.0":
-  version: 1.19.0
-  resolution: "resolve@npm:1.19.0"
-  dependencies:
-    is-core-module: ^2.1.0
-    path-parse: ^1.0.6
-  checksum: 8b23c7fde1224898ffb9fec2a2295a44d1564981343bdbf5fd3769465658f6a6f6647bb7ea66dfb3c1291ca86046b0233be2edfcd8ca05b38886521e8869677c
-  languageName: node
-  linkType: hard
-
-resolve@^1.14.2:
+"resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.2.0":
   version: 1.20.0
   resolution: "resolve@npm:1.20.0"
   dependencies:
@@ -14105,17 +14095,7 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.7#builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#builtin<compat/resolve>, resolve@patch:resolve@^1.15.1#builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.2.0#builtin<compat/resolve>":
-  version: 1.19.0
-  resolution: "resolve@patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"
-  dependencies:
-    is-core-module: ^2.1.0
-    path-parse: ^1.0.6
-  checksum: 188d5167e8578a9af8d194faf382b8f3526aad5145391c24ecdc6246c6fc82c10fc66d6352267f8e93c5977c503d61803169c91b9e2ee36dd2de759915c9b673
-  languageName: node
-  linkType: hard
-
-"resolve@patch:resolve@^1.14.2#builtin<compat/resolve>":
+"resolve@patch:resolve@^1.1.7#builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#builtin<compat/resolve>, resolve@patch:resolve@^1.15.1#builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.2.0#builtin<compat/resolve>":
   version: 1.20.0
   resolution: "resolve@patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"
   dependencies:

@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@ec-nordbund/typescript-module": "^0.4.0",
-    "@ec-nordbund/vuetify-module": "^0.4.2",
+    "@ec-nordbund/vuetify-module": "^0.4.3",
     "@lhci/cli": "0.7.0",
     "@nuxt/types": "2.15.3",
     "@nuxtjs/eslint-config": "6.0.0",
