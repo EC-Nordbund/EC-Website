@@ -97,7 +97,7 @@ v-app
               :x-small='$vuetify.breakpoint.smAndDown',
               :small='$vuetify.breakpoint.mdAndUp',
               :class='"overflow-hidden krisenbutton" + ($vuetify.breakpoint.mdAndUp ? "-extended" : "")',
-              aria-label='Krisenintervention'
+              aria-label='Kinder und Jugendschutz'
             )
               v-icon.ml-n1.mr-n1(small) mdi-alarm-light
               span.pl-2.subtitle-2.font-weight-medium(
@@ -108,9 +108,9 @@ v-app
       v-container
         v-row
           v-col.d-flex.align-center.px-0(sm=12)
-            nuxt-link.d-flex.align-center.mr-auto.no-underline(to='/', exact)
+            nuxt-link.d-flex.align-center.mr-auto.no-underline(to='/', exact aria-label="Zur Startseite")
               ec-logo(size='42px', alt='EC')
-              h1 Nordbund
+              span(style="display: block; font-size: 2em; font-weight: bold;") Nordbund
             v-btn.hidden-sm-and-down.mr-2(text, to='/blog', color='primary')
               span.subtitle-1.text-capitalize.font-weight-medium Blog
             v-btn.hidden-sm-and-down.mr-2(
@@ -241,23 +241,27 @@ export default defineComponent({
     const { isDev, $content } = useContext()
 
     // could be optimized
-    const losungen = useStatic(async () => {
-      return (
-        await $content('api', 'losungen').fetch()
-      ).body.FreeXml.Losungen.filter((v) =>
-        v.Datum[0].startsWith(
-          `${new Date().getFullYear()}-${
-            new Date().getMonth() + 1 < 10
-              ? '0' + (new Date().getMonth() + 1)
-              : new Date().getMonth() + 1
-          }-${
-            new Date().getDate() < 10
-              ? '0' + new Date().getDate()
-              : new Date().getDate()
-          }`
-        )
-      )[0]
-    }, undefined, 'losungen')
+    const losungen = useStatic(
+      async () => {
+        return (
+          await $content('api', 'losungen').fetch()
+        ).body.FreeXml.Losungen.filter((v) =>
+          v.Datum[0].startsWith(
+            `${new Date().getFullYear()}-${
+              new Date().getMonth() + 1 < 10
+                ? '0' + (new Date().getMonth() + 1)
+                : new Date().getMonth() + 1
+            }-${
+              new Date().getDate() < 10
+                ? '0' + new Date().getDate()
+                : new Date().getDate()
+            }`
+          )
+        )[0]
+      },
+      undefined,
+      'losungen'
+    )
 
     const isStartPage = computed(() => ctx.root.$nuxt.$route.path == '/')
 
