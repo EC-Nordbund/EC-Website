@@ -79,7 +79,10 @@ dist
 
 # IDE / Editor
 .idea
-
+.vscode/* 
+!.vscode/extensions.json 
+!.vscode/settings.json 
+*.code-workspace
 
 # macOS
 .DS_Store
