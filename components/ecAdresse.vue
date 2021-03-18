@@ -9,7 +9,7 @@ import {
   reactive,
   ref,
   watchEffect,
-  useAsync,
+  useStatic,
 } from '@nuxtjs/composition-api'
 import { mapper } from '../plugins/validate'
 import { get } from '~/helpers/fetch'
@@ -27,9 +27,9 @@ export default defineComponent({
   },
   setup(props, ctx) {
     const orte = ref([])
-    const plzs = useAsync(async () => {
+    const plzs = useStatic(async () => {
       return await get('/plz/plz.json')
-    })
+    }, undefined, 'plz')
 
     const localState = reactive({
       plz: '',

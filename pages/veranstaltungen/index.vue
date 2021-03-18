@@ -42,7 +42,7 @@
 <script lang="ts">
 import {
   defineComponent,
-  useAsync,
+  useStatic,
   useContext,
   computed,
 } from '@nuxtjs/composition-api'
@@ -74,7 +74,7 @@ export default defineComponent({
 
     const { $content } = useContext()
 
-    const veranstaltungen = useAsync(async () => {
+    const veranstaltungen = useStatic(async () => {
       const veranstaltungen = await $content('veranstaltung')
         .only([
           'slug',
@@ -93,7 +93,7 @@ export default defineComponent({
         .fetch()
 
       return veranstaltungen
-    })
+    }, undefined, 'vDataPage')
 
     return {
       detailsMaxHeight,

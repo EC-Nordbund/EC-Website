@@ -29,7 +29,7 @@ v-container(v-else)
 <script lang="ts">
 import {
   defineComponent,
-  useAsync,
+  useStatic,
   useMeta,
   ref,
   useContext,
@@ -40,7 +40,7 @@ export default defineComponent({
     const tab = ref(0)
     const { $content } = useContext()
 
-    const pages = useAsync(async () => {
+    const pages = useStatic(async () => {
       const [
         kontakt,
         mitarbeiter,
@@ -62,7 +62,7 @@ export default defineComponent({
         teilnehmer,
         website,
       }
-    })
+    }, undefined, 'datenschutz')
 
     return {
       tab,
