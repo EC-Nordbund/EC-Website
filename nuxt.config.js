@@ -1,5 +1,4 @@
 import de from 'vuetify/es5/locale/de'
-import icons from 'vuetify/es5/services/icons/presets/mdi-svg'
 
 const createSitemapRoutes = async () => {
   const routes = []
@@ -72,6 +71,10 @@ const vuetifyTheme = {
   youtube: '#f00',
 }
 
+import { join } from 'path'
+
+const useCustomPath = !!process.env.EC_NUXT_CONTENT
+
 /**
  * @type {import('@nuxt/types').NuxtConfig}
  */
@@ -102,7 +105,10 @@ export default {
         theme: false,
       },
     },
+    dir: useCustomPath ? join(process.env.EC_NUXT_CONTENT, 'content') : 'content',
   },
+
+  dir: useCustomPath ? { static: join(process.env.EC_NUXT_CONTENT, 'static') } : undefined,
 
   head: {
     titleTemplate: (chunk) => {

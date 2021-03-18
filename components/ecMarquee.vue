@@ -16,6 +16,9 @@ export default defineComponent({
       required: true,
     },
   },
+  setup(props) {
+    return {props}
+  }
 })
 </script>
 <style scoped lang="scss">
