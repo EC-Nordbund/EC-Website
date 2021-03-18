@@ -10,11 +10,7 @@ export async function get<T = {}>(url: string): Promise<T> {
     fetch = window.fetch
   }
 
-  console.log(fetch)
-
-  console.log('err2')
   const res = await fetch(base + url)
-  console.log('err3')
   const json = await res.json()
 
   return json
@@ -28,8 +24,6 @@ export async function post<T = {}>(url: string, data: any): Promise<T> {
   } else {
     fetch = window.fetch
   }
-
-  console.log(fetch)
 
   const res = await fetch(base + url, {
     method: 'POST',
