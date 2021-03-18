@@ -25,7 +25,7 @@ v-container
       two-line
     )
       v-list-item-avatar
-        v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[file.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
+        v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[el.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
       v-list-item-content
         v-list-item-title {{ el.title }}
         v-list-item-subtitle {{ el.description }}
