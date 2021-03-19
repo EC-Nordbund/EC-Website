@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
+            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
@@ -2353,10 +2353,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@ec-nordbund/leaflet", [
-        ["npm:1.7.1-436430db4-436430db4", {
-          "packageLocation": "./.yarn/cache/@ec-nordbund-leaflet-npm-1.7.1-436430db4-436430db4-e242ffc4cf-5859ab280c.zip/node_modules/@ec-nordbund/leaflet/",
+        ["npm:1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2", {
+          "packageLocation": "./.yarn/cache/@ec-nordbund-leaflet-npm-1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2-70b834f40d-c7b3ecc659.zip/node_modules/@ec-nordbund/leaflet/",
           "packageDependencies": [
-            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"]
+            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"]
           ],
           "linkType": "HARD",
         }]
@@ -2373,7 +2373,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@ec-nordbund-nuxt-vue2-leaflet-virtual-91e8503850/0/cache/@ec-nordbund-nuxt-vue2-leaflet-npm-3.2.1-c3890cd485-b35b88f38d.zip/node_modules/@ec-nordbund/nuxt-vue2-leaflet/",
           "packageDependencies": [
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
-            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
+            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"],
             ["@types/ec-nordbund__leaflet", null]
           ],
           "packagePeers": [
@@ -6800,7 +6800,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["content-test", "workspace:."],
-            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4-436430db4"],
+            ["@ec-nordbund/leaflet", "npm:1.7.1-436430db4203a350601e002c8de6a41fae15a4bf-2"],
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
