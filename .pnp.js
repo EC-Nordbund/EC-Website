@@ -48,7 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.3"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.3"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.1"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
             ["@nuxtjs/eslint-config", "virtual:ecc9a8f9a5dcabb80ab01f68f8d7e99c3dedb15df5db6e00cfac84e4110ee6ca8baeb4620f84e00e48ff531d4766398b03620b7a28cf041302c8e76424a351ec#npm:6.0.0"],
             ["@nuxtjs/eslint-config-typescript", "npm:6.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
@@ -3081,23 +3081,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@nuxtjs/composition-api", [
-        ["npm:0.22.1", {
-          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.22.1-5e0b83d93c-ade4b5a017.zip/node_modules/@nuxtjs/composition-api/",
+        ["npm:0.22.4", {
+          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.22.4-23d77f7e1c-6bff6d052f.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "npm:0.22.1"]
+            ["@nuxtjs/composition-api", "npm:0.22.4"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.1", {
-          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-c6d3000c2e/0/cache/@nuxtjs-composition-api-npm-0.22.1-5e0b83d93c-ade4b5a017.zip/node_modules/@nuxtjs/composition-api/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4", {
+          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-c1c14d5c58/0/cache/@nuxtjs-composition-api-npm-0.22.4-23d77f7e1c-6bff6d052f.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.1"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
             ["@nuxt/vue-app", "npm:2.15.3"],
             ["@types/fs-extra", null],
             ["@types/nuxt", null],
             ["@types/nuxt__vue-app", null],
             ["@types/vue", null],
-            ["@vue/composition-api", "virtual:c6d3000c2ed9ccc4579651eb05b9444b3903acba06540845a951d3245c12bf3ca362038eed32109e9c02e672006a517ea8d14a4a4722785ff0e25eacb0a34bc1#npm:1.0.0-rc.5"],
+            ["@vue/composition-api", "virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5"],
             ["defu", "npm:3.2.2"],
             ["estree-walker", "npm:2.0.2"],
             ["fs-extra", "npm:8.1.0"],
@@ -4308,10 +4308,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:c6d3000c2ed9ccc4579651eb05b9444b3903acba06540845a951d3245c12bf3ca362038eed32109e9c02e672006a517ea8d14a4a4722785ff0e25eacb0a34bc1#npm:1.0.0-rc.5", {
-          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-ab87161d94/0/cache/@vue-composition-api-npm-1.0.0-rc.5-681ec55809-eda65728cf.zip/node_modules/@vue/composition-api/",
+        ["virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5", {
+          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-aa306573ee/0/cache/@vue-composition-api-npm-1.0.0-rc.5-681ec55809-eda65728cf.zip/node_modules/@vue/composition-api/",
           "packageDependencies": [
-            ["@vue/composition-api", "virtual:c6d3000c2ed9ccc4579651eb05b9444b3903acba06540845a951d3245c12bf3ca362038eed32109e9c02e672006a517ea8d14a4a4722785ff0e25eacb0a34bc1#npm:1.0.0-rc.5"],
+            ["@vue/composition-api", "virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5"],
             ["@types/vue", null],
             ["tslib", "npm:2.1.0"],
             ["vue", "npm:2.6.12"]
@@ -6811,7 +6811,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.3"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.3"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.1"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
             ["@nuxtjs/eslint-config", "virtual:ecc9a8f9a5dcabb80ab01f68f8d7e99c3dedb15df5db6e00cfac84e4110ee6ca8baeb4620f84e00e48ff531d4766398b03620b7a28cf041302c8e76424a351ec#npm:6.0.0"],
             ["@nuxtjs/eslint-config-typescript", "npm:6.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],

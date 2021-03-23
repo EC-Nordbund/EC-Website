@@ -2023,9 +2023,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/composition-api@npm:0.22.1":
-  version: 0.22.1
-  resolution: "@nuxtjs/composition-api@npm:0.22.1"
+"@nuxtjs/composition-api@npm:0.22.4":
+  version: 0.22.4
+  resolution: "@nuxtjs/composition-api@npm:0.22.4"
   dependencies:
     "@vue/composition-api": 1.0.0-rc.5
     defu: ^3.2.2
@@ -2038,7 +2038,7 @@ __metadata:
     fs-extra: ^8.1.0
     nuxt: ^2.15
     vue: ^2
-  checksum: ade4b5a01709c57f4c24cc722aeb783c9bafe91d88dd7db7ffcf8fd7db509753da25d900677578036906773be53d21bfd6e11cd18c0e469166cc27e652bd5e07
+  checksum: 6bff6d052f7c76c6a6506c89a74c81168efc1643dddfc5f55d22188f2656e3895eee7d91769eccb66afa0594c4cf887929be8af2b58aad257556465888487bc2
   languageName: node
   linkType: hard
 
@@ -5146,7 +5146,7 @@ __metadata:
     "@nuxt/types": 2.15.3
     "@nuxt/typescript-runtime": 2.1.0
     "@nuxt/vue-app": 2.15.3
-    "@nuxtjs/composition-api": 0.22.1
+    "@nuxtjs/composition-api": 0.22.4
     "@nuxtjs/eslint-config": 6.0.0
     "@nuxtjs/eslint-config-typescript": 6.0.0
     "@nuxtjs/eslint-module": 3.0.2

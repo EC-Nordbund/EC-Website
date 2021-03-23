@@ -21,7 +21,7 @@
     "@nuxt/content": "1.14.0",
     "@nuxt/typescript-runtime": "2.1.0",
     "@nuxt/vue-app": "2.15.3",
-    "@nuxtjs/composition-api": "0.22.1",
+    "@nuxtjs/composition-api": "0.22.4",
     "@nuxtjs/sitemap": "2.4.0",
     "ackee-tracker": "https://github.com/electerious/ackee-tracker.git#develop",
     "axios": "0.21.1",
