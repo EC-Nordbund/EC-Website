@@ -5185,7 +5185,7 @@ __metadata:
     typeface-montserrat: 1.1.13
     typescript: 4.2.3
     vue: 2.6.12
-    vuetify: 2.4.7
+    vuetify: 2.4.8
     web-vitals: 1.1.1
     webpack: 4.46.0
   languageName: unknown
@@ -16675,12 +16675,12 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vuetify@npm:2.4.7":
-  version: 2.4.7
-  resolution: "vuetify@npm:2.4.7"
+"vuetify@npm:2.4.8":
+  version: 2.4.8
+  resolution: "vuetify@npm:2.4.8"
   peerDependencies:
     vue: ^2.6.4
-  checksum: b148bbf92451bfa9d7e6878c1448957abd754d410e6442b1a079a06b40ffbafaa6a462832c53c7da947a525b2b67d7a307451878cb64facdc5963d9bc2280e69
+  checksum: c19a6f13fb3faa01cf15b8a6f1a7bb845c1e4d21d7b1bdce9fd056f72e06101ee4b3ee56070e73b1025cbf02f2cf86043f854aa80a0e40f1210fbc755aad121a
   languageName: node
   linkType: hard
 
