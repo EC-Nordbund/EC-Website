@@ -6936,7 +6936,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["core-js", [
         ["npm:2.6.12", {
-          "packageLocation": "./.yarn/cache/core-js-npm-2.6.12-0b93d77d31-b865823ce9.zip/node_modules/core-js/",
+          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.12-0b93d77d31/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.12"]
           ],
@@ -8254,7 +8254,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["esbuild", [
         ["npm:0.9.2", {
-          "packageLocation": "./.yarn/cache/esbuild-npm-0.9.2-a2f69bdcd9-443c46b61e.zip/node_modules/esbuild/",
+          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.9.2-a2f69bdcd9/node_modules/esbuild/",
           "packageDependencies": [
             ["esbuild", "npm:0.9.2"]
           ],
@@ -13903,7 +13903,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["nuxt", [
         ["npm:2.15.3", {
-          "packageLocation": "./.yarn/cache/nuxt-npm-2.15.3-8c51043f61-ab2df7bd26.zip/node_modules/nuxt/",
+          "packageLocation": "./.yarn/unplugged/nuxt-npm-2.15.3-8c51043f61/node_modules/nuxt/",
           "packageDependencies": [
             ["nuxt", "npm:2.15.3"],
             ["@nuxt/babel-preset-app", "npm:2.15.3"],
@@ -13920,7 +13920,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/utils", "npm:2.15.3"],
             ["@nuxt/vue-app", "npm:2.15.3"],
             ["@nuxt/vue-renderer", "npm:2.15.3"],
-            ["@nuxt/webpack", "npm:2.15.3"]
+            ["@nuxt/webpack", "npm:2.15.3"],
+            ["consola", "npm:2.15.3"]
           ],
           "linkType": "HARD",
         }]

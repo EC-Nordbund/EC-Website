@@ -1,7 +1,25 @@
 <template lang="pug">
-  div(style="display: grid; grid-template-columns: 1fr 5fr;grid-gap: 10px;")
-    v-autocomplete(required label="PLZ" :items="plzs" @input="plzChange" :value="localState.plz" :loading="!plzs" @change="plzEvent" :error-messages="plzErrors")
-    v-select(required label="Ort" :disabled="!localState.plz" :items="orte" :value="localState.ort" @input="ortChange" @change="ortEvent" :error-messages="ortErrors")
+div(style='display: grid; grid-template-columns: 1fr 5fr; grid-gap: 10px')
+  v-autocomplete(
+    required,
+    label='PLZ',
+    :items='plzs',
+    @input='plzChange',
+    :value='localState.plz',
+    :loading='!plzs',
+    @change='plzEvent',
+    :error-messages='plzErrors'
+  )
+  v-select(
+    required,
+    label='Ort',
+    :disabled='!localState.plz',
+    :items='orte',
+    :value='localState.ort',
+    @input='ortChange',
+    @change='ortEvent',
+    :error-messages='ortErrors'
+  )
 </template>
 <script>
 import {
@@ -9,7 +27,7 @@ import {
   reactive,
   ref,
   watchEffect,
-  useStatic,
+  onMounted,
 } from '@nuxtjs/composition-api'
 import { mapper } from '../plugins/validate'
 import { get } from '~/helpers/fetch'
@@ -27,9 +45,11 @@ export default defineComponent({
   },
   setup(props, ctx) {
     const orte = ref([])
-    const plzs = useStatic(async () => {
-      return await get('/plz/plz.json')
-    }, undefined, 'plz')
+    const plzs = ref([])
+
+    onMounted(() =>
+      get('https://plz.ec-nordbund.de/plz.json').then((d) => (plzs.value = d))
+    )
 
     const localState = reactive({
       plz: '',
@@ -52,7 +72,7 @@ export default defineComponent({
       localState.ort = ''
       ctx.emit('input', localState)
 
-      const orteForPLZ = await get(`/plz/${plz}.json`)
+      const orteForPLZ = await get(`https://plz.ec-nordbund.de/${plz}.json`)
 
       if (orteForPLZ.length === 1) {
         orte.value = orteForPLZ

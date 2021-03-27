@@ -5050,7 +5050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:2.15.3, consola@npm:^2.15.3":
+"consola@npm:*, consola@npm:2.15.3, consola@npm:^2.15.3":
   version: 2.15.3
   resolution: "consola@npm:2.15.3"
   checksum: 914e2b0b24605a41f1a83ae29a0238558d01a01c40ada5817db81b2dd1543a540d59e38e81e736d05360246379a18013e6930b32231650898dfc4adb52a93523

@@ -29,13 +29,13 @@ const vData = {
   450: 'MaTag',
   451: 'TimeOut 2021/22',
   452: 'MiWoE compact',
-  453: 'Kalmi Kurz Camp'
+  453: 'Kalmi Kurz Camp',
 }
 
 const app = express()
 
 app.use(json())
-
+app.get('/test', (req, res) => res.end('pong'))
 app.post('/anmeldung/ma/checkToken', (req, res) => {
   checkToken(req.body.token)
     .then((d) => {

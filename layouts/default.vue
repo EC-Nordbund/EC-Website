@@ -108,9 +108,13 @@ v-app
       v-container
         v-row
           v-col.d-flex.align-center.px-0(sm=12)
-            nuxt-link.d-flex.align-center.mr-auto.no-underline(to='/', exact aria-label="Zur Startseite")
+            nuxt-link.d-flex.align-center.mr-auto.no-underline(
+              to='/',
+              exact,
+              aria-label='Zur Startseite'
+            )
               ec-logo(size='42px', alt='EC')
-              span(style="display: block; font-size: 2em; font-weight: bold;") Nordbund
+              span(style='display: block; font-size: 2em; font-weight: bold') Nordbund
             v-btn.hidden-sm-and-down.mr-2(text, to='/blog', color='primary')
               span.subtitle-1.text-capitalize.font-weight-medium Blog
             v-btn.hidden-sm-and-down.mr-2(
@@ -194,10 +198,6 @@ v-app
               v-list-item-content
                 v-list-item-title
                   | Startseite
-            v-list-item.ml-n4(to='/suche/')
-              v-list-item-content
-                v-list-item-title
-                  | Suche
             v-list-item.ml-n4(to='/downloads/')
               v-list-item-content
                 v-list-item-title
@@ -214,10 +214,6 @@ v-app
               v-list-item-content
                 v-list-item-title
                   | Impressum
-            v-list-item.ml-n4(to='/admin', v-if='isDev')
-              v-list-item-content
-                v-list-item-title
-                  | Admin
 
       v-row.pt-1
         v-col.text-center © by EC-Nordbund
@@ -229,9 +225,11 @@ import {
   useContext,
   computed,
   useStatic,
+  onMounted,
 } from '@nuxtjs/composition-api'
 
 import copy from '~/helpers/copy'
+import { get } from '~/helpers/fetch'
 
 export default defineComponent({
   setup(_, ctx) {
@@ -241,27 +239,23 @@ export default defineComponent({
     const { isDev, $content } = useContext()
 
     // could be optimized
-    const losungen = useStatic(
-      async () => {
-        return (
-          await $content('api', 'losungen').fetch()
-        ).body.FreeXml.Losungen.filter((v) =>
-          v.Datum[0].startsWith(
-            `${new Date().getFullYear()}-${
-              new Date().getMonth() + 1 < 10
-                ? '0' + (new Date().getMonth() + 1)
-                : new Date().getMonth() + 1
-            }-${
-              new Date().getDate() < 10
-                ? '0' + new Date().getDate()
-                : new Date().getDate()
-            }`
-          )
-        )[0]
-      },
-      undefined,
-      'losungen'
-    )
+    const losungen = ref(null)
+
+    onMounted(() => {
+      const today = `${new Date().getFullYear()}-${
+        new Date().getMonth() + 1 < 10
+          ? '0' + (new Date().getMonth() + 1)
+          : new Date().getMonth() + 1
+      }-${
+        new Date().getDate() < 10
+          ? '0' + new Date().getDate()
+          : new Date().getDate()
+      }`
+
+      get(`https://losungen.ec-nordbund.de/${today}.json`).then(
+        (v) => (losungen.value = v)
+      )
+    })
 
     const isStartPage = computed(() => ctx.root.$nuxt.$route.path == '/')
 
