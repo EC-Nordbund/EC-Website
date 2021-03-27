@@ -176,6 +176,10 @@ export default {
     ],
   },
 
+  esbuild: {
+    target: 'es2017',
+  },
+  
   sitemap: {
     hostname: 'https://www.ec-nordbund.de',
     exclude: [
