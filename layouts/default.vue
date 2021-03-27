@@ -50,10 +50,10 @@ v-app
                 |
                 | —&nbsp;
                 a.font-italic.pr-6.caption.hellGrau--text(
-                  :href='`https://www.bibelserver.com/LUT/${losungen.Losungsvers[0]}`',
+                  :href='`https://www.bibelserver.com/LUT/${losungen.Losungsvers}`',
                   target='_blank',
                   rel='noopener',
-                  v-html='losungen.Losungsvers[0]'
+                  v-html='losungen.Losungsvers'
                 )
 
                 //- Lehrtext
@@ -62,10 +62,10 @@ v-app
                 |
                 | —&nbsp;
                 a.font-italic.pr-6.caption.hellGrau--text(
-                  :href='`https://www.bibelserver.com/LUT/${losungen.Lehrtextvers[0]}`',
+                  :href='`https://www.bibelserver.com/LUT/${losungen.Lehrtextvers}`',
                   target='_blank',
                   rel='noopener',
-                  v-html='losungen.Lehrtextvers[0]'
+                  v-html='losungen.Lehrtextvers'
                 )
 
                 //- Copyright
@@ -262,7 +262,7 @@ export default defineComponent({
     const losung = computed(
       () =>
         losungen.value &&
-        losungen.value.Losungstext[0]
+        losungen.value.Losungstext
           .split('/')
           .join('<b><i>')
           .split(':<b><i>')
@@ -284,7 +284,7 @@ export default defineComponent({
     const lehrtext = computed(
       () =>
         losungen.value &&
-        losungen.value.Lehrtext[0]
+        losungen.value.Lehrtext
           .split('/')
           .join('<i>')
           .split(':<i>')
@@ -306,10 +306,10 @@ export default defineComponent({
     const marqueeContentLength = computed(
       () =>
         losungen.value &&
-        losungen.value.Losungstext[0].length +
-          losungen.value.Losungsvers[0].length +
-          losungen.value.Lehrtext[0].length +
-          losungen.value.Lehrtextvers[0].length +
+        losungen.value.Losungstext.length +
+          losungen.value.Losungsvers.length +
+          losungen.value.Lehrtext.length +
+          losungen.value.Lehrtextvers.length +
           140
     )
 
