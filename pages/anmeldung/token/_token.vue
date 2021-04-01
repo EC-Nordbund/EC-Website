@@ -295,7 +295,6 @@ export default defineComponent({
       iconSize,
       statusText,
       statusColor,
-      mdiCheckAll,
       isSuccessful,
       isOnWarteliste,
       anmeldeID,
