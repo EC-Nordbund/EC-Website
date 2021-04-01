@@ -30,6 +30,7 @@ const vData = {
   451: 'TimeOut 2021/22',
   452: 'MiWoE compact',
   453: 'Kalmi Kurz Camp',
+  454: 'LeitHaus',
 }
 
 const app = express()
