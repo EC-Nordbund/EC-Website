@@ -151,7 +151,7 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
     const mail = await sendMail({
       to: email,
       from: 'anmeldung@ec-nordbund.de',
-      subject: `Deine Anmeldung als Mitarbeiter beim EC-Nordbund (${
+      subject: `Deine Anmeldung als ${veranstaltungsID == 454 && position == 1 ? 'Teilnehmer' : 'Mitarbeiter'} beim EC-Nordbund (${
         vData[veranstaltungsID as keyof typeof vData] ||
         // @ts-ignore veranstaltungsID kann hier ein String sein.
         `EC-${veranstaltungsID[0].toUpperCase()}${veranstaltungsID.slice(1)}`
