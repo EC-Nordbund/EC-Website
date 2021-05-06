@@ -6,6 +6,10 @@ div
     width='auto',
     min-width='100%',
     gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.03) 64%, rgba(0,0,0,0.48) 100%')
+    .siegel
+      v-img(
+        :src='require("@/assets/img/karlsminde/modellprojekt-2021-siegel.png")'
+      )
     v-container.pb-4.pb-sm-2.white--text
       h2.text-h5.text-sm-h4.font-weight-bold.text-no-wrap EC-Ferienlager
       h1.text-h3.text-sm-h2.font-weight-black Karlsminde
@@ -153,5 +157,11 @@ export default {
       rgba(0, 0, 0, 0.16) 100%
     );
   }
+}
+
+.siegel {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
