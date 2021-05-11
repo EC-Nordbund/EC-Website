@@ -5186,7 +5186,7 @@ __metadata:
     typescript: 4.2.3
     vue: 2.6.12
     vuetify: 2.4.8
-    web-vitals: 1.1.1
+    web-vitals: 1.1.2
     webpack: 4.46.0
   languageName: unknown
   linkType: soft
@@ -16726,10 +16726,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:1.1.1":
-  version: 1.1.1
-  resolution: "web-vitals@npm:1.1.1"
-  checksum: e84e449f46d5bdae9bc3d9d03647e654970bbe7fd448ecc8051ae06bcb869aa29cdcd16486786db416ca7a6e43a2f87e0f66662437ec5679761bcdd753a8c055
+"web-vitals@npm:1.1.2":
+  version: 1.1.2
+  resolution: "web-vitals@npm:1.1.2"
+  checksum: 76b4979a8d786201ac5c165ddea67a1076c07565e823f0d77aa3a3678e9ba6d2856ce14a89af30efe302960e3310c1972a1bbccab2b5bad61eb62a1a33e11f4f
   languageName: node
   linkType: hard
 
