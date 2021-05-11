@@ -88,7 +88,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"],
             ["vue", "npm:2.6.12"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.4.8"],
-            ["web-vitals", "npm:1.1.1"],
+            ["web-vitals", "npm:1.1.2"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
           ],
           "linkType": "SOFT",
@@ -6851,7 +6851,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"],
             ["vue", "npm:2.6.12"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.4.8"],
-            ["web-vitals", "npm:1.1.1"],
+            ["web-vitals", "npm:1.1.2"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
           ],
           "linkType": "SOFT",
@@ -6936,7 +6936,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["core-js", [
         ["npm:2.6.12", {
-          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.12-0b93d77d31/node_modules/core-js/",
+          "packageLocation": "./.yarn/cache/core-js-npm-2.6.12-0b93d77d31-b865823ce9.zip/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.12"]
           ],
@@ -8254,7 +8254,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["esbuild", [
         ["npm:0.9.2", {
-          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.9.2-a2f69bdcd9/node_modules/esbuild/",
+          "packageLocation": "./.yarn/cache/esbuild-npm-0.9.2-a2f69bdcd9-443c46b61e.zip/node_modules/esbuild/",
           "packageDependencies": [
             ["esbuild", "npm:0.9.2"]
           ],
@@ -13903,7 +13903,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["nuxt", [
         ["npm:2.15.3", {
-          "packageLocation": "./.yarn/unplugged/nuxt-npm-2.15.3-8c51043f61/node_modules/nuxt/",
+          "packageLocation": "./.yarn/cache/nuxt-npm-2.15.3-8c51043f61-ab2df7bd26.zip/node_modules/nuxt/",
           "packageDependencies": [
             ["nuxt", "npm:2.15.3"],
             ["@nuxt/babel-preset-app", "npm:2.15.3"],
@@ -20058,10 +20058,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["web-vitals", [
-        ["npm:1.1.1", {
-          "packageLocation": "./.yarn/cache/web-vitals-npm-1.1.1-8e49f78188-e84e449f46.zip/node_modules/web-vitals/",
+        ["npm:1.1.2", {
+          "packageLocation": "./.yarn/cache/web-vitals-npm-1.1.2-8e3860bc35-76b4979a8d.zip/node_modules/web-vitals/",
           "packageDependencies": [
-            ["web-vitals", "npm:1.1.1"]
+            ["web-vitals", "npm:1.1.2"]
           ],
           "linkType": "HARD",
         }]
