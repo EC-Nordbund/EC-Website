@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.4.0"],
             ["express", "npm:4.17.1"],
             ["fiber", "npm:1.0.4"],
-            ["fs-extra", "npm:8.1.0"],
+            ["fs-extra", "npm:10.0.0"],
             ["inline-css", "npm:3.0.0"],
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
@@ -3100,7 +3100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vue/composition-api", "virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5"],
             ["defu", "npm:3.2.2"],
             ["estree-walker", "npm:2.0.2"],
-            ["fs-extra", "npm:8.1.0"],
+            ["fs-extra", "npm:10.0.0"],
             ["magic-string", "npm:0.25.7"],
             ["nuxt", "npm:2.15.3"],
             ["ufo", "npm:0.6.10"],
@@ -6831,7 +6831,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.4.0"],
             ["express", "npm:4.17.1"],
             ["fiber", "npm:1.0.4"],
-            ["fs-extra", "npm:8.1.0"],
+            ["fs-extra", "npm:10.0.0"],
             ["inline-css", "npm:3.0.0"],
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
@@ -9605,6 +9605,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fs-extra", [
+        ["npm:10.0.0", {
+          "packageLocation": "./.yarn/cache/fs-extra-npm-10.0.0-4f8c704115-84632d143f.zip/node_modules/fs-extra/",
+          "packageDependencies": [
+            ["fs-extra", "npm:10.0.0"],
+            ["graceful-fs", "npm:4.2.4"],
+            ["jsonfile", "npm:6.1.0"],
+            ["universalify", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:8.1.0", {
           "packageLocation": "./.yarn/cache/fs-extra-npm-8.1.0-197473387f-056a96d4f5.zip/node_modules/fs-extra/",
           "packageDependencies": [
