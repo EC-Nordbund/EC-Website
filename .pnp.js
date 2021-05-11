@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
-            ["@fontsource/montserrat", "npm:4.2.2"],
+            ["@fontsource/montserrat", "npm:4.3.0"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],
             ["@nuxt/content", "npm:1.14.0"],
@@ -2470,10 +2470,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@fontsource/montserrat", [
-        ["npm:4.2.2", {
-          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-4.2.2-412c4f64ec-c99d5a79fd.zip/node_modules/@fontsource/montserrat/",
+        ["npm:4.3.0", {
+          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-4.3.0-e1dfe10d67-dad8c46c6b.zip/node_modules/@fontsource/montserrat/",
           "packageDependencies": [
-            ["@fontsource/montserrat", "npm:4.2.2"]
+            ["@fontsource/montserrat", "npm:4.3.0"]
           ],
           "linkType": "HARD",
         }]
@@ -6804,7 +6804,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
-            ["@fontsource/montserrat", "npm:4.2.2"],
+            ["@fontsource/montserrat", "npm:4.3.0"],
             ["@lhci/cli", "npm:0.7.0"],
             ["@mdi/js", "npm:5.9.55"],
             ["@nuxt/content", "npm:1.14.0"],
@@ -6936,7 +6936,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["core-js", [
         ["npm:2.6.12", {
-          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.12-0b93d77d31/node_modules/core-js/",
+          "packageLocation": "./.yarn/cache/core-js-npm-2.6.12-0b93d77d31-b865823ce9.zip/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.12"]
           ],
@@ -8254,7 +8254,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["esbuild", [
         ["npm:0.9.2", {
-          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.9.2-a2f69bdcd9/node_modules/esbuild/",
+          "packageLocation": "./.yarn/cache/esbuild-npm-0.9.2-a2f69bdcd9-443c46b61e.zip/node_modules/esbuild/",
           "packageDependencies": [
             ["esbuild", "npm:0.9.2"]
           ],
@@ -13903,7 +13903,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["nuxt", [
         ["npm:2.15.3", {
-          "packageLocation": "./.yarn/unplugged/nuxt-npm-2.15.3-8c51043f61/node_modules/nuxt/",
+          "packageLocation": "./.yarn/cache/nuxt-npm-2.15.3-8c51043f61-ab2df7bd26.zip/node_modules/nuxt/",
           "packageDependencies": [
             ["nuxt", "npm:2.15.3"],
             ["@nuxt/babel-preset-app", "npm:2.15.3"],
