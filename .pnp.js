@@ -56,7 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express", "npm:4.17.11"],
             ["@types/jsonwebtoken", "npm:8.5.1"],
-            ["@types/node", "npm:14.14.35"],
+            ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.1"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
@@ -3971,10 +3971,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:14.14.35", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.14.35-c55176fef6-0f6320bf53.zip/node_modules/@types/node/",
+        ["npm:15.6.1", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-15.6.1-1a0b9c8653-07b3855bc0.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:14.14.35"]
+            ["@types/node", "npm:15.6.1"]
           ],
           "linkType": "HARD",
         }]
@@ -7338,7 +7338,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express", "npm:4.17.11"],
             ["@types/jsonwebtoken", "npm:8.5.1"],
-            ["@types/node", "npm:14.14.35"],
+            ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.1"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
