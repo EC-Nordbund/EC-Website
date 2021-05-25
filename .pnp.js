@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
             ["@types/body-parser", "npm:1.19.0"],
-            ["@types/express", "npm:4.17.11"],
+            ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.1"],
             ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.1"],
@@ -3823,10 +3823,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/express", [
-        ["npm:4.17.11", {
-          "packageLocation": "./.yarn/cache/@types-express-npm-4.17.11-1b3f17f056-2818120a0f.zip/node_modules/@types/express/",
+        ["npm:4.17.12", {
+          "packageLocation": "./.yarn/cache/@types-express-npm-4.17.12-d30bfc5b29-b1ab50e037.zip/node_modules/@types/express/",
           "packageDependencies": [
-            ["@types/express", "npm:4.17.11"],
+            ["@types/express", "npm:4.17.12"],
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express-serve-static-core", "npm:4.17.18"],
             ["@types/qs", "npm:6.9.5"],
@@ -7423,7 +7423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
             ["@types/body-parser", "npm:1.19.0"],
-            ["@types/express", "npm:4.17.11"],
+            ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.1"],
             ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.1"],
