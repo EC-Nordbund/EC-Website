@@ -5642,7 +5642,7 @@ __metadata:
     remark: 13.0.0
     remark-html: 13.0.1
     sass: 1.32.8
-    sass-loader: 10.1.1
+    sass-loader: 10.2.0
     typeface-montserrat: 1.1.13
     typescript: 4.2.3
     vue: 2.6.12
@@ -15056,6 +15056,31 @@ fsevents@~2.3.1:
     sass:
       optional: true
   checksum: 725245f0259453fcc51c4a1012c484dda1340ebb10b9c461e2b3b4408105f5426ad5613282ad0861c1f32744533d8a584450b11daf42aa1237b04287f01223d4
+  languageName: node
+  linkType: hard
+
+"sass-loader@npm:10.2.0":
+  version: 10.2.0
+  resolution: "sass-loader@npm:10.2.0"
+  dependencies:
+    klona: ^2.0.4
+    loader-utils: ^2.0.0
+    neo-async: ^2.6.2
+    schema-utils: ^3.0.0
+    semver: ^7.3.2
+  peerDependencies:
+    fibers: ">= 3.1.0"
+    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0
+    sass: ^1.3.0
+    webpack: ^4.36.0 || ^5.0.0
+  peerDependenciesMeta:
+    fibers:
+      optional: true
+    node-sass:
+      optional: true
+    sass:
+      optional: true
+  checksum: 1c8914920749f2e2e404e4663c9cce6ef4d38dc7fb30117c722c25b76257ebee444c90d20e174adf621036e1afefaadc8f89b69fd912347f4618b7401afae53c
   languageName: node
   linkType: hard
 
