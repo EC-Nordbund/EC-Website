@@ -5644,7 +5644,7 @@ __metadata:
     node-fetch: 2.6.1
     nodemailer: 6.6.1
     nuxt: 2.15.6
-    nuxt-build-optimisations: 1.0.2
+    nuxt-build-optimisations: 1.0.3
     package-info: 4.0.0
     prettier: 2.3.0
     pug: 3.0.2
@@ -7066,6 +7066,32 @@ __metadata:
   peerDependencies:
     webpack: ^4.40.0 || ^5.0.0
   checksum: 9f8f2a9e95fb71cbcdaaca59ff6cad8a6a9ac2f1eb5347821e8f4866ffdd30ada8a89fa536fa5eb841a0babf4c3ab276d59dcfe0641c8cff51147edfe0b84be9
+  languageName: node
+  linkType: hard
+
+"esbuild-loader@npm:^2.12.0":
+  version: 2.13.1
+  resolution: "esbuild-loader@npm:2.13.1"
+  dependencies:
+    esbuild: ^0.11.19
+    joycon: ^3.0.1
+    json5: ^2.2.0
+    loader-utils: ^2.0.0
+    tapable: ^2.2.0
+    type-fest: ^1.0.1
+    webpack-sources: ^2.2.0
+  peerDependencies:
+    webpack: ^4.40.0 || ^5.0.0
+  checksum: ad251fc8dd027e6c92c91007cf528be148fa6d6a0b35378788688f352fa2723b237893c760ea5adea20c4cb94e618aac6f9d9ae0963ba6e503c91f844e20f72b
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.11.19":
+  version: 0.11.23
+  resolution: "esbuild@npm:0.11.23"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 9226fc3d74f7555c96778c5d9204312c578e9c11b472deebfbab52c4ac58b9efc3a40be529368f6ccbe257d0059c6b8fd142c179824a3227d055d912c7b5a94a
   languageName: node
   linkType: hard
 
@@ -10214,6 +10240,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"joycon@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "joycon@npm:3.0.1"
+  checksum: db64c93cf05d6f99ea832708ac9ec10e8bbb92d767e3cc38f8c5111b513dbce4b1419b0fe42620e664998639b455dd943e8dd493d8753c5034837501f8e823c4
+  languageName: node
+  linkType: hard
+
 "jpeg-js@npm:^0.4.1":
   version: 0.4.2
   resolution: "jpeg-js@npm:0.4.2"
@@ -12210,16 +12243,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nuxt-build-optimisations@npm:1.0.2":
-  version: 1.0.2
-  resolution: "nuxt-build-optimisations@npm:1.0.2"
+"nuxt-build-optimisations@npm:1.0.3":
+  version: 1.0.3
+  resolution: "nuxt-build-optimisations@npm:1.0.3"
   dependencies:
-    esbuild-loader: ^2.10.0
+    esbuild-loader: ^2.12.0
     rimraf: ^3.0.2
-    semver: ^7.3.4
-    speed-measure-webpack-plugin: ^1.4.2
+    semver: ^7.3.5
+    speed-measure-webpack-plugin: ^1.5.0
     upath: ^2.0.1
-  checksum: dce0495ba0451b8e0dfdc7d81e28f1eda81b2541be967537488471f7e8990281752cfd4b0e861ee2e4b198ab32313cdbb751fc2518e2adc2c6795786ff05ca7a
+  checksum: 5694e45a45a4fc4816bd3227b6ca93a539176e76cf9c94d44c7556e0ad0b61d1e78009aec815face114ee0479fd88510074e4dac177bc263a5829240e236901f
   languageName: node
   linkType: hard
 
@@ -15814,14 +15847,14 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"speed-measure-webpack-plugin@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "speed-measure-webpack-plugin@npm:1.4.2"
+"speed-measure-webpack-plugin@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "speed-measure-webpack-plugin@npm:1.5.0"
   dependencies:
     chalk: ^4.1.0
   peerDependencies:
     webpack: ^1 || ^2 || ^3 || ^4 || ^5
-  checksum: 0d8f7da80f6d3eb5acaa069df62910ccfbba4a2eecdc1917433feca7c09b98ee4185e68f17ab6ba67b29e81fca68f975ad83f3bbc301053398f3056948d8f265
+  checksum: b7cd794c842af169ff6cd1b787714c630db49743e12b749ea75b2b85b264e7716807a8b69b15b52b93f7586fa893cce6145fea98dd452d042404ddb6c9c3f071
   languageName: node
   linkType: hard
 
@@ -16381,6 +16414,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"tapable@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "tapable@npm:2.2.0"
+  checksum: f8ed725aedb3d777bf908ff06c02d1a2108667d3e64af87dd45354ac8de67e7e4fe1a567e215057fb1a2a5437b31d80cc5e5ddbb8327f7280afd4494967a9a93
+  languageName: node
+  linkType: hard
+
 "tar@npm:^6.0.2":
   version: 6.1.0
   resolution: "tar@npm:6.1.0"
@@ -16834,6 +16874,13 @@ fsevents@~2.3.1:
   version: 0.8.1
   resolution: "type-fest@npm:0.8.1"
   checksum: f8c4b4249f52e8bea7a4fc55b3653c96c2d547240e4c772e001d02b7cc38b8c3eb493ab9fbe985a76a203cd1aa7044776b728a71ba12bf36e7131f989597885b
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^1.0.1":
+  version: 1.1.3
+  resolution: "type-fest@npm:1.1.3"
+  checksum: dd0ef27a6a15119e1df36b99dc504ef299816ccd2ed2b38a5e2af7b7c1ccd975321aad0fd9d838383a9c13249ce0f3f5d009cabf2f66cafff67a125d36841efb
   languageName: node
   linkType: hard
 

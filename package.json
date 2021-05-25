@@ -62,7 +62,7 @@
     "eslint-plugin-nuxt": "2.0.0",
     "eslint-plugin-prettier": "3.4.0",
     "fs-extra": "10.0.0",
-    "nuxt-build-optimisations": "1.0.2",
+    "nuxt-build-optimisations": "1.0.3",
     "package-info": "4.0.0",
     "prettier": "2.3.0",
     "pug": "3.0.2",
