@@ -5632,7 +5632,7 @@ __metadata:
     js-sha3: 0.8.0
     jsonwebtoken: 8.5.1
     node-fetch: 2.6.1
-    nodemailer: 6.5.0
+    nodemailer: 6.6.1
     nuxt: 2.15.6
     nuxt-build-optimisations: 1.0.2
     package-info: 4.0.0
@@ -11952,10 +11952,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.5.0":
-  version: 6.5.0
-  resolution: "nodemailer@npm:6.5.0"
-  checksum: 9611c14a6f52475a0bea626fa342cf263a67d324c30b6349da099164ab66c6d63bc3d67453fe5d41ae7ab13d9a42cfb45cb5623f1a2e91135a929bada7f9bf83
+"nodemailer@npm:6.6.1":
+  version: 6.6.1
+  resolution: "nodemailer@npm:6.6.1"
+  checksum: c889cf7d52cb7931d0b0563aff2c64f95a0f2f8659841a033288e84224933d3df4963ebb334f5aee0a5b7958ea5638f9a92ae367231ff4bb71ac76011b30fd2e
   languageName: node
   linkType: hard
 
