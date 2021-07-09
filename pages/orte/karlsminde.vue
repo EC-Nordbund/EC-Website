@@ -1,24 +1,14 @@
 <template lang="pug">
 div
-  v-img.align-stretch.angle--bottom-right(
+  v-img.align-end.angle--bottom-right(
     :src='require("@/assets/img/karlsminde/karlsminde.jpg")',
     height='400',
     width='auto',
     min-width='100%',
     gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.03) 64%, rgba(0,0,0,0.48) 100%')
-    v-container.d-flex.flex-column.fill-height.justify-space-between.pt-4
-      v-sheet.siegel.align-self-end.pa-2(
-        color="rgba(255,255,255,0.8)"
-      )
-        v-img(
-          aspect-ratio="4.1667"
-          width="256px"
-          max-width="100%"
-          :src='require("@/assets/img/karlsminde/modellprojekt-2021-siegel.png")'
-        )
-      .white--text.align-self-start.mb-1.mb-md-n4.mb-xl-n6
-        h2.text-h5.text-sm-h4.font-weight-bold.text-no-wrap EC-Ferienlager
-        h1.text-h3.text-sm-h2.font-weight-black Karlsminde
+    v-container.pb-4.pb-sm-2.white--text
+      h2.text-h5.text-sm-h4.font-weight-bold.text-no-wrap EC-Ferienlager
+      h1.text-h3.text-sm-h2.font-weight-black Karlsminde
 
   .angle--both-left-left
     v-container
