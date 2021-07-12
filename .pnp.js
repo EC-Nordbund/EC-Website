@@ -48,7 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.6"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.6"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.24.7"],
             ["@nuxtjs/eslint-config", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:6.0.0"],
             ["@nuxtjs/eslint-config-typescript", "npm:6.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
@@ -3489,39 +3489,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@nuxtjs/composition-api", [
-        ["npm:0.22.4", {
-          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.22.4-23d77f7e1c-6bff6d052f.zip/node_modules/@nuxtjs/composition-api/",
+        ["npm:0.24.7", {
+          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.24.7-0d7b1f9532-8231df5354.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "npm:0.22.4"]
+            ["@nuxtjs/composition-api", "npm:0.24.7"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4", {
-          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-c1c14d5c58/0/cache/@nuxtjs-composition-api-npm-0.22.4-23d77f7e1c-6bff6d052f.zip/node_modules/@nuxtjs/composition-api/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.24.7", {
+          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-7537c29bf2/0/cache/@nuxtjs-composition-api-npm-0.24.7-0d7b1f9532-8231df5354.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.24.7"],
             ["@nuxt/vue-app", "npm:2.15.6"],
-            ["@types/fs-extra", null],
             ["@types/nuxt", null],
             ["@types/nuxt__vue-app", null],
             ["@types/vue", null],
-            ["@vue/composition-api", "virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5"],
-            ["defu", "npm:3.2.2"],
+            ["@vue/composition-api", "virtual:7537c29bf24b07ce599a1814cbebc06a977fbc2ee76ab8129ae33f84fbf996251026e830e3185c1a0501ec583ea6443687ee3b585694b099045319cdb5582dfc#npm:1.0.0-rc.14"],
+            ["defu", "npm:5.0.0"],
             ["estree-walker", "npm:2.0.2"],
-            ["fs-extra", "npm:10.0.0"],
+            ["fs-extra", "npm:9.1.0"],
             ["magic-string", "npm:0.25.7"],
             ["nuxt", "npm:2.15.6"],
-            ["ufo", "npm:0.6.10"],
+            ["ufo", "npm:0.7.7"],
             ["upath", "npm:2.0.1"],
             ["vue", "npm:2.6.12"]
           ],
           "packagePeers": [
             "@nuxt/vue-app",
-            "@types/fs-extra",
             "@types/nuxt",
             "@types/nuxt__vue-app",
             "@types/vue",
-            "fs-extra",
             "nuxt",
             "vue"
           ],
@@ -4861,19 +4858,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vue/composition-api", [
-        ["npm:1.0.0-rc.5", {
-          "packageLocation": "./.yarn/cache/@vue-composition-api-npm-1.0.0-rc.5-681ec55809-eda65728cf.zip/node_modules/@vue/composition-api/",
+        ["npm:1.0.0-rc.14", {
+          "packageLocation": "./.yarn/cache/@vue-composition-api-npm-1.0.0-rc.14-481d43ffd0-00ce1f1288.zip/node_modules/@vue/composition-api/",
           "packageDependencies": [
-            ["@vue/composition-api", "npm:1.0.0-rc.5"]
+            ["@vue/composition-api", "npm:1.0.0-rc.14"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5", {
-          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-aa306573ee/0/cache/@vue-composition-api-npm-1.0.0-rc.5-681ec55809-eda65728cf.zip/node_modules/@vue/composition-api/",
+        ["virtual:7537c29bf24b07ce599a1814cbebc06a977fbc2ee76ab8129ae33f84fbf996251026e830e3185c1a0501ec583ea6443687ee3b585694b099045319cdb5582dfc#npm:1.0.0-rc.14", {
+          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-23c638df86/0/cache/@vue-composition-api-npm-1.0.0-rc.14-481d43ffd0-00ce1f1288.zip/node_modules/@vue/composition-api/",
           "packageDependencies": [
-            ["@vue/composition-api", "virtual:c1c14d5c587f33164cfca35d333b64ec466c5b88aa23198a2b948c436d7c396c01dc121d7962697ed622ccad854eaa44dc3344753091907fe59f7567b5b30305#npm:1.0.0-rc.5"],
+            ["@vue/composition-api", "virtual:7537c29bf24b07ce599a1814cbebc06a977fbc2ee76ab8129ae33f84fbf996251026e830e3185c1a0501ec583ea6443687ee3b585694b099045319cdb5582dfc#npm:1.0.0-rc.14"],
             ["@types/vue", null],
-            ["tslib", "npm:2.1.0"],
+            ["tslib", "npm:2.3.0"],
             ["vue", "npm:2.6.12"]
           ],
           "packagePeers": [
@@ -7426,7 +7423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.6"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.6"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.22.4"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.24.7"],
             ["@nuxtjs/eslint-config", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:6.0.0"],
             ["@nuxtjs/eslint-config-typescript", "npm:6.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
@@ -8370,6 +8367,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/defu-npm-4.0.1-03cb7026ef-0e66c20eda.zip/node_modules/defu/",
           "packageDependencies": [
             ["defu", "npm:4.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.0", {
+          "packageLocation": "./.yarn/cache/defu-npm-5.0.0-39f59fee36-6c795bc0ce.zip/node_modules/defu/",
+          "packageDependencies": [
+            ["defu", "npm:5.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -20270,6 +20274,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.1.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.3.0", {
+          "packageLocation": "./.yarn/cache/tslib-npm-2.3.0-277e75e108-7b4fc9feff.zip/node_modules/tslib/",
+          "packageDependencies": [
+            ["tslib", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["tsutils", [
@@ -20457,17 +20468,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ufo", [
-        ["npm:0.6.10", {
-          "packageLocation": "./.yarn/cache/ufo-npm-0.6.10-ab0f2521fa-cf9ccf0bb3.zip/node_modules/ufo/",
-          "packageDependencies": [
-            ["ufo", "npm:0.6.10"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.7.4", {
           "packageLocation": "./.yarn/cache/ufo-npm-0.7.4-26bf01e427-5c38f9974b.zip/node_modules/ufo/",
           "packageDependencies": [
             ["ufo", "npm:0.7.4"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:0.7.7", {
+          "packageLocation": "./.yarn/cache/ufo-npm-0.7.7-c7a1654d07-379f80679b.zip/node_modules/ufo/",
+          "packageDependencies": [
+            ["ufo", "npm:0.7.7"]
           ],
           "linkType": "HARD",
         }]
