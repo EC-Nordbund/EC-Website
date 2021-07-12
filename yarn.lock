@@ -2315,22 +2315,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/composition-api@npm:0.22.4":
-  version: 0.22.4
-  resolution: "@nuxtjs/composition-api@npm:0.22.4"
+"@nuxtjs/composition-api@npm:0.24.7":
+  version: 0.24.7
+  resolution: "@nuxtjs/composition-api@npm:0.24.7"
   dependencies:
-    "@vue/composition-api": 1.0.0-rc.5
-    defu: ^3.2.2
+    "@vue/composition-api": 1.0.0-rc.14
+    defu: ^5.0.0
     estree-walker: ^2.0.2
+    fs-extra: ^9.1.0
     magic-string: ^0.25.7
-    ufo: ^0.6.10
+    ufo: ^0.7.7
     upath: ^2.0.1
   peerDependencies:
     "@nuxt/vue-app": ^2.15
-    fs-extra: ^8.1.0
     nuxt: ^2.15
     vue: ^2
-  checksum: 6bff6d052f7c76c6a6506c89a74c81168efc1643dddfc5f55d22188f2656e3895eee7d91769eccb66afa0594c4cf887929be8af2b58aad257556465888487bc2
+  checksum: 8231df5354993a9768993fbf67ed0e90981b092b354d6ff08b789eedd6a41908527fb739daa6f21c9ad6c6e44fa292fad6e6d180fa3e371251b93c6c57b98f5f
   languageName: node
   linkType: hard
 
@@ -3386,14 +3386,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/composition-api@npm:1.0.0-rc.5":
-  version: 1.0.0-rc.5
-  resolution: "@vue/composition-api@npm:1.0.0-rc.5"
+"@vue/composition-api@npm:1.0.0-rc.14":
+  version: 1.0.0-rc.14
+  resolution: "@vue/composition-api@npm:1.0.0-rc.14"
   dependencies:
-    tslib: ^2.1.0
+    tslib: ^2.3.0
   peerDependencies:
     vue: ">= 2.5 < 3"
-  checksum: eda65728cfb9530fa3af9ab2c83056fd3e321a885c42350a1350a0431ae751d0db50177b756b68196d59057293fe3fbc3d666b8d6fedcdd9191f1c9d7a29b6ee
+  checksum: 00ce1f128825cd794defaaff12e38390bfcf90b0361cbcb3db537d00b41bdccf08564c83d5f13051991de113008e5c5168295ddec60e08c035139b01f08d19ee
   languageName: node
   linkType: hard
 
@@ -5617,7 +5617,7 @@ __metadata:
     "@nuxt/types": 2.15.6
     "@nuxt/typescript-runtime": 2.1.0
     "@nuxt/vue-app": 2.15.6
-    "@nuxtjs/composition-api": 0.22.4
+    "@nuxtjs/composition-api": 0.24.7
     "@nuxtjs/eslint-config": 6.0.0
     "@nuxtjs/eslint-config-typescript": 6.0.0
     "@nuxtjs/eslint-module": 3.0.2
@@ -6451,6 +6451,13 @@ __metadata:
   version: 4.0.1
   resolution: "defu@npm:4.0.1"
   checksum: 0e66c20eda0833f351e90bd3a4931cf8c1932f49d28389345d30adf026dc449d24c906678e1b46ca4f2eb320a5b6c7191ff738a6e8ecb8a6154f737f72df23ec
+  languageName: node
+  linkType: hard
+
+"defu@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "defu@npm:5.0.0"
+  checksum: 6c795bc0ce06b0ff3ca1ff32a12155d9119eb764697aa62d9de4af262a026fe11cbd7e99309193a59ca3799d7e8d40c06ee60fc08a5f2348f4b125a884f06905
   languageName: node
   linkType: hard
 
@@ -16787,10 +16794,17 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0":
+"tslib@npm:^2.0.1, tslib@npm:^2.0.3":
   version: 2.1.0
   resolution: "tslib@npm:2.1.0"
   checksum: d8f5bdd067611651c6b846c2388f4dc8ba1f5af124e66105f5263d1ad56da17f4b8c6566887ca2f205c5a9758451871ceca87d5d06087af2dca1699c5e33db69
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "tslib@npm:2.3.0"
+  checksum: 7b4fc9feff0f704743c3760f5d8d708f6417fac6458159e63df3a6b1100f0736e3b99edb9fe370f274ad15160a1f49ff05cb49402534c818ff552c48e38c3e6e
   languageName: node
   linkType: hard
 
@@ -16975,17 +16989,17 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"ufo@npm:^0.6.10":
-  version: 0.6.10
-  resolution: "ufo@npm:0.6.10"
-  checksum: cf9ccf0bb3236a280569372fb48bd7eca82ad1bcf913e06b459789fd42f1f5d6532d2aea88e206ec135cc2261cb148d60e6627491fa2a56575ec0961c6396726
-  languageName: node
-  linkType: hard
-
 "ufo@npm:^0.7.4":
   version: 0.7.4
   resolution: "ufo@npm:0.7.4"
   checksum: 5c38f9974b536add2aa01fa221307d6972edb83078c82749410efb5e03ebbe4264f40fc15dd6e1618e14ddf64ed3a20f0d52a3140c7eaec8df1411e71916329e
+  languageName: node
+  linkType: hard
+
+"ufo@npm:^0.7.7":
+  version: 0.7.7
+  resolution: "ufo@npm:0.7.7"
+  checksum: 379f80679b2e09137e83b5f84c616422bff1f487003d6f5825fff1ce7ccab3dfacb075407f092ca74df35fbf7deca418d9a1946e02cbb3ee8787940737a355b9
   languageName: node
   linkType: hard
 
