@@ -51,7 +51,6 @@
           v-radio(:value="2" class="ml-2" label="Erlaubt - mittlmäßiger Schwimmer")
           v-radio(:value="3" class="ml-2" label="Erlaubt - guter Schwimmer")
     div(v-if="extraFields.length > 0")
-      h3 Weitere Felder
       template(v-for="el in extraFields")
         v-autocomplete(v-if="el.type==='autocomplete'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :key="el.name")
         v-select(v-if="el.type==='select'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :key="el.name")
