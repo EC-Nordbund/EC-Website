@@ -51,10 +51,11 @@
           v-radio(:value="2" class="ml-2" label="Erlaubt - mittlmäßiger Schwimmer")
           v-radio(:value="3" class="ml-2" label="Erlaubt - guter Schwimmer")
     div(v-if="extraFields.length > 0")
-      h3 Weitere Felder
       template(v-for="el in extraFields")
         v-autocomplete(v-if="el.type==='autocomplete'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :key="el.name")
         v-select(v-if="el.type==='select'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :key="el.name")
+        v-text-field(v-if="el.type==='text'" :label="el.label" type="text" v-model="data.extra[el.name]" v-bind="el" :key="el.name")
+        v-checkbox(v-if="el.type==='checkbox'" dense :label="el.label" v-model="data.extra[el.name]" v-bind="el" :key="el.name")
     v-checkbox(required v-model="data.datenschutz" @change="datenschutzEvent" :error-messages="datenschutzErrors")
       template(v-slot:label)
         p Ich nehme zur Kenntnis, dass meine eingegebenen Daten vorerst für&nbsp;
