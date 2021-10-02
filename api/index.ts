@@ -291,7 +291,7 @@ app.post('/confirm/:token', async (req, res) => {
             klettern: ${!!data.klettern}, 
             sichEntfernen: ${!!data.sichEntfernen}, 
             bootFahren: ${!!data.bootfahren}, 
-            extra_json: ${JSON.stringify(JSON.stringify(data.extra))}
+            extra_json: ${JSON.stringify(JSON.stringify(data.extra ?? {}))}
           ) {
             status
             anmeldeID
