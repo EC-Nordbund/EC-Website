@@ -31,6 +31,7 @@ const vData = {
   452: 'MiWoE compact',
   453: 'Kalmi Kurz Camp',
   454: 'LeitHaus',
+  455: 'Dartsturnier'
 }
 
 const app = express()
