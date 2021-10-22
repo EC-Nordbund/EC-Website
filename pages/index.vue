@@ -8,16 +8,19 @@
       min-width='100%',
       gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.02) 80%, rgba(0,0,0,0.48) 100%'
     )
-      //- v-container.countdown.pb-0.pb-md-1.pb-lg-2.pb-xl-4
-      //-   v-row(justify='center', no-gutters)
-      //-     v-col(cols='12', md='7')
-      //-       v-card.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
-      //-         span.text-h6.pb-5.white--text Die Anmeldephase hat begonnen!
-              //- ec-countdown(target='2020-11-08T14:00:00Z', keep-zeros)
-              //-   template(v-slot:digits='slotProp')
-              //-     span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
-              //-   template(v-slot:units='slotProp')
-              //-     span.text-caption.text-uppercase.white--text(slot='units') {{ slotProp.unit }}
+      v-container.countdown.pb-0.pb-md-1.pb-lg-2.pb-xl-4(
+        v-if='pages.countdown.show'
+      )
+        v-row(justify='center', no-gutters)
+          v-col(cols='12', md='7')
+            v-card.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
+              span.text-h6.pb-5.white--text(v-if='isCountdownFuture') Die Anmeldephase beginnt in
+              span.text-h6.pb-5.white--text(v-else) Die Anmeldephase hat begonnen!
+              ec-countdown(:target='pages.countdown.date', keep-zeros)
+                template(v-slot:digits='slotProp')
+                  span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
+                template(v-slot:units='slotProp')
+                  span.text-caption.text-uppercase.white--text(slot='units') {{ slotProp.unit }}
     v-container.mb-4
       .d-flex.flex-row.justify-space-between.align-end
         h2#aktuelles Aktuelles
@@ -148,16 +151,35 @@ export default defineComponent({
         .limit(3)
         .fetch()
 
-      return { upcomingEvents, recentPosts }
+        const { countdown } = await $content('anmeldephase').fetch()
+
+        return { upcomingEvents, recentPosts, countdown }
     }, undefined, 'homeData')
 
     const pages = computed(() =>
       pages_loading.value
         ? pages_loading.value
-        : { upcomingEvents: [], recentPosts: [] }
+        : {
+            upcomingEvents: [],
+            recentPosts: [],
+            countdown: { date: undefined, show: false },
+          }
     )
 
-    return { pages, supportWebp, mail: (m) => (location.href = `mailto:${m}`) }
+    const { currentTime } = useCurrentTime()
+
+    const isCountdownFuture = computed(() => {
+      const { countdown } = pages.value
+
+      return new Date(countdown.date) > currentTime.value || false
+    })
+
+    return {
+      pages,
+      supportWebp,
+      mail: (m) => (location.href = `mailto:${m}`),
+      isCountdownFuture,
+    }
   },
   head: {
     title: 'Startseite',

@@ -1,37 +1,36 @@
 <template lang="pug">
-  div(class="ec-countdown")
-    //- days
-    div(v-if="(days > 0 || keepZeros)" class="counter-days")
-      slot(name="digits" :digits="formatDigits(days)")
-        span(class="digits") {{formatDigits(days)}}
+.ec-countdown
+  //- days
+  .counter-days(v-if='days > 0 || keepZeros')
+    slot(name='digits', :digits='formatDigits(days)')
+      span.digits {{ formatDigits(days) }}
 
-      slot(name="units" :unit="dayLabel" v-if="!hideUnits")
-        span(class="unit") {{dayLabel}}
+    slot(name='units', :unit='dayLabel', v-if='!hideUnits')
+      span.unit {{ dayLabel }}
 
-    //- hours
-    div(v-if="(days > 0 || hours > 0 || keepZeros)" class="counter-hours")
-      slot(name="digits" :digits="formatDigits(hours)")
-        span(class="digits") {{formatDigits(hours)}}
+  //- hours
+  .counter-hours(v-if='days > 0 || hours > 0 || keepZeros')
+    slot(name='digits', :digits='formatDigits(hours)')
+      span.digits {{ formatDigits(hours) }}
 
-      slot(name="units" :unit="hourLabel" v-if="!hideUnits")
-        span(class="unit") {{hourLabel}}
+    slot(name='units', :unit='hourLabel', v-if='!hideUnits')
+      span.unit {{ hourLabel }}
 
-    //- minute
-    div(v-if="(days > 0 || hours > 0 || minutes > 0 || keepZeros)" class="counter-minutes")
-      slot(name="digits" :digits="formatDigits(minutes)")
-        span(class="digits") {{formatDigits(minutes)}}
+  //- minute
+  .counter-minutes(v-if='days > 0 || hours > 0 || minutes > 0 || keepZeros')
+    slot(name='digits', :digits='formatDigits(minutes)')
+      span.digits {{ formatDigits(minutes) }}
 
-      slot(name="units" :unit="minuteLabel" v-if="!hideUnits")
-        span(class="unit") {{minuteLabel}}
+    slot(name='units', :unit='minuteLabel', v-if='!hideUnits')
+      span.unit {{ minuteLabel }}
 
-    //- seconds
-    div(class="counter-seconds")
-      slot(name="digits" :digits="formatDigits(seconds)")
-        span(class="digits") {{formatDigits(seconds)}}
+  //- seconds
+  .counter-seconds
+    slot(name='digits', :digits='formatDigits(seconds)')
+      span.digits {{ formatDigits(seconds) }}
 
-      slot(name="units" :unit="secondLabel" v-if="!hideUnits")
-        span(class="unit") {{secondLabel}}
-
+    slot(name='units', :unit='secondLabel', v-if='!hideUnits')
+      span.unit {{ secondLabel }}
 </template>
 <script>
 import {
@@ -42,6 +41,7 @@ import {
   watchEffect,
   ref,
 } from '@nuxtjs/composition-api'
+import { useCurrentTime } from '~/helpers/current-time'
 
 export default defineComponent({
   props: {
@@ -56,9 +56,9 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const now = ref(null)
-    now.value = new Date()
+    const { currentTime: now } = useCurrentTime(500)
     const target = new Date(props.target)
+
     const diff = computed(() =>
       Math.trunc((target.getTime() - now.value.getTime()) / 1000)
     )
@@ -83,23 +83,6 @@ export default defineComponent({
     )
 
     const ended = computed(() => diff.value < 0)
-
-    let inter = null
-
-    onUnmounted(() => clearInterval(inter))
-    onMounted(() => {
-      if (!ended.value) {
-        inter = setInterval(() => {
-          now.value = new Date()
-        }, 500)
-
-        watchEffect(() => {
-          if (ended.value) {
-            window.location.reload()
-          }
-        })
-      }
-    })
 
     const formatDigits = (value) => {
       if (value.toString().length <= 1) {
