@@ -2,20 +2,19 @@
 client-only
   .shop-wrapper
     #shop
-    script(
-      type='text/javascript',
-      :src='`https://${shopName}.myspreadshop.net/js/shopclient.nocache.js`'
-    )
 </template>
 <script>
+// import 'plugins/spreadshirt-shop.js'
+
 import {
   defineComponent,
   onMounted,
-  ref,
+  useMeta,
   toRefs,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+  head: {},
   props: {
     shopName: {
       type: String,
@@ -38,6 +37,17 @@ export default defineComponent({
         baseId: 'shop',
         swipeMenu: true,
       }
+    })
+    
+    useMeta({
+      script: [
+        {
+          hid: 'spreadshirt',
+          src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
+          body: true,
+          callback: () => console.log('Spreadshirt loaded'),
+        },
+      ],
     })
   },
 })
