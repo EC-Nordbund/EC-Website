@@ -4,13 +4,12 @@ client-only
     #shop
 </template>
 <script>
-// import 'plugins/spreadshirt-shop.js'
-
 import {
   defineComponent,
   onMounted,
   useMeta,
   toRefs,
+  ref,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -28,6 +27,8 @@ export default defineComponent({
   setup(props) {
     const { shopName, locale } = toRefs(props)
 
+    const configSet = ref(false)
+
     // Set SpreadShirt Config
     onMounted(() => {
       window.spread_shop_config = {
@@ -37,18 +38,20 @@ export default defineComponent({
         baseId: 'shop',
         swipeMenu: true,
       }
+
+      configSet.value = true
     })
-    
-    useMeta({
+
+    useMeta(() => ({
       script: [
         {
           hid: 'spreadshirt',
           src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
           body: true,
-          callback: () => console.log('Spreadshirt loaded'),
+          skip: !configSet.value,
         },
       ],
-    })
+    }))
   },
 })
 </script>
