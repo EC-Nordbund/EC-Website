@@ -1,7 +1,11 @@
 <template lang="pug">
-client-only
-  .shop-wrapper
+.ec-shop-container(style="min-height: 50vh")
     #shop
+      slot
+        v-container
+          v-alert(type="info" align="center" prominent)
+            h2 Der Shop steht zur Zeit nicht zur Verfügung.
+
 </template>
 <script>
 import {
