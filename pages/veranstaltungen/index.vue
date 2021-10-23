@@ -1,9 +1,53 @@
 <template lang="pug">
   v-container
     h1 Freizeiten & Events
-    //- TODO: sortby by date (asc/desc), alphabetic (asc/desc) 
-    //- TODO: filter by tags, age, date-range
+    //- TODO: filter by age
     v-row(v-if="veranstaltungen")
+      v-col(cols="12" sm="6" md="4")
+        v-menu(
+          v-model="scopeMenu"
+          :close-on-content-click="false"
+          offset-y
+          min-width="290"
+          attach)
+          template(v-slot:activator="{ on, attrs }")
+            v-text-field(label="Zeitraum" prepend-inner-icon="mdi-calendar-question" readonly v-bind="attrs" v-on="on" :value="scopeValueStr")
+
+          v-card(tile)
+            v-list
+              v-list-item-group(mandatory :value="Object.values(Scope).indexOf(filterScope)")
+                v-list-item(v-for="scope in Scope" v-if="scope !== Scope.CUSTOM" :key="scope" @click="closeScopeMenu(scope)")
+                  v-list-item-icon
+                    v-icon(v-if="scope===Scope.ALL") mdi-calendar-month
+                    v-icon(v-else-if="scope===Scope.FUTURE") mdi-calendar-arrow-right
+                    v-icon(v-else-if="scope===Scope.PAST") mdi-calendar-arrow-left
+                    v-icon(v-else) mdi-calendar
+                  v-list-item-content
+                    v-list-item-title {{ scope }} ({{ filterResultAmount(scope, filterTags, filterKeyword) }})
+                v-list-group(:value="false")
+                  template(v-slot:activator)
+                    v-list-item-icon
+                      v-icon mdi-calendar-edit
+                    v-list-item-content
+                      v-list-item-title {{ Scope.CUSTOM }} ({{ filterResultAmount(Scope.CUSTOM, filterTags), filterKeyword }})
+
+                  v-date-picker(v-model="customDateRange" range no-title scrollable @input="closeScopeMenu(Scope.CUSTOM)" :events="vDates" event-color="primary")
+
+      v-col(cols="12" sm="6" md="4")
+        v-select(
+          v-model="filterTags"
+          :items="vTags"
+          label="Tags"
+          prepend-inner-icon="mdi-tag"
+          multiple)
+
+      v-col(cols="12" sm="6" md="4")
+        v-text-field(label="Stichtwort" prepend-inner-icon="mdi-magnify" :value="filterKeyword" @input="onKeywordTyping" clearable :suffix="filterKeyword ? `(${filterResultAmount(filterScope, filterTags, filterKeyword)})` :  undefined")
+
+    v-row(v-if="veranstaltungen" justify="center")
+      v-col(v-if="veranstaltungen.length < 1" cols="8")
+        v-alert(type="info" dense prominent)
+          h3 Keine Veranstaltungen gefunden.
       v-col(v-for="item in veranstaltungen" cols="12" sm="6" md="12" :key="item.slug")
         v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
           v-row(no-gutters)
@@ -45,11 +89,101 @@ import {
   useStatic,
   useContext,
   computed,
+  ref,
+  watch
 } from '@nuxtjs/composition-api'
 import { supportWebp } from '../../helpers/webp'
 
 export default defineComponent({
   setup(props, ctx) {
+    enum Scope {
+      TODAY = 'Heute',
+      FUTURE = 'Zukünftige',
+      PAST = 'Vergangene',
+      ALL = 'Alle',
+      CUSTOM = 'Benutzerdefiniert',
+    }
+
+    const keyword = ref('')
+    const keywordDelayTimer = ref(null)
+    const filterKeyword = ref('')
+
+    const filterTags = ref([])
+
+    const scopeMenu = ref(false)
+    const filterScope = ref(Scope.FUTURE)
+    const customDateRange = ref([])
+
+    const scopeValueStr = computed(() => {
+      let scope = filterScope.value
+
+      // date range
+      if (scope === Scope.CUSTOM) {
+        scope = customDateRange.value
+          .map((d: string) => new Date(d).toLocaleDateString())
+          .join(' – ') + ` (${filterResultAmount(Scope.CUSTOM, filterTags.value, filterKeyword.value)})`
+      }
+
+      return `${scope} (${filterResultAmount(filterScope.value, filterTags.value, filterKeyword.value)})`
+    })
+
+    const onKeywordTyping = (str: string) => {
+      clearTimeout(keywordDelayTimer.value)
+      keywordDelayTimer.value = setTimeout(function() {
+          filterKeyword.value = str          
+      }, 333)
+    }
+
+    const closeScopeMenu = (scope: Scope) => {
+      if (scope === Scope.CUSTOM && customDateRange.value.length < 2) return // wait for the second date
+      filterScope.value = scope
+      scopeMenu.value = false
+    }
+
+    function filter(veranstaltung: any, scope?: Scope, tags?: string[], keyword?: string) {
+      scope = scope || filterScope.value
+      const today = new Date().toISOString().split('T')[0]
+
+      let byScope = false;
+
+      switch(scope) {
+        case Scope.CUSTOM:
+          byScope =
+            veranstaltung.begin > customDateRange.value[0] &&
+            veranstaltung.ende < customDateRange.value[1]
+          break
+
+        case Scope.ALL:
+          byScope = true
+          break
+
+        case Scope.TODAY:
+          byScope = veranstaltung.start <= today && veranstaltung.ende >= today
+          break
+
+        case Scope.PAST:
+          byScope = veranstaltung.ende <= today
+          break
+
+        case Scope.FUTURE:
+          byScope = veranstaltung.begin >= today
+          break
+
+        default:
+          break
+      }
+
+      tags = tags || filterTags.value
+      let byTags = (tags||[]).length < 1 || veranstaltung.tags.filter((tag: string) => tags?.includes(tag)).length > 0
+
+      keyword = keyword || filterKeyword.value
+      keyword = String(keyword).toLowerCase()
+      let byKeyword = keyword === ''
+        || (veranstaltung.title + veranstaltung.description + `${veranstaltung.tags}`).toLowerCase().indexOf(keyword) != -1
+
+      return byScope && byTags && byKeyword
+    }
+
     const detailsMaxHeight = computed(() => {
       switch (ctx.root.$vuetify.breakpoint.name) {
         case 'md':
@@ -74,32 +208,70 @@ export default defineComponent({
 
     const { $content } = useContext()
 
-    const veranstaltungen = useStatic(async () => {
-      const veranstaltungen = await $content('veranstaltung')
-        .only([
-          'slug',
-          'title',
-          'begin',
-          'ende',
-          'veranstaltungsort',
-          'description',
-          'minAlter',
-          'maxAlter',
-          'featuredImage',
-          'warteliste',
-          'tags',
-        ])
-        .sortBy('begin')
-        .fetch()
+    const vData = useStatic(
+      async () => {
+        const veranstaltungen = await $content('veranstaltung')
+          .only([
+            'slug',
+            'title',
+            'begin',
+            'ende',
+            'veranstaltungsort',
+            'description',
+            'minAlter',
+            'maxAlter',
+            'featuredImage',
+            'warteliste',
+            'tags',
+          ])
+          .sortBy('begin')
+          .fetch()
 
-      return veranstaltungen
-    }, undefined, 'vDataPage')
+        return veranstaltungen
+      },
+      undefined,
+      'vDataPage'
+    )
+
+    const filterResultAmount = (scope: Scope, tags: string[], keyword: string) => {
+      const filtered = vData.value?.filter((v: any) => filter(v, scope, tags, keyword))
+
+      return (filtered||[]).length
+    }
+
+
+    const vDates = computed(() => vData.value.map((v: any) => v.begin))
+    const vTags = computed(() => {
+      const tags = [...new Set(vData.value.flatMap((v: any) => v.tags))]
+        .sort((a: any, b: any) =>  `${a}`.toLowerCase().localeCompare(`${b}`.toLowerCase()))
+
+      return tags.map((tag: any) => {
+        const results = filterResultAmount(filterScope.value, [tag], filterKeyword.value)
+
+        return { value: tag, results, text: `${tag} (${results})`}
+        }).filter((tag: any) => tag.results > 0)
+    })
+
+    const veranstaltungen = computed(() => vData.value?.filter((v: any) => filter(v)))
 
     return {
       detailsMaxHeight,
       textWaitingQueue,
       veranstaltungen,
+      vDates,
       supportWebp,
+      filterScope,
+      scopeMenu,
+      customDateRange,
+      scopeValueStr,
+      Scope,
+      closeScopeMenu,
+      filterResultAmount,
+      vTags,
+      filterTags,
+      filterKeyword,
+      keyword,
+      onKeywordTyping
     }
   },
   head: {
@@ -130,12 +302,12 @@ export default defineComponent({
       },
     ],
     link: [
-        {
-          rel: 'canonical',
-          href: 'https://www.ec-nordbund.de/veranstaltungen',
-          hid: 'canonical',
-        },
-      ],
+      {
+        rel: 'canonical',
+        href: 'https://www.ec-nordbund.de/veranstaltungen',
+        hid: 'canonical',
+      },
+    ],
   },
 })
 </script>
