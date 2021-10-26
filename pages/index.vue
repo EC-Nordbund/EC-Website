@@ -126,6 +126,7 @@ import {
   useStatic,
   computed,
 } from '@nuxtjs/composition-api'
+import { useCurrentTime } from '~/helpers/current-time'
 import { supportWebp } from '../helpers/webp'
 export default defineComponent({
   setup() {
