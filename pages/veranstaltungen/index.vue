@@ -140,48 +140,63 @@ export default defineComponent({
       scopeMenu.value = false
     }
 
-    function filter(veranstaltung: any, scope?: Scope, tags?: string[], keyword?: string) {
+    function filterByScope(veranstaltung: any, scope?: Scope) {
       scope = scope || filterScope.value
-      const today = new Date().toISOString().split('T')[0]
 
-      let byScope = false;
+      const today = new Date().toISOString().split('T')[0]
 
       switch(scope) {
         case Scope.CUSTOM:
-          byScope =
-            veranstaltung.begin > customDateRange.value[0] &&
+          return veranstaltung.begin > customDateRange.value[0] &&
             veranstaltung.ende < customDateRange.value[1]
-          break
 
         case Scope.ALL:
-          byScope = true
-          break
+          return true
 
         case Scope.TODAY:
-          byScope = veranstaltung.start <= today && veranstaltung.ende >= today
-          break
+          return veranstaltung.start <= today && veranstaltung.ende >= today
 
         case Scope.PAST:
-          byScope = veranstaltung.ende <= today
-          break
+          return veranstaltung.ende <= today
 
         case Scope.FUTURE:
-          byScope = veranstaltung.begin >= today
-          break
-
         default:
-          break
+          return veranstaltung.begin >= today
+      }
+    }
+
+    function filterByTags(veranstaltung: any, tags?: string[]) {
+      tags = tags || filterTags.value
+      
+      // has tags to filter with
+      if ((tags||[]).length > 0) {
+        return veranstaltung.tags
+          .filter((tag: string) => tags?.includes(tag)).length > 0
       }
 
-      tags = tags || filterTags.value
-      let byTags = (tags||[]).length < 1 || veranstaltung.tags.filter((tag: string) => tags?.includes(tag)).length > 0
+      return true
+    }
 
-      keyword = keyword || filterKeyword.value
-      keyword = String(keyword).toLowerCase()
-      let byKeyword = keyword === ''
-        || (veranstaltung.title + veranstaltung.description + `${veranstaltung.tags}`).toLowerCase().indexOf(keyword) != -1
+    function filterByKeyword(veranstaltung: any, keyword?: string) {
+      keyword = String(keyword || filterKeyword.value).toLowerCase()
 
-      return byScope && byTags && byKeyword
+      const searchIn = [
+        veranstaltung.title,
+        veranstaltung.description,
+        ...veranstaltung.tags]
+
+      // has keyword
+      if (keyword.length > 0) {
+        return searchIn.join(' ').toLowerCase().indexOf(keyword) != -1
+      }
+
+      return true
+    }
+
+    function filter(veranstaltung: any, scope?: Scope, tags?: string[], keyword?: string) {
+      return filterByScope(veranstaltung, scope)
+        && filterByTags(veranstaltung, tags)
+        && filterByKeyword(veranstaltung, keyword);
     }
 
     const detailsMaxHeight = computed(() => {
