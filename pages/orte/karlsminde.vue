@@ -12,7 +12,7 @@ div
 
   .angle--both-left-left
     v-container
-      p ...so heißt der Ort, an dem schon Viele unvergessliche Tage verbracht wurden.
+      p ...so heißt der Ort, an dem schon viele unvergessliche Tage verbracht wurden.
       p Das Ferienlager besteht aus acht Bungalows mit je sieben Schlafmöglichkeiten, dem Hauptgebäude mit Leiterzimmern, Küche und Speisesaal, sowie dem Sanitärgebäude und einem Gruppenbungalow.
         br
         | Das weitläufige Gelände mit eigenem Bootssteg am Aassee, der Ostseestrand in nur 300m Entfernung, Lagerfeuerplatz und Bolzplatz sind der ideale Ort für Freizeiten aller Art.
@@ -94,7 +94,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Ein Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+            'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
         // Open Graph
         {
@@ -106,7 +106,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Ein Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+            'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
         // Twitter Card
         {
@@ -118,7 +118,7 @@ export default {
           hid: 'twitter:description',
           name: 'twitter:description',
           content:
-            'Ein Ort an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
+            'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
       ],
       link: [
