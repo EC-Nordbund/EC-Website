@@ -9,6 +9,7 @@ import {
   createMailContentMA,
   createMailContentTN,
   createMailContentMAOrt,
+  erfolgMailContent,
 } from './mailContent'
 import { checkToken } from './jwt'
 
@@ -31,7 +32,7 @@ const vData = {
   452: 'MiWoE compact',
   453: 'Kalmi Kurz Camp',
   454: 'LeitHaus',
-  455: 'Dartsturnier'
+  455: 'Dartsturnier',
 }
 
 const app = express()
@@ -152,7 +153,9 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
     const mail = await sendMail({
       to: email,
       from: 'anmeldung@ec-nordbund.de',
-      subject: `Deine Anmeldung als ${veranstaltungsID == 454 && position == 1 ? 'Teilnehmer' : 'Mitarbeiter'} beim EC-Nordbund (${
+      subject: `Deine Anmeldung als ${
+        veranstaltungsID == 454 && position == 1 ? 'Teilnehmer' : 'Mitarbeiter'
+      } beim EC-Nordbund (${
         vData[veranstaltungsID as keyof typeof vData] ||
         // @ts-ignore veranstaltungsID kann hier ein String sein.
         `EC-${veranstaltungsID[0].toUpperCase()}${veranstaltungsID.slice(1)}`
@@ -305,12 +308,27 @@ app.post('/confirm/:token', async (req, res) => {
 
       if (!data.alter && gqlRes.data.data.anmelden.status >= 0) {
         await sendMail({
-          to:
-            'kinder-referent@ec-nordbund.de;referent@ec-nordbund.de;app@ec-nordbund.de;BirgitHerbert@t-online.de',
+          to: 'kinder-referent@ec-nordbund.de;referent@ec-nordbund.de;app@ec-nordbund.de;BirgitHerbert@t-online.de',
           // to: 'app@ec-nordbund.de',
           from: 'anmeldung@ec-nordbund.de',
           subject: `Anmeldung mit fehlerhaften Alter`,
           html: `<p>Es gab eine Anmeldung mit nicht passenden Alter. AnmeldeID: ${gqlRes.data.data.anmelden.anmeldeID}; Wartelistenposition ${gqlRes.data.data.anmelden.status} (0 bedeutet keine Warteliste)</p>`,
+        })
+      }
+
+      if (gqlRes.data.data.anmelden.status >= 0) {
+        await sendMail({
+          to: data.email,
+          from: 'anmeldung@ec-nordbund.de',
+          subject:
+            'Anmeldung Bestätigt. ' +
+            (gqlRes.data.data.anmelden.status == 0
+              ? ''
+              : '(Wartelistenplatz ' + gqlRes.data.data.anmelden.status + ')'),
+          html: await erfolgMailContent({
+            ...data,
+            status: gqlRes.data.data.anmelden.status,
+          }),
         })
       }
 
@@ -364,6 +382,19 @@ app.post('/confirm/:token', async (req, res) => {
         query: gqlCode,
       })
 
+      if (gqlRes.data.data.anmelden.status >= 0) {
+        await sendMail({
+          to: data.email,
+          from: 'anmeldung@ec-nordbund.de',
+          subject:
+            'Anmeldung Bestätigt.',
+          html: await erfolgMailContent({
+            ...data,
+            status: 0,
+          }),
+        })
+      }
+
       console.log(gqlRes)
 
       res.status(200)
@@ -416,6 +447,19 @@ app.post('/confirm/:token', async (req, res) => {
       })
 
       console.log(gqlRes)
+
+      if (gqlRes.data.data.anmelden.status >= 0) {
+        await sendMail({
+          to: data.email,
+          from: 'anmeldung@ec-nordbund.de',
+          subject:
+            'Anmeldung Bestätigt.',
+          html: await erfolgMailContent({
+            ...data,
+            status: 0,
+          }),
+        })
+      }
 
       res.status(200)
       res.json({
