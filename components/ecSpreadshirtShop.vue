@@ -1,11 +1,12 @@
 <template lang="pug">
-.ec-shop-container(style="min-height: 50vh")
-    #shop
-      slot
-        v-container
-          v-alert(type="info" align="center" prominent)
-            h2 Der Shop steht zur Zeit nicht zur Verfügung.
-
+.ec-shop-container(style='min-height: 50vh')
+  #shop
+    slot
+      v-container
+        v-row(justify='center', v-if='shopIsLoading')
+          v-progress-circular.mt-10(:size='50', indeterminate, color='primary')
+        v-alert(v-else, type='info', align='center', prominent)
+          h2 Der Shop steht zur Zeit nicht zur Verfügung.
 </template>
 <script>
 import {
@@ -31,31 +32,47 @@ export default defineComponent({
   setup(props) {
     const { shopName, locale } = toRefs(props)
 
-    const configSet = ref(false)
+    const hasShopConfig = ref(false)
 
-    // Set SpreadShirt Config
+    const shopIsLoading = ref(true)
+
+    const timeoutForLoadingShop = 5000
+    const delayAfterLoaded = 500
+
     onMounted(() => {
-      window.spread_shop_config = {
-        shopName: shopName.value,
-        locale: locale.value,
-        prefix: `https://${shopName.value}.myspreadshop.de`,
-        baseId: 'shop',
-        swipeMenu: true,
-      }
-
-      configSet.value = true
+      setTimeout(() => (shopIsLoading.value = false), timeoutForLoadingShop)
     })
 
-    useMeta(() => ({
-      script: [
-        {
-          hid: 'spreadshirt',
-          src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
-          body: true,
-          skip: !configSet.value,
-        },
-      ],
-    }))
+    useMeta(() => {
+      // set spreadshirt-config only on client
+      if (process.browser) {
+        window.spread_shop_config = {
+          shopName: shopName.value,
+          locale: locale.value,
+          prefix: `https://${shopName.value}.myspreadshop.de`,
+          baseId: 'shop',
+          swipeMenu: true,
+        }
+
+        hasShopConfig.value = true
+      }
+
+      return {
+        script: [
+          {
+            vmid: 'spreadshirt',
+            src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
+            body: true,
+            skip: !hasShopConfig.value,
+            callback: () =>
+              // stop loading animation with some delay after script has been loaded
+              setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded),
+          },
+        ],
+      }
+    })
+
+    return { shopIsLoading }
   },
 })
 </script>
