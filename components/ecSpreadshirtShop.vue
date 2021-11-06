@@ -24,15 +24,17 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    shopUrl: {
+      type: String,
+      required: true,
+    },
     locale: {
       type: String,
       default: 'de_DE',
     },
   },
   setup(props) {
-    const { shopName, locale } = toRefs(props)
-
-    const hasShopConfig = ref(false)
+    const { shopName, shopUrl, locale } = toRefs(props)
 
     const shopIsLoading = ref(true)
 
@@ -49,12 +51,10 @@ export default defineComponent({
         window.spread_shop_config = {
           shopName: shopName.value,
           locale: locale.value,
-          prefix: `https://${shopName.value}.myspreadshop.de`,
+          prefix: shopUrl.value,
           baseId: 'shop',
           swipeMenu: true,
         }
-
-        hasShopConfig.value = true
       }
 
       return {
@@ -63,7 +63,6 @@ export default defineComponent({
             vmid: 'spreadshirt',
             src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
             body: true,
-            skip: !hasShopConfig.value,
             callback: () =>
               // stop loading animation with some delay after script has been loaded
               setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded),

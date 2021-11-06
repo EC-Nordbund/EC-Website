@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container(fluid).px-0
-  ec-spreadshirt-shop(shopName="nordbund")
+  ec-spreadshirt-shop(shopName="nordbund", shopUrl="https://nordbund.myspreadshop.de")
 </template>
 
 <script lang="ts">
@@ -41,7 +41,3 @@ export default defineComponent({
   },
 })
 </script>
-
-
-<style>
-</style>
