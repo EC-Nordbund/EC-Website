@@ -41,6 +41,8 @@ export default defineComponent({
     const timeoutForLoadingShop = 5000
     const delayAfterLoaded = 500
 
+    const shopConfigAvalable = ref(false)
+
     onMounted(() => {
       setTimeout(() => (shopIsLoading.value = false), timeoutForLoadingShop)
     })
@@ -55,6 +57,8 @@ export default defineComponent({
           baseId: 'shop',
           swipeMenu: true,
         }
+
+        shopConfigAvalable.value = true
       }
 
       return {
@@ -63,6 +67,7 @@ export default defineComponent({
             vmid: 'spreadshirt',
             src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
             body: true,
+            skip: !shopConfigAvalable.value,
             callback: () =>
               // stop loading animation with some delay after script has been loaded
               setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded),
