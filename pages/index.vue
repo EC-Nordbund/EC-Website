@@ -9,7 +9,7 @@
       gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.02) 80%, rgba(0,0,0,0.48) 100%'
     )
       v-container.countdown.pb-0.pb-md-1.pb-lg-2.pb-xl-4(
-        v-if='pages.countdown.show'
+        v-if='((pages || {}).countdown || {}).show'
       )
         v-row(justify='center', no-gutters)
           v-col(cols='12', md='7')
@@ -152,7 +152,10 @@ export default defineComponent({
         .limit(3)
         .fetch()
 
-        const { countdown } = await $content('anmeldephase').fetch()
+        const countdown = {
+          date: '2021-11-13T12:00:00Z',
+          show: true
+        }
 
         return { upcomingEvents, recentPosts, countdown }
     }, undefined, 'homeData')
