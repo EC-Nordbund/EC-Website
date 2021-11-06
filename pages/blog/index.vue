@@ -190,7 +190,7 @@ export default {
       if (typeof item.description === 'string' && item.description.length > 0) {
         return item.description
       }
-      return 'Klicke auf "Mehr Anzeigen" um den Betrag zu vollständig zu lesen.'
+      return 'Klicke auf "Mehr Anzeigen", um den Betrag zu vollständig zu lesen.'
     },
   },
 }

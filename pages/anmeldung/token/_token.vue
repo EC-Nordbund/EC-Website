@@ -139,7 +139,7 @@ v-container.fill-height
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
-                      v-col.text-body-2(cols='9') Du erhälst von uns - wenn benötigt - in den nächsten 5 min einen Antrag auf ein erweiteres Führungszeugnis.
+                      v-col.text-body-2(cols='9') Du erhältst von uns - wenn benötigt - in den nächsten 5 Min einen Antrag auf ein erweiteres Führungszeugnis.
 
                       //- v-col(cols='3', align='center')
                       //-   v-avatar(size='42', color='success')
@@ -154,7 +154,7 @@ v-container.fill-height
                       v-col.text-body-2(cols='9') Bitte teile uns das mit. Antworte dafür einfach auf die Bestätigungsmail und füge zusätzlich folgenden Text ein:
                         pre {{ myStatus }}
                         br
-                        | Wir wissen dadurch dann was zu tun ist.
+                        | Wir wissen dadurch dann, was zu tun ist.
             v-responsive(aspect-ratio='4')
 </template>
 <script lang="ts">
