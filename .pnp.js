@@ -73,7 +73,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
             ["node-fetch", "npm:2.6.1"],
-            ["nodemailer", "npm:6.6.1"],
+            ["nodemailer", "npm:6.7.0"],
             ["nuxt", "npm:2.15.6"],
             ["nuxt-build-optimisations", "npm:1.0.3"],
             ["package-info", "npm:4.0.0"],
@@ -7451,7 +7451,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
             ["node-fetch", "npm:2.6.1"],
-            ["nodemailer", "npm:6.6.1"],
+            ["nodemailer", "npm:6.7.0"],
             ["nuxt", "npm:2.15.6"],
             ["nuxt-build-optimisations", "npm:1.0.3"],
             ["package-info", "npm:4.0.0"],
@@ -14963,10 +14963,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["nodemailer", [
-        ["npm:6.6.1", {
-          "packageLocation": "./.yarn/cache/nodemailer-npm-6.6.1-99de5ebabb-c889cf7d52.zip/node_modules/nodemailer/",
+        ["npm:6.7.0", {
+          "packageLocation": "./.yarn/cache/nodemailer-npm-6.7.0-4957d29c6a-7b4aa0c20d.zip/node_modules/nodemailer/",
           "packageDependencies": [
-            ["nodemailer", "npm:6.6.1"]
+            ["nodemailer", "npm:6.7.0"]
           ],
           "linkType": "HARD",
         }]
