@@ -259,7 +259,7 @@ export default defineComponent({
 
     const vDates = computed(() => vData.value.map((v: any) => v.begin))
     const vTags = computed(() => {
-      const tags = [...new Set(vData.value.flatMap((v: any) => v.tags))]
+      const tags = [...new Set(vData.value.flatMap((v: any) => (v.tags||[])))]
         .sort((a: any, b: any) =>  `${a}`.toLowerCase().localeCompare(`${b}`.toLowerCase()))
 
       return tags.map((tag: any) => {
