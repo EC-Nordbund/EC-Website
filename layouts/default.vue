@@ -402,10 +402,13 @@ export default defineComponent({
     font-size: 0.75rem !important;
   }
 }
-footer * {
+</style>
+
+<style scoped lang="scss">
+footer::v-deep * {
   color: #fff !important;
 }
-footer .v-list-item:hover {
+footer::v-deep .v-list-item:hover {
   background: rgba(1, 1, 1, 0.2);
 }
 </style>

@@ -13,7 +13,7 @@ Da wir Rechtlich dies im Zweifel nachweisen müssen, werden Daten von Mitarbeite
 
 # Deine Rechte
 ## Auskunftsrecht
-Du hast das Recht jederzeit eine Kopie deiner Daten, die bei uns gespeichert sind zu erhalten. Bitte wende dich dazu an Thomas Seeger oder an unseren Datenschutzbeauftragten. Dieses Auskunftsrecht bedeutet einen unheimlich hohen Verwaltungsaufwand für uns. Wir bitten daher darum, nicht leichtfertig von diesem Recht Gebrauch zu machen.
+Du hast das Recht jederzeit eine Kopie deiner Daten, die bei uns gespeichert sind, zu erhalten. Bitte wende dich dazu an Thomas Seeger oder an unseren Datenschutzbeauftragten. Dieses Auskunftsrecht bedeutet einen unheimlich hohen Verwaltungsaufwand für uns. Wir bitten daher darum, nicht leichtfertig von diesem Recht Gebrauch zu machen.
 
 ## Berichtigungsrecht
 Müssen deine Daten in irgendeiner Form berichtigt oder ergänzt werden, ist dies ebenfalls über Thomas Seeger oder unseren Datenschutzbeauftragten möglich.
