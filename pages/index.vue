@@ -13,7 +13,7 @@
       )
         v-row(justify='center', no-gutters)
           v-col(cols='12', md='7')
-            v-card.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
+            v-card.hero-panel.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
               span.text-h6.pb-5.white--text(v-if='isCountdownFuture') Die Anmeldephase beginnt in
               span.text-h6.pb-5.white--text(v-else) Die Anmeldephase hat begonnen!
               ec-countdown(:target='pages.countdown.date', keep-zeros)
@@ -21,6 +21,8 @@
                   span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
                 template(v-slot:units='slotProp')
                   span.text-caption.text-uppercase.white--text(slot='units') {{ slotProp.unit }}
+              v-alert(type="info" tile dense v-if='isCountdownFuture').mt-3.mb-1
+                span.subtitle-2 Die Anmeldung ist ab #[strong Sonntag 14.11. um 13 Uhr] möglich!
     v-container.mb-4
       .d-flex.flex-row.justify-space-between.align-end
         h2#aktuelles Aktuelles
@@ -156,7 +158,7 @@ export default defineComponent({
         .fetch()
 
         const countdown = {
-          date: '2021-11-13T12:00:00Z',
+          date: '2021-11-14T12:00:00Z',
           show: true
         }
 
@@ -253,7 +255,7 @@ export default defineComponent({
 .countdown {
   margin-bottom: -3.493vw;
 
-  .v-sheet {
+  .hero-panel.v-sheet {
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
       0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
