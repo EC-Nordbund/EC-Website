@@ -108,6 +108,7 @@ div
           h2.mb-2.text-center Preisstaffelung
           ec-preis-staffel(
             :preise='page.preise',
+            :anzahlung='page.anzahlung',
             fill-dot,
             dot-color='white',
             denseBreakpoint='xsOnly'
