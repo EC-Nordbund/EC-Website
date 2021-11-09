@@ -168,10 +168,12 @@ export default defineComponent({
     function filterByTags(veranstaltung: any, tags?: string[]) {
       tags = tags || filterTags.value
       
-      // has tags to filter with
-      if ((tags||[]).length > 0) {
-        return veranstaltung.tags
-          .filter((tag: string) => tags?.includes(tag)).length > 0
+      if (Array.isArray(veranstaltung.tags)) {
+        // has tags to filter with
+        if ((tags||[]).length > 0) {
+          return veranstaltung.tags
+            .filter((tag: string) => tags?.includes(tag)).length > 0
+        }
       }
 
       return true
@@ -183,7 +185,7 @@ export default defineComponent({
       const searchIn = [
         veranstaltung.title,
         veranstaltung.description,
-        ...veranstaltung.tags]
+        ...(veranstaltung.tags||[])]
 
       // has keyword
       if (keyword.length > 0) {
