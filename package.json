@@ -21,7 +21,7 @@
     "@nuxt/content": "1.14.0",
     "@nuxt/typescript-runtime": "2.1.0",
     "@nuxt/vue-app": "2.15.8",
-    "@nuxtjs/composition-api": "0.22.4",
+    "@nuxtjs/composition-api": "^0.30.0",
     "@nuxtjs/sitemap": "2.4.0",
     "ackee-tracker": "https://github.com/electerious/ackee-tracker.git#develop",
     "axios": "0.21.1",
@@ -68,6 +68,7 @@
     "pug": "3.0.2",
     "pug-plain-loader": "1.1.0",
     "typescript": "4.2.4",
+    "unplugin-vue2-script-setup": "^0.6.13",
     "webpack": "4.46.0"
   }
 }
