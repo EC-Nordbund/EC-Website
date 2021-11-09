@@ -108,6 +108,7 @@ div
           h2.mb-2.text-center Preisstaffelung
           ec-preis-staffel(
             :preise='page.preise',
+            :anzahlung='page.anzahlung',
             fill-dot,
             dot-color='white',
             denseBreakpoint='xsOnly'
@@ -235,3 +236,11 @@ export default {
   },
 }
 </script>
+<style>
+.corona-preis-info {
+  padding: 15px;
+  border: 1px solid red;
+  background: rgba(255, 0, 0, 0.4);
+  border-radius: 20px;
+}
+</style>

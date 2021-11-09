@@ -179,7 +179,7 @@ export default {
   esbuild: {
     target: 'es2017',
   },
-  
+
   sitemap: {
     hostname: 'https://www.ec-nordbund.de',
     exclude: [
@@ -209,7 +209,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    '@nuxtjs/composition-api',
+    '@nuxtjs/composition-api/module',
     '@ec-nordbund/typescript-module',
     '@ec-nordbund/vuetify-module',
     'nuxt-build-optimisations'
