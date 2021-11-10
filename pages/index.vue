@@ -22,8 +22,15 @@
                   span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
                 template(v-slot:units='slotProp')
                   span.text-caption.text-uppercase.white--text(slot='units') {{ slotProp.unit }}
-              v-alert(type="info" tile dense v-if='isCountdownFuture').mt-3.mb-1
-                span.subtitle-2 Die Anmeldung ist ab #[strong Sonntag 14.11. um 13 Uhr] möglich!
+
+    v-container.mt-n2.py-0
+      v-row(justify='center')
+        v-col(cols='12', md='9')
+          v-alert.mt-3.mb-1(type='info', tile, dense, text, outlined, v-if='isCountdownFuture')
+            span.subtitle-2.secondary--text Anmeldungen auf Freizeiten in 2022 ist ab #[strong Sonntag 14.11. um 13 Uhr] möglich!
+          v-alert.mt-3.mb-1(type='warning', tile, dense, outlined, text, v-if='isCountdownFuture')
+            span.subtitle-2.secondary--text Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
+
     v-container.mb-4
       .d-flex.flex-row.justify-space-between.align-end
         h2#aktuelles Aktuelles
