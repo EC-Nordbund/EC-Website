@@ -2,7 +2,7 @@
 div
   //- cover
   v-img.white--text(
-    :src='page.featuredImage.split(".")[0] + (supportWebp() ? ".webp" : ".jpg")',
+    :src='supportWebp() ? page.featuredImage.split(".")[0] + ".webp" : page.featuredImage',
     height='420',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
   )
