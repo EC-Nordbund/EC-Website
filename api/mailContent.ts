@@ -629,3 +629,136 @@ export async function createMailContentMAOrt(
     { url: 'https://www.ec-nordbund.de/', removeStyleTags: false }
   )
 }
+
+export async function erfolgMailContent(data: any): Promise<string> {
+  return require('inline-css')(
+    `
+    <html lang="de">
+    <head>
+      <style>
+        h1 {
+          color: #92c355;
+          font-size: 24pt;
+        }
+        h2 {
+          color: #92c355;
+          font-size: 20pt;
+        }
+        p {
+          font-size: 12pt;
+        }
+        h3 {
+          color: #92c355;
+          font-size: 16pt;
+        }
+        b {}
+        i {}
+        a {
+          color: #92c355;
+        }
+        div {}
+        table {}
+        tr {}
+        td {
+          font-size: 12pt;
+        }
+        .btn {}
+        .btn a {
+          background-color: #92c355;
+          border-radius: 25px;
+          color: #282925;
+          width: 250px;
+          padding: 20px;
+          height: 25px;
+          font-size: 17pt;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          transform: translate(-50%, 0);
+          margin-left: 150px;
+          margin-left: calc(50% - 0px);
+          white-space: nowrap;
+        }
+
+        body {
+          background-color: #eee;
+          margin: 0;
+          padding: 0;
+        }
+
+        .main {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 100%;
+          background: #fff;
+          padding: 5px 20px;
+          margin-bottom: 0;
+        }
+        .footer {
+          background: #fff;
+          margin: 0 20px;
+          padding: 5px 20px;
+          text-align: center;
+          border-radius: 20px 20px 0 0;
+        }
+
+        .footer table {
+          margin: 0 auto;
+        }
+
+        .footer td {
+          text-align: right;
+          padding: 0 6px;
+        }
+
+        .footer td + td {
+          text-align: center;
+          margin-left: 10px;
+        }
+      </style>
+      <style>
+        @media (min-width: 1200px) {
+          .main {
+              max-width: 1140px !important;
+          }
+        }
+        @media (min-width: 992px) {
+          .main {
+              max-width: 960px !important;
+          }
+        }
+        @media (min-width: 768px) {
+          .main {
+              max-width: 720px !important;
+          }
+        }
+        @media (min-width: 576px) {
+          .main {
+              max-width: 540px !important;
+          }
+        }
+      </style>
+    </head>
+    <body>
+    <div class="main">
+    <h1>Deine Anmeldung beim EC-Nordbund!</h1>
+    <p>
+      <b>Hallo ${data.vorname} ${data.nachname},</b><br><br>
+      danke für deine Anmeldung!
+    </p>
+    <p>
+      ${
+        data.status == 0
+          ? 'Deine Anmeldung wurde bestätigt! Und du stehst nicht auf der Warteliste. (Beachte, dass der Hinweis zu Warteliste eine <b>unverbindliche</b> Mitteilung ist. Erst bei Erhalt der <b>Buchungsbestätigung</b> per Post ist ein Platz garantiert)'
+          : `Deine Anmeldung wurde bestätigt! - Leider bist du auf der Warteliste gelandet (Platz ${data.status}) (Beachte, dass der Hinweis zu Warteliste eine <b>unverbindliche</b> Mitteilung ist. Es kann sein, dass du in den nächsten Stunden von uns hörst, dass du mit dabei bist. (Falls du dich zu Begin der Anmeldephase anmeldest kann es durchaus sein, dass z.B. die verteilung der Plätze männlich / weiblich angepasst wird.)`
+      }
+    </p>
+    <div class="footer">
+      ${footer}
+    </div>
+    </body>
+    </html>
+  `,
+    { url: 'https://www.ec-nordbund.de/', removeStyleTags: false }
+  )
+}
