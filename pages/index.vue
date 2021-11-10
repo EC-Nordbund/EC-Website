@@ -1,9 +1,10 @@
 <template lang="pug">
 .section-wrapper(v-if='pages')
   div
-    v-img.hero-image.hellGrau.align-end.angle--bottom-right(
-      :src='require("~/assets/img/hero-image.jpg")',
-      height='400',
+    v-img.hero-image.secondary.align-end.angle--bottom-right(
+      :src='supportWebp() ? require("~/assets/img/hero-image.webp") : require("~/assets/img/hero-image.jpg")',
+      min-height='400px'
+      height='60vh',
       width='auto',
       min-width='100%',
       gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.02) 80%, rgba(0,0,0,0.48) 100%'
@@ -76,7 +77,7 @@
               :title='item.title',
               :subTitle='`Vom ${item.begin.split("-").reverse().join(".")} bis ${item.ende.split("-").reverse().join(".")}`'
             )
-  .angle--both-left-right(style='background: #f5f5f5;')
+  .angle--both-left-right(style='background: #f5f5f5')
     v-container
       h2(id='über-uns') Über uns
       //- p 
