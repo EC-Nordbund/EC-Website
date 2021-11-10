@@ -90,7 +90,7 @@ div
           | {{ tag }}
 
   //- description
-  v-container
+  v-container.description
     nuxt-content(:document='page')
 
   //- bilder
@@ -236,11 +236,12 @@ export default {
   },
 }
 </script>
-<style>
-.corona-preis-info {
-  padding: 15px;
-  border: 1px solid red;
-  background: rgba(255, 0, 0, 0.4);
-  border-radius: 20px;
+<style scoped>
+.description {
+  min-height: 256px;
+}
+
+::v-deep .foerdergelder-hinweis {
+  margin-top: 2em;
 }
 </style>
