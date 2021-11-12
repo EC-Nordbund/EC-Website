@@ -53,7 +53,7 @@
           :key='item.slug'
         )
           v-card(tile, hover, outlined, :to='`/blog/${item.slug}`')
-            ec-image-item.hellGrau(
+            ec-image-item(
               :image='item.featuredImage',
               :title='item.title',
               :subTitle='`Vom ${item.published.split("T")[0].split("-").reverse().join(".")}`'
@@ -79,7 +79,7 @@
           :key='item.slug'
         )
           v-card(tile, hover, outlined, :to='`/veranstaltungen/${item.slug}`')
-            ec-image-item.hellGrau(
+            ec-image-item(
               :image='item.featuredImage.split(".")[0] + (supportWebp() ? ".webp" : ".jpg")',
               :title='item.title',
               :subTitle='`Vom ${item.begin.split("-").reverse().join(".")} bis ${item.ende.split("-").reverse().join(".")}`'
