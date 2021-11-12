@@ -108,11 +108,13 @@ div
           h2.mb-2.text-center Preisstaffelung
           ec-preis-staffel(
             :preise='page.preise',
-            :anzahlung='page.anzahlung',
             fill-dot,
             dot-color='white',
             denseBreakpoint='xsOnly'
           )
+          v-alert.mt-4.ec-gradient(v-if='page.anzahlung', type='info', color="primary" tile)
+            h3.text-h5 Anzahlung
+            p.text-subtitle-1 Nach der Anmeldung bitten wir dich um eine Anzahlung von #[strong {{ page.anzahlung }} EUR].
 
   //- standort
   div(

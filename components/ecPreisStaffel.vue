@@ -1,14 +1,6 @@
 <template lang="pug">
   v-timeline(:dense="dense")
-    v-timeline-item(v-if="anzahlung" small :fill-dot="fillDot") 
-      //- | {{preis.label}}
-      span(slot="opposite")
-      v-card(tile)
-        v-card-title(class="ec-gradient white--text pb-2 pt-3") Anzahlung
-        v-card-text(class="py-3")
-          p(class="text-center text-h4 font-weight-light mb-0") {{anzahlung}} EUR
     v-timeline-item(v-for="preis in myPreise" :key="preis.preis" small :fill-dot="fillDot" :color="preis.active ? 'primary' : dotColor") 
-      //- | {{preis.label}}
       span(slot="opposite") {{subtitle(preis)}}
       v-card(tile :class="{'elevation-5': preis.active}")
         v-card-title(class="ec-gradient white--text pb-2 pt-3" :class="{'font-weight-bold': preis.active}") {{preis.label}}
@@ -22,10 +14,6 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 // TODO: display alerts when the next category is in a few days
 export default defineComponent({
   props: {
-    anzahlung: {
-      type: Number,
-      default: 0
-    },
     preise: {
       type: Array,
       default: [],
@@ -58,8 +46,6 @@ export default defineComponent({
       }
       return ''
     }
-
-    // const anzahlung = computed(() => props.anzahlung)
 
     const myPreise = computed(() => {
       let hadActive = false
@@ -98,7 +84,6 @@ export default defineComponent({
       dense,
       subtitle,
       myPreise,
-      // anzahlung
     }
   },
 })
