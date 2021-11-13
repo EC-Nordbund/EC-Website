@@ -109,33 +109,59 @@ v-app
         v-row
           v-col.d-flex.align-center.px-0(sm=12)
             nuxt-link.d-flex.align-center.mr-auto.no-underline(
+              tile
               to='/',
               exact,
               aria-label='Zur Startseite'
             )
               ec-logo(size='42px', alt='EC')
               span(style='display: block; font-size: 2em; font-weight: bold') Nordbund
-            v-btn.hidden-sm-and-down.mr-2(text, to='/blog', color='primary')
-              span.subtitle-1.text-capitalize.font-weight-medium Blog
+
+            //- 1. Blog
             v-btn.hidden-sm-and-down.mr-2(
+              tile
               text,
-              to='/veranstaltungen',
+              to='/blog/',
+              color='primary'
+            )
+              span.subtitle-1.text-capitalize.font-weight-medium Blog
+
+            //- 2. Veranstaltung
+            v-btn.hidden-sm-and-down.mr-2(
+              tile
+              text,
+              to='/veranstaltungen/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Veranstaltungen
-            //- Später nur Orte
+
+            //- 3. Downloads
             v-btn.hidden-sm-and-down.mr-2(
-              text,
-              to='/orte/karlsminde',
-              color='primary'
-            )
-              span.subtitle-1.text-capitalize.font-weight-medium Karlsminde
-            v-btn.hidden-sm-and-down.mr-2(
+              tile
               text,
               to='/downloads/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Downloads
+
+            //- 4. Shop
+            v-btn.hidden-sm-and-down.mr-2(
+              tile,
+              text,
+              to='/shop/',
+              color='primary'
+            )
+              span.subtitle-1.text-capitalize.font-weight-medium Shop
+
+            //- 5. Ort / Karlsminde
+            v-btn.hidden-sm-and-down.mr-2(
+              tile
+              text,
+              to='/orte/karlsminde/',
+              color='primary'
+            )
+              span.subtitle-1.text-capitalize.font-weight-medium Karlsminde
+
             v-app-bar-nav-icon.hidden-md-and-up(
               @click.stop='drawer = !drawer',
               aria-label='Menü'
@@ -149,26 +175,37 @@ v-app
       v-icon(size='28') mdi-chevron-up
   v-navigation-drawer(app, right, temporary, v-model='drawer')
     v-list(nav)
-      v-list-item(link, to='/blog')
+    
+      v-list-item(link, to='/blog/')
         v-list-item-icon
           v-icon mdi-post-outline
         v-list-item-content
           v-list-item-title Blog
-      v-list-item(link, to='/veranstaltungen')
+
+      v-list-item(link, to='/veranstaltungen/')
         v-list-item-icon
           v-icon mdi-calendar
         v-list-item-content
           v-list-item-title Veranstaltungen
-      v-list-item(link, to='/orte/karlsminde')
-        v-list-item-icon
-          v-icon mdi-home
-        v-list-item-content
-          v-list-item-title Karlsminde
+
       v-list-item(link, to='/downloads/')
         v-list-item-icon
           v-icon mdi-cloud-download
         v-list-item-content
           v-list-item-title Downloads
+
+      v-list-item(link, to='/shop/')
+        v-list-item-icon
+          v-icon mdi-basket
+        v-list-item-content
+          v-list-item-title Shop
+
+      v-list-item(link, to='/orte/karlsminde/')
+        v-list-item-icon
+          v-icon mdi-home
+        v-list-item-content
+          v-list-item-title Karlsminde
+      
   v-main
     nuxt
   footer.secondary.white--text.angle--top-left

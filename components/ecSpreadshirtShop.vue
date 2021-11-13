@@ -170,7 +170,7 @@ export default defineComponent({
   }
 
   #consent-reject {
-    color: #fff;
+    color: #fff !important;
     background: #333;
     &:hover {
       background: #222;
