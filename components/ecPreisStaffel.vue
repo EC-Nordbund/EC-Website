@@ -14,6 +14,10 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 // TODO: display alerts when the next category is in a few days
 export default defineComponent({
   props: {
+    anzahlung: {
+      type: [Number,  Boolean],
+      default: 0
+    },
     preise: {
       type: Array,
       default: [],
