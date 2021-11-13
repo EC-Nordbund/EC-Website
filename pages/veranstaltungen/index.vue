@@ -168,12 +168,14 @@ export default defineComponent({
     function filterByTags(veranstaltung: any, tags?: string[]) {
       tags = tags || filterTags.value
       
-      if (Array.isArray(veranstaltung.tags)) {
-        // has tags to filter with
-        if ((tags||[]).length > 0) {
+      // has tags to filter with
+      if ((tags||[]).length > 0) {
+        if (Array.isArray(veranstaltung.tags)) {
           return veranstaltung.tags
             .filter((tag: string) => tags?.includes(tag)).length > 0
         }
+
+        return false;
       }
 
       return true
