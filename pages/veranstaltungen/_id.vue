@@ -70,27 +70,33 @@ div
           h1.d-block.d-md-inline-block.ec-gradient.py-3.py-sm-1.px-5.my-2.elevation-16.text-h5.text-sm-h4.font-weight-bold.text-truncate {{ page.title }}
 
         //- categories
-        //- v-col(cols="12" md="6" class="d-flex justify-start justify-sm-end flex-wrap-reverse")
-        //-   v-chip(color="offWhite" text-color="secondary" class="mr-2 mb-1 font-weight-medium" small v-for="tag in page.tags" :key="tag")
-        //-     | {{ tag }}
+        v-col.d-flex.justify-end.flex-wrap-reverse(cols='12', md='6')
+          v-chip.mr-2.mb-1.font-weight-medium(
+            color='offWhite',
+            text-color='secondary',
+            small,
+            v-for='tag in page.tags',
+            :key='tag'
+          )
+            | {{ tag }}
 
   //- hardfacts
-  .ec-gradient.text-body-2.font-weight-medium
+  .ec-gradient.text-subtitle-1.font-weight-normal
     v-container
       v-row(no-gutters, justify='space-between', align='center')
-        v-col(v-if='page.begin || page.ende') Vom {{ page.begin.split("-").reverse().join(".") }} bis {{ page.ende.split("-").reverse().join(".") }}
-        v-spacer
-        v-chip.mr-2.mb-1.font-weight-medium(
-          color='offWhite',
-          text-color='secondary',
-          small,
-          v-for='tag in page.tags',
-          :key='tag'
-        )
-          | {{ tag }}
+        //- Datum
+        .text-no-wrap(v-if='page.begin || page.ende')
+          v-icon.mr-2 mdi-calendar
+          | Vom {{ page.begin.split("-").reverse().join(".") }} bis {{ page.ende.split("-").reverse().join(".") }}
+        
+        //- Ort
+        .text-no-wrap(v-if='page.veranstaltungsort')
+          v-icon.mr-2 mdi-map-marker
+          | {{ page.veranstaltungsort }}
+
 
   //- description
-  v-container.description
+  v-container.description.pt-5
     nuxt-content(:document='page')
 
   //- bilder
