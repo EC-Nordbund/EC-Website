@@ -89,7 +89,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["unplugin-vue2-script-setup", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.6.13"],
             ["vue", "npm:2.6.12"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.5.14"],
-            ["web-vitals", "npm:1.1.2"],
+            ["web-vitals", "npm:2.1.2"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
           ],
           "linkType": "SOFT",
@@ -7773,7 +7773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["unplugin-vue2-script-setup", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.6.13"],
             ["vue", "npm:2.6.12"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.5.14"],
-            ["web-vitals", "npm:1.1.2"],
+            ["web-vitals", "npm:2.1.2"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
           ],
           "linkType": "SOFT",
@@ -22074,10 +22074,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["web-vitals", [
-        ["npm:1.1.2", {
-          "packageLocation": "./.yarn/cache/web-vitals-npm-1.1.2-8e3860bc35-76b4979a8d.zip/node_modules/web-vitals/",
+        ["npm:2.1.2", {
+          "packageLocation": "./.yarn/cache/web-vitals-npm-2.1.2-913c691cae-eeb9b6c937.zip/node_modules/web-vitals/",
           "packageDependencies": [
-            ["web-vitals", "npm:1.1.2"]
+            ["web-vitals", "npm:2.1.2"]
           ],
           "linkType": "HARD",
         }]
