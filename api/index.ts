@@ -16,23 +16,20 @@ import { checkToken } from './jwt'
 // console.log('test')
 
 const vData = {
-  428: 'TimeOut 2020/21',
-  440: "EC'ler auf der Kanzel",
-  441: 'Mitarbeiter Wochenende [ABGESAGT!]',
-  442: 'PfingstCamp',
-  443: 'Landesjungscharfreizeit I',
-  444: 'Landesjungscharfreizeit II',
-  445: 'TeenCamp',
-  446: 'Jugendfreizeit',
-  447: 'BibleCamp',
-  448: 'Abenteuerfreizeit',
-  449: 'Reiterfreizeit',
-  450: 'MaTag',
+  473: 'TimeOut 2022/23',
+  461: "EC'ler auf der Kanzel",
+  462: 'Mitarbeiter Wochenende',
+  464: 'PfingstCamp',
+  465: 'Landesjungscharfreizeit I',
+  466: 'Landesjungscharfreizeit II',
+  467: 'TeenCamp',
+  468: 'BibleCamp',
+  470: 'Abenteuerfreizeit',
+  469: 'Reiterfreizeit',
+  472: 'MaTag',
   451: 'TimeOut 2021/22',
-  452: 'MiWoE compact',
-  453: 'Kalmi Kurz Camp',
+  463: 'Kalmi Kurz Camp',
   454: 'LeitHaus',
-  455: 'Dartsturnier',
 }
 
 const app = express()
