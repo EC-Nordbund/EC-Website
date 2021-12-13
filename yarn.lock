@@ -5954,7 +5954,7 @@ __metadata:
     unplugin-vue2-script-setup: ^0.6.13
     vue: 2.6.12
     vuetify: 2.5.14
-    web-vitals: 1.1.2
+    web-vitals: 2.1.2
     webpack: 4.46.0
   languageName: unknown
   linkType: soft
@@ -18137,10 +18137,10 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:1.1.2":
-  version: 1.1.2
-  resolution: "web-vitals@npm:1.1.2"
-  checksum: 76b4979a8d786201ac5c165ddea67a1076c07565e823f0d77aa3a3678e9ba6d2856ce14a89af30efe302960e3310c1972a1bbccab2b5bad61eb62a1a33e11f4f
+"web-vitals@npm:2.1.2":
+  version: 2.1.2
+  resolution: "web-vitals@npm:2.1.2"
+  checksum: eeb9b6c9377496750144e62b656f454b27cd10555cfc24c5ea4068ed7fa1aba47666ea412bacf55214bae5d6b4a6807521e45a10573ffe6b75e2f883061fbe10
   languageName: node
   linkType: hard
 
