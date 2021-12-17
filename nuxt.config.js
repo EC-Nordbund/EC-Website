@@ -53,6 +53,9 @@ const vuetifyTheme = {
   with: '#9c8aa8',
   in: '#92c355',
 
+  vgRot: '#c30a1e',
+  vgBlau: '#0f3d8c',
+
   // Standard colors
   accent: '#583a70', // lila
   secondary: '#282925', // dunkelGrau
@@ -291,7 +294,7 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    extractCSS: true
+    extractCSS: false
   },
   serverMiddleware: {
     '/api': '~/api',
