@@ -167,7 +167,7 @@ export default defineComponent({
 
         const countdown = {
           date: '2021-11-14T12:00:00Z',
-          show: true
+          show: false
         }
 
         return { upcomingEvents, recentPosts, countdown }
