@@ -14,6 +14,17 @@ import {
 } from './mailContent'
 import { checkToken } from './jwt'
 
+function getAge(gebDat: string, wann?: string | Date) {
+  const today = wann ? new Date(wann) : new Date()
+  const birthDate = new Date(gebDat)
+  let age = today.getFullYear() - birthDate.getFullYear()
+  const m = today.getMonth() - birthDate.getMonth()
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--
+  }
+  return age
+}
+
 // console.log('test')
 
 const vData = {
@@ -211,7 +222,7 @@ app.post('/anmeldung/tn/:id', async (req, res) => {
   const errVals = validate(rules, req.body)
   
   if(__IS_CHRISTIVAL__) {
-    const alter = 55
+    const alter = getAge(req.body.gebDat, '2022-05-25')
      // Check alter
     
     if(alter < 14) {
@@ -360,7 +371,7 @@ app.post('/confirm/:token', async (req, res) => {
         
         
         if(__IS_CHRISTIVAL__) {
-          const alter = 55
+          const alter = getAge(data.gebDat, '2022-05-25')
           
           if(alter >= 18) {
              const aid = gqlRes.data.data.anmelden.anmeldeID
