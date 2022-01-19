@@ -235,8 +235,8 @@ app.post('/anmeldung/tn/:id', async (req, res) => {
        } else {
           //Validate key
           const [aid, p] = key.split('!')
-          
-          if(parseInt(aid.split('').filter(v=>/\d/.test(v)).join('')) % 97 !== parseInt(p) && aid.length == 15 && p.lengh == 2) {
+          const checknum = aid.split('').filter(v=>/\d/.test(v)).join('')
+          if(!(checknum.length >= 0 && parseInt(checknum) % 97 === parseInt(p) && aid.length == 15 && p.lengh == 2)) {
             errVals.push('Du bist unter 18 und musst den echten Code von einem Erwachsenen Teilnehmer angeben!')
           }
        }
