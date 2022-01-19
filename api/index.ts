@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 import express from 'express'
 import { json } from 'body-parser'
 import { ruleLib } from '../plugins/validateLib'
@@ -30,6 +31,8 @@ const vData = {
   451: 'TimeOut 2021/22',
   463: 'Kalmi Kurz Camp',
   454: 'LeitHaus',
+  
+  477: 'Christival 2022',
 }
 
 const app = express()
@@ -182,6 +185,8 @@ app.post('/anmeldung/ma/veranstaltung', async (req, res) => {
 // })
 
 app.post('/anmeldung/tn/:id', async (req, res) => {
+   const __IS_CHRISTIVAL__ = req.params.id == 477
+  
   // console.log('test2')
   const rules = {
     vorname: ruleLib.vorname,
@@ -200,10 +205,33 @@ app.post('/anmeldung/tn/:id', async (req, res) => {
     gesundheit: ruleLib.textArea250,
     datenschutz: ruleLib.datenschutz,
     freizeitLeitung: ruleLib.checkboxRequired,
-    tnBedingungen: ruleLib.tnBedingungen,
+    tnBedingungen: ruleLib.tnBedingungen
   }
 
   const errVals = validate(rules, req.body)
+  
+  if(__IS_CHRISTIVAL__) {
+    const alter = 55
+     // Check alter
+    
+    if(alter < 14) {
+       errVals.push('Du bist zu jung um beim Christival dabei zu sein...')
+    } else if(alter < 18) {
+       const key = req.body.extra.key
+       
+       if(!key) {
+         errVals.push('Du bist unter 18 und musst den Code von einem Erwachsenen Teilnehmer angeben!')
+       } else {
+          //Validate key
+          const [aid, p] = key.split('!')
+          
+          if(parseInt(aid.split('').filter(v=>/\d/.test(v)).join('')) % 97 !== parseInt(p) && aid.length == 15 && p.lengh == 2) {
+            errVals.push('Du bist unter 18 und musst den echten Code von einem Erwachsenen Teilnehmer angeben!')
+          }
+       }
+    }
+  }
+  
 
   if (errVals.length !== 0) {
     res.status(400)
@@ -264,6 +292,8 @@ app.post('/confirm/:token', async (req, res) => {
     const type = data.__internals.type
 
     if (type === 1) {
+      const __IS_CHRISTIVAL__ = data.veranstaltungsID == 477
+      
       const gqlCode = `
         mutation {
           anmelden(
@@ -327,6 +357,40 @@ app.post('/confirm/:token', async (req, res) => {
             status: gqlRes.data.data.anmelden.status,
           }),
         })
+        
+        
+        if(__IS_CHRISTIVAL__) {
+          const alter = 55
+          
+          if(alter >= 18) {
+             const aid = gqlRes.data.data.anmelden.anmeldeID
+             const key = aid + '!' + (parseInt(aid.split('').filter(v=>/\d/.test(v)).join('')) % 97).toString()
+             
+             await sendMail({
+               to: data.email,
+               from 'anmelung@ec-nordbund.de',
+               subject: 'Anmeldung für Minderjährige Christival',
+               html: `<p>Moin,<br>Wenn du für Minderjährige Person(en) Verantwortlicher bist gebe den folgenden Code an diese weiter, damit sie sich auf der Website anmelden können! Bei Fragen zu dem Prozedere antworte einfach auf diese Mail!<br><br>CODE: ${key}</p>`
+             })
+          } else {
+            await sendMail({
+               to: data.email,
+               from 'anmelung@ec-nordbund.de',
+               subject: 'Christival | Einverständniserklärung der Eltern',
+               html: `<p>Moin,<br>Bitte lasse diese Erklärung von deinen Eltern unterschreiben und gebe sie an deiner volljährigen Begleitperson oder bei Thomas Seeger ab!</p>`,
+               attachments: [
+                 {
+                   filename: 'Einverstaendniserklaerung.pdf',
+                   content: fs.createReadStream('./Einverstaendniserklaerung.pdf')
+                  },
+                    {
+                   filename: 'Einverstaendniserklaerung.docx',
+                   content: fs.createReadStream('./Einverstaendniserklaerung.docx')
+                  }
+               ]
+             })
+          }
+        }
       }
 
       res.status(200)
