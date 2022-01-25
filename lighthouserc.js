@@ -19,9 +19,8 @@ module.exports = {
       assertions: {
         'categories:performance': ['error', { minScore: 0.6 }],
         'categories:accessibility': ['error', { minScore: 0.92 }],
-        // 'categories:pwa': ['error', { minScore: 0 }],
         'categories:seo': ['error', { minScore: 0.92 }],
-        'categories:best-practices': ['error', { minScore: 9.2 }],
+        'categories:best-practices': ['error', { minScore: 0.92 }],
         /**
          * User Farbschema geht sonst nicht
          * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
