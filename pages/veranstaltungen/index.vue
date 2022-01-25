@@ -47,7 +47,7 @@
     v-row(v-if="veranstaltungen" justify="center")
       v-col(v-if="veranstaltungen.length < 1" cols="8")
         v-alert(type="info" dense prominent)
-          h3 Keine Veranstaltungen gefunden.
+          h2.text--secondary Keine Veranstaltungen gefunden.
       v-col(v-for="item in veranstaltungen" cols="12" sm="6" md="12" :key="item.slug")
         v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
           v-row(no-gutters)
