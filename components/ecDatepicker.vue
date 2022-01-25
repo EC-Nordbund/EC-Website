@@ -1,27 +1,27 @@
 <template lang="pug">
-  v-dialog(
-    v-model="menu"
-    :close-on-content-click="false"
-    transition="scale-transition"
-    offset-y
-    max-width="290px"
-    min-width="auto"
-  )
-    template( v-slot:activator="{ on, attrs }")
-      v-text-field(
-        v-model="formatedDate"
-        readonly
-        v-bind="{ max: maxDate, min: minDate, ...attrs, ...$attrs }"
-        v-on="on"
-        clearable
-        @click:clear="clear"
-      )
-    v-date-picker(
-      v-model="date"
-      :active-picker.sync="activePicker"
-      no-title
-      @input="menu = false"
+v-dialog(
+  v-model='menu',
+  :close-on-content-click='false',
+  transition='scale-transition',
+  offset-y,
+  max-width='290px',
+  min-width='auto'
+)
+  template(v-slot:activator='{ on, attrs }')
+    v-text-field(
+      v-model='formatedDate',
+      readonly,
+      v-bind='{ max: maxDate, min: minDate, ...attrs, ...$attrs }',
+      v-on='on',
+      clearable,
+      @click:clear='clear'
     )
+  v-date-picker(
+    v-model='date',
+    :active-picker.sync='activePicker',
+    no-title,
+    @input='menu = false'
+  )
 </template>
 <script lang="ts">
 import {
@@ -97,7 +97,7 @@ export default defineComponent({
       maxDate,
       minDate,
       activePicker,
-      clear
+      clear,
     }
   },
 })
