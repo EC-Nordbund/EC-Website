@@ -32,6 +32,12 @@ import {
   watchEffect,
 } from '@nuxtjs/composition-api'
 
+export function formatDate(date: string | null) {
+  if (!date) return ''
+
+  return date.split('-').reverse().join('.')
+}
+
 export default defineComponent({
   props: {
     isBirthdayPicker: {
@@ -72,18 +78,6 @@ export default defineComponent({
       return emit('input', date.value)
     })
 
-    function formatDate(date: string) {
-      if (!date) return ''
-
-      return date.split('-').reverse().join('.')
-    }
-
-    function parseDate(date: string) {
-      if (!date) return null
-
-      return date.split('.').reverse().join('-')
-    }
-
     function clear() {
       menu.value = true
       date.value = ''
@@ -93,7 +87,6 @@ export default defineComponent({
       menu,
       date,
       formatedDate,
-      parseDate,
       maxDate,
       minDate,
       activePicker,
