@@ -5,7 +5,7 @@
       v-radio(value="w" label="Weiblich")
     v-text-field(v-model="data.vorname" required label="Vorname" counter="50" @change="vornameEvent" :error-messages="vornameErrors")
     v-text-field(v-model="data.nachname" required label="Nachname" counter="50" @change="nachnameEvent" :error-messages="nachnameErrors")
-    ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required gebDat :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="gebDatEvent" :error-messages="gebDatErrors")
+    ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required isBirthdayPicker @change="gebDatEvent" :error-messages="gebDatErrors")
     v-alert(v-if="zuJung||zuAlt" type="warning" icon="mdi-information").secondary--text
       template(v-if="zuJung")
         p(v-if="minAlter!==-1").font-weight-medium.mb-2 Du bist jünger als das vorgesehene Mindesalter von {{minAlter}} Jahren für diese Veranstaltung.
