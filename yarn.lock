@@ -6418,7 +6418,7 @@ __metadata:
     typescript: 4.2.4
     unplugin-vue2-script-setup: 0.6.17
     vue: 2.6.12
-    vuetify: 2.5.14
+    vuetify: 2.6.3
     web-vitals: 2.1.2
     webpack: 4.46.0
   languageName: unknown
@@ -19260,12 +19260,12 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vuetify@npm:2.5.14":
-  version: 2.5.14
-  resolution: "vuetify@npm:2.5.14"
+"vuetify@npm:2.6.3":
+  version: 2.6.3
+  resolution: "vuetify@npm:2.6.3"
   peerDependencies:
     vue: ^2.6.4
-  checksum: dbfaba87e2d30abec9f96a8c2193d71bb356ad5456aa276fe13fdefbbf371640561c234561a8fae084e39c3a7135e593046d2bb48d31ef18ca23e013f27e28c3
+  checksum: 14ee362359dcc77be6881fd9a9b5acdf60310e5b8aae3bac30b6f41cbb9b4b12be5528c462402082f94ee1778a011ff3a7a32d55605630b496666d0768113199
   languageName: node
   linkType: hard
 
