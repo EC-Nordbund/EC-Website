@@ -48,7 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.8"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.30.0"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.31.0"],
             ["@nuxtjs/eslint-config", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
@@ -3945,29 +3945,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@nuxtjs/composition-api", [
-        ["npm:0.30.0", {
-          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.30.0-c0025ca481-90e368320f.zip/node_modules/@nuxtjs/composition-api/",
+        ["npm:0.31.0", {
+          "packageLocation": "./.yarn/cache/@nuxtjs-composition-api-npm-0.31.0-0c41191dfc-769a179923.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "npm:0.30.0"]
+            ["@nuxtjs/composition-api", "npm:0.31.0"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.30.0", {
-          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-87a22591e0/0/cache/@nuxtjs-composition-api-npm-0.30.0-c0025ca481-90e368320f.zip/node_modules/@nuxtjs/composition-api/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.31.0", {
+          "packageLocation": "./.yarn/$$virtual/@nuxtjs-composition-api-virtual-94268c264c/0/cache/@nuxtjs-composition-api-npm-0.31.0-0c41191dfc-769a179923.zip/node_modules/@nuxtjs/composition-api/",
           "packageDependencies": [
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.30.0"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.31.0"],
             ["@nuxt/vue-app", "npm:2.15.8"],
             ["@types/nuxt", null],
             ["@types/nuxt__vue-app", null],
             ["@types/vue", null],
-            ["@vue/composition-api", "virtual:87a22591e0ddd58a517553079f5108ca4b0d9567ef2fa6e96c8d2b649e0a7e0dba05bcef7d77b3cdaadd9eb1ed03bb59a12bfbe1ef7a70b9160162698a0858a9#npm:1.3.3"],
+            ["@vue/composition-api", "virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:1.4.4"],
             ["defu", "npm:5.0.0"],
             ["estree-walker", "npm:2.0.2"],
             ["fs-extra", "npm:9.1.0"],
             ["magic-string", "npm:0.25.7"],
             ["nuxt", "npm:2.15.8"],
             ["ufo", "npm:0.7.9"],
-            ["unplugin-vue2-script-setup", "virtual:ea349e16fd34558a0a9d7a8cb71d5c89ede43f7a3f22599634344e5f476349dc396ec8b55bd593eaadf5758d233a467adc1b485efea5c3d48b5d46d78924e225#npm:0.6.13"],
+            ["unplugin-vue2-script-setup", "virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:0.7.3"],
             ["upath", "npm:2.0.1"],
             ["vue", "npm:2.6.12"]
           ],
@@ -5300,6 +5300,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map", "npm:0.6.1"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:3.2.29", {
+          "packageLocation": "./.yarn/cache/@vue-compiler-core-npm-3.2.29-9a40926cc2-5135ae7c0b.zip/node_modules/@vue/compiler-core/",
+          "packageDependencies": [
+            ["@vue/compiler-core", "npm:3.2.29"],
+            ["@babel/parser", "npm:7.16.12"],
+            ["@vue/shared", "npm:3.2.29"],
+            ["estree-walker", "npm:2.0.2"],
+            ["source-map", "npm:0.6.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@vue/component-compiler-utils", [
@@ -5321,17 +5332,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vue/composition-api", [
-        ["npm:1.3.3", {
-          "packageLocation": "./.yarn/cache/@vue-composition-api-npm-1.3.3-e6fd2c07f0-166e6213ca.zip/node_modules/@vue/composition-api/",
+        ["npm:1.4.4", {
+          "packageLocation": "./.yarn/cache/@vue-composition-api-npm-1.4.4-154c8db1f8-2c3b4187ea.zip/node_modules/@vue/composition-api/",
           "packageDependencies": [
-            ["@vue/composition-api", "npm:1.3.3"]
+            ["@vue/composition-api", "npm:1.4.4"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:87a22591e0ddd58a517553079f5108ca4b0d9567ef2fa6e96c8d2b649e0a7e0dba05bcef7d77b3cdaadd9eb1ed03bb59a12bfbe1ef7a70b9160162698a0858a9#npm:1.3.3", {
-          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-f0f1c4611f/0/cache/@vue-composition-api-npm-1.3.3-e6fd2c07f0-166e6213ca.zip/node_modules/@vue/composition-api/",
+        ["virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:1.4.4", {
+          "packageLocation": "./.yarn/$$virtual/@vue-composition-api-virtual-484cc83890/0/cache/@vue-composition-api-npm-1.4.4-154c8db1f8-2c3b4187ea.zip/node_modules/@vue/composition-api/",
           "packageDependencies": [
-            ["@vue/composition-api", "virtual:87a22591e0ddd58a517553079f5108ca4b0d9567ef2fa6e96c8d2b649e0a7e0dba05bcef7d77b3cdaadd9eb1ed03bb59a12bfbe1ef7a70b9160162698a0858a9#npm:1.3.3"],
+            ["@vue/composition-api", "virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:1.4.4"],
             ["@types/vue", null],
             ["tslib", "npm:2.3.1"],
             ["vue", "npm:2.6.12"]
@@ -8006,7 +8017,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.8"],
-            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.30.0"],
+            ["@nuxtjs/composition-api", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.31.0"],
             ["@nuxtjs/eslint-config", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
@@ -21749,10 +21760,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:e7b95e5ac70add7c1ac1876103efe76b015460f09464ec7f2886cbdfff2253dfa7d1e3f29ea491a21263862dde77d1aa4f0fcc02c538497fa996efddfe7df496#npm:0.2.21", {
-          "packageLocation": "./.yarn/$$virtual/unplugin-virtual-866ff75387/0/cache/unplugin-npm-0.2.21-6e39b1c78b-84c604d764.zip/node_modules/unplugin/",
+        ["virtual:1ac8eb04ad3d4b04843c16faa86c66f1396aa1446e0ef848498628db21c0ec6465175eb65f1bbdbaa95a7559ed3f9857ba4db1244f952eca759411cf266333e6#npm:0.2.21", {
+          "packageLocation": "./.yarn/$$virtual/unplugin-virtual-dc8af7a2ea/0/cache/unplugin-npm-0.2.21-6e39b1c78b-84c604d764.zip/node_modules/unplugin/",
           "packageDependencies": [
-            ["unplugin", "virtual:e7b95e5ac70add7c1ac1876103efe76b015460f09464ec7f2886cbdfff2253dfa7d1e3f29ea491a21263862dde77d1aa4f0fcc02c538497fa996efddfe7df496#npm:0.2.21"],
+            ["unplugin", "virtual:1ac8eb04ad3d4b04843c16faa86c66f1396aa1446e0ef848498628db21c0ec6465175eb65f1bbdbaa95a7559ed3f9857ba4db1244f952eca759411cf266333e6#npm:0.2.21"],
             ["@types/rollup", null],
             ["@types/vite", null],
             ["@types/webpack", null],
@@ -21809,6 +21820,40 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["npm:0.7.3", {
+          "packageLocation": "./.yarn/cache/unplugin-vue2-script-setup-npm-0.7.3-531432a97b-6a40fecd4f.zip/node_modules/unplugin-vue2-script-setup/",
+          "packageDependencies": [
+            ["unplugin-vue2-script-setup", "npm:0.7.3"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:0.7.3", {
+          "packageLocation": "./.yarn/$$virtual/unplugin-vue2-script-setup-virtual-1ac8eb04ad/0/cache/unplugin-vue2-script-setup-npm-0.7.3-531432a97b-6a40fecd4f.zip/node_modules/unplugin-vue2-script-setup/",
+          "packageDependencies": [
+            ["unplugin-vue2-script-setup", "virtual:94268c264cdc0785cb17b2b7c30f1fbcdc33b5c60697f5c56a1c5f974523a5602b9c8bb4db778bd0fd3a78038762dc777213918497b1ef16d7c75d7e49a0de77#npm:0.7.3"],
+            ["@antfu/utils", "npm:0.3.0"],
+            ["@babel/core", "npm:7.16.12"],
+            ["@babel/generator", "npm:7.16.0"],
+            ["@babel/parser", "npm:7.16.12"],
+            ["@babel/traverse", "npm:7.16.10"],
+            ["@babel/types", "npm:7.16.0"],
+            ["@rollup/pluginutils", "npm:4.1.1"],
+            ["@types/pug", null],
+            ["@vue/compiler-core", "npm:3.2.29"],
+            ["@vue/ref-transform", "npm:3.2.24"],
+            ["@vue/shared", "npm:3.2.29"],
+            ["defu", "npm:5.0.0"],
+            ["htmlparser2", "npm:5.0.1"],
+            ["magic-string", "npm:0.25.7"],
+            ["pug", null],
+            ["unplugin", "virtual:1ac8eb04ad3d4b04843c16faa86c66f1396aa1446e0ef848498628db21c0ec6465175eb65f1bbdbaa95a7559ed3f9857ba4db1244f952eca759411cf266333e6#npm:0.2.21"]
+          ],
+          "packagePeers": [
+            "@types/pug",
+            "pug"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.6.17", {
           "packageLocation": "./.yarn/$$virtual/unplugin-vue2-script-setup-virtual-e7b95e5ac7/0/cache/unplugin-vue2-script-setup-npm-0.6.17-daae4e974f-aafce64e1e.zip/node_modules/unplugin-vue2-script-setup/",
           "packageDependencies": [
@@ -21827,7 +21872,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["htmlparser2", "npm:5.0.1"],
             ["magic-string", "npm:0.25.7"],
             ["pug", "npm:3.0.2"],
-            ["unplugin", "virtual:e7b95e5ac70add7c1ac1876103efe76b015460f09464ec7f2886cbdfff2253dfa7d1e3f29ea491a21263862dde77d1aa4f0fcc02c538497fa996efddfe7df496#npm:0.2.21"]
+            ["unplugin", "virtual:1ac8eb04ad3d4b04843c16faa86c66f1396aa1446e0ef848498628db21c0ec6465175eb65f1bbdbaa95a7559ed3f9857ba4db1244f952eca759411cf266333e6#npm:0.2.21"]
           ],
           "packagePeers": [
             "@types/pug",
