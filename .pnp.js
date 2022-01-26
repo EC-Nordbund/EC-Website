@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
             ["@fontsource/montserrat", "npm:4.3.0"],
             ["@lhci/cli", "npm:0.8.2"],
-            ["@mdi/js", "npm:5.9.55"],
+            ["@mdi/js", "npm:6.5.95"],
             ["@nuxt/content", "npm:1.14.0"],
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
@@ -3143,10 +3143,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@mdi/js", [
-        ["npm:5.9.55", {
-          "packageLocation": "./.yarn/cache/@mdi-js-npm-5.9.55-4a4fcc7bcf-e026acf430.zip/node_modules/@mdi/js/",
+        ["npm:6.5.95", {
+          "packageLocation": "./.yarn/cache/@mdi-js-npm-6.5.95-a9fd59dcc9-16846f8ec4.zip/node_modules/@mdi/js/",
           "packageDependencies": [
-            ["@mdi/js", "npm:5.9.55"]
+            ["@mdi/js", "npm:6.5.95"]
           ],
           "linkType": "HARD",
         }]
@@ -7711,7 +7711,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
             ["@fontsource/montserrat", "npm:4.3.0"],
             ["@lhci/cli", "npm:0.8.2"],
-            ["@mdi/js", "npm:5.9.55"],
+            ["@mdi/js", "npm:6.5.95"],
             ["@nuxt/content", "npm:1.14.0"],
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
