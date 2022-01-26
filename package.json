@@ -41,7 +41,7 @@
     "typeface-montserrat": "1.1.13",
     "vue": "2.6.12",
     "vuetify": "2.6.3",
-    "web-vitals": "2.1.2"
+    "web-vitals": "2.1.4"
   },
   "devDependencies": {
     "@ec-nordbund/typescript-module": "0.4.0",

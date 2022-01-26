@@ -834,7 +834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.14.9":
+"@babel/helper-validator-identifier@npm:^7.14.9, @babel/helper-validator-identifier@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/helper-validator-identifier@npm:7.16.7"
   checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
@@ -845,13 +845,6 @@ __metadata:
   version: 7.15.7
   resolution: "@babel/helper-validator-identifier@npm:7.15.7"
   checksum: eb3eaea69de1e69c0c74e15b3934aa844b248d3bda6d5fa97f8c46fc16eada6153d2f519379ec3801b794bb5b72a88e087a18bbe6682cd72ce0c7a69144f2f7a
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.16.7":
-  version: 7.16.7
-  resolution: "@babel/helper-validator-identifier@npm:7.16.7"
-  checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
   languageName: node
   linkType: hard
 
@@ -6419,7 +6412,7 @@ __metadata:
     unplugin-vue2-script-setup: 0.6.17
     vue: 2.6.12
     vuetify: 2.6.3
-    web-vitals: 2.1.2
+    web-vitals: 2.1.4
     webpack: 4.46.0
   languageName: unknown
   linkType: soft
@@ -19311,10 +19304,10 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:2.1.2":
-  version: 2.1.2
-  resolution: "web-vitals@npm:2.1.2"
-  checksum: eeb9b6c9377496750144e62b656f454b27cd10555cfc24c5ea4068ed7fa1aba47666ea412bacf55214bae5d6b4a6807521e45a10573ffe6b75e2f883061fbe10
+"web-vitals@npm:2.1.4":
+  version: 2.1.4
+  resolution: "web-vitals@npm:2.1.4"
+  checksum: cb643479ebf63fb7b81dd3c074b4e77b93ba910bbef0c739133a8583121fade76d28a095cc358432c67e9b17356818a4be99394a5fba55e5abc6d2dd427a3757
   languageName: node
   linkType: hard
 
