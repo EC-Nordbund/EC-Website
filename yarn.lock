@@ -1894,10 +1894,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ec-nordbund/leaflet@npm:1.7.1-436430db4-436430db4":
-  version: 1.7.1-436430db4-436430db4
-  resolution: "@ec-nordbund/leaflet@npm:1.7.1-436430db4-436430db4"
-  checksum: 5859ab280ce39c235db2f16dc13f925e5b71a4a99f57aea89cb71eb2a8f59b72af8f6db74e6b65685a3b2772496c2485d2589640b1c5d5fe5fba619d12921ccc
+"@ec-nordbund/leaflet@npm:1.7.1-build-81dc2489":
+  version: 1.7.1-build-81dc2489
+  resolution: "@ec-nordbund/leaflet@npm:1.7.1-build-81dc2489"
+  checksum: 3b5ab5b6aabcb8d199ca19e87201eb4178aadf2fd4398b29a6428353a5a421c538c565ed3980e7e1d6d3f27efccdd87b9ce157308edf62defd5d40d6161513b0
   languageName: node
   linkType: hard
 
@@ -5914,7 +5914,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "content-test@workspace:."
   dependencies:
-    "@ec-nordbund/leaflet": 1.7.1-436430db4-436430db4
+    "@ec-nordbund/leaflet": 1.7.1-build-81dc2489
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": 0.4.0
     "@ec-nordbund/vuetify-module": 0.4.3
