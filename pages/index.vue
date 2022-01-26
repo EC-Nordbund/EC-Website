@@ -2,8 +2,8 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      :src='supportWebp() ? require("~/assets/img/hero-image.webp") : require("~/assets/img/hero-image.jpg")',
-      min-height='400px'
+      :src='heroImage()',
+      min-height='400px',
       height='60vh',
       width='auto',
       min-width='100%',
@@ -194,6 +194,7 @@ export default defineComponent({
     return {
       pages,
       supportWebp,
+      heroImage,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
     }
@@ -234,9 +235,20 @@ export default defineComponent({
         href: 'https://www.ec-nordbund.de',
         hid: 'canonical',
       },
+      {
+        rel: 'preload',
+        as: 'image',
+        href: heroImage()
+      }
     ],
   },
 })
+
+export function heroImage() {
+      return supportWebp()
+        ? require('~/assets/img/hero-image.webp')
+        : require('~/assets/img/hero-image.jpg')
+    }
 </script>
 <style lang="scss" scoped>
 @import '~vuetify/src/styles/settings/_variables';
