@@ -4717,12 +4717,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.21.4":
-  version: 0.21.4
-  resolution: "axios@npm:0.21.4"
+"axios@npm:0.25.0":
+  version: 0.25.0
+  resolution: "axios@npm:0.25.0"
   dependencies:
-    follow-redirects: ^1.14.0
-  checksum: e6d42b269b599d36eb13be0671c237781f32e6ae72be824297c55a3e1ce63b22ba4f46bad5ab28da7d3bae50a72637d55c792cf803be1cf9de6a8bcd6d0dcc1a
+    follow-redirects: ^1.14.7
+  checksum: 2b2d5a0e1d53ab19b0808324336044db0a2ea2f18842a455436ee2bf35548e016dd9a3c52fee722c9e9602c8dd0185e9ccf9a77d76bb8acd706703f6e7c5eb91
   languageName: node
   linkType: hard
 
@@ -6272,7 +6272,7 @@ __metadata:
     "@types/node": 17.0.12
     "@types/nodemailer": 6.4.4
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
-    axios: 0.21.4
+    axios: 0.25.0
     babel-eslint: 10.1.0
     body-parser: 1.19.1
     eslint: 7.27.0
@@ -9097,7 +9097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.0":
+"follow-redirects@npm:^1.14.7":
   version: 1.14.7
   resolution: "follow-redirects@npm:1.14.7"
   peerDependenciesMeta:
