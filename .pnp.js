@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/sitemap", "npm:2.4.0"],
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express", "npm:4.17.12"],
-            ["@types/jsonwebtoken", "npm:8.5.1"],
+            ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.2"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
@@ -4184,10 +4184,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/jsonwebtoken", [
-        ["npm:8.5.1", {
-          "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-8.5.1-c01e6c9a08-f66ee4a125.zip/node_modules/@types/jsonwebtoken/",
+        ["npm:8.5.8", {
+          "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-8.5.8-798e14708c-811e814ea6.zip/node_modules/@types/jsonwebtoken/",
           "packageDependencies": [
-            ["@types/jsonwebtoken", "npm:8.5.1"],
+            ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:14.14.20"]
           ],
           "linkType": "HARD",
@@ -7682,7 +7682,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/sitemap", "npm:2.4.0"],
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express", "npm:4.17.12"],
-            ["@types/jsonwebtoken", "npm:8.5.1"],
+            ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.1"],
             ["@types/nodemailer", "npm:6.4.2"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],

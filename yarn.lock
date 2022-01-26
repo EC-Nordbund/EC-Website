@@ -2965,12 +2965,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:8.5.1":
-  version: 8.5.1
-  resolution: "@types/jsonwebtoken@npm:8.5.1"
+"@types/jsonwebtoken@npm:8.5.8":
+  version: 8.5.8
+  resolution: "@types/jsonwebtoken@npm:8.5.8"
   dependencies:
     "@types/node": "*"
-  checksum: f66ee4a12584a699a6dba5daa79d0f87ae77950a332f918c7f485b6d33501be84547fcac992d7f5a8960d04f77f206b118d9a558d8dd49f1aea99c64a17182b0
+  checksum: 811e814ea6d1b5c1dc1360ae0788fe1697888e8f462eabaa68036b0fdc6fef003bc1982b992d73755d51a2bac1ed2858d3fccbf66bfdb2710088b0303f19f31b
   languageName: node
   linkType: hard
 
@@ -5932,7 +5932,7 @@ __metadata:
     "@nuxtjs/sitemap": 2.4.0
     "@types/body-parser": 1.19.0
     "@types/express": 4.17.12
-    "@types/jsonwebtoken": 8.5.1
+    "@types/jsonwebtoken": 8.5.8
     "@types/node": 15.6.1
     "@types/nodemailer": 6.4.2
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
