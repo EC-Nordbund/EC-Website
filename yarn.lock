@@ -6004,7 +6004,7 @@ __metadata:
     remark: 13.0.0
     remark-html: 13.0.1
     sass: 1.34.0
-    sass-loader: 10.2.0
+    sass-loader: 11.1.1
     typeface-montserrat: 1.1.13
     typescript: 4.2.4
     unplugin-vue2-script-setup: 0.6.13
@@ -15905,20 +15905,17 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:10.2.0":
-  version: 10.2.0
-  resolution: "sass-loader@npm:10.2.0"
+"sass-loader@npm:11.1.1":
+  version: 11.1.1
+  resolution: "sass-loader@npm:11.1.1"
   dependencies:
     klona: ^2.0.4
-    loader-utils: ^2.0.0
     neo-async: ^2.6.2
-    schema-utils: ^3.0.0
-    semver: ^7.3.2
   peerDependencies:
     fibers: ">= 3.1.0"
     node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0
     sass: ^1.3.0
-    webpack: ^4.36.0 || ^5.0.0
+    webpack: ^5.0.0
   peerDependenciesMeta:
     fibers:
       optional: true
@@ -15926,7 +15923,7 @@ resolve@^1.20.0:
       optional: true
     sass:
       optional: true
-  checksum: 1c8914920749f2e2e404e4663c9cce6ef4d38dc7fb30117c722c25b76257ebee444c90d20e174adf621036e1afefaadc8f89b69fd912347f4618b7401afae53c
+  checksum: 6d8ded8e2a0742f6b62dddc577324b74a7a0781f5405574d3af4ee34c9a6189debff1b90e3acd65a62ebbf6dc52c47a9a2be6c1786ac2435bd39c91c2ebe7367
   languageName: node
   linkType: hard
 
