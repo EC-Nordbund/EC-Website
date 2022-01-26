@@ -64,7 +64,7 @@
     "fs-extra": "10.0.0",
     "nuxt-build-optimisations": "1.0.7",
     "package-info": "4.0.0",
-    "prettier": "2.3.0",
+    "prettier": "2.3.2",
     "pug": "3.0.2",
     "pug-plain-loader": "1.1.0",
     "typescript": "4.2.4",
