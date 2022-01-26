@@ -44,7 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/montserrat", "npm:4.5.2"],
             ["@lhci/cli", "npm:0.8.2"],
             ["@mdi/js", "npm:6.5.95"],
-            ["@nuxt/content", "npm:1.14.0"],
+            ["@nuxt/content", "npm:1.15.1"],
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.8"],
@@ -3550,10 +3550,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@nuxt/content", [
-        ["npm:1.14.0", {
-          "packageLocation": "./.yarn/cache/@nuxt-content-npm-1.14.0-4d07c7863c-fdcdad86cb.zip/node_modules/@nuxt/content/",
+        ["npm:1.15.1", {
+          "packageLocation": "./.yarn/cache/@nuxt-content-npm-1.15.1-3f18bb40b1-7337ecebc2.zip/node_modules/@nuxt/content/",
           "packageDependencies": [
-            ["@nuxt/content", "npm:1.14.0"],
+            ["@nuxt/content", "npm:1.15.1"],
             ["@lokidb/full-text-search", "npm:2.1.0"],
             ["@lokidb/loki", "npm:2.1.0"],
             ["@nuxt/types", "npm:2.15.3"],
@@ -3593,7 +3593,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["remark-squeeze-paragraphs", "npm:4.0.0"],
             ["unified", "npm:9.2.1"],
             ["unist-builder", "npm:2.0.3"],
-            ["ws", "virtual:4d07c7863cc9d6860aa9b64fdd75f2615f05fbeb4a01a653fceb24040befb0e6cf947f38e6ccaa9a308cbd974c077fc685eaa9c017b0d2c1ec132db4d2490ae9#npm:7.4.3"],
+            ["ws", "virtual:3f18bb40b18b002edf64f9227bfc04b1f1af72416927aff642edf43be26617f92de15e44cb542c9ad0a9a10f1daa56ca038a8c9bdaddc0cc7ae19a46e1fd516d#npm:7.4.3"],
             ["xml2js", "npm:0.4.23"]
           ],
           "linkType": "HARD",
@@ -8154,7 +8154,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/montserrat", "npm:4.5.2"],
             ["@lhci/cli", "npm:0.8.2"],
             ["@mdi/js", "npm:6.5.95"],
-            ["@nuxt/content", "npm:1.14.0"],
+            ["@nuxt/content", "npm:1.15.1"],
             ["@nuxt/types", "npm:2.15.8"],
             ["@nuxt/typescript-runtime", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.1.0"],
             ["@nuxt/vue-app", "npm:2.15.8"],
@@ -23253,10 +23253,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:4d07c7863cc9d6860aa9b64fdd75f2615f05fbeb4a01a653fceb24040befb0e6cf947f38e6ccaa9a308cbd974c077fc685eaa9c017b0d2c1ec132db4d2490ae9#npm:7.4.3", {
-          "packageLocation": "./.yarn/$$virtual/ws-virtual-aa325393ef/0/cache/ws-npm-7.4.3-0b722707c3-493655b7c4.zip/node_modules/ws/",
+        ["virtual:3f18bb40b18b002edf64f9227bfc04b1f1af72416927aff642edf43be26617f92de15e44cb542c9ad0a9a10f1daa56ca038a8c9bdaddc0cc7ae19a46e1fd516d#npm:7.4.3", {
+          "packageLocation": "./.yarn/$$virtual/ws-virtual-23cc7bc6cf/0/cache/ws-npm-7.4.3-0b722707c3-493655b7c4.zip/node_modules/ws/",
           "packageDependencies": [
-            ["ws", "virtual:4d07c7863cc9d6860aa9b64fdd75f2615f05fbeb4a01a653fceb24040befb0e6cf947f38e6ccaa9a308cbd974c077fc685eaa9c017b0d2c1ec132db4d2490ae9#npm:7.4.3"],
+            ["ws", "virtual:3f18bb40b18b002edf64f9227bfc04b1f1af72416927aff642edf43be26617f92de15e44cb542c9ad0a9a10f1daa56ca038a8c9bdaddc0cc7ae19a46e1fd516d#npm:7.4.3"],
             ["@types/bufferutil", null],
             ["@types/utf-8-validate", null],
             ["bufferutil", null],

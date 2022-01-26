@@ -834,7 +834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.14.9":
+"@babel/helper-validator-identifier@npm:^7.14.9, @babel/helper-validator-identifier@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/helper-validator-identifier@npm:7.16.7"
   checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
@@ -845,13 +845,6 @@ __metadata:
   version: 7.15.7
   resolution: "@babel/helper-validator-identifier@npm:7.15.7"
   checksum: eb3eaea69de1e69c0c74e15b3934aa844b248d3bda6d5fa97f8c46fc16eada6153d2f519379ec3801b794bb5b72a88e087a18bbe6682cd72ce0c7a69144f2f7a
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.16.7":
-  version: 7.16.7
-  resolution: "@babel/helper-validator-identifier@npm:7.16.7"
-  checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
   languageName: node
   linkType: hard
 
@@ -2447,9 +2440,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/content@npm:1.14.0":
-  version: 1.14.0
-  resolution: "@nuxt/content@npm:1.14.0"
+"@nuxt/content@npm:1.15.1":
+  version: 1.15.1
+  resolution: "@nuxt/content@npm:1.15.1"
   dependencies:
     "@lokidb/full-text-search": ^2.1.0
     "@lokidb/loki": ^2.1.0
@@ -2469,6 +2462,7 @@ __metadata:
     hookable: ^4.4.1
     html-tags: ^3.1.0
     js-yaml: 4.0.0
+    json5: ^2.2.0
     mdast-util-to-hast: ^10.2.0
     mkdirp: ^1.0.4
     node-req: ^2.1.2
@@ -2491,7 +2485,7 @@ __metadata:
     unist-builder: ^2.0.3
     ws: ^7.4.3
     xml2js: ^0.4.23
-  checksum: fdcdad86cb048afb24810d69cbb96b7ee2e6b63657022203cf026c57abcb6375238723ba91d100df657ccb8ca5c005ee8d19e87aeecd2262bcec9015b0004e36
+  checksum: 7337ecebc298ea30a8f273db8503167a9059c0129424950986a2bb50a77594972922f55dbaa7717a6a3da0416a6487d4e1c5ab7d13ec335602c6495d0f02ae81
   languageName: node
   linkType: hard
 
@@ -6374,7 +6368,7 @@ __metadata:
     "@fontsource/montserrat": 4.5.2
     "@lhci/cli": 0.8.2
     "@mdi/js": 6.5.95
-    "@nuxt/content": 1.14.0
+    "@nuxt/content": 1.15.1
     "@nuxt/types": 2.15.8
     "@nuxt/typescript-runtime": 2.1.0
     "@nuxt/vue-app": 2.15.8
@@ -11680,17 +11674,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"json5@npm:*, json5@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "json5@npm:2.2.0"
-  dependencies:
-    minimist: ^1.2.5
-  bin:
-    json5: lib/cli.js
-  checksum: 07b1f90c2801dc52df2b0ac8d606cc400a85cda79130e754780fa2ab9805d0fb85a0e61b6a5cdd68e88e5d0c8f9109ec415af08283175556cdccaa8563853908
-  languageName: node
-  linkType: hard
-
 "json5@npm:^1.0.1":
   version: 1.0.1
   resolution: "json5@npm:1.0.1"
@@ -11710,6 +11693,17 @@ fsevents@~2.3.1:
   bin:
     json5: lib/cli.js
   checksum: 957e4937106cf59975aa0281e68911534d65c8a25be5b4d3559aa55eba351ccab516a943a60ba33e461e4b8af749939986e311de910cbcfd197410b57d971741
+  languageName: node
+  linkType: hard
+
+"json5@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "json5@npm:2.2.0"
+  dependencies:
+    minimist: ^1.2.5
+  bin:
+    json5: lib/cli.js
+  checksum: 07b1f90c2801dc52df2b0ac8d606cc400a85cda79130e754780fa2ab9805d0fb85a0e61b6a5cdd68e88e5d0c8f9109ec415af08283175556cdccaa8563853908
   languageName: node
   linkType: hard
 
