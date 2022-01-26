@@ -834,7 +834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.14.9":
+"@babel/helper-validator-identifier@npm:^7.14.9, @babel/helper-validator-identifier@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/helper-validator-identifier@npm:7.16.7"
   checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
@@ -845,13 +845,6 @@ __metadata:
   version: 7.15.7
   resolution: "@babel/helper-validator-identifier@npm:7.15.7"
   checksum: eb3eaea69de1e69c0c74e15b3934aa844b248d3bda6d5fa97f8c46fc16eada6153d2f519379ec3801b794bb5b72a88e087a18bbe6682cd72ce0c7a69144f2f7a
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.16.7":
-  version: 7.16.7
-  resolution: "@babel/helper-validator-identifier@npm:7.16.7"
-  checksum: 43b4b4b721c8a9c0b9bb62f85c9bde572eb0cffc80e3b615a9018e38d7f878db047f754fb342642e4e8abbb42026c37d32c5e077a3289ee2b9a4b91a8f6b014b
   languageName: node
   linkType: hard
 
@@ -3299,10 +3292,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.21":
-  version: 16.11.21
-  resolution: "@types/node@npm:16.11.21"
-  checksum: 743a79fbcebc833d8d01a66515d2600917a1ccfb8a0bcf0a3fa0578d83e0d1576bcbb5b0a1ed5ad694c60b629851d8c0c215f1361701cb80ba55abf6a1c8cb88
+"@types/node@npm:17.0.12":
+  version: 17.0.12
+  resolution: "@types/node@npm:17.0.12"
+  checksum: 4df0626b8f05ce04bfab531dcc2bf37d249a47d16fad5f67c6d51168ab2b29892c17d1fc54fe9fb4ac00cecd46a04454dd4f71ba47fc02611c69c0b635d0f447
   languageName: node
   linkType: hard
 
@@ -6386,7 +6379,7 @@ __metadata:
     "@types/body-parser": 1.19.2
     "@types/express": 4.17.13
     "@types/jsonwebtoken": 8.5.8
-    "@types/node": 16.11.21
+    "@types/node": 17.0.12
     "@types/nodemailer": 6.4.4
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.21.4
