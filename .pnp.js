@@ -83,7 +83,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.2"],
             ["sass", "npm:1.34.1"],
-            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0"],
+            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["unplugin-vue2-script-setup", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.6.17"],
@@ -8073,7 +8073,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.2"],
             ["sass", "npm:1.34.1"],
-            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0"],
+            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["unplugin-vue2-script-setup", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.6.17"],
@@ -19353,10 +19353,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["npm:10.2.0", {
-          "packageLocation": "./.yarn/cache/sass-loader-npm-10.2.0-91ed64638b-1c89149207.zip/node_modules/sass-loader/",
+        ["npm:10.2.1", {
+          "packageLocation": "./.yarn/cache/sass-loader-npm-10.2.1-eb918cbb8a-f94f03e237.zip/node_modules/sass-loader/",
           "packageDependencies": [
-            ["sass-loader", "npm:10.2.0"]
+            ["sass-loader", "npm:10.2.1"]
           ],
           "linkType": "SOFT",
         }],
@@ -19420,10 +19420,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0", {
-          "packageLocation": "./.yarn/$$virtual/sass-loader-virtual-8b705fb37c/0/cache/sass-loader-npm-10.2.0-91ed64638b-1c89149207.zip/node_modules/sass-loader/",
+        ["virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1", {
+          "packageLocation": "./.yarn/$$virtual/sass-loader-virtual-deb9368144/0/cache/sass-loader-npm-10.2.1-eb918cbb8a-f94f03e237.zip/node_modules/sass-loader/",
           "packageDependencies": [
-            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0"],
+            ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["@types/fibers", null],
             ["@types/node-sass", null],
             ["@types/sass", null],
