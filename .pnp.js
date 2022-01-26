@@ -76,7 +76,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemailer", "npm:6.7.2"],
             ["nuxt", "npm:2.15.8"],
             ["nuxt-build-optimisations", "npm:1.0.7"],
-            ["package-info", "npm:4.0.0"],
+            ["package-info", "npm:4.0.1"],
             ["prettier", "npm:2.3.2"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
@@ -7744,7 +7744,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemailer", "npm:6.7.2"],
             ["nuxt", "npm:2.15.8"],
             ["nuxt-build-optimisations", "npm:1.0.7"],
-            ["package-info", "npm:4.0.0"],
+            ["package-info", "npm:4.0.1"],
             ["prettier", "npm:2.3.2"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
@@ -16014,10 +16014,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["package-info", [
-        ["npm:4.0.0", {
-          "packageLocation": "./.yarn/cache/package-info-npm-4.0.0-9a85af8b7f-ff68a46a19.zip/node_modules/package-info/",
+        ["npm:4.0.1", {
+          "packageLocation": "./.yarn/cache/package-info-npm-4.0.1-72ea149c2e-e729b9c941.zip/node_modules/package-info/",
           "packageDependencies": [
-            ["package-info", "npm:4.0.0"],
+            ["package-info", "npm:4.0.1"],
             ["got", "npm:6.7.1"],
             ["pinkie-promise", "npm:2.0.1"],
             ["registry-url", "npm:2.1.0"]
