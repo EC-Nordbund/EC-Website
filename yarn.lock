@@ -3293,10 +3293,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.21":
-  version: 16.11.21
-  resolution: "@types/node@npm:16.11.21"
-  checksum: 743a79fbcebc833d8d01a66515d2600917a1ccfb8a0bcf0a3fa0578d83e0d1576bcbb5b0a1ed5ad694c60b629851d8c0c215f1361701cb80ba55abf6a1c8cb88
+"@types/node@npm:17.0.12":
+  version: 17.0.12
+  resolution: "@types/node@npm:17.0.12"
+  checksum: 4df0626b8f05ce04bfab531dcc2bf37d249a47d16fad5f67c6d51168ab2b29892c17d1fc54fe9fb4ac00cecd46a04454dd4f71ba47fc02611c69c0b635d0f447
   languageName: node
   linkType: hard
 
@@ -6380,7 +6380,7 @@ __metadata:
     "@types/body-parser": 1.19.2
     "@types/express": 4.17.13
     "@types/jsonwebtoken": 8.5.8
-    "@types/node": 16.11.21
+    "@types/node": 17.0.12
     "@types/nodemailer": 6.4.4
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.21.4
