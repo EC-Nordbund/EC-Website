@@ -68,7 +68,7 @@
     "pug": "3.0.2",
     "pug-plain-loader": "1.1.0",
     "typescript": "4.2.4",
-    "unplugin-vue2-script-setup": "0.6.13",
+    "unplugin-vue2-script-setup": "0.6.17",
     "webpack": "4.46.0"
   }
 }
