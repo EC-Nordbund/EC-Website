@@ -81,7 +81,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
-            ["remark-html", "npm:13.0.1"],
+            ["remark-html", "npm:13.0.2"],
             ["sass", "npm:1.34.0"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0"],
             ["typeface-montserrat", "npm:1.1.13"],
@@ -7749,7 +7749,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
-            ["remark-html", "npm:13.0.1"],
+            ["remark-html", "npm:13.0.2"],
             ["sass", "npm:1.34.0"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.0"],
             ["typeface-montserrat", "npm:1.1.13"],
@@ -18424,10 +18424,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["remark-html", [
-        ["npm:13.0.1", {
-          "packageLocation": "./.yarn/cache/remark-html-npm-13.0.1-e49407b8f6-b59c71adad.zip/node_modules/remark-html/",
+        ["npm:13.0.2", {
+          "packageLocation": "./.yarn/cache/remark-html-npm-13.0.2-6bce838788-5c3f28ce6d.zip/node_modules/remark-html/",
           "packageDependencies": [
-            ["remark-html", "npm:13.0.1"],
+            ["remark-html", "npm:13.0.2"],
             ["hast-util-sanitize", "npm:3.0.2"],
             ["hast-util-to-html", "npm:7.1.2"],
             ["mdast-util-to-hast", "npm:10.1.1"]
