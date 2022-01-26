@@ -53,7 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:6.0.1"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
-            ["@types/body-parser", "npm:1.19.0"],
+            ["@types/body-parser", "npm:1.19.2"],
             ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.1"],
@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
-            ["body-parser", "npm:1.19.0"],
+            ["body-parser", "npm:1.19.1"],
             ["eslint", "npm:7.27.0"],
             ["eslint-config-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.3.0"],
             ["eslint-plugin-nuxt", "npm:2.0.0"],
@@ -4002,6 +4002,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.20"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:1.19.2", {
+          "packageLocation": "./.yarn/cache/@types-body-parser-npm-1.19.2-f845b7b538-bd4e6dc17c.zip/node_modules/@types/body-parser/",
+          "packageDependencies": [
+            ["@types/body-parser", "npm:1.19.2"],
+            ["@types/connect", "npm:3.4.34"],
+            ["@types/node", "npm:14.14.20"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@types/browserslist", [
@@ -6312,6 +6321,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-is", "npm:1.6.18"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:1.19.1", {
+          "packageLocation": "./.yarn/cache/body-parser-npm-1.19.1-ae102dea05-eff73467b6.zip/node_modules/body-parser/",
+          "packageDependencies": [
+            ["body-parser", "npm:1.19.1"],
+            ["bytes", "npm:3.1.1"],
+            ["content-type", "npm:1.0.4"],
+            ["debug", "virtual:d49388645023d1a9f290827e9892b2e5d87cf8aef7f18e9b163bebe9b849c3ea732fb1652f58447c27db955ea8e477790f0e823fd8080dd79265ddfc0a4c9d89#npm:2.6.9"],
+            ["depd", "npm:1.1.2"],
+            ["http-errors", "npm:1.8.1"],
+            ["iconv-lite", "npm:0.4.24"],
+            ["on-finished", "npm:2.3.0"],
+            ["qs", "npm:6.9.6"],
+            ["raw-body", "npm:2.4.2"],
+            ["type-is", "npm:1.6.18"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["boolbase", [
@@ -6612,6 +6638,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/bytes-npm-3.1.0-19c5b15405-c3f64645ef.zip/node_modules/bytes/",
           "packageDependencies": [
             ["bytes", "npm:3.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:3.1.1", {
+          "packageLocation": "./.yarn/cache/bytes-npm-3.1.1-f2d0e8c583-be4fd8ce43.zip/node_modules/bytes/",
+          "packageDependencies": [
+            ["bytes", "npm:3.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -7680,7 +7713,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:6.0.1"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
-            ["@types/body-parser", "npm:1.19.0"],
+            ["@types/body-parser", "npm:1.19.2"],
             ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.1"],
@@ -7688,7 +7721,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
-            ["body-parser", "npm:1.19.0"],
+            ["body-parser", "npm:1.19.1"],
             ["eslint", "npm:7.27.0"],
             ["eslint-config-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.3.0"],
             ["eslint-plugin-nuxt", "npm:2.0.0"],
@@ -12099,6 +12132,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["setprototypeof", "npm:1.1.1"],
             ["statuses", "npm:1.5.0"],
             ["toidentifier", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.8.1", {
+          "packageLocation": "./.yarn/cache/http-errors-npm-1.8.1-fb60d9f6ae-f8bd2e837a.zip/node_modules/http-errors/",
+          "packageDependencies": [
+            ["http-errors", "npm:1.8.1"],
+            ["depd", "npm:1.1.2"],
+            ["inherits", "npm:2.0.4"],
+            ["setprototypeof", "npm:1.2.0"],
+            ["statuses", "npm:1.5.0"],
+            ["toidentifier", "npm:1.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -17808,6 +17853,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["qs", "npm:6.9.4"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:6.9.6", {
+          "packageLocation": "./.yarn/cache/qs-npm-6.9.6-fee5de1427-853715ab6d.zip/node_modules/qs/",
+          "packageDependencies": [
+            ["qs", "npm:6.9.6"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["query-string", [
@@ -17901,6 +17953,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["raw-body", "npm:2.4.1"],
             ["bytes", "npm:3.1.0"],
             ["http-errors", "npm:1.7.3"],
+            ["iconv-lite", "npm:0.4.24"],
+            ["unpipe", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.4.2", {
+          "packageLocation": "./.yarn/cache/raw-body-npm-2.4.2-f70aad454d-db3fcf1d6b.zip/node_modules/raw-body/",
+          "packageDependencies": [
+            ["raw-body", "npm:2.4.2"],
+            ["bytes", "npm:3.1.1"],
+            ["http-errors", "npm:1.8.1"],
             ["iconv-lite", "npm:0.4.24"],
             ["unpipe", "npm:1.0.0"]
           ],
@@ -19102,6 +19165,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/setprototypeof-npm-1.1.1-706b6318ec-0efed4da5a.zip/node_modules/setprototypeof/",
           "packageDependencies": [
             ["setprototypeof", "npm:1.1.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/setprototypeof-npm-1.2.0-0fedbdcd3a-7269143985.zip/node_modules/setprototypeof/",
+          "packageDependencies": [
+            ["setprototypeof", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -20463,6 +20533,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/toidentifier-npm-1.0.0-5dad252f90-95720e8a0f.zip/node_modules/toidentifier/",
           "packageDependencies": [
             ["toidentifier", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.0.1", {
+          "packageLocation": "./.yarn/cache/toidentifier-npm-1.0.1-f759712599-2b5c573af9.zip/node_modules/toidentifier/",
+          "packageDependencies": [
+            ["toidentifier", "npm:1.0.1"]
           ],
           "linkType": "HARD",
         }]
