@@ -59,7 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:15.6.2"],
             ["@types/nodemailer", "npm:6.4.4"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
-            ["axios", "npm:0.21.1"],
+            ["axios", "npm:0.21.4"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
             ["body-parser", "npm:1.19.1"],
             ["eslint", "npm:7.27.0"],
@@ -6023,11 +6023,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["axios", [
-        ["npm:0.21.1", {
-          "packageLocation": "./.yarn/cache/axios-npm-0.21.1-d192f6b3b3-864fb7b5d0.zip/node_modules/axios/",
+        ["npm:0.21.4", {
+          "packageLocation": "./.yarn/cache/axios-npm-0.21.4-e278873748-e6d42b269b.zip/node_modules/axios/",
           "packageDependencies": [
-            ["axios", "npm:0.21.1"],
-            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.1"]
+            ["axios", "npm:0.21.4"],
+            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.7"]
           ],
           "linkType": "HARD",
         }]
@@ -7727,7 +7727,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:15.6.2"],
             ["@types/nodemailer", "npm:6.4.4"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
-            ["axios", "npm:0.21.1"],
+            ["axios", "npm:0.21.4"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
             ["body-parser", "npm:1.19.1"],
             ["eslint", "npm:7.27.0"],
@@ -10928,17 +10928,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["follow-redirects", [
-        ["npm:1.13.1", {
-          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.13.1-7cb0be11a2-c7c6c90587.zip/node_modules/follow-redirects/",
+        ["npm:1.14.7", {
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.14.7-c87c16ed59-5f486f1767.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "npm:1.13.1"]
+            ["follow-redirects", "npm:1.14.7"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.1", {
-          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-47d90373e0/0/cache/follow-redirects-npm-1.13.1-7cb0be11a2-c7c6c90587.zip/node_modules/follow-redirects/",
+        ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.7", {
+          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-5acf66e3c8/0/cache/follow-redirects-npm-1.14.7-c87c16ed59-5f486f1767.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.1"],
+            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.7"],
             ["debug", null]
           ],
           "packagePeers": [
