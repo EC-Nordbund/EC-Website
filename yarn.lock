@@ -5997,7 +5997,7 @@ __metadata:
     nodemailer: 6.7.2
     nuxt: 2.15.8
     nuxt-build-optimisations: 1.0.7
-    package-info: 4.0.0
+    package-info: 4.0.1
     prettier: 2.3.2
     pug: 3.0.2
     pug-plain-loader: 1.1.0
@@ -13342,16 +13342,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"package-info@npm:4.0.0":
-  version: 4.0.0
-  resolution: "package-info@npm:4.0.0"
+"package-info@npm:4.0.1":
+  version: 4.0.1
+  resolution: "package-info@npm:4.0.1"
   dependencies:
     got: ^6.3.0
     pinkie-promise: ^2.0.0
     registry-url: ^2.0.0
   bin:
     package-info: cli.js
-  checksum: ff68a46a195870b32734d0979ee7c38ad7768dd06bca55790686c9ed5d7cabfeb0b6bb80b69b215b16da7ef0b5132b0784d35f5898bd2c70e04e3653b7147959
+  checksum: e729b9c94133902909ea6cb9b1249800af5f7fb3baaefd48d3f0dec425ad6d259aad010556a34e6c24d72e34cc4ef9ba4c4434f67713125e710a42be46a4c93d
   languageName: node
   linkType: hard
 
