@@ -3067,12 +3067,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/nodemailer@npm:6.4.2":
-  version: 6.4.2
-  resolution: "@types/nodemailer@npm:6.4.2"
+"@types/nodemailer@npm:6.4.4":
+  version: 6.4.4
+  resolution: "@types/nodemailer@npm:6.4.4"
   dependencies:
     "@types/node": "*"
-  checksum: 35858e7ab0a9d88b849632108fab350165be0f3985c0d53c3ebce700ef8d90b8a08f5f361c1513986c58d41531f5b8c19430e8c4c853d4c37cef390e109564f8
+  checksum: 72cd334b512d2168f59f97705b69154bb1ae75037ce7f2008f3dc7bf359f386e22e4a65e30190d88529c8e94b13db2ec32db523e096cc8b597d1b8f89f4b3cb3
   languageName: node
   linkType: hard
 
@@ -5969,7 +5969,7 @@ __metadata:
     "@types/express": 4.17.12
     "@types/jsonwebtoken": 8.5.8
     "@types/node": 15.6.2
-    "@types/nodemailer": 6.4.2
+    "@types/nodemailer": 6.4.4
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.21.1
     babel-eslint: 10.1.0

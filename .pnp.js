@@ -57,7 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.2"],
-            ["@types/nodemailer", "npm:6.4.2"],
+            ["@types/nodemailer", "npm:6.4.4"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
@@ -4295,10 +4295,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/nodemailer", [
-        ["npm:6.4.2", {
-          "packageLocation": "./.yarn/cache/@types-nodemailer-npm-6.4.2-3e3c9fea96-35858e7ab0.zip/node_modules/@types/nodemailer/",
+        ["npm:6.4.4", {
+          "packageLocation": "./.yarn/cache/@types-nodemailer-npm-6.4.4-c5c500abe2-72cd334b51.zip/node_modules/@types/nodemailer/",
           "packageDependencies": [
-            ["@types/nodemailer", "npm:6.4.2"],
+            ["@types/nodemailer", "npm:6.4.4"],
             ["@types/node", "npm:14.14.20"]
           ],
           "linkType": "HARD",
@@ -7717,7 +7717,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.12"],
             ["@types/jsonwebtoken", "npm:8.5.8"],
             ["@types/node", "npm:15.6.2"],
-            ["@types/nodemailer", "npm:6.4.2"],
+            ["@types/nodemailer", "npm:6.4.4"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.21.1"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
