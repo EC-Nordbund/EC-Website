@@ -2216,10 +2216,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/montserrat@npm:4.3.0":
-  version: 4.3.0
-  resolution: "@fontsource/montserrat@npm:4.3.0"
-  checksum: dad8c46c6b0324cee21331ed43d780989614d91101d57fcaa76dee8b86ac35d3b6b3379cc80562c78f2a844859aa1bdee723f58356109ce09fdd041ecbb05c43
+"@fontsource/montserrat@npm:4.5.2":
+  version: 4.5.2
+  resolution: "@fontsource/montserrat@npm:4.5.2"
+  checksum: 59886042dcde44e6cc15b5f30bc5d827c56d8001f23f2a46c4b2cc74541990401852a41fd9cc4b4c6faf1b3d314ccc8828c236c37d2e98deaa67bd87c413b9c2
   languageName: node
   linkType: hard
 
@@ -6371,7 +6371,7 @@ __metadata:
     "@ec-nordbund/nuxt-vue2-leaflet": 3.2.1
     "@ec-nordbund/typescript-module": 0.4.0
     "@ec-nordbund/vuetify-module": 0.4.3
-    "@fontsource/montserrat": 4.3.0
+    "@fontsource/montserrat": 4.5.2
     "@lhci/cli": 0.8.2
     "@mdi/js": 6.5.95
     "@nuxt/content": 1.14.0
