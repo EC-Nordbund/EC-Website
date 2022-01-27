@@ -5,6 +5,7 @@ import { ruleLib } from '../plugins/validateLib'
 import { saveForConfirm, validateToken, cleanup } from './fs-helpers'
 import { validate } from './validate'
 import { sendMail } from './sendMail'
+import * as path from 'path'
 import axios from 'axios'
 import {
   createMailContentMA,
@@ -392,11 +393,11 @@ app.post('/confirm/:token', async (req, res) => {
                attachments: [
                  {
                    filename: 'Einverstaendniserklaerung.pdf',
-                   content: fs.createReadStream('./Einverstaendniserklaerung.pdf')
+                   content: fs.createReadStream(path.join(__dirname,'./Einverstaendniserklaerung.pdf'))
                   },
                     {
                    filename: 'Einverstaendniserklaerung.docx',
-                   content: fs.createReadStream('./Einverstaendniserklaerung.docx')
+                   content: fs.createReadStream(path.join(__dirname,'./Einverstaendniserklaerung.docx'))
                   }
                ]
              })
