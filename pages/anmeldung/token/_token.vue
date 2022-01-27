@@ -106,7 +106,7 @@ v-container.fill-height
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
-                      v-col.text-body-2(cols='9') Du erhälst von uns eine schriftliche Teilnahmebestätigung per Post.
+                      v-col.text-body-2(cols='9') Du erhälst von uns innerhalb von 4 Wochen eine Buchungsbestätigung per Mail.
 
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
