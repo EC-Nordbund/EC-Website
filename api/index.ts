@@ -380,24 +380,20 @@ app.post('/confirm/:token', async (req, res) => {
              
              await sendMail({
                to: data.email,
-               from: 'anmelung@ec-nordbund.de',
+               from: 'anmeldung@ec-nordbund.de',
                subject: 'Anmeldung für Minderjährige Christival',
                html: `<html lang="de"><p>Moin,<br>Wenn du für Minderjährige Person(en) Verantwortlicher bist gebe den folgenden Code an diese weiter, damit sie sich auf der Website anmelden können! Bei Fragen zu dem Prozedere antworte einfach auf diese Mail!<br><br>CODE: ${key}</p>`
              })
           } else {
             await sendMail({
                to: data.email,
-               from: 'anmelung@ec-nordbund.de',
+               from: 'anmeldung@ec-nordbund.de',
                subject: 'Christival | Einverständniserklärung der Eltern',
                html: `<html lang="de"><p>Moin,<br>Bitte lasse diese Erklärung von deinen Eltern unterschreiben und gebe sie an deiner volljährigen Begleitperson oder bei Thomas Seeger ab!</p>`,
                attachments: [
                  {
                    filename: 'Einverstaendniserklaerung.pdf',
                    content: fs.createReadStream(path.join(__dirname,'./Einverstaendniserklaerung.pdf'))
-                  },
-                    {
-                   filename: 'Einverstaendniserklaerung.docx',
-                   content: fs.createReadStream(path.join(__dirname,'./Einverstaendniserklaerung.docx'))
                   }
                ]
              })
