@@ -226,7 +226,7 @@ app.post('/anmeldung/tn/:id', async (req, res) => {
     const alter = getAge(req.body.gebDat, '2022-05-25')
      // Check alter
     
-    if(alter < 14) {
+    if(alter < 13) {
        errVals.push('Du bist zu jung um beim Christival dabei zu sein...')
     } else if(alter < 18) {
        const key = req.body.extra.key
