@@ -88,19 +88,18 @@ div
         .text-no-wrap(v-if='page.begin || page.ende')
           v-icon.mr-2 mdi-calendar
           | Vom {{ page.begin.split("-").reverse().join(".") }} bis {{ page.ende.split("-").reverse().join(".") }}
-        
+
         //- Ort
         .text-no-wrap(v-if='page.veranstaltungsort')
           v-icon.mr-2 mdi-map-marker
           | {{ page.veranstaltungsort }}
-
 
   //- description
   v-container.description.pt-5
     nuxt-content(:document='page')
 
   //- bilder
-  ec-image-container(
+  ec-image-container#gallerie.scroll-to-me(
     v-if='page.images',
     :class='"angle--both-left-" + (page.preise || !(page.lat == 0 && page.long == 0) ? "left" : "right") + " clip-angle"',
     :images='page.images'
@@ -108,10 +107,10 @@ div
 
   //- preise
   .angle--both-right-left(v-if='page.preise', style='background: #f5f5f5')
-    v-container(py-0)
+    v-container(py-0)#preise.scroll-to-me
       v-row(no-gutters, justify='center')
         v-col(cols='12', md='9')
-          h2.mb-2.text-center Preisstaffelung
+          h2.mb-2.text-center Preise
           ec-preis-staffel(
             :preise='page.preise',
             fill-dot,
@@ -123,7 +122,7 @@ div
             p.text-subtitle-1 Nach der Anmeldung bitten wir dich um eine Anzahlung von #[strong {{ page.anzahlung }} EUR].
 
   //- standort
-  div(
+  #ort.scroll-to-me(
     v-if='!(page.lat == 0 && page.long == 0)',
     :class='"angle--both-right-right" + " clip-angle"'
   )
@@ -135,8 +134,8 @@ div
     )
 
   //- anmeldung
-  v-container(v-if='page.anmeldung')
-    h2#anmeldung.mb-2.text-center Anmeldung
+  v-container#anmeldung.scroll-to-me(v-if='page.anmeldung')
+    h2.mb-2.text-center Anmeldung
     ec-anmeldung(
       v-bind='page.anmeldung',
       :veranstaltungsBegin='page.begin',
