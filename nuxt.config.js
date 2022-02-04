@@ -296,9 +296,6 @@ export default {
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
     extractCSS: false
   },
-  serverMiddleware: {
-    '/api': '~/api',
-  },
   render: {
     bundleRenderer: {
       shouldPreload: () => false,
