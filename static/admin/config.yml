@@ -1,12 +1,11 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://gotrue.ec-nordbund.de
 # publish_mode: editorial_workflow 
 
 media_folder: static/img
 public_folder: /img
-
-base_url: https://gotrue.ec-nordbund.de
 
 collections:
   - name: 'blog'
