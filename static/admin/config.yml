@@ -6,6 +6,8 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+base_url: https://gotrue.ec-nordbund.de
+
 collections:
   - name: 'blog'
     label: 'Blog'
