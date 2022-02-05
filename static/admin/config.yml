@@ -1,8 +1,9 @@
 backend:
   name: git-gateway
   branch: main
-  base_url: https://gotrue.ec-nordbund.de
-# publish_mode: editorial_workflow 
+  identity_url: https://gotrue.ec-nordbund.de
+  gateway_url: https://gitnet.ec-nordbund.de
+# publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
