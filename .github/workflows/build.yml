@@ -28,7 +28,7 @@ jobs:
           CI: true
 
       - name: OutCheck
-        run: cd dist && ll
+        run: cd dist && ls
 
       - name: Lighthouse Audits
         run: |
