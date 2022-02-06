@@ -8209,7 +8209,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["core-js", [
         ["npm:2.6.12", {
-          "packageLocation": "./.yarn/cache/core-js-npm-2.6.12-0b93d77d31-b865823ce9.zip/node_modules/core-js/",
+          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.12-0b93d77d31/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.12"]
           ],
@@ -9751,7 +9751,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["esbuild", [
         ["npm:0.13.12", {
-          "packageLocation": "./.yarn/cache/esbuild-npm-0.13.12-880493dfe5-9e3d2b0f70.zip/node_modules/esbuild/",
+          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.13.12-880493dfe5/node_modules/esbuild/",
           "packageDependencies": [
             ["esbuild", "npm:0.13.12"],
             ["esbuild-android-arm64", "npm:0.13.12"],
@@ -9775,7 +9775,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }],
         ["npm:0.9.2", {
-          "packageLocation": "./.yarn/cache/esbuild-npm-0.9.2-a2f69bdcd9-443c46b61e.zip/node_modules/esbuild/",
+          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.9.2-a2f69bdcd9/node_modules/esbuild/",
           "packageDependencies": [
             ["esbuild", "npm:0.9.2"]
           ],
@@ -16085,7 +16085,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["nuxt", [
         ["npm:2.15.8", {
-          "packageLocation": "./.yarn/cache/nuxt-npm-2.15.8-350e4b016e-dfced32382.zip/node_modules/nuxt/",
+          "packageLocation": "./.yarn/unplugged/nuxt-npm-2.15.8-350e4b016e/node_modules/nuxt/",
           "packageDependencies": [
             ["nuxt", "npm:2.15.8"],
             ["@nuxt/babel-preset-app", "npm:2.15.8"],
