@@ -30,7 +30,7 @@ jobs:
           CI: true
 
       - name: OutCheck
-        run: cd dist && ls
+        run: cd dist && tree
 
       - name: Lighthouse Audits
         run: |
