@@ -3,10 +3,20 @@ backend:
   branch: main
   identity_url: https://gotrue.ec-nordbund.de
   gateway_url: https://gitnet.ec-nordbund.de
-# publish_mode: editorial_workflow
+
+
+publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
+locale: 'de'
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: _
+  
+
 
 collections:
   - name: 'blog'
@@ -14,11 +24,84 @@ collections:
     folder: 'content/blog'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    delete: false
+    slug: '{{year}}-{{slug}}'
+    extension: md
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Publish Date', name: 'published', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/img/blog', choose_url: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'veranstaltungen'
+    label: 'Veranstaltungen'
+    folder: 'content/veranstaltung'
+    format: 'frontmatter'
+    create: true
+    delete: false
+    slug: '{{year}}{{slug}}'
+    extension: md
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD'}
+      - { label: 'Ende', name: 'ende', widget: 'datetime', format: 'YYYY-MM-DD'}
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: false }
+      - label: "Bilder"
+        name: "images"
+        widget: "list"
+        fields:
+          - { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: true }
+      - {label: "Ist Juleica Fortblidung", name: "juleica", widget: "boolean", default: false}
+      - label: Veranstaltungsort
+        name: location
+        widget: object
+        required: false
+        fields:
+          - {label: "Name", name: "name", widget: "string" }
+          - {label: "GPS", name: "gps", widget: "map" }
+          - label: Adresse
+            name: adress
+            widget: object
+            fields:
+              - {label: "Strasse", name: "strasse", widget: "string" }
+              - {label: "PLZ", name: "plz", widget: "string" }
+              - {label: "Ort", name: "ort", widget: "string" }
+      - label: Tags
+        name: tags
+        widget: list
+        default: []
+      - label: Warteliste
+        name: warteliste
+        widget: object
+        fields:
+          - {label: "Männlich", name: "m", widget: "boolean", default: false}
+          - {label: "Weiblich", name: "w", widget: "boolean", default: false}
+          - {label: "Allgemein", name: "a", widget: "boolean", default: false}
+      - label: Preise
+        name: preise
+        widget: list
+        fields:
+          - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD', required: false, default: null}
+          - { label: 'Ende', name: 'ende', widget: 'datetime', format: 'YYYY-MM-DD', required: false, default: null}
+          - { label: "Name", name: "label", widget: "string" }
+          - { label: "Preis", name: "preis", widget: "number" }
+      - label: Anmeldung
+        name: anmeldung
+        widget: object
+        fields:
+          - {label: "Aktiviert", name: "aktivate", widget: "boolean", default: true}
+          - {label: "Start", name: "startAt", widget: "datetime", default: true, format: 'YYYY-MM-DDTHH:MM:SSZ'}
+          - {label: "Mit Essen", name: "hatEssen", widget: "boolean", default: false}
+          - {label: "Mit Gesundheitsinformationen", name: "hatGesundheit", widget: "boolean", default: false}
+          - {label: "Erlaubnis Boot", name: "hatErlaubnisBoot", widget: "boolean", default: false}
+          - {label: "Erlaubnis Klettern", name: "hatErlaubnisKlettern", widget: "boolean", default: false}
+          - {label: "Erlaubnis Fahrrad", name: "hatErlaubnisFahrrad", widget: "boolean", default: false}
+          - {label: "Erlaubnis Schwimmen", name: "hatErlaubnisSchwimmen", widget: "boolean", default: false}
+          - {label: "Erlaubnis sich in 3er Gruppen entfernen", name: "hatErlaubnisSichEntfernen", widget: "boolean", default: false}
+          - {label: "Erlaubnis Datenschutz TN-Liste", name: "hatFahrgemeinschaft", widget: "boolean", default: false}
+          - {label: "Hat Freizeitleitung Hinweis", name: "hatFreizeitleitung", widget: "boolean", default: false}
