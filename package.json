@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "prod": "EC_NUXT_CONTENT=~/SharePoint/EC-Entwicklung/Website/ nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "start": "nuxt start",
