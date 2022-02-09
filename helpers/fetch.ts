@@ -1,4 +1,4 @@
-const base = 'https://api.ec-nordbund.de/nuxt'
+const base = 'https://api.ec-nordbund.de/nuxt/api'
 
 export async function get<T = {}>(url: string): Promise<T> {
   let fetch: Window['fetch']
