@@ -262,7 +262,7 @@ export default defineComponent({
       }
       try {
         const ret = await post(
-          '/api/anmeldung/tn/' + props.veranstaltungsID,
+          '/anmeldung/tn/' + props.veranstaltungsID,
           submitData
         )
         if (ret.status !== 'OK') {
