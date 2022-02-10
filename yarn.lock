@@ -6350,7 +6350,7 @@ __metadata:
     pug-plain-loader: 1.1.0
     remark: 13.0.0
     remark-html: 13.0.2
-    sass: 1.49.0
+    sass: 1.49.7
     sass-loader: 10.2.1
     typeface-montserrat: 1.1.13
     typescript: 4.2.4
@@ -16450,16 +16450,16 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"sass@npm:1.49.0":
-  version: 1.49.0
-  resolution: "sass@npm:1.49.0"
+"sass@npm:1.49.7":
+  version: 1.49.7
+  resolution: "sass@npm:1.49.7"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: f7c5b50b00eec9b21faa9df6c3fa4f8966e391436f176069df56a83bfed66f2f4a325695b86e9765dbc3eb1797a79cab845b5bae04abe2680378ad651ae5a790
+  checksum: ff23591bba64b17d9e3a2382bf2fc80d6fc3ba380d41fd7b0a7010bf29d182034f8a42a3f8b579efb342346e9167c54a9800d170c7aea2649816311e4444ff73
   languageName: node
   linkType: hard
 

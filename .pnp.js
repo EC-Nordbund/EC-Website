@@ -82,7 +82,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.2"],
-            ["sass", "npm:1.49.0"],
+            ["sass", "npm:1.49.7"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
@@ -8110,7 +8110,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
             ["remark-html", "npm:13.0.2"],
-            ["sass", "npm:1.49.0"],
+            ["sass", "npm:1.49.7"],
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
@@ -19382,10 +19382,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:1.49.0", {
-          "packageLocation": "./.yarn/cache/sass-npm-1.49.0-5b92035d24-f7c5b50b00.zip/node_modules/sass/",
+        ["npm:1.49.7", {
+          "packageLocation": "./.yarn/cache/sass-npm-1.49.7-31c62a5c43-ff23591bba.zip/node_modules/sass/",
           "packageDependencies": [
-            ["sass", "npm:1.49.0"],
+            ["sass", "npm:1.49.7"],
             ["chokidar", "npm:3.5.1"],
             ["immutable", "npm:4.0.0"],
             ["source-map-js", "npm:1.0.2"]
@@ -19481,7 +19481,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["loader-utils", "npm:2.0.0"],
             ["neo-async", "npm:2.6.2"],
             ["node-sass", null],
-            ["sass", "npm:1.49.0"],
+            ["sass", "npm:1.49.7"],
             ["schema-utils", "npm:3.0.0"],
             ["semver", "npm:7.3.4"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
