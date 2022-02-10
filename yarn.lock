@@ -6354,7 +6354,7 @@ __metadata:
     sass-loader: 10.2.1
     typeface-montserrat: 1.1.13
     typescript: 4.2.4
-    unplugin-vue2-script-setup: 0.9.1
+    unplugin-vue2-script-setup: 0.9.2
     vue: 2.6.12
     vuetify: 2.6.3
     web-vitals: 2.1.4
@@ -18537,9 +18537,9 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"unplugin-vue2-script-setup@npm:0.9.1":
-  version: 0.9.1
-  resolution: "unplugin-vue2-script-setup@npm:0.9.1"
+"unplugin-vue2-script-setup@npm:0.9.2":
+  version: 0.9.2
+  resolution: "unplugin-vue2-script-setup@npm:0.9.2"
   dependencies:
     "@antfu/utils": ^0.4.0
     "@babel/core": ^7.16.7
@@ -18564,7 +18564,7 @@ typescript@~4.2:
   peerDependenciesMeta:
     pug:
       optional: true
-  checksum: e23bb8c0ae52c020c47bfd4f6f51639db7f849fc9eb090aaa63a10014535cd07e130ff11bc47ff0c807d7157d3c01c3084918187871a0140486fda101bdd3769
+  checksum: 494b6cc7515623bd312ebff55436a8a3dcdf914a24ee46f285571b70feb407b5ba0105106231a1b89bbd9f9f35a69c62c792eec4664b8ef68f20f0b1000a51d7
   languageName: node
   linkType: hard
 
