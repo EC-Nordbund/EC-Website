@@ -25,7 +25,7 @@
       p.font-italic.mb-0
         | Wir behalten uns allerdings vor, dir den Platz zu verwehren. Wir melden uns bei dir.
 
-    v-text-field(v-model="data.strasse" required label="Straße" counter="50" @change="strasseEvent" :error-messages="strasseErrors")
+    v-text-field(v-model="data.strasse" required label="Straße + Hausnummer" counter="50" @change="strasseEvent" :error-messages="strasseErrors")
     ec-adresse(v-model="data.plzOrt" :errorMap="errorMap.plzOrt")
     v-text-field(label="E-Mail" type="email" required v-model="data.email" counter="50" @change="emailEvent" :error-messages="emailErrors")
     v-text-field(label="Telefon" type="telefon" required v-model="data.telefon" @input="telefonEvent" :error-messages="telefonErrors")
