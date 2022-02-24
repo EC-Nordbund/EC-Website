@@ -6307,7 +6307,7 @@ __metadata:
     babel-eslint: 10.1.0
     body-parser: 1.19.2
     eslint: 8.9.0
-    eslint-config-prettier: 8.3.0
+    eslint-config-prettier: 8.4.0
     eslint-plugin-nuxt: 3.1.0
     eslint-plugin-prettier: 4.0.0
     express: 4.17.3
@@ -8078,14 +8078,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:8.3.0":
-  version: 8.3.0
-  resolution: "eslint-config-prettier@npm:8.3.0"
+"eslint-config-prettier@npm:8.4.0":
+  version: 8.4.0
+  resolution: "eslint-config-prettier@npm:8.4.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 94ccbb50fb67e5e47e8ba6cfa257b5cbf53619990ab13f46b99518cfe9b900394b93bdf6ffedbde1a8e2997d301b0fbd73a6b4202146bc53475dfb30a8c812f2
+  checksum: bbac2956fafbf58471ef5f29f1d29cbd9181bae8b2369c71fb9cc2a77960199ab00f07a001133ae2d502a439c9b426da3e974b9042ded6e78d183605f6513dde
   languageName: node
   linkType: hard
 
