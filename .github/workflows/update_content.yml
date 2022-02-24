@@ -5,8 +5,8 @@ on:
     types: [merge-content]
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
+  mergeContent:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout submodule
@@ -18,7 +18,6 @@ jobs:
       - name: Update submodules content
         run: git submodule update --remote --recursive
 
-
       - name: Pull the content
         run: git pull
         
@@ -28,4 +27,3 @@ jobs:
           commit_message: apply automatic changed content
           # branch: static
           
-
