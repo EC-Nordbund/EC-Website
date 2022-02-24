@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.26.0"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
-            ["body-parser", "npm:1.19.1"],
+            ["body-parser", "npm:1.19.2"],
             ["eslint", "npm:8.9.0"],
             ["eslint-config-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.3.0"],
             ["eslint-plugin-nuxt", "npm:3.1.0"],
@@ -6656,23 +6656,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:1.19.1", {
-          "packageLocation": "./.yarn/cache/body-parser-npm-1.19.1-ae102dea05-eff73467b6.zip/node_modules/body-parser/",
-          "packageDependencies": [
-            ["body-parser", "npm:1.19.1"],
-            ["bytes", "npm:3.1.1"],
-            ["content-type", "npm:1.0.4"],
-            ["debug", "virtual:d49388645023d1a9f290827e9892b2e5d87cf8aef7f18e9b163bebe9b849c3ea732fb1652f58447c27db955ea8e477790f0e823fd8080dd79265ddfc0a4c9d89#npm:2.6.9"],
-            ["depd", "npm:1.1.2"],
-            ["http-errors", "npm:1.8.1"],
-            ["iconv-lite", "npm:0.4.24"],
-            ["on-finished", "npm:2.3.0"],
-            ["qs", "npm:6.9.6"],
-            ["raw-body", "npm:2.4.2"],
-            ["type-is", "npm:1.6.18"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:1.19.2", {
           "packageLocation": "./.yarn/cache/body-parser-npm-1.19.2-33c5bfcb21-91008e8600.zip/node_modules/body-parser/",
           "packageDependencies": [
@@ -7010,13 +6993,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/bytes-npm-3.1.0-19c5b15405-c3f64645ef.zip/node_modules/bytes/",
           "packageDependencies": [
             ["bytes", "npm:3.1.0"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:3.1.1", {
-          "packageLocation": "./.yarn/cache/bytes-npm-3.1.1-f2d0e8c583-be4fd8ce43.zip/node_modules/bytes/",
-          "packageDependencies": [
-            ["bytes", "npm:3.1.1"]
           ],
           "linkType": "HARD",
         }],
@@ -8122,7 +8098,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.26.0"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
-            ["body-parser", "npm:1.19.1"],
+            ["body-parser", "npm:1.19.2"],
             ["eslint", "npm:8.9.0"],
             ["eslint-config-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.3.0"],
             ["eslint-plugin-nuxt", "npm:3.1.0"],
@@ -18554,13 +18530,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:6.9.6", {
-          "packageLocation": "./.yarn/cache/qs-npm-6.9.6-fee5de1427-853715ab6d.zip/node_modules/qs/",
-          "packageDependencies": [
-            ["qs", "npm:6.9.6"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:6.9.7", {
           "packageLocation": "./.yarn/cache/qs-npm-6.9.7-3f3fa3ac7b-2be95a70de.zip/node_modules/qs/",
           "packageDependencies": [
@@ -18660,17 +18629,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["raw-body", "npm:2.4.1"],
             ["bytes", "npm:3.1.0"],
             ["http-errors", "npm:1.7.3"],
-            ["iconv-lite", "npm:0.4.24"],
-            ["unpipe", "npm:1.0.0"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:2.4.2", {
-          "packageLocation": "./.yarn/cache/raw-body-npm-2.4.2-f70aad454d-db3fcf1d6b.zip/node_modules/raw-body/",
-          "packageDependencies": [
-            ["raw-body", "npm:2.4.2"],
-            ["bytes", "npm:3.1.1"],
-            ["http-errors", "npm:1.8.1"],
             ["iconv-lite", "npm:0.4.24"],
             ["unpipe", "npm:1.0.0"]
           ],
