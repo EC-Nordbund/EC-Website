@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:4.0.0"],
             ["express", "npm:4.17.3"],
             ["fiber", "npm:1.0.4"],
-            ["fs-extra", "npm:10.0.0"],
+            ["fs-extra", "npm:10.0.1"],
             ["inline-css", "npm:3.0.0"],
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
@@ -8098,7 +8098,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:4.0.0"],
             ["express", "npm:4.17.3"],
             ["fiber", "npm:1.0.4"],
-            ["fs-extra", "npm:10.0.0"],
+            ["fs-extra", "npm:10.0.1"],
             ["inline-css", "npm:3.0.0"],
             ["js-sha3", "npm:0.8.0"],
             ["jsonwebtoken", "npm:8.5.1"],
@@ -11516,10 +11516,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fs-extra", [
-        ["npm:10.0.0", {
-          "packageLocation": "./.yarn/cache/fs-extra-npm-10.0.0-4f8c704115-84632d143f.zip/node_modules/fs-extra/",
+        ["npm:10.0.1", {
+          "packageLocation": "./.yarn/cache/fs-extra-npm-10.0.1-7c8ee14050-60715480ae.zip/node_modules/fs-extra/",
           "packageDependencies": [
-            ["fs-extra", "npm:10.0.0"],
+            ["fs-extra", "npm:10.0.1"],
             ["graceful-fs", "npm:4.2.4"],
             ["jsonfile", "npm:6.1.0"],
             ["universalify", "npm:2.0.0"]
