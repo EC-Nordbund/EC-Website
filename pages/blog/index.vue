@@ -72,7 +72,7 @@ v-container
               )
   v-pagination(
     v-model="page", 
-    :length="pageCount ? Math.min(page, 10)", 
+    :length="pageCount ?? Math.min(page, 10)", 
     :total-visible="7"
   )
 </template>
