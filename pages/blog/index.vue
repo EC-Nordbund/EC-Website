@@ -74,6 +74,8 @@ v-container
   v-pagination(v-model='page', :length='pageCount', :total-visible='7')
 </template>
 <script>
+import { defineComponent, useStatic, useContext, useRoute } from '@nuxtjs/composition-api'
+
 const pagination = {
   getPostsOfPage($content, page) {
     return $content('blog')
@@ -96,14 +98,22 @@ const pagination = {
   },
 }
 
-export default {
-  async asyncData({ $content, query }) {
-    const page = parseInt(query.page || '1') || 1
+export default defineComponent({
+  setup() {
+    const { $content } = useContext()
+    const route = useRoute()
 
-    const [posts, pageCount] = await Promise.all([
-      pagination.getPostsOfPage($content, page),
-      pagination.getNumberOfPages($content),
-    ])
+    const { posts, page } = useStatic(page => {
+      const pageInt = parseInt(page || '1') || 1
+
+      const posts = await pagination.getPostsOfPage($content, page)
+    
+      return { posts, page: pageInt }
+    }, route.value.query.page, 'blog-page')
+
+    const pageCount = useStatic(() => {
+      return pagination.getNumberOfPages($content)
+    }, undefined, 'blog-page-count')
 
     return { posts, page, pageCount }
   },
@@ -193,5 +203,5 @@ export default {
       return 'Klicke auf "Mehr Anzeigen", um den Betrag zu vollständig zu lesen.'
     },
   },
-}
+})
 </script>

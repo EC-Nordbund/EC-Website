@@ -164,20 +164,20 @@ div
 </template>
 <script>
 import { supportWebp } from '../../helpers/webp'
+import { defineComponent, useStatic, useContext, useRoute } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   setup() {
+    const {$content} = useContext()
+    const route = useRoute()
+
+    const page = useStatic(id => {
+      return $content('veranstaltung', id).fetch()
+    }, route.value.params.id, 'veranstaltung')
+
     return {
       supportWebp,
-    }
-  },
-  async asyncData({ $content, params, redirect, route }) {
-    try {
-      const page = await $content('veranstaltung', params.id).fetch()
-
-      return { page }
-    } catch (e) {
-      redirect('/404', { path: route.path })
+      page
     }
   },
   head() {
@@ -241,7 +241,7 @@ export default {
       ],
     }
   },
-}
+})
 </script>
 <style scoped>
 .description {

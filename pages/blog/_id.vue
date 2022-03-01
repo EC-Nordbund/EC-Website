@@ -1,17 +1,18 @@
 <template lang="pug">
-v-container
+v-container(v-if="page")
   nuxt-content(:document='page')
 </template>
 <script>
-export default {
-  async asyncData({ $content, params, redirect, route }) {
-    try {
-      const page = await $content('blog', params.id).fetch()
+import { defineComponent, useStatic, useContext } from '@nuxtjs/composition-api'
+export default defineComponent({
+  setup() {
+    const { $content } = useContext()
 
-      return { page }
-    } catch (e) {
-      redirect('/404', { path: route.path })
-    }
+    const page = useStatic(id => {
+      return $content('blog', id).fetch()
+    }, params.id, 'blog-post')
+
+    return { page }
   },
   head() {
     return {
@@ -60,5 +61,5 @@ export default {
       ],
     }
   },
-}
+})
 </script>
