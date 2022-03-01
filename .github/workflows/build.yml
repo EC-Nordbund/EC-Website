@@ -35,8 +35,7 @@ jobs:
         run: cd dist && tree
 
       - name: Lighthouse Audits
-        run: |
-          pnpm lhci autorun
+        run: pnpm lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
           LHCI_TOKEN: ${{secrets.LHCI_TOKEN}}
