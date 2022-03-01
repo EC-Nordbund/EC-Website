@@ -70,8 +70,11 @@ v-container
                 :rotate='30',
                 :aria-label='`Zum Beitrag: ${item.title}`'
               )
-
-  v-pagination(v-model='page', :length='pageCount ? Math.min(page, 10)', :total-visible='7')
+  v-pagination(
+    v-model="page", 
+    :length="pageCount ? Math.min(page, 10)", 
+    :total-visible="7"
+  )
 </template>
 <script>
 import { defineComponent, useStatic, useContext, useRoute, useRouter } from '@nuxtjs/composition-api'
