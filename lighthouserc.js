@@ -2,10 +2,10 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:3000/',
-        'http://localhost:3000/datenschutz',
-        'http://localhost:3000/blog/',
-        'http://localhost:3000/veranstaltungen/',
+        'https://localhost/',
+        'https://localhost/datenschutz',
+        'https://localhost/blog/',
+        'https://localhost/veranstaltungen/',
       ],
       startServerCommand: 'serve ./dist',
     },
@@ -37,10 +37,7 @@ module.exports = {
         'content-width': 'warn',
         'non-composited-animations': 'warn',
         // Probleme in CI
-        'canonical': 'off',
-        // TODO: Missing Losung shouldbe fixed until Feb. 2022
-        'errors-in-console': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error',
-        'csp-xss': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error'
+        'canonical': 'off'
       },
     },
   },
