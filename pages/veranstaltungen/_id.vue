@@ -163,7 +163,7 @@ div
                   span.text-caption.text-uppercase(slot='units') {{ slotProp.unit }}
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRoute } from '@nuxtjs/composition-api'
+import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
@@ -172,7 +172,7 @@ export default defineComponent({
 
     const page = useStatic(id => {
       return $content('veranstaltung', id).fetch()
-    }, route.value.params.id, 'veranstaltung')
+    }, computed(() => route.value.params.id), 'veranstaltung')
 
     return {
       page

@@ -3,14 +3,15 @@ v-container(v-if="page")
   nuxt-content(:document='page')
 </template>
 <script>
-import { defineComponent, useStatic, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup() {
     const { $content } = useContext()
+    const route = useRoute()
 
     const page = useStatic(id => {
       return $content('blog', id).fetch()
-    }, params.id, 'blog-post')
+    }, computed(() => route.value.params.id), 'blog-post')
 
     return { page }
   },

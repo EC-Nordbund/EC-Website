@@ -262,7 +262,9 @@ export default {
 
   build: {
     extend(config, ctx) {
-      config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      if(process.env.NODE_ENV !== 'production') {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
 
       if (ctx.isClient) {
         // Optimierungen auf Chunk level

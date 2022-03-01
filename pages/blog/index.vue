@@ -108,7 +108,7 @@ export default defineComponent({
     const router = useRouter()
 
     const page = computed(() => parseInt(route.value.query.page || '1') || 1)
-    const posts = useStatic(page => pagination.getPostsOfPage($content, page), page.value, 'blog-page')
+    const posts = useStatic(page => pagination.getPostsOfPage($content, page), page, 'blog-page')
     const pageCount = useStatic(() => pagination.getNumberOfPages($content), undefined, 'blog-page-count')
 
     return { posts, page, pageCount }
