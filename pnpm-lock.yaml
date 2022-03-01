@@ -50,7 +50,7 @@ specifiers:
   sass-loader: 10.2.1
   typeface-montserrat: 1.1.13
   typescript: 4.2.4
-  vue: 2.6.12
+  vue: 2.6.14
   vuetify: 2.6.3
   web-vitals: 2.1.4
   webpack: 4.46.0
@@ -63,7 +63,7 @@ dependencies:
   '@nuxt/content': 1.15.1_sass@1.49.8+webpack@4.46.0
   '@nuxt/typescript-runtime': 2.1.0_@nuxt+types@2.15.8
   '@nuxt/vue-app': 2.15.8
-  '@nuxtjs/composition-api': 0.32.0_0a557683aaec167efcaa228f4a3ecfca
+  '@nuxtjs/composition-api': 0.32.0_96c3adb72f39ed3ae892cf8f382776f6
   '@nuxtjs/sitemap': 2.4.0
   ackee-tracker: 5.1.0
   axios: 0.26.0
@@ -81,8 +81,8 @@ dependencies:
   sass: 1.49.8
   sass-loader: 10.2.1_sass@1.49.8+webpack@4.46.0
   typeface-montserrat: 1.1.13
-  vue: 2.6.12
-  vuetify: 2.6.3_vue@2.6.12
+  vue: 2.6.14
+  vuetify: 2.6.3_vue@2.6.14
   web-vitals: 2.1.4
 
 devDependencies:
@@ -1349,7 +1349,7 @@ packages:
       deepmerge: 4.2.2
       nuxt: 2.15.8_typescript@4.2.4
       sass: 1.32.8
-      vuetify: 2.6.3_vue@2.6.12
+      vuetify: 2.6.3_vue@2.6.14
     dev: true
 
   /@eslint/eslintrc/1.2.0:
@@ -1835,13 +1835,13 @@ packages:
       node-fetch: 2.6.7
       ufo: 0.7.11
       unfetch: 4.2.0
-      vue: 2.6.12
+      vue: 2.6.14
       vue-client-only: 2.1.0
       vue-meta: 2.4.0
       vue-no-ssr: 1.1.1
       vue-router: 3.5.3
       vue-template-compiler: 2.6.14
-      vuex: 3.6.2_vue@2.6.12
+      vuex: 3.6.2_vue@2.6.14
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -1857,7 +1857,7 @@ packages:
       lodash: 4.17.21
       lru-cache: 5.1.1
       ufo: 0.7.11
-      vue: 2.6.12
+      vue: 2.6.14
       vue-meta: 2.4.0
       vue-server-renderer: 2.6.14
     dev: false
@@ -1919,7 +1919,7 @@ packages:
       - webpack-command
     dev: false
 
-  /@nuxtjs/composition-api/0.32.0_0a557683aaec167efcaa228f4a3ecfca:
+  /@nuxtjs/composition-api/0.32.0_96c3adb72f39ed3ae892cf8f382776f6:
     resolution: {integrity: sha512-/LYf0N5x5j8i2/Uldfw+n4o3SVXyCIYQyOwSL+2JTllyyEkO3zHJc8YAbJhp22kHh6gPEhmgBA/whDUbERY7mg==}
     engines: {node: ^12.20.0 || >=14.13.0}
     peerDependencies:
@@ -1928,7 +1928,7 @@ packages:
       vue: ^2
     dependencies:
       '@nuxt/vue-app': 2.15.8
-      '@vue/composition-api': 1.4.9_vue@2.6.12
+      '@vue/composition-api': 1.4.9_vue@2.6.14
       defu: 5.0.1
       estree-walker: 2.0.2
       fs-extra: 9.1.0
@@ -1937,7 +1937,7 @@ packages:
       ufo: 0.7.11
       unplugin-vue2-script-setup: 0.9.3_8ee9fed9ff518d0a60ac3afd91ceb05a
       upath: 2.0.1
-      vue: 2.6.12
+      vue: 2.6.14
     transitivePeerDependencies:
       - '@vue/runtime-dom'
       - esbuild
@@ -2638,12 +2638,12 @@ packages:
       prettier: 2.5.1
     dev: false
 
-  /@vue/composition-api/1.4.9_vue@2.6.12:
+  /@vue/composition-api/1.4.9_vue@2.6.14:
     resolution: {integrity: sha512-l6YOeg5LEXmfPqyxAnBaCv1FMRw0OGKJ4m6nOWRm6ngt5TuHcj5ZoBRN+LXh3J0u6Ur3C4VA+RiKT+M0eItr/g==}
     peerDependencies:
       vue: '>= 2.5 < 3'
     dependencies:
-      vue: 2.6.12
+      vue: 2.6.14
     dev: false
 
   /@vue/reactivity-transform/3.2.31:
@@ -11897,7 +11897,7 @@ packages:
       '@rollup/pluginutils': 4.1.2
       '@vue/compiler-core': 3.2.31
       '@vue/compiler-dom': 3.2.31
-      '@vue/composition-api': 1.4.9_vue@2.6.12
+      '@vue/composition-api': 1.4.9_vue@2.6.14
       '@vue/reactivity-transform': 3.2.31
       '@vue/shared': 3.2.31
       defu: 5.0.1
@@ -12262,24 +12262,24 @@ packages:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}
     dev: false
 
-  /vue/2.6.12:
-    resolution: {integrity: sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==}
+  /vue/2.6.14:
+    resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==}
     dev: false
 
-  /vuetify/2.6.3_vue@2.6.12:
+  /vuetify/2.6.3_vue@2.6.14:
     resolution: {integrity: sha512-Zfiz2DZnp1DvxqGaSCGqGjv4mPNAurJJ5Xwy7bzNzIySGLlRdlO8UH6aNWnSgfaAsLP3voxadSGDm6tKM8Ys7w==}
     peerDependencies:
       vue: ^2.6.4
     dependencies:
-      vue: 2.6.12
+      vue: 2.6.14
     dev: false
 
-  /vuex/3.6.2_vue@2.6.12:
+  /vuex/3.6.2_vue@2.6.14:
     resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
     peerDependencies:
       vue: ^2.0.0
     dependencies:
-      vue: 2.6.12
+      vue: 2.6.14
     dev: false
 
   /watchpack-chokidar2/2.0.1:
