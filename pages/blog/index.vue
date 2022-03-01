@@ -71,10 +71,10 @@ v-container
                 :aria-label='`Zum Beitrag: ${item.title}`'
               )
 
-  v-pagination(v-model='page', :length='pageCount', :total-visible='7')
+  v-pagination(v-model='page', :length='pageCount ? Math.min(page, 10)', :total-visible='7')
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRoute } from '@nuxtjs/composition-api'
+import { defineComponent, useStatic, useContext, useRoute, useRouter } from '@nuxtjs/composition-api'
 
 const pagination = {
   getPostsOfPage($content, page) {
@@ -102,29 +102,14 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
     const route = useRoute()
+    const router = useRouter()
 
-    const { posts, page } = useStatic(page => {
-      const pageInt = parseInt(page || '1') || 1;
-
-      const posts = await pagination.getPostsOfPage($content, pageInt)
-    
-      return { posts, page: pageInt }
-    }, route.value.query.page, 'blog-page')
-
-    const pageCount = useStatic(() => {
-      return pagination.getNumberOfPages($content)
-    }, undefined, 'blog-page-count')
+    const page = computed(() => parseInt(route.value.query.page || '1') || 1)
+    const posts = useStatic(page => pagination.getPostsOfPage($content, page), page.value, 'blog-page')
+    const pageCount = useStatic(() => pagination.getNumberOfPages($content), undefined, 'blog-page-count')
 
     return { posts, page, pageCount }
   },
-  data() {
-    return {
-      posts: [],
-      page: 1,
-      pageCount: 1,
-    }
-  },
-
   head() {
     return {
       title: 'Blog',
@@ -187,12 +172,6 @@ export default defineComponent({
         default:
           return 300
       }
-    },
-  },
-  watch: {
-    async page() {
-      this.$router.replace({ path: '/blog', query: { page: this.page } })
-      this.posts = await pagination.getPostsOfPage(this.$content, this.page)
     },
   },
   methods: {
