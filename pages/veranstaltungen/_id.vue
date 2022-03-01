@@ -2,7 +2,7 @@
 div
   //- cover
   v-img.white--text(
-    :src='supportWebp() ? page.featuredImage.split(".")[0] + ".webp" : page.featuredImage',
+    :src='page.featuredImage',
     height='420',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
   )
@@ -163,7 +163,6 @@ div
                   span.text-caption.text-uppercase(slot='units') {{ slotProp.unit }}
 </template>
 <script>
-import { supportWebp } from '../../helpers/webp'
 import { defineComponent, useStatic, useContext, useRoute } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -176,7 +175,6 @@ export default defineComponent({
     }, route.value.params.id, 'veranstaltung')
 
     return {
-      supportWebp,
       page
     }
   },
