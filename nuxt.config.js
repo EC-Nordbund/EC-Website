@@ -294,11 +294,11 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    extractCSS: false
+    extractCSS: true
   },
   render: {
     bundleRenderer: {
-      shouldPreload: () => false,
+      shouldPreload: () => true,
     },
   },
 }
