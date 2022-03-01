@@ -7,7 +7,7 @@ module.exports = {
         'http://localhost:3000/blog/',
         'http://localhost:3000/veranstaltungen/',
       ],
-      startServerCommand: 'yarn start',
+      startServerCommand: 'serve ./dist',
     },
     upload: {
       target: 'lhci',
