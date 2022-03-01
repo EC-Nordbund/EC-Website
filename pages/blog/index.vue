@@ -104,9 +104,9 @@ export default defineComponent({
     const route = useRoute()
 
     const { posts, page } = useStatic(page => {
-      const pageInt = parseInt(page || '1') || 1
+      const pageInt = parseInt(page || '1') || 1;
 
-      const posts = await pagination.getPostsOfPage($content, page)
+      const posts = await pagination.getPostsOfPage($content, pageInt)
     
       return { posts, page: pageInt }
     }, route.value.query.page, 'blog-page')
