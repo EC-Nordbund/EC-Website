@@ -7,7 +7,7 @@ module.exports = {
         'https://localhost/blog/',
         'https://localhost/veranstaltungen/',
       ],
-      startServerCommand: 'serve ./dist',
+      startServerCommand: 'pnpm serve ./dist',
     },
     upload: {
       target: 'lhci',
