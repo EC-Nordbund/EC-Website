@@ -33,6 +33,9 @@ jobs:
 
       - name: OutCheck
         run: cd dist && tree
+        
+      - name: Install Server
+        run: pnpm i -g --only=prod https-localhost
 
       - name: Lighthouse Audits
         run: pnpm lhci autorun
