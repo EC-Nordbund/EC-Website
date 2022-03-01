@@ -1,0 +1,3 @@
+[submodule "cms-content"]
+	path = cms-content
+	url = git@github.com:EC-Nordbund/EC-Website-Content.git

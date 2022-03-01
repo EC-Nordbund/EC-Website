@@ -249,7 +249,7 @@ export default defineComponent({
           anmeldeID?: string
           wList?: number
           type?: number
-        }>('/api/confirm/' + token, {})
+        }>('/confirm/' + token, {})
 
         myStatus.value = res
 

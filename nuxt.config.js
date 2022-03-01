@@ -82,7 +82,7 @@ const useCustomPath = !!process.env.EC_NUXT_CONTENT
  * @type {import('@nuxt/types').NuxtConfig}
  */
 export default {
-  target: 'server',
+  target: 'static',
   // modern: true,
   // ssr: process.env.NODE_ENV === 'production',
 
@@ -295,9 +295,6 @@ export default {
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
     extractCSS: false
-  },
-  serverMiddleware: {
-    '/api': '~/api',
   },
   render: {
     bundleRenderer: {

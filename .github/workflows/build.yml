@@ -17,15 +17,20 @@ jobs:
 
       - name: checkout
         uses: actions/checkout@master
+        with:
+          submodules: true
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn generate
         env:
           CI: true
+
+      - name: OutCheck
+        run: cd dist && tree
 
       - name: Lighthouse Audits
         run: |
