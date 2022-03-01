@@ -108,10 +108,7 @@ export default {
         theme: false,
       },
     },
-    dir: useCustomPath ? join(process.env.EC_NUXT_CONTENT, 'content') : 'content',
   },
-
-  dir: useCustomPath ? { static: join(process.env.EC_NUXT_CONTENT, 'static') } : undefined,
 
   head: {
     titleTemplate: (chunk) => {
