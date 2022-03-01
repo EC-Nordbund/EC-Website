@@ -215,7 +215,8 @@ export default {
     '@nuxtjs/composition-api/module',
     '@ec-nordbund/typescript-module',
     '@ec-nordbund/vuetify-module',
-    'nuxt-build-optimisations'
+    'nuxt-build-optimisations',
+    'unplugin-vue2-script-setup/nuxt'
     // '@nuxtjs/stylelint-module',
   ],
   buildOptimisations: {
