@@ -24,7 +24,7 @@
     "@nuxt/vue-app": "2.15.8",
     "@nuxtjs/composition-api": "0.32.0",
     "@nuxtjs/sitemap": "2.4.0",
-    "ackee-tracker": "https://github.com/electerious/ackee-tracker.git#develop",
+    "ackee-tracker": "*",
     "axios": "0.26.0",
     "body-parser": "1.19.2",
     "express": "4.17.3",
