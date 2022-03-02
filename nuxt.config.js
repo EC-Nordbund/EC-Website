@@ -262,6 +262,8 @@ export default {
 
   build: {
     extend(config, ctx) {
+      console.log(config)
+
       if(process.env.NODE_ENV !== 'production') {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }

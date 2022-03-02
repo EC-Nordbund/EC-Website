@@ -23,7 +23,7 @@ module.exports = {
         'categories:best-practices': ['error', { minScore: 0.92 }],
         /**
          * User Farbschema geht sonst nicht
-         * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
+         * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli-ä
          */
         'color-contrast': 'off',
         // Geht in CI nicht
