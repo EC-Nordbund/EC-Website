@@ -22,7 +22,11 @@ jobs:
         run: yarn generate
         env:
           CI: true
-          
+      - name: smylinks
+        run: |
+          cp -r ./cms-content/static/blog ./_blog
+          cp -r ./cms-content/static/veranstaltungen ./_veranstaltungen
+          cp -r ./cms-content/static/download ./_download
       - name: Deploy to ec-nordbund.de
         env:
           dest: 'deployer@ec-nordbund.de:/samba_share/www.ec-nordbund.de'
@@ -32,12 +36,3 @@ jobs:
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ ${{ env.dest }}
-          rsync -chrvz --stats --delete \
-            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./content-cms/static/blog ${{ env.dest }}/blog
-          rsync -chrvz --stats --delete \
-            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./content-cms/static/veranstaltungen ${{ env.dest }}/veranstaltungen
-          rsync -chrvz --stats --delete \
-            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./content-cms/static/download ${{ env.dest }}/download
