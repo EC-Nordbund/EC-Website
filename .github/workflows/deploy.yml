@@ -23,13 +23,6 @@ jobs:
         env:
           CI: true
           
-      - name: debug
-        run: ls -l dist
-      - name: Remove Symlinks
-        run: rm -r ./dist/blog && rm -r ./dist/veranstaltungen && rm -r ./dist/downloads
-      - name: Copy symlink content
-        run: cp -r ./content-cms/static/blog ./dist/blog && cp -r ./content-cms/static/veranstaltungen ./dist/veranstaltungen && cp -r ./content-cms/static/downloads ./dist/downloads
-
       - name: Deploy to ec-nordbund.de
         env:
           dest: 'deployer@ec-nordbund.de:/samba_share/www.ec-nordbund.de'
@@ -39,3 +32,12 @@ jobs:
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ ${{ env.dest }}
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/blog ${{ env.dest }}/blog
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/veranstaltungen ${{ env.dest }}/veranstaltungen
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/downloads ${{ env.dest }}/downloads
