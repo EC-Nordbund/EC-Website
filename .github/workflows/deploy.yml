@@ -22,6 +22,11 @@ jobs:
         run: yarn generate
         env:
           CI: true
+          
+      - name: Remove Symlinks
+        run: rm ./dist/blog && rm ./dist/veranstaltungen && rm ./dist/downloads
+      - name: Copy symlink content
+        run: cp -r ./content-cms/static/blog ./dist/blog && cp -r ./content-cms/static/veranstaltungen ./dist/veranstaltungen && cp -r ./content-cms/static/downloads ./dist/downloads
 
       - name: Deploy to ec-nordbund.de
         env:
