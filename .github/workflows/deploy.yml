@@ -27,6 +27,12 @@ jobs:
           cp -r ./cms-content/static/blog ./_blog
           cp -r ./cms-content/static/veranstaltungen ./_veranstaltungen
           cp -r ./cms-content/static/download ./_download
+          rm -r ./dist/blog
+          rm -r ./dist/veranstaltungen
+          rm -r ./dist/download
+          cp -r ./_blog ./dist/blog
+          cp -r ./_veranstaltungen ./dist/veranstaltungen
+          cp -r ./_download ./dist/download
       - name: Deploy to ec-nordbund.de
         env:
           dest: 'deployer@ec-nordbund.de:/samba_share/www.ec-nordbund.de'
