@@ -34,10 +34,10 @@ jobs:
             ./dist/ ${{ env.dest }}
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/blog ${{ env.dest }}/blog
+            ./content-cms/static/blog ${{ env.dest }}/blog
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/veranstaltungen ${{ env.dest }}/veranstaltungen
+            ./content-cms/static/veranstaltungen ${{ env.dest }}/veranstaltungen
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/downloads ${{ env.dest }}/downloads
+            ./content-cms/static/download ${{ env.dest }}/download
