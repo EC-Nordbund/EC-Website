@@ -23,8 +23,10 @@ jobs:
         env:
           CI: true
           
+      - name: debug
+        run: ls -l
       - name: Remove Symlinks
-        run: rm ./dist/blog && rm ./dist/veranstaltungen && rm ./dist/downloads
+        run: unlink ./dist/blog && unlink ./dist/veranstaltungen && unlink ./dist/downloads
       - name: Copy symlink content
         run: cp -r ./content-cms/static/blog ./dist/blog && cp -r ./content-cms/static/veranstaltungen ./dist/veranstaltungen && cp -r ./content-cms/static/downloads ./dist/downloads
 
