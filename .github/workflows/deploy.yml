@@ -1,0 +1,32 @@
+name: Deploy Website
+
+on:
+  push:
+    branches: [ static ]
+
+jobs:
+  deploy_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn generate
+        env:
+          CI: true
+
+      - name: Deploy to ec-nordbund.de
+        env:
+          dest: 'deployer@ec-nordbund.de:/samba_share/www.ec-nordbund.de'
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/ ${{ env.dest }}
