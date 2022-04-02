@@ -307,4 +307,7 @@ export default {
       shouldPreload: () => true,
     },
   },
+  generate: {
+    routes: createSitemapRoutes().map(v=>v.url)
+  }
 }
