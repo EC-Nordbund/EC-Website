@@ -13,6 +13,13 @@ const createSitemapRoutes = async () => {
       lastmod: post.slug.startsWith('20') ? post.updatedAt : '2020-01-01',
     })
   }
+  
+  for (let i=1;i<=Math.ceil(posts.length/10); i++) {
+    routes.push({
+      url: `blog?page=${i}`,
+      lastmod: posts[0].updatedAt
+    })
+  }
 
   const veranstaltungen = await $content('veranstaltung').fetch()
 
