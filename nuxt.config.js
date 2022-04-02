@@ -308,6 +308,6 @@ export default {
     },
   },
   generate: {
-    routes: await createSitemapRoutes().map(v=>v.url)
+    routes: () => createSitemapRoutes().map(v=>v.url)
   }
 }
