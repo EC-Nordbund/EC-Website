@@ -308,9 +308,16 @@ export default {
     },
   },
   generate: {
-    routes: async () => (await createSitemapRoutes()).map(v=>v.url)
+    routes: async () => {
+      const res = (await createSitemapRoutes()).map(v=>v.url)
+      console.log(res.join('\n'))
+      return res
+    }
   },
   router: {
     base: process.env.EC_SET_BASE ?? '/'
+  },
+  publicRuntimeConfig: {
+    EC_BASE: process.env.EC_SET_BASE ?? '/'
   }
 }

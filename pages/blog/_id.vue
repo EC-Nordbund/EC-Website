@@ -83,7 +83,7 @@ export default defineComponent({
             content: 'Blog des EC-Nordbundes mit allen wichtigen Informationen, Veranstaltungsberichten etc.',
           },
           // Open Graph
-          { hid: 'og:title', property: 'og:title', content: this.page.title },
+          { hid: 'og:title', property: 'og:title', content: 'Blog des EC-Nordbundes mit allen wichtigen Informationen, Veranstaltungsberichten etc.', },
           {
             hid: 'og:description',
             property: 'og:description',
