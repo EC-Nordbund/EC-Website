@@ -210,7 +210,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/analytics.ts', mode: 'client' },
-    { src: '~/plugins/swUpdate.ts', mode: 'client' },
+    //{ src: '~/plugins/swUpdate.ts', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
