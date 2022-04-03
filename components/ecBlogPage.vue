@@ -71,7 +71,7 @@ v-container
                 :aria-label='`Zum Beitrag: ${item.title}`'
               )
   v-pagination(
-    :value="page"
+    :value="currPage"
     :length="pageCount || Math.min(page, 10)", 
     :total-visible="7"
     @input="pageChange"
@@ -111,7 +111,8 @@ export default defineComponent({
   setup(props) {
     const { $content } = useContext()
 
-    const posts = useStatic(page => pagination.getPostsOfPage($content, page), computed(() =>props.page), 'blog-page')
+    const currPage = computed(() => props.page)
+    const posts = useStatic(page => pagination.getPostsOfPage($content, parseInt(page)), currPage, 'blog-page')
     const pageCount = useStatic(() => pagination.getNumberOfPages($content), undefined, 'blog-page-count')
 
     const router = useRouter()
@@ -120,7 +121,7 @@ export default defineComponent({
       router.push('/blog/' + newPage)
     }
 
-    return { posts, pageCount, pageChange }
+    return { posts, pageCount, pageChange, currPage }
   },
   computed: {
     detailsMaxHeight() {
