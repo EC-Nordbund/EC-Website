@@ -4,6 +4,8 @@ on:
   push:
     branches: [ static ]
 
+concurrency: deploy
+
 jobs:
   deploy_job:
     runs-on: ubuntu-latest
