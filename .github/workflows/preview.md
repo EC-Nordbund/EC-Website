@@ -1,1 +1,1 @@
-Branch wird veröffentlicht unter https://preview.ec-nordbund.de/{branch_name}
+Branch wird veröffentlicht unter https://dev.ec-nordbund.de/{branch_name}
