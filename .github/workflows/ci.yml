@@ -66,7 +66,7 @@ jobs:
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
-          ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /samba_share/${{EC_TARGET_DEPLOY}}.ec-nordbund.de${{EC_SET_BASE}}"
+          ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ ${{ env.dest }}
@@ -74,7 +74,7 @@ jobs:
   lh_deploy:
     runs-on: ubuntu-latest
     needs: [ build ]
-    if: ${{EC_WITH_LH}}
+    if: ${{env.EC_WITH_LH}}
     steps:
       - uses: actions/download-artifact@v3
         with:
