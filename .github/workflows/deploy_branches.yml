@@ -20,6 +20,7 @@ jobs:
         run: yarn generate
         env:
           CI: true
+          EC_SET_BASE: /${{ github.ref_name }}/
       - name: smylinks
         run: |
           cp -r ./cms-content/static/blog ./_blog
