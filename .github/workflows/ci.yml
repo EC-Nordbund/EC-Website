@@ -10,7 +10,7 @@ concurrency: ci
 
 env:
   EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && '/${{github.ref_name}}/') || ((github.event_name != 'push') && '/${{github.event.client_payload.branch}}/')}}
-  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'static') || 'www') || ((github.event_name == 'push' && github.ref_name != 'static') || 'dev') || ((github.event_name != 'push') || 'preview')}}
+  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'static') && 'www') || ((github.event_name == 'push' && github.ref_name != 'static') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
 
 jobs:
   ci:
