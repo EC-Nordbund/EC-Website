@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: load custom cms branch
+        run: cd cms-content && git checkout ${{ github.event.client_payload.branch }} && cd ..
       - name: Install dependencies
         run: yarn
 
