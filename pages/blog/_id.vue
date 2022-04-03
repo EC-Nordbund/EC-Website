@@ -3,7 +3,7 @@ template(v-if="isPost")
   v-container(v-if="page")
     nuxt-content(:document='page')
 template(v-else)
-  ecBlogPage(:page="pageNum" :key="pageNum")
+  ecBlogPage(:page="pageNum")
 </template>
 <script>
 import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
