@@ -104,5 +104,5 @@ RedirectPermanent /zwei-grossartige-dinge /blog/zwei-grossartige-dinge
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
+RewriteRule . /200.html [L]
 
