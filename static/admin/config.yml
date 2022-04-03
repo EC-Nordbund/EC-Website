@@ -54,34 +54,33 @@ collections:
       - label: "Bilder"
         name: "images"
         widget: "list"
-        fields:
-          - { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: true }
+        field: { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: true }
       - {label: "Ist Juleica Fortblidung", name: "juleica", widget: "boolean", default: false}
       - label: Veranstaltungsort
         name: location
         widget: object
         required: false
         fields:
-          - {label: "Name", name: "name", widget: "string" }
-          - {label: "GPS", name: "gps", widget: "map" }
-          - label: Adresse
-            name: adress
-            widget: object
-            fields:
-              - {label: "Strasse", name: "strasse", widget: "string" }
-              - {label: "PLZ", name: "plz", widget: "string" }
-              - {label: "Ort", name: "ort", widget: "string" }
+      - {label: "Veranstaltungsort", name: "veranstaltungsort", widget: "string" }
+      - { label: "Breitengrad", name: "lat", widget: "string" }
+      - { label: "Längengrad", name: "long", widget: "string" }
+      - {label: "Strasse", name: "strasse", widget: "string" }
+      - {label: "PLZ", name: "plz", widget: "string" }
+      - {label: "Ort", name: "ort", widget: "string" }
+      - {label: "min Alter", required: false, name: "minAlter", widget: "number", default: false}
+      - {label: "max Alter", required: false, name: "maxAlter", widget: "number", default: false}
       - label: Tags
         name: tags
         widget: list
         default: []
+        field: { label: 'Tag', name: 'tag', widget: 'string' }
       - label: Warteliste
         name: warteliste
         widget: object
         fields:
-          - {label: "Männlich", name: "m", widget: "boolean", default: false}
-          - {label: "Weiblich", name: "w", widget: "boolean", default: false}
-          - {label: "Allgemein", name: "a", widget: "boolean", default: false}
+          - {label: "Männlich", name: "männlich", widget: "boolean", default: false}
+          - {label: "Weiblich", name: "weiblich", widget: "boolean", default: false}
+          - {label: "Allgemein", name: "allgemein", widget: "boolean", default: false}
       - label: Preise
         name: preise
         widget: list
@@ -94,7 +93,7 @@ collections:
         name: anmeldung
         widget: object
         fields:
-          - {label: "Aktiviert", name: "aktivate", widget: "boolean", default: true}
+          - {label: "Deaktiviert", name: "disabled", widget: "boolean", default: true}
           - {label: "Start", name: "startAt", widget: "datetime", default: true, format: 'YYYY-MM-DDTHH:MM:SSZ'}
           - {label: "Mit Essen", name: "hatEssen", widget: "boolean", default: false}
           - {label: "Mit Gesundheitsinformationen", name: "hatGesundheit", widget: "boolean", default: false}
@@ -105,3 +104,6 @@ collections:
           - {label: "Erlaubnis sich in 3er Gruppen entfernen", name: "hatErlaubnisSichEntfernen", widget: "boolean", default: false}
           - {label: "Erlaubnis Datenschutz TN-Liste", name: "hatFahrgemeinschaft", widget: "boolean", default: false}
           - {label: "Hat Freizeitleitung Hinweis", name: "hatFreizeitleitung", widget: "boolean", default: false}
+          - {label: "min Jahrgang", name: "jahrgangMin", widget: "number", default: false}
+          - {label: "max Jahrgang", name: "jahrgangMax", widget: "number", default: false}
+          
