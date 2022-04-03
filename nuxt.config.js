@@ -16,7 +16,7 @@ const createSitemapRoutes = async () => {
   
   for (let i=1;i<=Math.ceil(posts.length/10); i++) {
     routes.push({
-      url: `blog?page=${i}`,
+      url: `blog/${i}`,
       lastmod: posts[0].updatedAt
     })
   }
