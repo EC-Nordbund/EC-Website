@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo ${{github.event_name}}
       - uses: actions/setup-node@v2
         with:
           node-version: 14
