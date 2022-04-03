@@ -5,7 +5,7 @@ on:
   repository_dispatch:
     types: [merge-content]
 
-concurrency: ci-${{ github.ref }}
+concurrency: ci
 
 env:
   EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && '/${{github.ref_name}}/') || ((github.event_name != 'push') && '/${{github.event.client_payload.branch}}/')}}
