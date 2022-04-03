@@ -1,4 +1,4 @@
-name: Deploy Preview
+name: Cleanup Preview
 
 on: [delete]
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cleanuo
+      - name: Cleanup
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
