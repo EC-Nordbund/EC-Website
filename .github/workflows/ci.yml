@@ -13,7 +13,6 @@ env:
   EC_IS_EDIT_PREVIEW: ${{github.event_name != 'push'}}
   EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && '/${{github.ref_name}}/') || ((github.event_name != 'push') && '/${{github.event.client_payload.branch}}/')}}
   EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'static') || 'www') || ((github.event_name == 'push' && github.ref_name != 'static') || 'dev') || ((github.event_name != 'push') || 'preview')}}
-  EC_WITH_LH: ${{github.event_name == 'push'}}
 
 jobs:
   build:
@@ -74,7 +73,7 @@ jobs:
   lh_deploy:
     runs-on: ubuntu-latest
     needs: [ build ]
-    if: env.EC_WITH_LH == true
+    if: github.event_name == 'push'
     steps:
       - uses: actions/download-artifact@v3
         with:
