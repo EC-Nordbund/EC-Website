@@ -309,5 +309,8 @@ export default {
   },
   generate: {
     routes: async () => (await createSitemapRoutes()).map(v=>v.url)
+  },
+  router: {
+    base: process.env.EC_SET_BASE ?? '/'
   }
 }
