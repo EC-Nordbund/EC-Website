@@ -10,10 +10,10 @@ concurrency: deploy_preview
 env:
   EC_IS_MAIN_PUSH: ${{github.event_name == 'push' && github.ref_name == 'static'}}
   EC_IS_DEV_PREVIEW: ${{github.event_name == 'push' && github.ref_name != 'static'}}
-  EC_IS_EDIT_PREVIEW: ${{!EC_IS_MAIN_PUSH && !EC_IS_DEV_PREVIEW}}
-  EC_SET_BASE: ${{(EC_IS_MAIN_PUSH && '/') || (EC_IS_DEV_PREVIEW && '/${{github.ref_name}}/') || (EC_IS_EDIT_PREVIEW && '/${github.event.client_payload.branch}/')}}
-  EC_TARGET_DEPLOY: ${{(EC_IS_MAIN_PUSH || 'www.ec-nordbund.de') || (EC_IS_DEV_PREVIEW || 'dev.ec-nordbund.de') || (EC_IS_EDIT_PREVIEW || 'preview.ec-nordbund.de')}}${{EC_SET_BASE}}
-  EC_WITH_LH: ${{EC_IS_MAIN_PUSH || EC_IS_DEV_PREVIEW}}
+  EC_IS_EDIT_PREVIEW: ${{!env.EC_IS_MAIN_PUSH && !env.EC_IS_DEV_PREVIEW}}
+  EC_SET_BASE: ${{(env.EC_IS_MAIN_PUSH && '/') || (env.EC_IS_DEV_PREVIEW && '/${{github.ref_name}}/') || (env.EC_IS_EDIT_PREVIEW && '/${github.event.client_payload.branch}/')}}
+  EC_TARGET_DEPLOY: ${{(env.EC_IS_MAIN_PUSH || 'www.ec-nordbund.de') || (env.EC_IS_DEV_PREVIEW || 'dev.ec-nordbund.de') || (env.EC_IS_EDIT_PREVIEW || 'preview.ec-nordbund.de')}}${{env.EC_SET_BASE}}
+  EC_WITH_LH: ${{env.EC_IS_MAIN_PUSH || env.EC_IS_DEV_PREVIEW}}
 
 jobs:
   build:
