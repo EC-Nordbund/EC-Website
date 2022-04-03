@@ -1,9 +1,10 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
   repository_dispatch:
-    types: [merge-content]
+    types: [preview-content]
 
 concurrency: ci
 
@@ -22,6 +23,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Select cms-version
+        run: cd cms-content && git checkout ${{github.event.client_payload.branch}} && cd ..
+        if: github.event_name != 'push'
       - name: Install dependencies
         run: yarn
       - name: Build
