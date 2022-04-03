@@ -24,7 +24,7 @@ jobs:
         with:
           submodules: true
       - name: Select cms-version
-        run: cd cms-content && git checkout -b ${{github.event.client_payload.branch}} && cd ..
+        run: cd cms-content && git checkout -b origin/${{github.event.client_payload.branch}} && cd ..
         if: github.event_name != 'push'
       - name: Install dependencies
         run: yarn
