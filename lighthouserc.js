@@ -2,10 +2,10 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'https://static.ec-nordbund.de/',
-        'https://static.ec-nordbund.de/datenschutz',
-        'https://static.ec-nordbund.de/blog/',
-        'https://static.ec-nordbund.de/veranstaltungen/',
+        'https://lighthouse.ec-nordbund.de/',
+        'https://lighthouse.ec-nordbund.de/datenschutz',
+        'https://lighthouse.ec-nordbund.de/blog/',
+        'https://lighthouse.ec-nordbund.de/veranstaltungen/',
       ]
     },
     upload: {
