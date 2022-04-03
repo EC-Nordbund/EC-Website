@@ -1,7 +1,8 @@
 name: Deploy Website
 
 on: 
-  push: [static]
+  push: 
+    branches: [static]
 
 concurrency: deploy_website
 
