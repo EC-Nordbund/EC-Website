@@ -4,6 +4,8 @@ import { Plugin } from '@nuxt/types'
 import { attributes, create } from 'ackee-tracker'
 import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'web-vitals'
 
+const __DO_RUN__ = location.host === 'www.ec-nordbund.de'
+
 const __URL__ = 'https://analytics.ec-nordbund.de'
 const __DOMAIN_ID__ = '7e04b501-fc99-417a-b65a-3fd7e412050c'
 const __WEB_VITALS_EVENT_ID__ = '2851d51a-0085-4405-8c41-1805cd7dd390'
@@ -21,6 +23,11 @@ const webVitals: [
 ]
 
 const plugin: Plugin = (ctx) => {
+  if(__DO_RUN__) {
+    console.log('[TRACKING] Skipped da nicht auf korrektem Host!')
+    return
+  }
+
   // eslint-disable-next-line eqeqeq
   const DO_TRACKING = navigator.doNotTrack != '1'
 
