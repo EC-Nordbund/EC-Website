@@ -78,7 +78,7 @@ v-container
   )
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRoute, useRouter, computed  } from '@nuxtjs/composition-api'
+import { defineComponent, useStatic, useContext, useRouter, computed } from '@nuxtjs/composition-api'
 
 const pagination = {
   getPostsOfPage($content, page) {

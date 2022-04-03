@@ -20,7 +20,7 @@ export default defineComponent({
       if(isPost.value) return null
 
       return $content('blog', id).fetch()
-    }, is, 'blog-post')
+    }, id, 'blog-post')
 
     
 
