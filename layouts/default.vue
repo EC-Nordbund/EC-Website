@@ -268,6 +268,8 @@ import {
 import copy from '~/helpers/copy'
 import { get } from '~/helpers/fetch'
 
+const RIC = ('requestIdleCallback' in window) ? requestIdleCallback : (cb) => setTimeout(cb, 5000)
+
 export default defineComponent({
   setup(_, ctx) {
     const drawer = ref(false)
@@ -279,7 +281,7 @@ export default defineComponent({
     const losungen = ref(null)
 
     onMounted(() => {
-      setTimeout(() => {
+      RIC(() => {
         const today = `${new Date().getFullYear()}-${
           new Date().getMonth() + 1 < 10
             ? '0' + (new Date().getMonth() + 1)
@@ -293,7 +295,7 @@ export default defineComponent({
         get(`https://losungen.ec-nordbund.de/${today}.json`).then(
           (v) => (losungen.value = v)
         )
-      }, 2000)
+      })
     })
 
     const isStartPage = computed(() => ctx.root.$nuxt.$route.path == '/')
