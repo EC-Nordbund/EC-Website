@@ -3,7 +3,7 @@ template(v-if="isPost")
   v-container(v-if="page")
     nuxt-content(:document='page')
 template(v-else)
-  ecBlogPage(:page="pageNum")
+  ecBlogPage(:page="pageNum" :key="pageNum")
 </template>
 <script>
 import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
@@ -14,7 +14,7 @@ export default defineComponent({
 
     const id = computed(() => route.value.params.id)
     const pageNum = computed(() => parseInt(id.value))
-    const isPost = computed(() => isNaN(pageNum.value))
+    const isPost = computed(() => !/^\d+$/.test(id.value))
 
     const page = useStatic(id => {
       if(isPost.value) return null

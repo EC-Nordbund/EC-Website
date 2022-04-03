@@ -1,5 +1,5 @@
 <template lang="pug">
-ecBlogPage(:page="1")
+ecBlogPage(:page="1" :key="1")
 </template>
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
