@@ -12,7 +12,7 @@ export default defineComponent({
     const { $content } = useContext()
     const route = useRoute()
 
-    const id = computed(() => route.params.id)
+    const id = computed(() => route.value.params.id)
     const pageNum = computed(() => parseInt(id.value))
     const isPost = computed(() => isNaN(pageNum.value))
 
@@ -20,7 +20,7 @@ export default defineComponent({
       if(isPost.value) return null
 
       return $content('blog', id).fetch()
-    }, computed(() => route.value.params.id), 'blog-post')
+    }, is, 'blog-post')
 
     
 
