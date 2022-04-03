@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+  repository_dispatch:
+    types: [merge-content]
 
 concurrency: deploy_preview
 
@@ -15,7 +18,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-	
+    
     steps:
       - uses: actions/setup-node@v2
         with:
@@ -27,7 +30,7 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-	  - name: Generate
+      - name: Generate
         run: yarn generate
       - name: Symlinks
         run: |
@@ -42,7 +45,7 @@ jobs:
           cp -r ./_veranstaltungen ./dist/veranstaltungen
           cp -r ./_download ./dist/download
           cp -r ./_old ./dist/old
-	  - name: Upload Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: dist
@@ -50,14 +53,14 @@ jobs:
           retention-days: 1
   deploy:
     runs-on: ubuntu-latest
-	needs: [ build ]
-	steps:
-	  - uses: actions/download-artifact@v3
+    needs: [ build ]
+    steps:
+      - uses: actions/download-artifact@v3
         with:
-        name: dist
-	    path: ./dist
-		
-	  - name: Deploy to ec-nordbund.de
+          name: dist
+          path: ./dist
+        
+      - name: Deploy to ec-nordbund.de
         env:
           dest: 'deployer@ec-nordbund.de:/samba_share/preview.ec-nordbund.de/${{ github.event.client_payload.branch }}'
         run: |
@@ -69,16 +72,16 @@ jobs:
             ./dist/ ${{ env.dest }}
   
   lh_deploy:
-	runs-on: ubuntu-latest
-	needs: [ build ]
-	if: ${{EC_WITH_LH}}
-	steps:
-	  - uses: actions/download-artifact@v3
+    runs-on: ubuntu-latest
+    needs: [ build ]
+    if: ${{EC_WITH_LH}}
+    steps:
+      - uses: actions/download-artifact@v3
         with:
-        name: dist
-	    path: ./dist
-		
-	  - name: Deploy to ec-nordbund.de
+          name: dist
+          path: ./dist
+        
+      - name: Deploy to ec-nordbund.de
         env:
           dest: 'deployer@ec-nordbund.de:/samba_share/preview.ec-nordbund.de/${{ github.event.client_payload.branch }}'
         run: |
@@ -88,10 +91,10 @@ jobs:
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ ${{ env.dest }}  
-	  
+    
   lh_runner:
     runs-on: ubuntu-latest
-	needs: [ lh_deploy ]
+    needs: [ lh_deploy ]
     steps:
       - uses: actions/setup-node@v2
         with:
@@ -110,4 +113,3 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
           LHCI_TOKEN: ${{secrets.LHCI_TOKEN}}
           CI: true
-          
