@@ -2,12 +2,11 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:3000/',
-        'http://localhost:3000/datenschutz',
-        'http://localhost:3000/blog/',
-        'http://localhost:3000/veranstaltungen/',
-      ],
-      startServerCommand: 'yarn start',
+        'https://static.ec-nordbund.de/',
+        'https://static.ec-nordbund.de/datenschutz',
+        'https://static.ec-nordbund.de/blog/',
+        'https://static.ec-nordbund.de/veranstaltungen/',
+      ]
     },
     upload: {
       target: 'lhci',
@@ -35,12 +34,7 @@ module.exports = {
         // Sollte bald wieder rein
         'uses-optimized-images': 'warn',
         'content-width': 'warn',
-        'non-composited-animations': 'warn',
-        // Probleme in CI
-        'canonical': 'off',
-        // TODO: Missing Losung shouldbe fixed until Feb. 2022
-        'errors-in-console': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error',
-        'csp-xss': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error'
+        'non-composited-animations': 'warn'
       },
     },
   },
