@@ -17,7 +17,7 @@ export default defineComponent({
     const isPost = computed(() => !/^\d+$/.test(id.value))
 
     const page = useStatic(id => {
-      if(isPost.value) return null
+      if(!isPost.value) return null
 
       return $content('blog', id).fetch()
     }, id, 'blog-post')
