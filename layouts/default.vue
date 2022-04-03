@@ -268,8 +268,6 @@ import {
 import copy from '~/helpers/copy'
 import { get } from '~/helpers/fetch'
 
-const RIC = ('requestIdleCallback' in window) ? requestIdleCallback : (cb) => setTimeout(cb, 5000)
-
 export default defineComponent({
   setup(_, ctx) {
     const drawer = ref(false)
@@ -281,15 +279,17 @@ export default defineComponent({
     const losungen = ref(null)
 
     onMounted(() => {
+      const RIC = ('requestIdleCallback' in window) ? requestIdleCallback : (cb) => setTimeout(cb, 5000)
+      
       RIC(() => {
-        const today = `${new Date().getFullYear()}-${
-          new Date().getMonth() + 1 < 10
-            ? '0' + (new Date().getMonth() + 1)
-            : new Date().getMonth() + 1
+        const n = new Date()
+        const today = `${n.getFullYear()}-${n.getMonth() + 1 < 10
+            ? '0' + (n.getMonth() + 1)
+            : n.getMonth() + 1
         }-${
-          new Date().getDate() < 10
-            ? '0' + new Date().getDate()
-            : new Date().getDate()
+          n.getDate() < 10
+            ? '0' + n.getDate()
+            : n.getDate()
         }`
 
         get(`https://losungen.ec-nordbund.de/${today}.json`).then(
