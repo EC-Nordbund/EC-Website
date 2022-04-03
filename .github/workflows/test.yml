@@ -1,10 +1,8 @@
 name: Test Website
 
-on:
-  push:
-    branches: [ static ]
+on: [push]
 
-concurrency: deploy
+concurrency: test_lh
 
 jobs:
   deploy_job:
