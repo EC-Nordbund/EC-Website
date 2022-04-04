@@ -11,7 +11,7 @@ div
         //- go back to overview
         v-col(cols='2', sm='1')
           ec-hexa-button(
-            to='/veranstaltungen',
+            to='veranstaltungen',
             exact,
             icon='mdi-arrow-left',
             :size='64',

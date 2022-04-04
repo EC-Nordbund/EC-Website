@@ -39,7 +39,7 @@
           depressed,
           tile,
           large,
-          to='/blog/',
+          to='blog/',
           aria-label='Mehr Beiträge anzeigen'
         )
           span.hidden-xs-only Mehr Beiträge
@@ -65,7 +65,7 @@
           depressed,
           tile,
           large,
-          to='/veranstaltungen/',
+          to='veranstaltungen/',
           aria-label='Mehr Veranstaltungen anzeigen'
         )
           span.hidden-xs-only Mehr Veranstaltungen

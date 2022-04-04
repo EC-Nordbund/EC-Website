@@ -13,11 +13,11 @@
           v-col(cols="12" sm="6" md="auto" class="px-5 py-2")
             nuxt-link(class="text-subtitle-2 no-underline" to="/") Startseite
           v-col(cols="12" sm="6" md="auto" class="px-5 py-2")
-            nuxt-link(class="text-subtitle-2 no-underline" to="/teilnahmebedingungen/") Teilnahmebedingungen
+            nuxt-link(class="text-subtitle-2 no-underline" to="teilnahmebedingungen/") Teilnahmebedingungen
           v-col(cols="12" sm="6" md="auto" class="px-5 py-2")
-            nuxt-link(class="text-subtitle-2 no-underline" to="/datenschutz") Datenschutz
+            nuxt-link(class="text-subtitle-2 no-underline" to="datenschutz") Datenschutz
           v-col(cols="12" sm="6" md="auto" class="px-5 py-2")
-            nuxt-link(class="text-subtitle-2 no-underline" to="/impressum") Impressum
+            nuxt-link(class="text-subtitle-2 no-underline" to="impressum") Impressum
 
         v-row(class="pt-1")
           v-col(class="text-center") © by EC-Nordbund

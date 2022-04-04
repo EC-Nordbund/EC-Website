@@ -71,7 +71,7 @@ div
           h2#buchungsinformationen Buchungsinformationen
           p.mb-0 Das Ferienlager Karlsminde ist nur für den Sommerbetrieb konzipiert und wird in der Zeit von Mai bis September an Selbstversorgergruppen vermietet.
           p  Die aktuellen Preise können Sie unserer Preisliste entnehmen.
-          v-btn(tile depressed block to='/downloads/Dokumente/Karlsminde').mb-4 Preisliste
+          v-btn(tile depressed block to='downloads/Dokumente/Karlsminde').mb-4 Preisliste
           .font-italic Sollten Sie noch weitere Informationen benötigen, wenden Sie sich bitte an das Erholungs- & Bildungszentrum Wittensee, das für die Buchungen verantwortlich ist.
 
         v-col(cols="12" sm="6")
