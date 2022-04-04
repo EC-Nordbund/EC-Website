@@ -318,7 +318,6 @@ export default {
     base: process.env.EC_SET_BASE ?? '/'
   },
   publicRuntimeConfig: {
-    EC_BASE: process.env.EC_SET_BASE ?? '/',
-    IMAGE_PREPEND: (process.env.EC_SET_BASE ?? '/').slice(1)
+    EC_BASE: process.env.EC_SET_BASE ?? '/'
   }
 }

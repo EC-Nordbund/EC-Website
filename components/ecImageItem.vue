@@ -1,7 +1,7 @@
 <template lang="pug">
 .image-item-wrapper.secondary
   v-img(
-    :src='IMAGE_PREPEND + image',
+    :src='image',
     height='230',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.02) 64%, rgba(0,0,0,0.64) 92%'
   )
@@ -11,7 +11,7 @@
     v-card-subtitle.pb-2.secondary--text {{ subTitle }}
 </template>
 <script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -28,10 +28,5 @@ export default defineComponent({
       required: true,
     },
   },
-  setup() {
-    const { $config } = useContext()
-
-    return {IMAGE_PREPEND: $config.IMAGE_PREPEND}
-  }
 })
 </script>

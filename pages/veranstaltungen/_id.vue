@@ -2,7 +2,7 @@
 div
   //- cover
   v-img.white--text(
-    :src='IMAGE_PREPEND + page.featuredImage',
+    :src='page.featuredImage',
     height='420',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
   )
@@ -167,7 +167,7 @@ import { defineComponent, useStatic, useContext, useRoute, computed } from '@nux
 
 export default defineComponent({
   setup() {
-    const {$content, $config} = useContext()
+    const {$content} = useContext()
     const route = useRoute()
 
     const page = useStatic(id => {
@@ -175,8 +175,7 @@ export default defineComponent({
     }, computed(() => route.value.params.id), 'veranstaltung')
 
     return {
-      page,
-      IMAGE_PREPEND: $config.IMAGE_PREPEND
+      page
     }
   },
   head() {
