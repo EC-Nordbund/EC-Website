@@ -9,7 +9,7 @@ on:
 concurrency: ci
 
 env:
-  EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && '/${{github.ref_name}}/') || ((github.event_name != 'push') && '/${{github.event.client_payload.branch}}/')}}
+  EC_SET_BASE: ((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && '/${{github.ref_name}}/') || ((github.event_name != 'push') && '/${{github.event.client_payload.branch}}/')
   EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'static') && 'www') || ((github.event_name == 'push' && github.ref_name != 'static') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
 
 jobs:
@@ -23,14 +23,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: ${{github.event_name == 'push'}}
-      - name: debug
-        run: |
-          cd cms-content
-          git fetch
-          git branch -avv
-          git remote
       - name: Select cms-version
-        run: git clone --branch ${{github.event.client_payload.branch}} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
+        run: git clone --depth 1 --branch ${{github.event.client_payload.branch}} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
         if: github.event_name != 'push'
       - name: Install dependencies
         run: yarn
