@@ -78,7 +78,7 @@ div
             v-for='tag in page.tags',
             :key='tag'
           )
-            | {{ typeof tag === 'object' ? tag.tag : tag }}
+            | {{ (typeof tag === 'object') ? tag.tag : tag }}
 
   //- hardfacts
   .ec-gradient.text-subtitle-1.font-weight-normal
@@ -102,7 +102,7 @@ div
   ec-image-container#gallerie.scroll-to-me(
     v-if='page.images',
     :class='"angle--both-left-" + (page.preise || !(page.lat == 0 && page.long == 0) ? "left" : "right") + " clip-angle"',
-    :images='page.images.map(v=>typeof v === 'object' ? v.image : v)'
+    :images='page.images.map(v=>(typeof v === "object") ? v.image : v)'
   )
 
   //- preise

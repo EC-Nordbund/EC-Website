@@ -63,7 +63,7 @@
                   v-col(cols="12" lg="8" class="d-flex flex-wrap justify-md-end justify-lg-start mt-n1 mb-1")
                     //- TODO: colored tags
                     v-chip(color="secondary" text-color="primary" class="ml-2 mb-1 font-weight-medium" outlined small v-for="tag in item.tags" :key="tag")
-                      | {{ typeof tag === 'object' ? tag.tag : tag }}
+                      | {{ (typeof tag === 'object') ? tag.tag : tag }}
                     v-chip(color="secondary" text-color="primary" class="ml-2 mb-1 font-weight-medium" outlined small v-if="item.juleica")
                       | JuLeiCa-Fortbildung
 
