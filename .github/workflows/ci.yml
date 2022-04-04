@@ -22,7 +22,7 @@ jobs:
           node-version: 14
       - uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: ${{github.event_name == 'push'}}
       - name: debug
         run: |
           cd cms-content
@@ -30,8 +30,7 @@ jobs:
           git branch -avv
           git remote
       - name: Select cms-version
-        run: |
-          git submodule foreach git checkout -b ${{github.event.client_payload.branch}} --track origin/${{github.event.client_payload.branch}}
+        run: git clone --branch ${{github.event.client_payload.branch}} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
         if: github.event_name != 'push'
       - name: Install dependencies
         run: yarn
