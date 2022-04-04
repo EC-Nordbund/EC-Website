@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       url: [
         'https://lighthouse.ec-nordbund.de/',
-        'https://lighthouse.ec-nordbund.de/datenschutz',
+        'https://lighthouse.ec-nordbund.de/datenschutz/',
         'https://lighthouse.ec-nordbund.de/blog/',
         'https://lighthouse.ec-nordbund.de/veranstaltungen/',
       ]
