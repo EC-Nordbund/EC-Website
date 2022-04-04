@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      src='/hero-image.jpg',
+      :src='IMAGE_PREPEND + "/hero-image.jpg"',
       min-height='400px',
       height='60vh',
       width='auto',
@@ -139,7 +139,7 @@ import {
 import { useCurrentTime } from '~/helpers/current-time'
 export default defineComponent({
   setup() {
-    const { $content } = useContext()
+    const { $content, $config } = useContext()
 
     const pages_loading = useStatic(async () => {
       const todayStr = new Date().toISOString().substring(0, 10);
@@ -194,6 +194,7 @@ export default defineComponent({
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
+      IMAGE_PREPEND: $config.IMAGE_PREPEND
     }
   },
   head: {

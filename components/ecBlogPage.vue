@@ -16,7 +16,7 @@ v-container
           v-col.hellGrau(cols='12', sm='6', md='5', lg='4')
             //- image
             v-img.white--text(
-              :src='item.featuredImage',
+              :src='IMAGE_PREPEND + item.featuredImage',
               height='300',
               aspectRatio='1',
               gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 24%, rgba(0,0,0,0.02) 64%, rgba(0,0,0,0.24) 100%'
@@ -109,7 +109,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { $content } = useContext()
+    const { $content, $config } = useContext()
 
     const currPage = computed(() => props.page)
     const posts = useStatic(page => pagination.getPostsOfPage($content, parseInt(page)), currPage, 'blog-page')
@@ -121,7 +121,7 @@ export default defineComponent({
       router.push('/blog/' + newPage)
     }
 
-    return { posts, pageCount, pageChange, currPage }
+    return { posts, pageCount, pageChange, currPage, IMAGE_PREPEND: $config.IMAGE_PREPEND }
   },
   computed: {
     detailsMaxHeight() {
