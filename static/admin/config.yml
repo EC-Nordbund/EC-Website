@@ -36,7 +36,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'published', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: false }
+      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/blog', public_folder: 'blog', choose_url: false, allow_multiple: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'veranstaltungen'
     label: 'Veranstaltungen'
@@ -54,11 +54,11 @@ collections:
       - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD'}
       - { label: 'Ende', name: 'ende', widget: 'datetime', format: 'YYYY-MM-DD'}
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: false }
+      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/veranstaltungen', public_folder: 'veranstaltungen', choose_url: false, allow_multiple: false }
       - label: "Bilder"
         name: "images"
         widget: "list"
-        field: { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/img/veranstaltungen', public_folder: '/img/veranstaltungen', choose_url: false, allow_multiple: true }
+        field: { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/veranstaltungen', public_folder: 'veranstaltungen', choose_url: false, allow_multiple: true }
       - {label: "Ist Juleica Fortblidung", name: "juleica", widget: "boolean", default: false}
       - label: Veranstaltungsort
         name: location
