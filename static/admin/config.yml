@@ -28,10 +28,10 @@ collections:
     create: true
     delete: false
     slug: '{{year}}-{{slug}}'
-    preview_path: "blog/{{year}}-{{slug}}"
+    preview_path: "/cms/blog/{{year}}-{{slug}}/blog/{{year}}-{{slug}}"
     extension: md
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'published', widget: 'datetime' }
@@ -45,10 +45,10 @@ collections:
     create: true
     delete: false
     slug: '{{year}}{{slug}}'
-    preview_path: "veranstaltungen/{{year}}{{slug}}"
+    preview_path: "/cms/veranstaltungen/{{year}}{{slug}}/veranstaltungen/{{year}}{{slug}}"
     extension: md
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD'}
@@ -60,11 +60,6 @@ collections:
         widget: "list"
         field: { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/veranstaltungen', public_folder: 'veranstaltungen', choose_url: false, allow_multiple: true }
       - {label: "Ist Juleica Fortblidung", name: "juleica", widget: "boolean", default: false}
-      - label: Veranstaltungsort
-        name: location
-        widget: object
-        required: false
-        fields:
       - {label: "Veranstaltungsort", name: "veranstaltungsort", widget: "string" }
       - { label: "Breitengrad", name: "lat", widget: "string" }
       - { label: "Längengrad", name: "long", widget: "string" }
