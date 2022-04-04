@@ -16,18 +16,15 @@ module.exports = {
     assert: {
       preset: 'lighthouse:no-pwa',
       assertions: {
-        'categories:performance': ['error', { minScore: 0.5 }],
-        'categories:accessibility': ['error', { minScore: 0.92 }],
-        'categories:seo': ['error', { minScore: 0.92 }],
-        'categories:best-practices': ['error', { minScore: 0.92 }],
+        'categories:performance': ['error', { minScore: 0.3 }],
+        'categories:accessibility': ['error', { minScore: 0.98 }],
+        'categories:seo': ['error', { minScore: 1 }],
+        'categories:best-practices': ['error', { minScore: 1 }],
         /**
          * User Farbschema geht sonst nicht
          * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
          */
         'color-contrast': 'off',
-        // Geht in CI nicht
-        'redirects-http': 'off',
-        'uses-http2': 'off',
         // Zu viel unsed JS + CSS
         'unused-css-rules': 'warn',
         'unused-javascript': 'warn',
