@@ -9,8 +9,8 @@ publish_mode: editorial_workflow
 site_url: https://preview.ec-nordbund.de/
 show_preview_links: true
 
-media_folder: static/img
-public_folder: img
+media_folder: static/
+public_folder: ''
 locale: 'de'
 
 slug:
