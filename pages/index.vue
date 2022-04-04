@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      src='/hero-image.jpg',
+      src='hero-image.jpg',
       min-height='400px',
       height='60vh',
       width='auto',
