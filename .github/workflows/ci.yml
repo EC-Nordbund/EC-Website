@@ -6,7 +6,9 @@ on:
   repository_dispatch:
     types: [preview-content]
 
-concurrency: ci
+concurrency: 
+  group: ci-${{ github.event_name }}-${{(github.event_name == 'push' && 'push') || 'preview'}}-${{(github.event_name == 'push' && github.ref_name) || github.event.client_payload.branch}}
+  cancel-in-progress: true
 
 env:
   EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && format('/{0}/', github.ref_name)) || ((github.event_name != 'push') && format('/{0}/', github.event.client_payload.branch))}}
@@ -16,12 +18,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     
-    steps:
-      # Setup some vars
-      - id: TARGET_SUBDOMAIN
-        run: |
-          
-    
+    steps:    
       - uses: actions/setup-node@v2
         with:
           node-version: 14
@@ -67,24 +64,3 @@ jobs:
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ deployer@ec-nordbund.de:/samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}
-
-      - name: Re-Generate for Lighthouse
-        run: yarn generate
-        if: github.event_name == 'push' && github.ref_name != 'static'
-        env:
-          EC_SET_BASE: /
-
-      - name: Deploy to lighthouse.ec-nordbund.de
-        if: github.event_name == 'push'
-        run: |
-          rsync -chrvz --stats --delete \
-            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/ deployer@ec-nordbund.de:/samba_share/lighthouse.ec-nordbund.de
-
-      - name: Lighthouse Audits
-        if: github.event_name == 'push'
-        run: yarn lhci autorun
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
-          LHCI_TOKEN: ${{secrets.LHCI_TOKEN}}
-          CI: true

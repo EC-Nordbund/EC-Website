@@ -180,6 +180,7 @@ export default {
       { rel: 'icon', href: 'favicon_512.png', hid: 'favicon' },
       { rel: 'manifest', href: 'manifest.webmanifest' },
       { rel: 'apple-touch-icon', href: 'apple-icon.png' },
+      { rel: 'preconnect', href: 'https://losungen.ec-nordbund.de' },
     ],
   },
 
@@ -302,7 +303,7 @@ export default {
   },
   render: {
     bundleRenderer: {
-      shouldPreload: () => true,
+      // shouldPreload: () => true,
     },
   },
   generate: {

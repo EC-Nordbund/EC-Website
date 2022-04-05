@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       url: [
         'https://lighthouse.ec-nordbund.de/',
-        'https://lighthouse.ec-nordbund.de/datenschutz',
+        'https://lighthouse.ec-nordbund.de/datenschutz/',
         'https://lighthouse.ec-nordbund.de/blog/',
         'https://lighthouse.ec-nordbund.de/veranstaltungen/',
       ]
@@ -20,6 +20,7 @@ module.exports = {
         'categories:accessibility': ['error', { minScore: 0.98 }],
         'categories:seo': ['error', { minScore: 1 }],
         'categories:best-practices': ['error', { minScore: 1 }],
+        'csp-xss': 'warn',
         /**
          * User Farbschema geht sonst nicht
          * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
