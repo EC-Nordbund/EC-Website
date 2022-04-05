@@ -66,7 +66,7 @@
     v-checkbox(required v-model="data.tnBedingungen" @change="tnBedingungenEvent" :error-messages="tnBedingungenErrors")
       template(v-slot:label)
         p Ich erkenne die&nbsp;
-          a(href="/teilnahmebedingungen" target="_tn_bed" rel="noopener") Teilnahmebedingungen&nbsp;
+          a(href="teilnahmebedingungen" target="_tn_bed" rel="noopener") Teilnahmebedingungen&nbsp;
           | für Freizeiten an und melde mich hiermit verbindlich an. (ggf. Einverständnis des Erziehungsberechtigten)
     v-checkbox(required v-model="data.freizeitLeitung" @change="freizeitLeitungEvent" :error-messages="freizeitLeitungErrors" v-if="hatFreizeitleitung")
       template(v-slot:label)
