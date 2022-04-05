@@ -31,7 +31,7 @@ collections:
     preview_path: "/cms/blog/{{year}}-{{slug}}/blog/{{year}}-{{slug}}"
     extension: md
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'published', widget: 'datetime' }
@@ -48,7 +48,7 @@ collections:
     preview_path: "/cms/veranstaltungen/{{year}}{{slug}}/veranstaltungen/{{year}}{{slug}}"
     extension: md
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD'}
