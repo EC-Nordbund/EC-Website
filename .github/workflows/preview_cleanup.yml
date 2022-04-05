@@ -11,4 +11,4 @@ jobs:
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
-          ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "rm -r /samba_share/dev.ec-nordbund.de/${{ github.ref_name }}"
+          ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "rm -r /samba_share/dev.ec-nordbund.de/${{ github.event.ref }}"
