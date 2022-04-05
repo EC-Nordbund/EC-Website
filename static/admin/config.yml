@@ -9,15 +9,15 @@ publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
 show_preview_links: true
 
-media_folder: static/
-public_folder: ''
+media_folder: static/img
+public_folder: 'img/'
 locale: 'de'
 
 slug:
   encoding: ascii
   clean_accents: true
   sanitize_replacement: _
-  
+
 
 collections:
   - name: 'blog'
@@ -28,6 +28,8 @@ collections:
     delete: false
     slug: '{{year}}-{{slug}}'
     preview_path: "blog/{{slug}}"
+    media_folder: '/static/blog'
+    public_folder: 'blog'
     extension: md
     editor:
       preview: false
@@ -45,6 +47,8 @@ collections:
     delete: false
     slug: '{{year}}{{slug}}'
     preview_path: "veranstaltungen/{{slug}}"
+    media_folder: '/static/veranstaltungen'
+    public_folder: 'veranstaltungen'
     extension: md
     editor:
       preview: false
@@ -104,4 +108,3 @@ collections:
           - {label: "Hat Freizeitleitung Hinweis", name: "hatFreizeitleitung", widget: "boolean", default: false}
           - {label: "min Jahrgang", name: "jahrgangMin", widget: "number", default: false}
           - {label: "max Jahrgang", name: "jahrgangMax", widget: "number", default: false}
-          
