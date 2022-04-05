@@ -64,3 +64,14 @@ jobs:
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             ./dist/ deployer@ec-nordbund.de:/samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}
+
+      - name: Add deploy info
+        if: github.event_name == 'push'
+        uses: Sibz/github-status-action@v1
+        with: 
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'deploy'
+          description: Deployed on https://dev.ec-nordbund.de/${{github.ref_name}}
+          state: 'success'
+          target_url: https://dev.ec-nordbund.de/${{github.ref_name}}
+          sha: ${{github.sha}}
