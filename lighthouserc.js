@@ -21,6 +21,7 @@ module.exports = {
         'categories:seo': ['error', { minScore: 1 }],
         'categories:best-practices': ['error', { minScore: 1 }],
         'csp-xss': 'warn',
+        'valid-source-maps': 'warn',
         /**
          * User Farbschema geht sonst nicht
          * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
