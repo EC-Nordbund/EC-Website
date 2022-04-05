@@ -6,7 +6,7 @@ backend:
 
 
 publish_mode: editorial_workflow
-site_url: https://preview.ec-nordbund.de/
+site_url: https://www.ec-nordbund.de/
 show_preview_links: true
 
 media_folder: static/
@@ -19,7 +19,6 @@ slug:
   sanitize_replacement: _
   
 
-
 collections:
   - name: 'blog'
     label: 'Blog'
@@ -28,7 +27,7 @@ collections:
     create: true
     delete: false
     slug: '{{year}}-{{slug}}'
-    preview_path: "/cms/blog/{{year}}-{{slug}}/blog/{{year}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
     extension: md
     editor:
       preview: false
@@ -45,7 +44,7 @@ collections:
     create: true
     delete: false
     slug: '{{year}}{{slug}}'
-    preview_path: "/cms/veranstaltungen/{{year}}{{slug}}/veranstaltungen/{{year}}{{slug}}"
+    preview_path: "veranstaltungen/{{slug}}"
     extension: md
     editor:
       preview: false
