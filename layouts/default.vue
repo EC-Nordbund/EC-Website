@@ -91,7 +91,7 @@ v-app
           v-col(cols='1')
             v-btn(
               style='float: right; text-transform: none',
-              to='krisenintervention/',
+              to='/krisenintervention/',
               color='error',
               depressed,
               :x-small='$vuetify.breakpoint.smAndDown',
@@ -121,7 +121,7 @@ v-app
             v-btn.hidden-sm-and-down.mr-2(
               tile
               text,
-              to='blog/',
+              to='/blog/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Blog
@@ -130,7 +130,7 @@ v-app
             v-btn.hidden-sm-and-down.mr-2(
               tile
               text,
-              to='veranstaltungen/',
+              to='/veranstaltungen/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Veranstaltungen
@@ -139,7 +139,7 @@ v-app
             v-btn.hidden-sm-and-down.mr-2(
               tile
               text,
-              to='downloads/',
+              to='/downloads/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Downloads
@@ -148,7 +148,7 @@ v-app
             v-btn.hidden-sm-and-down.mr-2(
               tile,
               text,
-              to='shop/',
+              to='/shop/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Shop
@@ -157,7 +157,7 @@ v-app
             v-btn.hidden-sm-and-down.mr-2(
               tile
               text,
-              to='orte/karlsminde/',
+              to='/orte/karlsminde/',
               color='primary'
             )
               span.subtitle-1.text-capitalize.font-weight-medium Karlsminde
@@ -176,31 +176,31 @@ v-app
   v-navigation-drawer(app, right, temporary, v-model='drawer')
     v-list(nav)
     
-      v-list-item(link, to='blog/')
+      v-list-item(link, to='/blog/')
         v-list-item-icon
           v-icon mdi-post-outline
         v-list-item-content
           v-list-item-title Blog
 
-      v-list-item(link, to='veranstaltungen/')
+      v-list-item(link, to='/veranstaltungen/')
         v-list-item-icon
           v-icon mdi-calendar
         v-list-item-content
           v-list-item-title Veranstaltungen
 
-      v-list-item(link, to='downloads/')
+      v-list-item(link, to='/downloads/')
         v-list-item-icon
           v-icon mdi-cloud-download
         v-list-item-content
           v-list-item-title Downloads
 
-      v-list-item(link, to='shop/')
+      v-list-item(link, to='/shop/')
         v-list-item-icon
           v-icon mdi-basket
         v-list-item-content
           v-list-item-title Shop
 
-      v-list-item(link, to='orte/karlsminde/')
+      v-list-item(link, to='/orte/karlsminde/')
         v-list-item-icon
           v-icon mdi-home
         v-list-item-content
@@ -235,19 +235,19 @@ v-app
               v-list-item-content
                 v-list-item-title
                   | Startseite
-            v-list-item.ml-n4(to='downloads/')
+            v-list-item.ml-n4(to='/downloads/')
               v-list-item-content
                 v-list-item-title
                   | Downloads
-            v-list-item.ml-n4(to='teilnahmebedingungen/')
+            v-list-item.ml-n4(to='/teilnahmebedingungen/')
               v-list-item-content
                 v-list-item-title
                   | Teilnahmebedingungen
-            v-list-item.ml-n4(to='datenschutz')
+            v-list-item.ml-n4(to='/datenschutz')
               v-list-item-content
                 v-list-item-title
                   | Datenschutz
-            v-list-item.ml-n4(to='impressum')
+            v-list-item.ml-n4(to='/impressum')
               v-list-item-content
                 v-list-item-title
                   | Impressum
