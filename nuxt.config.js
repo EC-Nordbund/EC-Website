@@ -180,6 +180,7 @@ export default {
       { rel: 'icon', href: 'favicon_512.png', hid: 'favicon' },
       { rel: 'manifest', href: 'manifest.webmanifest' },
       { rel: 'apple-touch-icon', href: 'apple-icon.png' },
+      { rel: 'dns-prefetch', href: 'https://losungen.ec-nordbund.de' },
     ],
   },
 
