@@ -2164,10 +2164,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdi/js@npm:6.5.95":
-  version: 6.5.95
-  resolution: "@mdi/js@npm:6.5.95"
-  checksum: 16846f8ec49b43621a94a515a714b8ee4359e00aaf7371c1d73c983e3639693120c1228e7a1d05584e8bdfb0156ebbfeedadd7936041da5757ca436f434f0664
+"@mdi/js@npm:6.6.96":
+  version: 6.6.96
+  resolution: "@mdi/js@npm:6.6.96"
+  checksum: 405df5352471b1a176fe3bec9288ecc0ad48fb3417ac64a4eb18e688bcbc6d8e0d1763a36109328a586363b7098a57eb68c3a9a45aea0caa9894ce7c9a6b7aa7
   languageName: node
   linkType: hard
 
@@ -5955,7 +5955,7 @@ __metadata:
     "@ec-nordbund/vuetify-module": 0.4.3
     "@fontsource/montserrat": 4.5.7
     "@lhci/cli": 0.9.0
-    "@mdi/js": 6.5.95
+    "@mdi/js": 6.6.96
     "@nuxt/content": 1.15.1
     "@nuxt/types": 2.15.8
     "@nuxt/typescript-runtime": 2.1.0
