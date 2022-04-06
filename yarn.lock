@@ -3111,10 +3111,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:17.0.21":
-  version: 17.0.21
-  resolution: "@types/node@npm:17.0.21"
-  checksum: 723ec4551e972bee4c888329051be36d94670fdc5516a2870951702276775887bf4b16baf8e8e19382262666cadde15247b5c61b8120947ad5551b57fa0a6d8c
+"@types/node@npm:17.0.23":
+  version: 17.0.23
+  resolution: "@types/node@npm:17.0.23"
+  checksum: 95c250b6807bbbc83f6e395c95381c1b69c4a35e21a90e84c45b62ff10c6470b3c95bb18b05b7f270992ed8b519883a4080ac4f2332a2e45dfb36192a2284523
   languageName: node
   linkType: hard
 
@@ -5965,7 +5965,7 @@ __metadata:
     "@nuxtjs/eslint-config-typescript": 8.0.0
     "@nuxtjs/eslint-module": 3.0.2
     "@nuxtjs/sitemap": 2.4.0
-    "@types/node": 17.0.21
+    "@types/node": 17.0.23
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.26.0
     babel-eslint: 10.1.0

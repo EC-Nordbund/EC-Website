@@ -53,7 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
-            ["@types/node", "npm:17.0.21"],
+            ["@types/node", "npm:17.0.23"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.26.0"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
@@ -4350,10 +4350,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:17.0.21", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.21-7d68eb6a13-723ec4551e.zip/node_modules/@types/node/",
+        ["npm:17.0.23", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.23-167849e796-95c250b680.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:17.0.21"]
+            ["@types/node", "npm:17.0.23"]
           ],
           "linkType": "HARD",
         }]
@@ -7731,7 +7731,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nuxtjs/eslint-config-typescript", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.0.0"],
             ["@nuxtjs/eslint-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.0.2"],
             ["@nuxtjs/sitemap", "npm:2.4.0"],
-            ["@types/node", "npm:17.0.21"],
+            ["@types/node", "npm:17.0.23"],
             ["ackee-tracker", "https://github.com/electerious/ackee-tracker.git#commit=42ed6c800d925f7af3fe15ccfce1bc1fc7016eb2"],
             ["axios", "npm:0.26.0"],
             ["babel-eslint", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.1.0"],
