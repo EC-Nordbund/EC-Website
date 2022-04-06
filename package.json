@@ -25,7 +25,7 @@
     "@nuxtjs/composition-api": "0.32.0",
     "@nuxtjs/sitemap": "2.4.0",
     "ackee-tracker": "https://github.com/electerious/ackee-tracker.git#develop",
-    "axios": "0.26.0",
+    "axios": "0.26.1",
     "fiber": "1.0.4",
     "nuxt": "2.15.8",
     "remark": "13.0.0",
