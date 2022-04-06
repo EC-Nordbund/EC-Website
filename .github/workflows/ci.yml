@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'static') && '/') || ((github.event_name == 'push' && github.ref_name != 'static') && format('/{0}/', github.ref_name)) || ((github.event_name != 'push') && format('/{0}/', github.event.client_payload.branch))}}
-  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'static') && 'www') || ((github.event_name == 'push' && github.ref_name != 'static') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
+  EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'main') && '/') || ((github.event_name == 'push' && github.ref_name != 'main') && format('/{0}/', github.ref_name)) || ((github.event_name != 'push') && format('/{0}/', github.event.client_payload.branch))}}
+  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'main') && 'www') || ((github.event_name == 'push' && github.ref_name != 'main') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
 
 jobs:
   ci:
@@ -54,7 +54,7 @@ jobs:
           chmod 600 ./deploy_key
 
       - name: Ensure Folder
-        if: github.event_name != 'push' || github.ref_name != 'static'
+        if: github.event_name != 'push' || github.ref_name != 'main'
         run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
 
       - name: Deploy to ec-nordbund.de

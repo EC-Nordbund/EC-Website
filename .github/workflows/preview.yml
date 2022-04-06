@@ -2,7 +2,7 @@ name: Add checkout commands
 on: pull_request
 jobs:
   comment:
-    name: Add checkout commands
+    name: Add preview link
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
