@@ -64,7 +64,7 @@ jobs:
             ./dist/ deployer@ec-nordbund.de:/samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}
 
       - name: Add deploy info
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref_name != 'main'
         uses: Sibz/github-status-action@v1
         with: 
           authToken: ${{secrets.GITHUB_TOKEN}}
@@ -73,3 +73,4 @@ jobs:
           state: 'success'
           target_url: https://dev.ec-nordbund.de/${{github.ref_name}}
           sha: ${{github.sha}}
+
