@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: ${{github.event_name == 'push'}}
       - name: Select cms-version
