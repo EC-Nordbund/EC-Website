@@ -1,9 +1,7 @@
 <template lang="pug">
-template(v-if="isPost")
-  v-container(v-if="page")
+  ecBlogPage(:page="pageNum" v-if="isPagination")
+  v-container(v-else-if="page")
     nuxt-content(:document='page')
-template(v-else)
-  ecBlogPage(:page="pageNum")
 </template>
 <script>
 import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
@@ -14,17 +12,17 @@ export default defineComponent({
 
     const id = computed(() => route.value.params.id)
     const pageNum = computed(() => parseInt(id.value))
-    const isPost = computed(() => !/^\d+$/.test(id.value))
+    const isPagination = computed(() => /^\d+$/.test(id.value))
 
     const page = useStatic(id => {
-      if(!isPost.value) return null
+      if(!isPagination.value) return null
 
       return $content('blog', id).fetch()
     }, id, 'blog-post')
 
     
 
-    return { page, isPost, pageNum }
+    return { page, isPost: isPagination, pageNum }
   },
   head() {
     if(this.isPost) {
