@@ -66,7 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nuxt", "npm:2.15.8"],
             ["nuxt-build-optimisations", "npm:1.0.7"],
             ["package-info", "npm:4.0.1"],
-            ["prettier", "npm:2.5.1"],
+            ["prettier", "npm:2.6.2"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
@@ -7744,7 +7744,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nuxt", "npm:2.15.8"],
             ["nuxt-build-optimisations", "npm:1.0.7"],
             ["package-info", "npm:4.0.1"],
-            ["prettier", "npm:2.5.1"],
+            ["prettier", "npm:2.6.2"],
             ["pug", "npm:3.0.2"],
             ["pug-plain-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:1.1.0"],
             ["remark", "npm:13.0.0"],
@@ -9905,7 +9905,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", null],
             ["eslint", "npm:8.12.0"],
             ["eslint-config-prettier", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:8.5.0"],
-            ["prettier", "npm:2.5.1"],
+            ["prettier", "npm:2.6.2"],
             ["prettier-linter-helpers", "npm:1.0.0"]
           ],
           "packagePeers": [
@@ -16932,10 +16932,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:2.5.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-2.5.1-58b195b509-c4d3328cfd.zip/node_modules/prettier/",
+        ["npm:2.6.2", {
+          "packageLocation": "./.yarn/cache/prettier-npm-2.6.2-05918420da-10af3147ee.zip/node_modules/prettier/",
           "packageDependencies": [
-            ["prettier", "npm:2.5.1"]
+            ["prettier", "npm:2.6.2"]
           ],
           "linkType": "HARD",
         }]
