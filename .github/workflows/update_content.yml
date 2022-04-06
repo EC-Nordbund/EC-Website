@@ -22,7 +22,7 @@ jobs:
         run: git pull
         
       - name: Update submodules index
-        uses: stefanzweifel/git-auto-commit-action@v4.13.1
+        uses: stefanzweifel/git-auto-commit-action@v4.14.0
         with:
           commit_message: apply automatic changed content
           # branch: static
