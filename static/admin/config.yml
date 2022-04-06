@@ -4,7 +4,6 @@ backend:
   identity_url: https://gotrue.ec-nordbund.de
   gateway_url: https://gitnet.ec-nordbund.de
 
-
 publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
 show_preview_links: true
@@ -18,93 +17,312 @@ slug:
   clean_accents: true
   sanitize_replacement: _
 
-
 collections:
   - name: 'blog'
     label: 'Blog'
+    label_singular: 'Beitrag'
     folder: 'content/blog'
     format: 'frontmatter'
     create: true
     delete: false
     slug: '{{year}}-{{slug}}'
-    preview_path: "blog/{{slug}}"
+    preview_path: 'blog/{{slug}}'
     media_folder: '/static/blog'
     public_folder: 'blog'
     extension: md
     editor:
       preview: false
+    sortable_fields: ['published', 'title']
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'published', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/blog', public_folder: 'blog', choose_url: false, allow_multiple: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - {
+          label: 'Veröffenlicht am',
+          name: 'published',
+          widget: 'datetime',
+          format: 'YYYY-MM-DDTHH:mm:SS',
+          date_format: 'DD.MM.YYYY',
+          time_format: 'HH:mm',
+        }
+      - { label: 'Zusammenfassung', name: 'description', widget: 'text' }
+      - {
+          label: 'Titelbild',
+          name: 'featuredImage',
+          widget: 'image',
+          media_folder: '/static/blog',
+          public_folder: 'blog',
+          choose_url: false,
+          allow_multiple: false,
+        }
+      - { label: 'Beschreibung', name: 'body', widget: 'markdown' }
   - name: 'veranstaltungen'
     label: 'Veranstaltungen'
+    label_singular: 'Veranstaltung'
     folder: 'content/veranstaltung'
     format: 'frontmatter'
     create: true
     delete: false
     slug: '{{year}}{{slug}}'
-    preview_path: "veranstaltungen/{{slug}}"
+    preview_path: 'veranstaltungen/{{slug}}'
     media_folder: '/static/veranstaltungen'
     public_folder: 'veranstaltungen'
     extension: md
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD'}
-      - { label: 'Ende', name: 'ende', widget: 'datetime', format: 'YYYY-MM-DD'}
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Haupt-Bild', name: 'featuredImage', widget: 'image', media_folder: '/static/veranstaltungen', public_folder: 'veranstaltungen', choose_url: false, allow_multiple: false }
-      - label: "Bilder"
-        name: "images"
-        widget: "list"
-        field: { label: 'Bild', name: 'i', widget: 'image', media_folder: '/static/veranstaltungen', public_folder: 'veranstaltungen', choose_url: false, allow_multiple: true }
-      - {label: "Ist Juleica Fortblidung", name: "juleica", widget: "boolean", default: false}
-      - {label: "Veranstaltungsort", name: "veranstaltungsort", widget: "string" }
-      - { label: "Breitengrad", name: "lat", widget: "string" }
-      - { label: "Längengrad", name: "long", widget: "string" }
-      - {label: "Strasse", name: "strasse", widget: "string" }
-      - {label: "PLZ", name: "plz", widget: "string" }
-      - {label: "Ort", name: "ort", widget: "string" }
-      - {label: "min Alter", required: false, name: "minAlter", widget: "number", default: false}
-      - {label: "max Alter", required: false, name: "maxAlter", widget: "number", default: false}
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - {
+          label: 'Beginn',
+          name: 'begin',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+          date_format: 'DD.MM.YYYY',
+          time_format: false,
+        }
+      - {
+          label: 'Ende',
+          name: 'ende',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+          date_format: 'DD.MM.YYYY',
+          time_format: false,
+        }
+      - { label: 'Zusammenfassung', name: 'description', widget: 'text' }
+      - {
+          label: 'Titelbild',
+          name: 'featuredImage',
+          widget: 'image',
+          media_folder: '/static/veranstaltungen',
+          public_folder: 'veranstaltungen',
+          choose_url: false,
+          allow_multiple: false,
+        }
+      - label: 'Gallerie'
+        label_singular: Bild
+        name: 'images'
+        summary: '{{fields.i}}'
+        widget: 'list'
+        field:
+          {
+            label: 'Bild',
+            name: 'i',
+            widget: 'image',
+            media_folder: '/static/veranstaltungen',
+            public_folder: 'veranstaltungen',
+            choose_url: false,
+            allow_multiple: true,
+          }
+      - {
+          label: 'Ist Juleica Fortblidung',
+          name: 'juleica',
+          widget: 'boolean',
+          default: false,
+        }
+      - {
+          label: 'Veranstaltungsort',
+          name: 'veranstaltungsort',
+          widget: 'string',
+        }
+      - {
+          label: 'Breitengrad',
+          name: 'lat',
+          widget: 'string',
+          comment: 'Verwende z.B. latlong.net um den Breitengrad des Ortes nachzuschlagen.',
+        }
+      - {
+          label: 'Längengrad',
+          name: 'long',
+          widget: 'string',
+          comment: 'Verwende z.B. latlong.net um den Breitengrad des Ortes nachzuschlagen.',
+        }
+      - { label: 'Strasse + Hausnummer', name: 'strasse', widget: 'string' }
+      - { label: 'PLZ', name: 'plz', widget: 'string' }
+      - { label: 'Ort', name: 'ort', widget: 'string' }
+      - {
+          label: 'Mindestalter',
+          required: false,
+          name: 'minAlter',
+          value_type: int,
+          min: 0,
+          max: 99,
+          widget: 'number',
+          default: false,
+        }
+      - {
+          label: 'Höchstalter',
+          required: false,
+          name: 'maxAlter',
+          value_type: int,
+          min: 0,
+          max: 99,
+          widget: 'number',
+          default: false,
+        }
+        # TODO: make Tags a relational field or a selection of pre defined tags
       - label: Tags
+        label_singular: Tag
         name: tags
         widget: list
+        summary: '{{fields.tag}}'
         default: []
         field: { label: 'Tag', name: 'tag', widget: 'string' }
+      - { label: 'Beitrag', name: 'body', widget: 'markdown' }
       - label: Warteliste
         name: warteliste
         widget: object
         fields:
-          - {label: "Männlich", name: "männlich", widget: "boolean", default: false}
-          - {label: "Weiblich", name: "weiblich", widget: "boolean", default: false}
-          - {label: "Allgemein", name: "allgemein", widget: "boolean", default: false}
-      - label: Preise
+          - {
+              label: 'für alle weiteren Anmeldungen',
+              name: 'allgemein',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'für Anmeldungen von Männern',
+              name: 'männlich',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'für Anmeldungen von Frauen',
+              name: 'weiblich',
+              widget: 'boolean',
+              default: false,
+            }
+      - label: Preis-Staffel
+        label_singular: Preis
         name: preise
         widget: list
+        summary: '{{fields.label}}: {{fields.preis}} EUR'
         fields:
-          - { label: 'Begin', name: 'begin', widget: 'datetime', format: 'YYYY-MM-DD', required: false, default: null}
-          - { label: 'Ende', name: 'ende', widget: 'datetime', format: 'YYYY-MM-DD', required: false, default: null}
-          - { label: "Name", name: "label", widget: "string" }
-          - { label: "Preis", name: "preis", widget: "number" }
-      - label: Anmeldung
+          - {
+              label: 'Titel',
+              name: 'label',
+              widget: 'select',
+              options: ['Frühbucher', 'Normal', 'Last-Minute'],
+              default: 'Normal',
+            }
+          - {
+              label: 'Gilt ab',
+              name: 'begin',
+              widget: 'datetime',
+              format: 'YYYY-MM-DD',
+              date_format: 'DD.MM.YYYY',
+              time_format: false,
+              required: false,
+              default: null,
+            }
+          - {
+              label: 'Gilt bis',
+              name: 'ende',
+              widget: 'datetime',
+              format: 'YYYY-MM-DD',
+              date_format: 'DD.MM.YYYY',
+              time_format: false,
+              required: false,
+              default: null,
+            }
+          - {
+              label: 'Preis',
+              name: 'preis',
+              widget: 'number',
+              value_type: int,
+              min: 0,
+            }
+      - label: Anmelde-Formular
         name: anmeldung
         widget: object
         fields:
-          - {label: "Deaktiviert", name: "disabled", widget: "boolean", default: true}
-          - {label: "Start", name: "startAt", widget: "datetime", default: true, format: 'YYYY-MM-DDTHH:MM:SSZ'}
-          - {label: "Mit Essen", name: "hatEssen", widget: "boolean", default: false}
-          - {label: "Mit Gesundheitsinformationen", name: "hatGesundheit", widget: "boolean", default: false}
-          - {label: "Erlaubnis Boot", name: "hatErlaubnisBoot", widget: "boolean", default: false}
-          - {label: "Erlaubnis Klettern", name: "hatErlaubnisKlettern", widget: "boolean", default: false}
-          - {label: "Erlaubnis Fahrrad", name: "hatErlaubnisFahrrad", widget: "boolean", default: false}
-          - {label: "Erlaubnis Schwimmen", name: "hatErlaubnisSchwimmen", widget: "boolean", default: false}
-          - {label: "Erlaubnis sich in 3er Gruppen entfernen", name: "hatErlaubnisSichEntfernen", widget: "boolean", default: false}
-          - {label: "Erlaubnis Datenschutz TN-Liste", name: "hatFahrgemeinschaft", widget: "boolean", default: false}
-          - {label: "Hat Freizeitleitung Hinweis", name: "hatFreizeitleitung", widget: "boolean", default: false}
-          - {label: "min Jahrgang", name: "jahrgangMin", widget: "number", default: false}
-          - {label: "max Jahrgang", name: "jahrgangMax", widget: "number", default: false}
+          - {
+              label: 'Anmeldung sperren',
+              name: 'disabled',
+              widget: 'boolean',
+              default: true,
+            }
+          - {
+              label: 'Countdown für die Anmeldung',
+              comment: 'Erst nach dem Zeitpunkt ist eine Anmeldung möglich',
+              name: 'startAt',
+              widget: 'datetime',
+              date_format: 'DD.MM.YYYY',
+              time_format: 'HH:mm',
+              default: true,
+              format: 'YYYY-MM-DDTHH:mm:SSZ',
+            }
+          - {
+              label: 'Verpflegungspräferenzen mit abfragen',
+              comment: 'Grundsätzlich benötigt wenn für die Teilnehmer Essen zubereitet werden soll',
+              name: 'hatEssen',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Gesundheitsinformationen mit abfragen',
+              name: 'hatGesundheit',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Erlaubnis zum Boot fahren mit abfragen',
+              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              name: 'hatErlaubnisBoot',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Erlaubnis zum Klettern mit abfragen',
+              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              name: 'hatErlaubnisKlettern',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Erlaubnis zum Fahrradfahren mit abfragen',
+              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              name: 'hatErlaubnisFahrrad',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Erlaubnis zum Schwimmen mit abfragen',
+              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              name: 'hatErlaubnisSchwimmen',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Erlaubnis zum Entfernen mind. zu dritt mit abfragen',
+              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              name: 'hatErlaubnisSichEntfernen',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Zustimmung zur Übermittlung der Kontaktdaten an andere Teilnehmer einholen',
+              comment: 'z.B. zum bilden von Fahrgemeinschaften',
+              name: 'hatFahrgemeinschaft',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Hinweis zum Anweisen des Kindes den Anordungen des Freizeitleiters folge zu leisten',
+              comment: 'Grundsätzlich bei Freizeiten für Minderjährige benötigt',
+              name: 'hatFreizeitleitung',
+              widget: 'boolean',
+              default: false,
+            }
+          - {
+              label: 'Ab Jahrgang',
+              name: 'jahrgangMin',
+              value_type: int,
+              min: 1900,
+              widget: 'number',
+              default: false,
+            }
+          - {
+              label: 'bis Jahrgang',
+              name: 'jahrgangMax',
+              value_type: int,
+              min: 1900,
+              widget: 'number',
+              default: false,
+            }
