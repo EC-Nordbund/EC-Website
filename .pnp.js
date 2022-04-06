@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
-            ["@fontsource/montserrat", "npm:4.5.5"],
+            ["@fontsource/montserrat", "npm:4.5.7"],
             ["@lhci/cli", "npm:0.9.0"],
             ["@mdi/js", "npm:6.5.95"],
             ["@nuxt/content", "npm:1.15.1"],
@@ -3150,10 +3150,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@fontsource/montserrat", [
-        ["npm:4.5.5", {
-          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-4.5.5-8bc5948946-bbd1fc5b40.zip/node_modules/@fontsource/montserrat/",
+        ["npm:4.5.7", {
+          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-4.5.7-a0a4e35b76-0569d9f97c.zip/node_modules/@fontsource/montserrat/",
           "packageDependencies": [
-            ["@fontsource/montserrat", "npm:4.5.5"]
+            ["@fontsource/montserrat", "npm:4.5.7"]
           ],
           "linkType": "HARD",
         }]
@@ -7719,7 +7719,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ec-nordbund/nuxt-vue2-leaflet", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:3.2.1"],
             ["@ec-nordbund/typescript-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.0"],
             ["@ec-nordbund/vuetify-module", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:0.4.3"],
-            ["@fontsource/montserrat", "npm:4.5.5"],
+            ["@fontsource/montserrat", "npm:4.5.7"],
             ["@lhci/cli", "npm:0.9.0"],
             ["@mdi/js", "npm:6.5.95"],
             ["@nuxt/content", "npm:1.15.1"],

@@ -17,7 +17,7 @@
   "dependencies": {
     "@ec-nordbund/leaflet": "1.7.1-build-81dc2489",
     "@ec-nordbund/nuxt-vue2-leaflet": "3.2.1",
-    "@fontsource/montserrat": "4.5.5",
+    "@fontsource/montserrat": "4.5.7",
     "@mdi/js": "6.5.95",
     "@nuxt/content": "1.15.1",
     "@nuxt/typescript-runtime": "2.1.0",
