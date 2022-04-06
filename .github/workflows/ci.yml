@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+  repository_dispatch:
+    types: [preview-content]
+
+concurrency: 
+  group: ci-${{ github.event_name }}-${{(github.event_name == 'push' && 'push') || 'preview'}}-${{(github.event_name == 'push' && github.ref_name) || github.event.client_payload.branch}}
+  cancel-in-progress: true
+
+env:
+  EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'main') && '/') || ((github.event_name == 'push' && github.ref_name != 'main') && format('/{0}/', github.ref_name)) || ((github.event_name != 'push') && format('/{0}/', github.event.client_payload.branch))}}
+  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'main') && 'www') || ((github.event_name == 'push' && github.ref_name != 'main') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    
+    steps:    
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+        with:
+          submodules: ${{github.event_name == 'push'}}
+      - name: Select cms-version
+        run: git clone --depth 1 --branch ${{github.event.client_payload.branch}} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
+        if: github.event_name != 'push'
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Generate
+        run: yarn generate
+      - name: Symlinks
+        run: |
+          cp -r ./cms-content/static/blog ./_blog
+          cp -r ./cms-content/static/veranstaltungen ./_veranstaltungen
+          cp -r ./cms-content/static/download ./_download
+          cp -r ./cms-content/static/old ./_old
+          rm -r ./dist/blog
+          rm -r ./dist/veranstaltungen
+          rm -r ./dist/download
+          cp -r ./_blog ./dist/blog
+          cp -r ./_veranstaltungen ./dist/veranstaltungen
+          cp -r ./_download ./dist/download
+          cp -r ./_old ./dist/old
+
+      - name: Setup deploy
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+
+      - name: Ensure Folder
+        if: github.event_name != 'push' || github.ref_name != 'main'
+        run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
+
+      - name: Deploy to ec-nordbund.de
+        run: |
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/ deployer@ec-nordbund.de:/samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}
+
+      - name: Add deploy info
+        if: github.event_name == 'push' && github.ref_name != 'main'
+        uses: Sibz/github-status-action@v1
+        with: 
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'deploy'
+          description: Deployed on https://dev.ec-nordbund.de/${{github.ref_name}}
+          state: 'success'
+          target_url: https://dev.ec-nordbund.de/${{github.ref_name}}
+          sha: ${{github.sha}}
+

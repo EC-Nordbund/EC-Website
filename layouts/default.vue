@@ -279,19 +279,23 @@ export default defineComponent({
     const losungen = ref(null)
 
     onMounted(() => {
-      const today = `${new Date().getFullYear()}-${
-        new Date().getMonth() + 1 < 10
-          ? '0' + (new Date().getMonth() + 1)
-          : new Date().getMonth() + 1
-      }-${
-        new Date().getDate() < 10
-          ? '0' + new Date().getDate()
-          : new Date().getDate()
-      }`
+      const RIC = ('requestIdleCallback' in window) ? requestIdleCallback : (cb) => setTimeout(cb, 5000)
+      
+      RIC(() => {
+        const n = new Date()
+        const today = `${n.getFullYear()}-${n.getMonth() + 1 < 10
+            ? '0' + (n.getMonth() + 1)
+            : n.getMonth() + 1
+        }-${
+          n.getDate() < 10
+            ? '0' + n.getDate()
+            : n.getDate()
+        }`
 
-      get(`https://losungen.ec-nordbund.de/${today}.json`).then(
-        (v) => (losungen.value = v)
-      )
+        get(`https://losungen.ec-nordbund.de/${today}.json`).then(
+          (v) => (losungen.value = v)
+        )
+      })
     })
 
     const isStartPage = computed(() => ctx.root.$nuxt.$route.path == '/')

@@ -52,7 +52,7 @@
         v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
           v-row(no-gutters)
             v-col(cols="12" md="6" lg="4")
-              ec-image-item(:image="supportWebp() ? item.featuredImage.split('.')[0] + '.webp' : item.featuredImage" :title="item.title" :subTitle="`Vom ${item.begin.split('-').reverse().join('.')} bis ${item.ende.split('-').reverse().join('.')}`")
+              ec-image-item(:image="item.featuredImage" :title="item.title" :subTitle="`Vom ${item.begin.split('-').reverse().join('.')} bis ${item.ende.split('-').reverse().join('.')}`")
 
             //- white-area (bottom/right part)
             v-col(cols="12" md="6" lg="8" class="d-flex flex-column justify-space-between" :style="detailsMaxHeight")
@@ -63,7 +63,7 @@
                   v-col(cols="12" lg="8" class="d-flex flex-wrap justify-md-end justify-lg-start mt-n1 mb-1")
                     //- TODO: colored tags
                     v-chip(color="secondary" text-color="primary" class="ml-2 mb-1 font-weight-medium" outlined small v-for="tag in item.tags" :key="tag")
-                      | {{ tag }}
+                      | {{ (typeof tag === 'object') ? tag.tag : tag }}
                     v-chip(color="secondary" text-color="primary" class="ml-2 mb-1 font-weight-medium" outlined small v-if="item.juleica")
                       | JuLeiCa-Fortbildung
 
@@ -92,7 +92,6 @@ import {
   ref,
   watch
 } from '@nuxtjs/composition-api'
-import { supportWebp } from '../../helpers/webp'
 
 export default defineComponent({
   setup(props, ctx) {
@@ -278,7 +277,6 @@ export default defineComponent({
       textWaitingQueue,
       veranstaltungen,
       vDates,
-      supportWebp,
       filterScope,
       scopeMenu,
       customDateRange,

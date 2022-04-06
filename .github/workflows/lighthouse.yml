@@ -1,0 +1,56 @@
+name: Lighthouse
+
+on:
+  workflow_dispatch:
+  push:
+
+concurrency: lighthouse
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Generate
+        run: yarn generate
+      - name: Symlinks
+        run: |
+          cp -r ./cms-content/static/blog ./_blog
+          cp -r ./cms-content/static/veranstaltungen ./_veranstaltungen
+          cp -r ./cms-content/static/download ./_download
+          cp -r ./cms-content/static/old ./_old
+          rm -r ./dist/blog
+          rm -r ./dist/veranstaltungen
+          rm -r ./dist/download
+          cp -r ./_blog ./dist/blog
+          cp -r ./_veranstaltungen ./dist/veranstaltungen
+          cp -r ./_download ./dist/download
+          cp -r ./_old ./dist/old
+
+      - name: Setup deploy
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+
+      - name: Deploy to lighthouse.ec-nordbund.de
+        run: |
+          rsync -chrvz --stats --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            ./dist/ deployer@ec-nordbund.de:/samba_share/lighthouse.ec-nordbund.de
+
+      - name: Lighthouse Audits
+        run: yarn lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
+          LHCI_TOKEN: ${{secrets.LHCI_TOKEN}}
+          CI: true

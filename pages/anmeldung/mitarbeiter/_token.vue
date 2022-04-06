@@ -158,7 +158,7 @@ export default defineComponent({
         const ret = await post<{
           status: 'OK' | 'ERROR'
           context: string | string[]
-        }>('/api/anmeldung/ma/veranstaltung', submitData)
+        }>('/anmeldung/ma/veranstaltung', submitData)
         if (ret.status !== 'OK') {
           error.value = ret.context
         } else {
@@ -210,7 +210,7 @@ export default defineComponent({
 
       const valid = (
         await post<{ ok: boolean; ort: boolean }>(
-          '/api/anmeldung/ma/checkToken',
+          '/anmeldung/ma/checkToken',
           {
             token: ctx.parent?.$route.params.token,
           }

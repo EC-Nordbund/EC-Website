@@ -13,6 +13,13 @@ const createSitemapRoutes = async () => {
       lastmod: post.slug.startsWith('20') ? post.updatedAt : '2020-01-01',
     })
   }
+  
+  for (let i=1;i<=Math.ceil(posts.length/10); i++) {
+    routes.push({
+      url: `blog/${i}`,
+      lastmod: posts[0].updatedAt
+    })
+  }
 
   const veranstaltungen = await $content('veranstaltung').fetch()
 
@@ -82,7 +89,7 @@ const useCustomPath = !!process.env.EC_NUXT_CONTENT
  * @type {import('@nuxt/types').NuxtConfig}
  */
 export default {
-  target: 'server',
+  target: 'static',
   // modern: true,
   // ssr: process.env.NODE_ENV === 'production',
 
@@ -108,10 +115,7 @@ export default {
         theme: false,
       },
     },
-    dir: useCustomPath ? join(process.env.EC_NUXT_CONTENT, 'content') : 'content',
   },
-
-  dir: useCustomPath ? { static: join(process.env.EC_NUXT_CONTENT, 'static') } : undefined,
 
   head: {
     titleTemplate: (chunk) => {
@@ -173,9 +177,10 @@ export default {
     ],
 
     link: [
-      { rel: 'icon', href: '/favicon_512.png', hid: 'favicon' },
-      { rel: 'manifest', href: '/manifest.webmanifest' },
-      { rel: 'apple-touch-icon', href: '/apple-icon.png' },
+      { rel: 'icon', href: 'favicon_512.png', hid: 'favicon' },
+      { rel: 'manifest', href: 'manifest.webmanifest' },
+      { rel: 'apple-touch-icon', href: 'apple-icon.png' },
+      { rel: 'preconnect', href: 'https://losungen.ec-nordbund.de' },
     ],
   },
 
@@ -206,7 +211,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/analytics.ts', mode: 'client' },
-    { src: '~/plugins/swUpdate.ts', mode: 'client' },
+    //{ src: '~/plugins/swUpdate.ts', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -296,12 +301,22 @@ export default {
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
     extractCSS: false
   },
-  serverMiddleware: {
-    '/api': '~/api',
-  },
   render: {
     bundleRenderer: {
-      shouldPreload: () => false,
+      // shouldPreload: () => true,
     },
   },
+  generate: {
+    routes: async () => {
+      const res = (await createSitemapRoutes()).map(v=>v.url)
+      console.log(res.join('\n'))
+      return res
+    }
+  },
+  router: {
+    base: process.env.EC_SET_BASE ?? '/'
+  },
+  publicRuntimeConfig: {
+    EC_BASE: process.env.EC_SET_BASE ?? '/'
+  }
 }

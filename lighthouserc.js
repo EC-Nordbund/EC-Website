@@ -2,12 +2,11 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:3000/',
-        'http://localhost:3000/datenschutz',
-        'http://localhost:3000/blog/',
-        'http://localhost:3000/veranstaltungen/',
-      ],
-      startServerCommand: 'yarn start',
+        'https://lighthouse.ec-nordbund.de/',
+        'https://lighthouse.ec-nordbund.de/datenschutz/',
+        'https://lighthouse.ec-nordbund.de/blog/',
+        'https://lighthouse.ec-nordbund.de/veranstaltungen/',
+      ]
     },
     upload: {
       target: 'lhci',
@@ -17,30 +16,24 @@ module.exports = {
     assert: {
       preset: 'lighthouse:no-pwa',
       assertions: {
-        'categories:performance': ['error', { minScore: 0.5 }],
-        'categories:accessibility': ['error', { minScore: 0.92 }],
-        'categories:seo': ['error', { minScore: 0.92 }],
-        'categories:best-practices': ['error', { minScore: 0.92 }],
+        'categories:performance': ['error', { minScore: 0.3 }],
+        'categories:accessibility': ['error', { minScore: 0.98 }],
+        'categories:seo': ['error', { minScore: 1 }],
+        'categories:best-practices': ['error', { minScore: 1 }],
+        'csp-xss': 'warn',
+        'valid-source-maps': 'warn',
         /**
          * User Farbschema geht sonst nicht
          * https://web.dev/color-contrast/?utm_source=lighthouse&utm_medium=cli
          */
         'color-contrast': 'off',
-        // Geht in CI nicht
-        'redirects-http': 'off',
-        'uses-http2': 'off',
         // Zu viel unsed JS + CSS
         'unused-css-rules': 'warn',
         'unused-javascript': 'warn',
         // Sollte bald wieder rein
         'uses-optimized-images': 'warn',
         'content-width': 'warn',
-        'non-composited-animations': 'warn',
-        // Probleme in CI
-        'canonical': 'off',
-        // TODO: Missing Losung shouldbe fixed until Feb. 2022
-        'errors-in-console': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error',
-        'csp-xss': new Date().getTime() < Date.UTC(2022, 2, 1) ? 'off' : 'error'
+        'non-composited-animations': 'warn'
       },
     },
   },

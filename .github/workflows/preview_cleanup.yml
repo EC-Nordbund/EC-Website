@@ -1,0 +1,14 @@
+name: Cleanup Preview
+
+on: [delete]
+
+jobs:
+  deploy_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cleanup
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "rm -r /samba_share/dev.ec-nordbund.de/${{ github.event.ref }}"

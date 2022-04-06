@@ -2,7 +2,7 @@
 div
   //- cover
   v-img.white--text(
-    :src='supportWebp() ? page.featuredImage.split(".")[0] + ".webp" : page.featuredImage',
+    :src='page.featuredImage',
     height='420',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
   )
@@ -78,7 +78,7 @@ div
             v-for='tag in page.tags',
             :key='tag'
           )
-            | {{ tag }}
+            | {{ (typeof tag === 'object') ? tag.tag : tag }}
 
   //- hardfacts
   .ec-gradient.text-subtitle-1.font-weight-normal
@@ -102,7 +102,7 @@ div
   ec-image-container#gallerie.scroll-to-me(
     v-if='page.images',
     :class='"angle--both-left-" + (page.preise || !(page.lat == 0 && page.long == 0) ? "left" : "right") + " clip-angle"',
-    :images='page.images'
+    :images='page.images.map(v=>(typeof v === "object") ? v.image : v)'
   )
 
   //- preise
@@ -163,21 +163,19 @@ div
                   span.text-caption.text-uppercase(slot='units') {{ slotProp.unit }}
 </template>
 <script>
-import { supportWebp } from '../../helpers/webp'
+import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   setup() {
-    return {
-      supportWebp,
-    }
-  },
-  async asyncData({ $content, params, redirect, route }) {
-    try {
-      const page = await $content('veranstaltung', params.id).fetch()
+    const {$content} = useContext()
+    const route = useRoute()
 
-      return { page }
-    } catch (e) {
-      redirect('/404', { path: route.path })
+    const page = useStatic(id => {
+      return $content('veranstaltung', id).fetch()
+    }, computed(() => route.value.params.id), 'veranstaltung')
+
+    return {
+      page
     }
   },
   head() {
@@ -241,7 +239,7 @@ export default {
       ],
     }
   },
-}
+})
 </script>
 <style scoped>
 .description {

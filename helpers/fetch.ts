@@ -1,4 +1,4 @@
-const base = process.browser ? window.origin : 'http://localhost:3000'
+const base = 'https://api.ec-nordbund.de/nuxt'
 
 export async function get<T = {}>(url: string): Promise<T> {
   let fetch: Window['fetch']

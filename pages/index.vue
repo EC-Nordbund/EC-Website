@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      :src='heroImage()',
+      src='hero-image.jpg',
       min-height='400px',
       height='60vh',
       width='auto',
@@ -80,7 +80,7 @@
         )
           v-card(tile, hover, outlined, :to='`/veranstaltungen/${item.slug}`')
             ec-image-item(
-              :image='item.featuredImage.split(".")[0] + (supportWebp() ? ".webp" : ".jpg")',
+              :image='item.featuredImage',
               :title='item.title',
               :subTitle='`Vom ${item.begin.split("-").reverse().join(".")} bis ${item.ende.split("-").reverse().join(".")}`'
             )
@@ -137,7 +137,6 @@ import {
   computed,
 } from '@nuxtjs/composition-api'
 import { useCurrentTime } from '~/helpers/current-time'
-import { supportWebp } from '../helpers/webp'
 export default defineComponent({
   setup() {
     const { $content } = useContext()
@@ -193,8 +192,6 @@ export default defineComponent({
 
     return {
       pages,
-      supportWebp,
-      heroImage,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
     }
@@ -234,21 +231,10 @@ export default defineComponent({
         rel: 'canonical',
         href: 'https://www.ec-nordbund.de',
         hid: 'canonical',
-      },
-      {
-        rel: 'preload',
-        as: 'image',
-        href: heroImage()
       }
     ],
   },
 })
-
-export function heroImage() {
-      return supportWebp()
-        ? require('~/assets/img/hero-image.webp')
-        : require('~/assets/img/hero-image.jpg')
-    }
 </script>
 <style lang="scss" scoped>
 @import '~vuetify/src/styles/settings/_variables';
