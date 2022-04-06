@@ -66,6 +66,7 @@ export default defineComponent({
           {
             vmid: 'spreadshirt',
             src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
+            crossorigin: true,
             body: true,
             skip: !shopConfigAvalable.value,
             callback: () =>
