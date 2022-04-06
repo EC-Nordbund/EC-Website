@@ -5970,7 +5970,7 @@ __metadata:
     axios: 0.26.1
     babel-eslint: 10.1.0
     eslint: 8.9.0
-    eslint-config-prettier: 8.4.0
+    eslint-config-prettier: 8.5.0
     eslint-plugin-nuxt: 3.1.0
     eslint-plugin-prettier: 4.0.0
     fiber: 1.0.4
@@ -7603,14 +7603,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:8.4.0":
-  version: 8.4.0
-  resolution: "eslint-config-prettier@npm:8.4.0"
+"eslint-config-prettier@npm:8.5.0":
+  version: 8.5.0
+  resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: bbac2956fafbf58471ef5f29f1d29cbd9181bae8b2369c71fb9cc2a77960199ab00f07a001133ae2d502a439c9b426da3e974b9042ded6e78d183605f6513dde
+  checksum: ed43f6bfba9459c577e45c82cc38a17b55d3ad0329fd368fa625d6b8bf83afbb0f3eba875a02d336f0e8365526b459d68f1375f6236dbb45586cb4201f2730db
   languageName: node
   linkType: hard
 
