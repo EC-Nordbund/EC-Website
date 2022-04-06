@@ -2041,20 +2041,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@eslint/eslintrc@npm:1.1.0"
+"@eslint/eslintrc@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@eslint/eslintrc@npm:1.2.1"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
     espree: ^9.3.1
     globals: ^13.9.0
-    ignore: ^4.0.6
+    ignore: ^5.2.0
     import-fresh: ^3.2.1
     js-yaml: ^4.1.0
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: 819b7f9f7d23c0bc3465895ea9cb6791ec7ddc3ce4aa579c5b4bdfabebb2bda54642c8f242f618520d3a4c19c8ddc0a02b2187877e1d66935b0abc4636dbeea1
+  checksum: c86eba2508d4bf9baf996569e9143db8aa24bf989c9831fb5642ef99025ac4422b61e1de4ad2e9f08349479960a28123a23ac29f683b8e2e0359d2425828bc6b
   languageName: node
   linkType: hard
 
@@ -5969,7 +5969,7 @@ __metadata:
     ackee-tracker: "https://github.com/electerious/ackee-tracker.git#develop"
     axios: 0.26.1
     babel-eslint: 10.1.0
-    eslint: 8.9.0
+    eslint: 8.12.0
     eslint-config-prettier: 8.5.0
     eslint-plugin-nuxt: 3.1.0
     eslint-plugin-prettier: 4.0.0
@@ -7980,11 +7980,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.9.0":
-  version: 8.9.0
-  resolution: "eslint@npm:8.9.0"
+"eslint@npm:8.12.0":
+  version: 8.12.0
+  resolution: "eslint@npm:8.12.0"
   dependencies:
-    "@eslint/eslintrc": ^1.1.0
+    "@eslint/eslintrc": ^1.2.1
     "@humanwhocodes/config-array": ^0.9.2
     ajv: ^6.10.0
     chalk: ^4.0.0
@@ -8021,7 +8021,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 4c0fc0a846765770c4e3068cf66d8f9b786c215e6b4c787100896e099e7b53b9dc6b37b5f8f2c997fbd910451171c870ce23594a7055df0f6cab074c76e24c55
+  checksum: 8214be812ddc9c7554436030a952d6bcd0632057de93279ae1517d582aaed0e84072f18415c19464d185418833d62010cce3998729e2f404c3a42dea0f7f6696
   languageName: node
   linkType: hard
 
