@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build
-        run: yarn build
+        run: yarn generate
       - name: Symlinks
         run: |
           cp -r ./cms-content/static/blog ./_blog
