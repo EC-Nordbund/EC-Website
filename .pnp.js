@@ -75,7 +75,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
-            ["vue", "npm:2.6.12"],
+            ["vue", "npm:2.6.14"],
+            ["vue-server-renderer", "npm:2.6.14"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.6.4"],
             ["web-vitals", "npm:2.1.4"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
@@ -3789,7 +3790,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ufo", "npm:0.7.9"],
             ["unplugin-vue2-script-setup", "virtual:381fb837ea5f8046126f55a2389bc19407b1d35a479370909a308ac5d12df152cb6b4d3c951abf6d7ac81fa9bf10a5f94201165219df1f36fd73c89ee8a49980#npm:0.9.3"],
             ["upath", "npm:2.0.1"],
-            ["vue", "npm:2.6.12"]
+            ["vue", "npm:2.6.14"]
           ],
           "packagePeers": [
             "@nuxt/vue-app",
@@ -5091,7 +5092,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@vue/composition-api", "virtual:381fb837ea5f8046126f55a2389bc19407b1d35a479370909a308ac5d12df152cb6b4d3c951abf6d7ac81fa9bf10a5f94201165219df1f36fd73c89ee8a49980#npm:1.4.6"],
             ["@types/vue", null],
-            ["vue", "npm:2.6.12"]
+            ["vue", "npm:2.6.14"]
           ],
           "packagePeers": [
             "@types/vue",
@@ -7684,7 +7685,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass-loader", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:10.2.1"],
             ["typeface-montserrat", "npm:1.1.13"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
-            ["vue", "npm:2.6.12"],
+            ["vue", "npm:2.6.14"],
+            ["vue-server-renderer", "npm:2.6.14"],
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.6.4"],
             ["web-vitals", "npm:2.1.4"],
             ["webpack", "virtual:ed0c12df7a098576e3c13a77f871276aa289faf09766835ad32cbb232c538fb9cf32ac09cd177ebebf9082ac6e9fd06f49e4335c9b82cc5a45ca8a87603af185#npm:4.46.0"]
@@ -21031,6 +21033,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vue", "npm:2.6.12"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.6.14", {
+          "packageLocation": "./.yarn/cache/vue-npm-2.6.14-3223a78650-542787dc83.zip/node_modules/vue/",
+          "packageDependencies": [
+            ["vue", "npm:2.6.14"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["vue-client-only", [
@@ -21205,6 +21214,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map", "npm:0.5.6"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.6.14", {
+          "packageLocation": "./.yarn/cache/vue-server-renderer-npm-2.6.14-b742e56ecf-17d2a8ffba.zip/node_modules/vue-server-renderer/",
+          "packageDependencies": [
+            ["vue-server-renderer", "npm:2.6.14"],
+            ["chalk", "npm:1.1.3"],
+            ["hash-sum", "npm:1.0.2"],
+            ["he", "npm:1.2.0"],
+            ["lodash.template", "npm:4.5.0"],
+            ["lodash.uniq", "npm:4.5.0"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
+            ["serialize-javascript", "npm:3.1.0"],
+            ["source-map", "npm:0.5.6"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["vue-style-loader", [
@@ -21260,7 +21284,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vuetify", "virtual:9ebe11b0ec6507b561328bd9a0724bd794c187be68c72a186ea6431be1f6a4d04a2947dc65b8cedaafca3f6b14612c8805d0052689a000324448c3d335c93549#npm:2.6.4"],
             ["@types/vue", null],
-            ["vue", "npm:2.6.12"]
+            ["vue", "npm:2.6.14"]
           ],
           "packagePeers": [
             "@types/vue",
