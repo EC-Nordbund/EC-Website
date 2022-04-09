@@ -181,6 +181,7 @@ export default {
       { rel: 'manifest', href: 'manifest.webmanifest' },
       { rel: 'apple-touch-icon', href: 'apple-icon.png' },
       { rel: 'preconnect', href: 'https://losungen.ec-nordbund.de' },
+      { rel: 'preconnect', href: 'https://api.ec-nordbund.de' },
     ],
   },
 
