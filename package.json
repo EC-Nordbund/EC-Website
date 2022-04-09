@@ -24,7 +24,7 @@
     "@nuxt/vue-app": "2.15.8",
     "@nuxtjs/composition-api": "0.32.0",
     "@nuxtjs/sitemap": "2.4.0",
-    "ackee-tracker": "https://github.com/electerious/ackee-tracker.git#develop",
+    "ackee-tracker": "latest",
     "axios": "0.26.1",
     "fiber": "1.0.4",
     "nuxt": "2.15.8",
@@ -33,7 +33,8 @@
     "sass": "1.49.11",
     "sass-loader": "10.2.1",
     "typeface-montserrat": "1.1.13",
-    "vue": "2.6.12",
+    "vue": "2.6.14",
+    "vue-server-renderer": "2.6.14",
     "vuetify": "2.6.4",
     "web-vitals": "2.1.4"
   },
