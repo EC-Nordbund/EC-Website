@@ -1,5 +1,5 @@
 <template lang="pug">
-  iframe(src="https://shop.ec-nordbund.de/" style="width: 100%; border: none; margin: 0; padding: 0" :style="{height}")
+  iframe(src="https://shop.ec-nordbund.de/" style="width: 100%; border: none; margin: 0; padding: 0; min-height: 800px" :style="{height}")
 </template>
 
 <script lang="ts">
