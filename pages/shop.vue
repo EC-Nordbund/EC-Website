@@ -1,13 +1,25 @@
 <template lang="pug">
-  v-container(fluid).px-0
-    iframe(src="https://shop.ec-nordbund.de/" style="width: 100%;")
+  iframe(src="https://shop.ec-nordbund.de/" style="width: 100%; border: none; margin: 0; padding: 0" :style="{height}")
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, onMounted, onBeforeUnmount, ref } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {},
+  setup() {
+    let height = ref(`calc(100vh - 600px)`)
+
+    onMounted(() => {
+      height.value = `calc(100vh - ${document.getElementsByTagName('footer')[0].offsetHeight + document.getElementsByTagName('header')[0].offsetHeight + 10}px)`
+      document.body.parentElement!.style.overflow = 'hidden'
+    })
+
+    onBeforeUnmount(() => {
+      document.body.parentElement!.style.overflow = null as any
+    })
+
+    return { height }
+  },
    head: {
     title: 'EC-Shop',
     meta: [
