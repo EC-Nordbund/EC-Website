@@ -1,6 +1,6 @@
 <template lang="pug">
-v-container(fluid).px-0
-  ec-spreadshirt-shop(shopName="nordbund", shopUrl="https://nordbund.myspreadshop.de")
+  v-container(fluid).px-0
+    iframe(src="https://shop.ec-nordbund.de/" style="width: 100%;")
 </template>
 
 <script lang="ts">
