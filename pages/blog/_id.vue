@@ -15,7 +15,7 @@ export default defineComponent({
     const isPagination = computed(() => /^\d+$/.test(id.value))
 
     const page = useStatic(id => {
-      if(!isPagination.value) return null
+      if(isPagination.value) return null
 
       return $content('blog', id).fetch()
     }, id, 'blog-post')
