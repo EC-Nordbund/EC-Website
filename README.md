@@ -12,5 +12,4 @@ $ yarn dev
 # build for production and launch preview server
 $ yarn generate
 $ yarn start
-
 ```
