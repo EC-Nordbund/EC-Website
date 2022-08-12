@@ -5,6 +5,9 @@ on:
   push:
   repository_dispatch:
     types: [preview-content]
+  schedule:
+    # runs on begin (local time, depends on daylight savings times) of every day
+    - cron: '30 2 * * *'
 
 concurrency: 
   group: ci-${{ github.event_name }}-${{(github.event_name == 'push' && 'push') || 'preview'}}-${{(github.event_name == 'push' && github.ref_name) || github.event.client_payload.branch}}
