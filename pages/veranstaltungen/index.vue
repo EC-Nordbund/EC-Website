@@ -52,7 +52,7 @@
         v-card(outlined tile hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
           v-row(no-gutters)
             v-col(cols="12" md="6" lg="4")
-              ec-image-item(:image="item.featuredImage" :title="item.title" :subTitle="`Vom ${item.begin.split('-').reverse().join('.')} bis ${item.ende.split('-').reverse().join('.')}`")
+              ec-image-item(:image="item.featuredImage" :title="item.title" :subTitle="`Vom ${item.begin.split('T')[0].split('-').reverse().join('.')} bis ${item.ende.split('T')[0].split('-').reverse().join('.')}`")
 
             //- white-area (bottom/right part)
             v-col(cols="12" md="6" lg="8" class="d-flex flex-column justify-space-between" :style="detailsMaxHeight")
