@@ -193,10 +193,10 @@ export default defineComponent({
           property: 'og:title',
           content:
             this.page.title +
-            ` (${this.page.begin
+            ` (${this.page.begin.split('T')[0]
               .split('-')
               .reverse()
-              .join('.')} - ${this.page.ende.split('-').reverse().join('.')})`,
+              .join('.')} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
         },
         {
           hid: 'og:description',
@@ -209,10 +209,10 @@ export default defineComponent({
           name: 'twitter:title',
           content:
             this.page.title +
-            ` (${this.page.begin
+            ` (${this.page.begin.split('T')[0]
               .split('-')
               .reverse()
-              .join('.')} - ${this.page.ende.split('-').reverse().join('.')})`,
+              .join('.')} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
         },
         {
           hid: 'twitter:description',
