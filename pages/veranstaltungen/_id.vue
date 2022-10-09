@@ -87,7 +87,7 @@ div
         //- Datum
         .text-no-wrap(v-if='page.begin || page.ende')
           v-icon.mr-2 mdi-calendar
-          | Vom {{ page.begin.split("-").reverse().join(".") }} bis {{ page.ende.split("-").reverse().join(".") }}
+          | Vom {{ page.begin.split('T')[0].split("-").reverse().join(".") }} bis {{ page.ende.split('T')[0].split("-").reverse().join(".") }}
 
         //- Ort
         .text-no-wrap(v-if='page.veranstaltungsort')
