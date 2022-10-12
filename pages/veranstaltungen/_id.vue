@@ -106,7 +106,7 @@ div
   )
 
   //- preise
-  .angle--both-right-left(v-if='page.preise', style='background: #f5f5f5')
+  .angle--both-right-left(v-if='page.preise && page.preise.length > 0', style='background: #f5f5f5')
     v-container(py-0)#preise.scroll-to-me
       v-row(no-gutters, justify='center')
         v-col(cols='12', md='9')
@@ -134,7 +134,7 @@ div
     )
 
   //- anmeldung
-  v-container#anmeldung.scroll-to-me(v-if='page.anmeldung')
+  v-container#anmeldung.scroll-to-me(v-if='showAnmeldung')
     h2.mb-2.text-center Anmeldung
     ec-anmeldung(
       v-bind='page.anmeldung',
@@ -174,8 +174,22 @@ export default defineComponent({
       return $content('veranstaltung', id).fetch()
     }, computed(() => route.value.params.id), 'veranstaltung')
 
+  
+    const showAnmeldung = computed(() => {
+      // Anmeldung ist vorhanden
+      if (page.value.anmeldung) {
+        const anmeldung = page.value.anmeldung
+        if (anmeldung.visible != undefined) {
+          return anmeldung.visible
+        }
+        return true
+      }
+      return false
+    })
+
     return {
-      page
+      page,
+      showAnmeldung
     }
   },
   head() {
