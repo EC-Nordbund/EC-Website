@@ -135,12 +135,14 @@ collections:
           label: 'Breitengrad',
           name: 'lat',
           widget: 'string',
+          default: 0,
           hint: 'Verwende z.B. [latlong.net](https://www.latlong.net/) um den Breitengrad des Ortes nachzuschlagen.',
         }
       - {
           label: 'Längengrad',
           name: 'long',
           widget: 'string',
+          default: 0,
           hint: 'Verwende z.B. [latlong.net](https://www.latlong.net/) um den Längengrad des Ortes nachzuschlagen.',
         }
       - { label: 'Strasse + Hausnummer', name: 'strasse', widget: 'string', required: false }
@@ -267,7 +269,9 @@ collections:
               date_format: 'DD.MM.YYYY',
               time_format: 'HH:mm',
               default: "",
+              required: false,
               format: 'YYYY-MM-DDTHH:mm:SSZ',
+              picker_utc: false
             }
           - {
               label: 'Verpflegungspräferenzen mit abfragen',
