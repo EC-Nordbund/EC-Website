@@ -58,7 +58,7 @@ jobs:
 
       - name: Ensure Folder
         if: github.event_name != 'push' || github.ref_name != 'main'
-        run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /samba_share/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
+        run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /webpage/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
 
       - name: Deploy to ec-nordbund.de
         run: |
