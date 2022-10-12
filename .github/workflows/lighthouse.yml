@@ -44,7 +44,7 @@ jobs:
         run: |
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/ deployer@ec-nordbund.de:/samba_share/lighthouse.ec-nordbund.de
+            ./dist/ deployer@ec-nordbund.de:/webpage/lighthouse.ec-nordbund.de
 
       - name: Lighthouse Audits
         run: yarn lhci autorun
