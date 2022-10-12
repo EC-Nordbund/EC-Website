@@ -3,6 +3,10 @@ backend:
   branch: main
   identity_url: https://gotrue.ec-nordbund.de
   gateway_url: https://gitnet.ec-nordbund.de
+  squash_merges: true
+
+# do not commit
+local_backend: true
 
 publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
@@ -22,6 +26,7 @@ collections:
     label: 'Blog'
     label_singular: 'Beitrag'
     folder: 'content/blog'
+    path: 'content/blog/'
     format: 'frontmatter'
     create: true
     delete: false
@@ -69,6 +74,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: 'ID', name: 'veranstaltungsID', widget: 'hidden', default: '', required: false }
       - { label: 'Titel', name: 'title', widget: 'string' }
       - {
           label: 'Beginn',
@@ -77,6 +83,7 @@ collections:
           format: 'YYYY-MM-DD',
           date_format: 'DD.MM.YYYY',
           time_format: false,
+          default: ""
         }
       - {
           label: 'Ende',
@@ -85,8 +92,9 @@ collections:
           format: 'YYYY-MM-DD',
           date_format: 'DD.MM.YYYY',
           time_format: false,
+          default: ""
         }
-      - { label: 'Zusammenfassung', name: 'description', widget: 'text' }
+      - { label: 'Zusammenfassung', name: 'description', widget: 'text', pattern: ['^.{0,512}$', 'max. 512 Zeichen'], hint: 'Kurze und beschreibende Zusammenfassung der Veranstaltung'}
       - {
           label: 'Titelbild',
           name: 'featuredImage',
@@ -121,22 +129,23 @@ collections:
           label: 'Veranstaltungsort',
           name: 'veranstaltungsort',
           widget: 'string',
+          hint: 'Name des Veranstaltungsortes'
         }
       - {
           label: 'Breitengrad',
           name: 'lat',
           widget: 'string',
-          comment: 'Verwende z.B. latlong.net um den Breitengrad des Ortes nachzuschlagen.',
+          hint: 'Verwende z.B. [latlong.net](https://www.latlong.net/) um den Breitengrad des Ortes nachzuschlagen.',
         }
       - {
           label: 'Längengrad',
           name: 'long',
           widget: 'string',
-          comment: 'Verwende z.B. latlong.net um den Breitengrad des Ortes nachzuschlagen.',
+          hint: 'Verwende z.B. [latlong.net](https://www.latlong.net/) um den Längengrad des Ortes nachzuschlagen.',
         }
-      - { label: 'Strasse + Hausnummer', name: 'strasse', widget: 'string' }
-      - { label: 'PLZ', name: 'plz', widget: 'string' }
-      - { label: 'Ort', name: 'ort', widget: 'string' }
+      - { label: 'Strasse + Hausnummer', name: 'strasse', widget: 'string', required: false }
+      - { label: 'PLZ', name: 'plz', widget: 'string', required: false }
+      - { label: 'Ort', name: 'ort', widget: 'string', required: false }
       - {
           label: 'Mindestalter',
           required: false,
@@ -165,34 +174,38 @@ collections:
         summary: '{{fields.tag}}'
         default: []
         field: { label: 'Tag', name: 'tag', widget: 'string' }
-      - { label: 'Beitrag', name: 'body', widget: 'markdown' }
-      - label: Warteliste
+      - { label: 'Beschreibung', name: 'body', widget: 'markdown' }
+      - label: Wartelisten-Hinweise
         name: warteliste
+        collapsed: true
         widget: object
+        hint: "**Achtung:** Diese Einstellungen hinterlegen jeweils nur einen Hinweis auf der Website. Die tatsächliche Wartelisten-Einstellung geschieht in der Verwaltung."
         fields:
           - {
-              label: 'für alle weiteren Anmeldungen',
+              label: 'Allgemeinen Wartelisten-Hinweis anzeigen',
               name: 'allgemein',
               widget: 'boolean',
               default: false,
             }
           - {
-              label: 'für Anmeldungen von Männern',
+              label: 'Wartelisten-Hinweis nur für Anmeldungen von Männern anzeigen',
               name: 'männlich',
               widget: 'boolean',
               default: false,
             }
           - {
-              label: 'für Anmeldungen von Frauen',
+              label: 'Wartelisten-Hinweis nur für Anmeldungen von Frauen anzeigen',
               name: 'weiblich',
               widget: 'boolean',
               default: false,
             }
-      - label: Preis-Staffel
+      - label: Preise
         label_singular: Preis
         name: preise
         widget: list
         summary: '{{fields.label}}: {{fields.preis}} EUR'
+        default: []
+        hint: 'Keine Preise = Veranstaltung ist kostenlos.'
         fields:
           - {
               label: 'Titel',
@@ -233,24 +246,32 @@ collections:
         widget: object
         fields:
           - {
+              label: 'Anmelde-Formular sichtbar',
+              name: 'visible',
+              widget: 'boolean',
+              default: false,
+              hint: 'Aktiviere diese Option damit das Anmelde-Formular auf der Veranstaltungsseite angezeigt wird.'
+            }
+          - {
               label: 'Anmeldung sperren',
               name: 'disabled',
               widget: 'boolean',
               default: true,
+              hint: 'Solange noch an dem Formular oder Veranstaltungsdaten gearbeitet wird, kann diese Option aktiviert werden um Anmeldungen in diesem Zeitraum zu verhindern.'
             }
           - {
               label: 'Countdown für die Anmeldung',
-              comment: 'Erst nach dem Zeitpunkt ist eine Anmeldung möglich',
+              hint: 'Zeigt anstelle des Formulars einen Countdown an und ermöglicht eine Anmeldung erst nach dem angegebenen Zeitpunkt. Um den Countdown zu "deaktivieren", setzte ihn auf ein Datum in der Verangenheit.',
               name: 'startAt',
               widget: 'datetime',
               date_format: 'DD.MM.YYYY',
               time_format: 'HH:mm',
-              default: true,
+              default: "",
               format: 'YYYY-MM-DDTHH:mm:SSZ',
             }
           - {
               label: 'Verpflegungspräferenzen mit abfragen',
-              comment: 'Grundsätzlich benötigt wenn für die Teilnehmer Essen zubereitet werden soll',
+              hint: 'Grundsätzlich benötigt wenn für die Teilnehmer Essen zubereitet werden soll',
               name: 'hatEssen',
               widget: 'boolean',
               default: false,
@@ -263,49 +284,49 @@ collections:
             }
           - {
               label: 'Erlaubnis zum Boot fahren mit abfragen',
-              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              hint: 'Ggf. relevant für Anmeldungen von Minderjährigen',
               name: 'hatErlaubnisBoot',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Erlaubnis zum Klettern mit abfragen',
-              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              hint: 'Ggf. relevant für Anmeldungen von Minderjährigen',
               name: 'hatErlaubnisKlettern',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Erlaubnis zum Fahrradfahren mit abfragen',
-              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              hint: 'Ggf. relevant für Anmeldungen von Minderjährigen',
               name: 'hatErlaubnisFahrrad',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Erlaubnis zum Schwimmen mit abfragen',
-              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              hint: 'Ggf. relevant für Anmeldungen von Minderjährigen',
               name: 'hatErlaubnisSchwimmen',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Erlaubnis zum Entfernen mind. zu dritt mit abfragen',
-              comment: 'Ggf. relevant für Anmeldungen von Minderjährigen',
+              hint: 'Ggf. relevant für Anmeldungen von Minderjährigen',
               name: 'hatErlaubnisSichEntfernen',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Zustimmung zur Übermittlung der Kontaktdaten an andere Teilnehmer einholen',
-              comment: 'z.B. zum bilden von Fahrgemeinschaften',
+              hint: 'z.B. zum bilden von Fahrgemeinschaften',
               name: 'hatFahrgemeinschaft',
               widget: 'boolean',
               default: false,
             }
           - {
               label: 'Hinweis zum Anweisen des Kindes den Anordungen des Freizeitleiters folge zu leisten',
-              comment: 'Grundsätzlich bei Freizeiten für Minderjährige benötigt',
+              hint: 'Grundsätzlich bei Freizeiten für Minderjährige benötigt',
               name: 'hatFreizeitleitung',
               widget: 'boolean',
               default: false,
@@ -316,7 +337,7 @@ collections:
               value_type: int,
               min: 1900,
               widget: 'number',
-              default: false,
+              required: false,
             }
           - {
               label: 'bis Jahrgang',
@@ -324,5 +345,5 @@ collections:
               value_type: int,
               min: 1900,
               widget: 'number',
-              default: false,
+              required: false,
             }
