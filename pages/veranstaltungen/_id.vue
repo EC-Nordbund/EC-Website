@@ -106,7 +106,7 @@ div
   )
 
   //- preise
-  .angle--both-right-left(v-if='page.preise?.length > 0', style='background: #f5f5f5')
+  .angle--both-right-left(v-if='page.preise && page.preise.length > 0', style='background: #f5f5f5')
     v-container(py-0)#preise.scroll-to-me
       v-row(no-gutters, justify='center')
         v-col(cols='12', md='9')
