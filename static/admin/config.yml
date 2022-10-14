@@ -5,9 +5,6 @@ backend:
   gateway_url: https://gitnet.ec-nordbund.de
   squash_merges: true
 
-# do not commit
-local_backend: true
-
 publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
 show_preview_links: true
