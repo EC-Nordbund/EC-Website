@@ -80,7 +80,8 @@ collections:
           widget: 'readonly',
           default: '',
           placeholder: 'keine',
-          hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'}
+          hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'
+        }
       - { label: 'Titel', name: 'title', widget: 'string' }
       - {
           label: 'Beginn',
