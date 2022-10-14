@@ -5,6 +5,9 @@ backend:
   gateway_url: https://gitnet.ec-nordbund.de
   squash_merges: true
 
+# only uncommet locally!
+# local_backend: true
+
 publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
 show_preview_links: true
@@ -71,7 +74,13 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'ID', name: 'veranstaltungsID', widget: 'hidden', default: '', required: false }
+      - {
+          label: 'ID der Veranstaltung in der Verwaltung',
+          name: 'veranstaltungsID',
+          widget: 'readonly',
+          default: '',
+          placeholder: 'keine',
+          hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'}
       - { label: 'Titel', name: 'title', widget: 'string' }
       - {
           label: 'Beginn',
