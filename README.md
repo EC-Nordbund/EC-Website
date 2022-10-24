@@ -14,4 +14,4 @@ $ yarn generate
 $ yarn start
 ```
 
-bump for action 1
+bump for action 2
