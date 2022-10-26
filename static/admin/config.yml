@@ -5,6 +5,7 @@ backend:
   gateway_url: https://gitnet.ec-nordbund.de
   squash_merges: true
 
+# see https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 # only uncommet locally!
 # local_backend: true
 
@@ -79,6 +80,7 @@ collections:
           name: 'veranstaltungsID',
           widget: 'readonly',
           default: '',
+          required: false,
           placeholder: 'keine',
           hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'
         }
@@ -259,18 +261,18 @@ collections:
               name: 'visible',
               widget: 'boolean',
               default: false,
-              hint: 'Aktiviere diese Option damit das Anmelde-Formular auf der Veranstaltungsseite angezeigt wird.'
+              hint: 'Aktiviere diese Option um eine anmeldung für die Veranstaltung grundsätzlich zu ermöglichen.'
             }
           - {
               label: 'Anmeldung sperren',
               name: 'disabled',
               widget: 'boolean',
-              default: true,
-              hint: 'Solange noch an dem Formular oder Veranstaltungsdaten gearbeitet wird, kann diese Option aktiviert werden um Anmeldungen in diesem Zeitraum zu verhindern.'
+              default: false,
+              hint: 'Zeigt anstelle des Anmelde-Formulars einen Hinweis an, dass die Anmeldung zur Zeit gesperrt ist.'
             }
           - {
               label: 'Countdown für die Anmeldung',
-              hint: 'Zeigt anstelle des Formulars einen Countdown an und ermöglicht eine Anmeldung erst nach dem angegebenen Zeitpunkt. Um den Countdown zu "deaktivieren", setzte ihn auf ein Datum in der Verangenheit.',
+              hint: 'Zeigt anstelle des Anmelde-Formulars einen Countdown an und ermöglicht eine Anmeldung erst nach dem angegebenen Zeitpunkt. Um den Countdown zu "deaktivieren", setzte ihn auf ein Datum in der Verangenheit.',
               name: 'startAt',
               widget: 'datetime',
               date_format: 'DD.MM.YYYY',
