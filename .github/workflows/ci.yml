@@ -21,7 +21,7 @@ env:
   # 1.  case CMS-Preview  (repository_dispatch event)   =>  /<event.client_payload.branch>/ (takes branch name for content repo)
   # 2.  case PROD         (main branch)                 =>  /
   # 3.  otherwise                                       =>  /<branch_name>
-  EC_SET_BASE: ${{ ((github.event_name == 'repository_dispatch') && format('/{0}/', github.event.client_payload.branch)) || (github.ref_name == 'main') && '/') || format('/{0}/', github.ref_name) }}
+  EC_SET_BASE: ${{ ((github.event_name == 'repository_dispatch') && format('/{0}/', github.event.client_payload.branch)) || ((github.ref_name == 'main') && '/') || format('/{0}/', github.ref_name) }}
 
   # BUILD DEPLOY TARGET PREFIX depending on the following cases:
   # 1.  case CMS-Preview  (repository_dispatch event)   =>  preview
