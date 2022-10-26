@@ -32,11 +32,11 @@ env:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    
-    env:
-      EC_DEPLOY_PATH: /webpage/${{ env.EC_DEPLOY_SUBDOMAIN }}.ec-nordbund.de${{ env.EC_SET_BASE }}
 
     steps:
+      - name: Set EC_DEPLOY_PATH variable
+        # see https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
+        run: echo "EC_DEPLOY_PATH=/webpage/${{ env.EC_DEPLOY_SUBDOMAIN }}.ec-nordbund.de${{ env.EC_SET_BASE }}" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version: 14
