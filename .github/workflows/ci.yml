@@ -3,34 +3,49 @@ name: CI
 on:
   workflow_dispatch:
   push:
+  # on updates from EC-Nordbund/EC-Webiste-Content repository
   repository_dispatch:
     types: [preview-content]
   schedule:
     # runs on begin (local time, depends on daylight savings times) of every day
     - cron: '30 2 * * *'
 
-concurrency: 
-  group: ci-${{ github.event_name }}-${{(github.event_name == 'push' && 'push') || 'preview'}}-${{(github.event_name == 'push' && github.ref_name) || github.event.client_payload.branch}}
+concurrency:
+  # no concurrent ci builds for same branch
+  group: ci-${{ (github.event_name == 'repository_dispatch' && github.event.client_payload.branch) || github.ref_name }}
+  # cancel currently running deployments if a new deployment on the same branch was triggered
   cancel-in-progress: true
 
 env:
-  EC_SET_BASE: ${{((github.event_name == 'push' && github.ref_name == 'main') && '/') || ((github.event_name == 'push' && github.ref_name != 'main') && format('/{0}/', github.ref_name)) || ((github.event_name != 'push') && format('/{0}/', github.event.client_payload.branch))}}
-  EC_TARGET_DEPLOY: ${{((github.event_name == 'push' && github.ref_name == 'main') && 'www') || ((github.event_name == 'push' && github.ref_name != 'main') && 'dev') || ((github.event_name != 'push') && 'preview') || 'null'}}
+  # BUILD BASE PATH depending on the following cases:
+  # 1.  case CMS-Preview  (repository_dispatch event)   =>  /<event.client_payload.branch>/ (takes branch name for content repo)
+  # 2.  case PROD         (main branch)                 =>  /
+  # 3.  otherwise                                       =>  /<branch_name>
+  EC_SET_BASE: ${{ ((github.event_name == 'repository_dispatch') && format('/{0}/', github.event.client_payload.branch)) || (github.ref_name == 'main') && '/') || format('/{0}/', github.ref_name) }}
+
+  # BUILD DEPLOY TARGET PREFIX depending on the following cases:
+  # 1.  case CMS-Preview  (repository_dispatch event)   =>  preview
+  # 2.  case PROD         (main branch)                 =>  www
+  # 3.  otherwise                                       =>  dev
+  EC_DEPLOY_SUBDOMAIN: ${{((github.event_name == 'repository_dispatch') && 'preview') || ((github.ref_name == 'main') && 'www') || 'dev' }}
 
 jobs:
   ci:
     runs-on: ubuntu-latest
     
-    steps:    
+    env:
+      EC_DEPLOY_PATH: /webpage/${{ env.EC_DEPLOY_SUBDOMAIN }}.ec-nordbund.de${{ env.EC_SET_BASE }}
+
+    steps:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
       - uses: actions/checkout@v3
         with:
-          submodules: ${{github.event_name == 'push'}}
-      - name: Select cms-version
+          submodules: ${{github.event_name != 'repository_dispatch'}}
+      - name: Load updates from submodule (select branch from dispatch event payload)
+        if: github.event_name == 'repository_dispatch'
         run: git clone --depth 1 --branch ${{github.event.client_payload.branch}} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
-        if: github.event_name != 'push'
       - name: Install dependencies
         run: yarn
       - name: Build
@@ -57,23 +72,23 @@ jobs:
           chmod 600 ./deploy_key
 
       - name: Ensure Folder
-        if: github.event_name != 'push' || github.ref_name != 'main'
-        run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p /webpage/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}"
+        # if: github.event_name != 'push' || github.ref_name != 'main'
+        run: ssh -i ./deploy_key -o StrictHostKeyChecking=no deployer@ec-nordbund.de "/bin/mkdir -p {{ env.EC_DEPLOY_PATH }}"
 
       - name: Deploy to ec-nordbund.de
         run: |
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/ deployer@ec-nordbund.de:/webpage/${{env.EC_TARGET_DEPLOY}}.ec-nordbund.de${{env.EC_SET_BASE}}
+            ./dist/ deployer@ec-nordbund.de:{{ env.EC_DEPLOY_PATH }}
 
-      - name: Add deploy info
-        if: github.event_name == 'push' && github.ref_name != 'main'
+      - name: Add deploy info for PRs
+        if: github.event_name != 'repository_dispatch' && github.ref_name != 'main'
         uses: Sibz/github-status-action@v1
         with: 
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'deploy'
-          description: Deployed on https://dev.ec-nordbund.de/${{github.ref_name}}
+          description: Deployed on https://dev.ec-nordbund.de${{ env.EC_SET_BASE }}
           state: 'success'
-          target_url: https://dev.ec-nordbund.de/${{github.ref_name}}
+          target_url: https://dev.ec-nordbund.de${{ env.EC_SET_BASE }}
           sha: ${{github.sha}}
 
