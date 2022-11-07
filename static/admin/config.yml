@@ -27,7 +27,6 @@ collections:
     label: 'Blog'
     label_singular: 'Beitrag'
     folder: 'content/blog'
-    path: 'content/blog/'
     format: 'frontmatter'
     create: true
     delete: false
