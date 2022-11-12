@@ -13,9 +13,9 @@
     )
       div(class="image-overlay")
         picture
-          source(:srcset="img + '.webp'" type="image/webp")
-          source(:srcset="img + '.jpg'" type="image/jpg")
-          img(:src="img + '.jpg'" :alt="img" class="responsive-image")
+          source(:srcset="trimImgExt(img) + '.webp'" type="image/webp")
+          source(:srcset="trimImgExt(img) + '.jpg'" type="image/jpg")
+          img(:src="trimImgExt(img) + '.jpg'" :alt="img" class="responsive-image")
 </template>
 <style lang="scss" scoped>
 // TODO: if sloped -> adjust prev & next btn
@@ -55,6 +55,10 @@ export default defineComponent({
     },
   },
   setup(_, ctx) {
+
+    const trimImgExt = (path: string) => path.replace(/\.(webp|jpg)$/, "")
+    
+
     const height = computed(() => {
       if (ctx.root.$vuetify.breakpoint.xsOnly) {
         return 300
@@ -67,7 +71,7 @@ export default defineComponent({
       return 500
     })
 
-    return { height }
+    return { height, trimImgExt }
   },
 })
 </script>
