@@ -15,8 +15,6 @@
     "docker:builder": "yarn && yarn build"
   },
   "dependencies": {
-    "@ec-nordbund/leaflet": "1.7.1-build-81dc2489",
-    "@ec-nordbund/nuxt-vue2-leaflet": "3.2.1",
     "@fontsource/montserrat": "4.5.7",
     "@mdi/js": "6.6.96",
     "@nuxt/content": "1.15.1",
@@ -27,6 +25,7 @@
     "ackee-tracker": "latest",
     "fiber": "1.0.4",
     "nuxt": "2.15.8",
+    "nuxt-leaflet": "^0.0.27",
     "remark": "13.0.0",
     "remark-html": "13.0.2",
     "sass": "1.50.0",

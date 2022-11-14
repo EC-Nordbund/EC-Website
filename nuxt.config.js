@@ -230,7 +230,7 @@ export default {
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
-    '@ec-nordbund/nuxt-vue2-leaflet',
+    'nuxt-leaflet',
     '@nuxtjs/sitemap'
   ],
   vuetify: {
