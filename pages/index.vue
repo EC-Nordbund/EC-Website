@@ -26,10 +26,12 @@
     v-container.mt-n2.py-0
       v-row(justify='center')
         v-col(cols='12', md='9')
+          //- Hinweis zur Anmeldephase
           v-alert.mt-3.mb-1(type='info', tile, dense, text, outlined, v-if='isCountdownFuture')
-            span.subtitle-2.secondary--text Anmeldungen auf Freizeiten in 2022 ist ab #[strong Sonntag 14.11. um 13 Uhr] möglich!
-          v-alert.mt-3.mb-1(type='warning', tile, dense, outlined, text, v-if='isCountdownFuture')
-            span.subtitle-2.secondary--text Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
+            span.subtitle-2.secondary--text Die Anmeldephase beginnt am #[strong Sonntag 20.11. um 15 Uhr]!
+          //- Hinweis zu Preisen
+          //- v-alert.mt-3.mb-1(type='warning', tile, dense, outlined, text, v-if='isCountdownFuture')
+          //-   span.subtitle-2.secondary--text Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
 
     v-container.mb-4
       .d-flex.flex-row.justify-space-between.align-end
@@ -165,8 +167,8 @@ export default defineComponent({
         .fetch()
 
         const countdown = {
-          date: '2021-11-14T12:00:00Z',
-          show: false
+          date: '2022-11-20T14:00:00Z',
+          show: true
         }
 
         return { upcomingEvents, recentPosts, countdown }
