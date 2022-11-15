@@ -73,6 +73,7 @@ collections:
     extension: md
     editor:
       preview: false
+    sortable_fields: ['begin', 'title']
     fields:
       - {
           label: 'ID der Veranstaltung in der Verwaltung',
