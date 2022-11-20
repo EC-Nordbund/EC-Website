@@ -73,7 +73,14 @@ collections:
     extension: md
     editor:
       preview: false
-    sortable_fields: ['begin', 'title']
+    sortable_fields: ['begin', 'title', 'commit_date']
+    view_groups:
+      - label: Saison
+        field: begin
+        pattern: \d{4}
+      - label: Titel
+        field: title
+    summary: '{{title}}'
     fields:
       - {
           label: 'ID der Veranstaltung in der Verwaltung',
