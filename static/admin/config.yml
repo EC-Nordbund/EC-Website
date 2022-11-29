@@ -86,9 +86,8 @@ collections:
           label: 'ID der Veranstaltung in der Verwaltung',
           name: 'veranstaltungsID',
           widget: 'readonly',
-          default: '',
           required: false,
-          placeholder: 'keine',
+          placeholder: 'Nicht in Verwaltung hinterlegt',
           hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'
         }
       - { label: 'Titel', name: 'title', widget: 'string' }
