@@ -166,22 +166,19 @@ export default defineComponent({
         .limit(3)
         .fetch()
 
-        const countdown = {
-          date: '2022-11-20T14:00:00Z',
-          show: true
-        }
+      const { countdown } = await $content('startseite').fetch()
 
-        return { upcomingEvents, recentPosts, countdown }
+      return { upcomingEvents, recentPosts, countdown }
     }, undefined, 'homeData')
 
     const pages = computed(() =>
       pages_loading.value
         ? pages_loading.value
         : {
-            upcomingEvents: [],
-            recentPosts: [],
-            countdown: { date: undefined, show: false },
-          }
+          upcomingEvents: [],
+          recentPosts: [],
+          countdown: { date: undefined, show: false },
+        }
     )
 
     const { currentTime } = useCurrentTime()
@@ -249,7 +246,8 @@ export default defineComponent({
   }
 }
 
-.section-wrapper > div:last-child {
+.section-wrapper>div:last-child {
+
   &.angle--bottom-left,
   &.angle--bottom-right,
   &.angle--both-right-right,
