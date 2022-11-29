@@ -35,6 +35,11 @@ collections:
         name: 'startpage'
         file: 'content/pages/startseite.yml'
         fields:
+          - label: 'Titelbild'
+            name: 'heroImage'
+            widget: 'image'
+            allow_multiple: false
+            choose_url: false
           - label: 'Countdown'
             name: 'countdown'
             widget: 'object'

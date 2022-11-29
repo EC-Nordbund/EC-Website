@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      src='hero-image.jpg',
+      :src='heroImage',
       min-height='400px',
       height='60vh',
       width='auto',
@@ -166,9 +166,9 @@ export default defineComponent({
         .limit(3)
         .fetch()
 
-      const { countdown } = await $content('startseite').fetch()
+      const { countdown, heroImage } = await $content('pages/startseite').fetch()
 
-      return { upcomingEvents, recentPosts, countdown }
+      return { upcomingEvents, recentPosts, countdown, heroImage }
     }, undefined, 'homeData')
 
     const pages = computed(() =>
@@ -178,6 +178,7 @@ export default defineComponent({
           upcomingEvents: [],
           recentPosts: [],
           countdown: { date: undefined, show: false },
+          heroImage: undefined
         }
     )
 
@@ -189,10 +190,14 @@ export default defineComponent({
       return new Date(countdown.date) > currentTime.value || false
     })
 
+    const heroImage = computed(() => pages.value.heroImage)
+
+
     return {
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
+      heroImage
     }
   },
   head: {
