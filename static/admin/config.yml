@@ -33,7 +33,7 @@ collections:
     files:
       - label: 'Startseite'
         name: 'startpage'
-        file: 'content/startseite.yml'
+        file: 'content/pages/startseite.yml'
         fields:
           - label: 'Countdown'
             name: 'countdown'
