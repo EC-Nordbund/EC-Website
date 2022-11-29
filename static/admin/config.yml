@@ -172,7 +172,6 @@ collections:
           min: 0,
           max: 99,
           widget: 'number',
-          default: false,
         }
       - {
           label: 'Höchstalter',
@@ -182,7 +181,6 @@ collections:
           min: 0,
           max: 99,
           widget: 'number',
-          default: false,
         }
         # TODO: make Tags a relational field or a selection of pre defined tags
       - label: Tags
