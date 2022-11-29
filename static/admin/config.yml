@@ -5,6 +5,7 @@ backend:
   gateway_url: https://gitnet.ec-nordbund.de
   squash_merges: true
 
+# Run `npx netlify-cms-proxy-server`
 # see https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 # only uncommet locally!
 # local_backend: true
