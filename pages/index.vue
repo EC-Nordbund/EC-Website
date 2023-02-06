@@ -84,7 +84,7 @@
             ec-image-item(
               :image='item.featuredImage',
               :title='item.title',
-              :subTitle='`Vom ${item.begin.split("-").reverse().join(".")} bis ${item.ende.split("-").reverse().join(".")}`'
+              :subTitle='`Vom ${item.begin.substring(0, 10).split("-").reverse().join(".")} bis ${item.ende.substring(0, 10).split("-").reverse().join(".")}`'
             )
   .angle--both-left-right(style='background: #f5f5f5')
     v-container
