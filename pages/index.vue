@@ -148,7 +148,7 @@ export default defineComponent({
 
       const upcomingEvents = await $content('veranstaltung')
         .only(['slug', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
-        .where({ 'ende': { $gte: todayStr } })
+        .where({ 'ende': { $gte: new Date() } })
         .sortBy('begin')
         .limit(3)
         .fetch()
