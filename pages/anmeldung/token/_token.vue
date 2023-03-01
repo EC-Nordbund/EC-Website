@@ -308,7 +308,7 @@ export default defineComponent({
             } else {
               state.value = State.SUCCESSFUL
             }
-          }, 3333);
+          }, 1000);
 
         } else {
           console.log(res)
