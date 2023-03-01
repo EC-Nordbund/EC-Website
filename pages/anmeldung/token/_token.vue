@@ -64,10 +64,11 @@ v-container.fill-height
                       :size='avatarSize',
                       color='rgba(255,255,255,0.16)'
                     )
-                      .text-h3.font-weight-bold.white--text(
-                        v-if='state == State.ON_WAITINGLIST'
-                      ) {{ wList }}
-                      v-icon(v-else, color='white', size='96') {{ state == State.ON_WAITINGLIST ? 'mdi-clipboard-list' : 'mdi-check-all' }}
+                      
+                      .white--text.font-weight-bold(v-if='state == State.ON_WAITINGLIST')
+                        .mt-0 Platz
+                        .text-h3.pb-2 {{ wartelistenPlatz }}
+                      v-icon(v-else, color='white', size='96') mdi-check-all
 
                   v-card-text.text-body-1.font-weight-medium(
                     v-if='hasResponse && anmeldeID'
