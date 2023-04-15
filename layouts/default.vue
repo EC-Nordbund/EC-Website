@@ -103,7 +103,7 @@ v-app
               span.pl-2.subtitle-2.font-weight-medium(
                 style='text-transform: none',
                 v-show='$vuetify.breakpoint.mdAndUp'
-              ) Kinder- und Jugenschutz
+              ) Kinder- und Jugendschutz
     v-app-bar(color='white')
       v-container
         v-row
