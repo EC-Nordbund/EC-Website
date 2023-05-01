@@ -6,7 +6,7 @@ v-container.fill-height
         v-col
           h1.text-center.py-4 {{ title }}
           v-progress-linear.hidden-sm-and-down(
-            :value='loadingStep2 ? 33 : 66',
+            :value='progress',
             height='12',
             striped
           )
@@ -36,14 +36,14 @@ v-container.fill-height
         //- 2. Schritt
         v-col(cols='12', sm='6', md='4')
           v-card#second-step(
-            :loading='loadingStep2',
+            :loading='state == State.CONFIRMING',
             tile,
             :color='statusColor',
-            :flat='!loadingStep2',
-            :outlined='loadingStep2',
+            :flat='hasResponse',
+            :outlined='!hasResponse',
             loader-height='6'
           )
-            .collapsable-square(:class='{ "collapsed-xs-only": loadingStep2 }')
+            .collapsable-square(:class='{ "collapsed-xs-only": state != State.INITIAL }')
               .collapsable-square__sizer
               .collapsable-square__content
                 .d-flex.flex-column.justify-space-between.fill-height
@@ -55,26 +55,29 @@ v-container.fill-height
                       | {{ statusText }}
 
                   .absolute-flex-centered
+                    v-btn(v-if='state == State.INITIAL' color="primary" rounded @click='confirmAction' depressed large :class='{"pulsing-animation": state == State.INITIAL}')
+                      .text-button.font-weight-bold Bestätigen
                     v-avatar(
-                      v-if='!loadingStep2',
+                      v-else-if='state != State.CONFIRMING',
                       :max-height='avatarMaxSize',
                       :max-width='avatarMaxSize',
                       :size='avatarSize',
                       color='rgba(255,255,255,0.16)'
                     )
-                      .text-h3.font-weight-bold.white--text(
-                        v-if='isOnWarteliste'
-                      ) {{ wList }}
-                      v-icon(v-else, color='white', size='96') {{ isOnWarteliste.value ? 'mdi-clipboard-list' : 'mdi-check-all' }}
+                      
+                      .white--text.font-weight-bold(v-if='state == State.ON_WAITINGLIST')
+                        .mt-0 Platz
+                        .text-h3.pb-2 {{ wartelistenPlatz }}
+                      v-icon(v-else, color='white', size='96') mdi-check-all
 
                   v-card-text.text-body-1.font-weight-medium(
-                    v-if='!loadingStep2 && (anmeldeID || isOnWarteliste)'
+                    v-if='hasResponse && anmeldeID'
                   )
-                    .text-caption.text-left(v-if='anmeldeID') Dein Anmelde-Code:
+                    .text-caption.text-left(v-if='state == State.SUCCESSFUL && anmeldeID') Dein Anmelde-Code:
                       pre.text-body-2.text-center.anmelde-id(
                         @click='copy2clip(anmeldeID)'
                       ) {{ anmeldeID }}
-                    .text-center(v-else-if='isOnWarteliste') Dein Wartelistenplatz
+                    .text-center(v-else-if='state == State.ON_WAITINGLIST') Dein Wartelistenplatz
 
         //- 3. Schritt
         v-col(cols='12', sm='6', md='4')
@@ -82,7 +85,7 @@ v-container.fill-height
             tile,
             outlined,
             disabled,
-            :loading='loadingStep3'
+            :loading='false'
           )
             template(slot='progress')
               v-progress-linear(
@@ -99,10 +102,11 @@ v-container.fill-height
 
             v-responsive(aspect-ratio='2')
               .d-flex.flex-column.justify-space-around.align-center.fill-height
-                template(v-if='!loadingStep2 && !loadingStep3')
-                  template(v-if='type === 1')
+                template(v-if='hasResponse')
+                  //- Normale Veranstalungs-Anmeldung
+                  template(v-if='!isFührungszeugnis')
                     //- successful
-                    v-row(v-if='isSuccessful', no-gutters, align='center')
+                    v-row(v-if='state == State.SUCCESSFUL || state == State.ALREADY_SUCCESSFUL', no-gutters, align='center')
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
@@ -115,7 +119,7 @@ v-container.fill-height
 
                     //- warteliste
                     v-row(
-                      v-else-if='isOnWarteliste',
+                      v-else-if='state == State.ON_WAITINGLIST',
                       no-gutters,
                       align='center'
                     )
@@ -133,9 +137,10 @@ v-container.fill-height
                         pre {{ myStatus }}
                         br
                         | Wir wissen dadurch dann was zu tun ist.
-                  template(v-if='type !== 1')
+                  //- Führungszeugnis bestätigung
+                  template(v-else)
                     //- successful
-                    v-row(v-if='isSuccessful', no-gutters, align='center')
+                    v-row(v-if='state == State.SUCCESSFUL', no-gutters, align='center')
                       v-col(cols='3', align='center')
                         v-avatar(size='42', color='success')
                           v-icon(size='24', color='white') mdi-email
@@ -158,137 +163,177 @@ v-container.fill-height
             v-responsive(aspect-ratio='4')
 </template>
 <script lang="ts">
-import {
-  defineComponent,
-  useContext,
-  ref,
-  computed
-} from '@nuxtjs/composition-api'
-import { post } from '~/helpers/fetch'
-import copy from '~/helpers/copy'
-export default defineComponent({
-  layout: 'minimal',
-  setup(_, ctx) {
-    const token = useContext().params.value.token
-    const loaded = ref(false)
-    const loadingStep2 = ref(true)
-    const loadingStep3 = ref(false)
-    const anmeldeID = ref(null as null | string)
-    const wList = ref(0)
-    const type = ref(1)
+import { defineComponent, useContext, ref, computed } from "@nuxtjs/composition-api";
+import { post } from "~/helpers/fetch";
+import copy from "~/helpers/copy";
 
-    const isMobile = computed(() => ctx.root.$vuetify.breakpoint.smAndDown)
-    const isSuccessful = computed(() => wList.value === 0)
-    const isOnWarteliste = computed(() => wList.value > 0)
+enum State {
+  // initialer zustand
+  INITIAL,
+  // sobald nutzer anmeldung bestätigt hat
+  CONFIRMING,
+  // wenn API mit Wartelistenplatz antwortet
+  ON_WAITINGLIST,
+  // wenn API erfolgreiche Anmeldung zurück gibt.
+  SUCCESSFUL,
+  // wenn die Anmeldung bereit schon bestätigt wurde
+  ALREADY_SUCCESSFUL
+}
+
+export default defineComponent({
+  layout: "minimal",
+  setup(_, ctx) {
+    const token = useContext().params.value.token;
+    const state = ref(State.INITIAL);
+    const anmeldeID = ref(null as null | string);
+    const wartelistenPlatz = ref(0);
+
+    const isFührungszeugnis = ref(false)
+    const isMobile = computed(() => ctx.root.$vuetify.breakpoint.smAndDown);
+    const isSuccessful = computed(() => wartelistenPlatz.value === 0);
+    const hasResponse = computed(() => state.value == State.ON_WAITINGLIST || state.value == State.SUCCESSFUL || state.value == State.ALREADY_SUCCESSFUL)
 
     const title = computed(() => {
-      if (loadingStep2.value) {
-        return 'Du hast es gleich geschafft!'
+      switch (state.value) {
+        case State.INITIAL:
+        case State.CONFIRMING:
+          return "Du hast es gleich geschafft!";
+        case State.ON_WAITINGLIST:
+          return "Du bist auf der Warteliste...";
+        case State.SUCCESSFUL:
+          return "Du bist angemeldet!";
+        case State.ALREADY_SUCCESSFUL:
+          return "Du bist bereits angemeldet!";
+        default:
+          return "Oops: Da hat etwas nicht geklappt!";
       }
-
-      if (isOnWarteliste.value) {
-        return 'Du bist auf der Warteliste...'
-      }
-
-      if (isSuccessful.value) {
-        return 'Du bist angemeldet!'
-      }
-
-      return 'Oops: Da hat etwas nicht geklappt!'
-    })
+    });
 
     const statusText = computed(() => {
-      if (loadingStep2.value) {
-        return 'Anmeldung wird bestätigt...'
+      switch (state.value) {
+        case State.INITIAL:
+          return "Klicke hier um deine Anmeldung zu bestätigen:";
+        case State.CONFIRMING:
+          return "Anmeldung wird bestätigt...";
+        case State.ON_WAITINGLIST:
+          return "Veranstaltung bereits voll!";
+        case State.SUCCESSFUL:
+        case State.ALREADY_SUCCESSFUL:
+          return "Anmeldung bestätigt";
+        default:
+          return "Es ist ein Fehler aufgetreten";
       }
-
-      if (isOnWarteliste.value) {
-        return 'Veranstaltung bereits voll!'
-      }
-
-      if (isSuccessful.value) {
-        return 'Anmeldung bestätigt'
-      }
-
-      return 'Es ist ein Fehler aufgetreten'
-    })
+    });
 
     const statusColor = computed(() => {
-      if (loadingStep2.value) {
-        return undefined
+      switch (state.value) {
+        case State.INITIAL:
+        case State.CONFIRMING:
+          return undefined;
+        case State.ON_WAITINGLIST:
+          return "warning";
+        case State.SUCCESSFUL:
+        case State.ALREADY_SUCCESSFUL:
+          return "success";
+        default:
+          return "error";
       }
+    });
 
-      if (isOnWarteliste.value) {
-        return 'warning'
+    const progress = computed(() => {
+      switch (state.value) {
+        case State.CONFIRMING:
+          return 44;
+        case State.ON_WAITINGLIST:
+        case State.SUCCESSFUL:
+        case State.ALREADY_SUCCESSFUL:
+          return 66;
+        case State.INITIAL:
+        default:
+          return 33
       }
-
-      if (isSuccessful.value) {
-        return 'success'
-      }
-
-      return 'error'
     })
 
-    const avatarSize = computed(() => (isMobile.value ? 160 : 128))
+    const avatarSize = computed(() => (isMobile.value ? 160 : 128));
 
     const avatarMaxSize = computed(() =>
-      ctx.root.$vuetify.breakpoint.xsOnly
-        ? 'calc(100vw * .75)'
-        : 'calc(100vw * .2)'
-    )
+      ctx.root.$vuetify.breakpoint.xsOnly ? "calc(100vw * .75)" : "calc(100vw * .2)"
+    );
 
-    const iconSize = computed(() => (isMobile.value ? 48 : 96))
+    const iconSize = computed(() => (isMobile.value ? 48 : 96));
 
-    const myStatus = ref(null as any)
+    const myStatus = ref(null as any);
 
-    if (process.browser) {
-      (async () => {
+    const confirmAction = async () => {
+      state.value = State.CONFIRMING
+
+      if (process.browser) {
         const res = await post<{
-          status: 'OK' | 'ERROR'
-          context: string
-          anmeldeID?: string
-          wList?: number
-          type?: number
-        }>('/confirm/' + token, {})
+          status: "OK" | "ERROR";
+          context: string;
+          anmeldeID?: string;
+          wList?: number;
+          type?: number;
+        }>("/confirm/" + token, {});
 
-        myStatus.value = res
+        myStatus.value = res;
 
-        if (res.status === 'OK') {
-          loaded.value = true
-          loadingStep3.value = true
-          loadingStep2.value = false
-
-          setTimeout(() => (loadingStep3.value = false), 1000)
+        if (res.status === "OK") {
 
           if (res.wList && res.wList < 0) {
             ctx.root.$router.push(
-              '/anmeldung/token?error=Fehler beim Senden an API. Bitte kontaktiere uns unter app@ec-nordbund.de.'
-            )
-            return
+              "/anmeldung/token?error=Fehler beim Senden an API. Bitte kontaktiere uns unter app@ec-nordbund.de."
+            );
+            return;
           }
 
-          if (res.type) {
-            type.value = res.type
+          // Token für Führungszeugnis
+          if (res.type && res.type != 1) {
+            isFührungszeugnis.value = true
           }
 
+          // setze Wartlistenplatz
           if (res.wList) {
-            wList.value = res.wList
+            wartelistenPlatz.value = res.wList;
           }
+
+          // setze AnmeldeID
           if (res.anmeldeID) {
-            anmeldeID.value = res.anmeldeID
+            anmeldeID.value = res.anmeldeID;
           }
+
+          // mit delay zum nächsten state
+          setTimeout(() => {
+            if (wartelistenPlatz.value > 0) {
+              state.value = State.ON_WAITINGLIST
+            } else {
+              state.value = State.SUCCESSFUL
+            }
+          }, 1000);
+
         } else {
-          ctx.root.$router.push('/anmeldung/token?error=' + res.context)
+          console.log(res)
+          setTimeout(() => {
+            // behandle bereits bestätigte anmeldunge nicht als Fehler
+            if (res.context == "Anmeldung bereits bestätigt.") {
+              state.value = State.ALREADY_SUCCESSFUL
+            } else {
+              ctx.root.$router.push("/anmeldung/token?error=" + res.context);
+            }
+          }, 333)
         }
-      })()
-    }
+      }
+    };
 
     // console.log(`isOnWarteliste ${isOnWarteliste}`)
 
     return {
       token,
-      loadingStep2,
-      loadingStep3,
+      confirmAction,
+      state,
+      State,
+      hasResponse,
+      progress,
       title,
       avatarSize,
       avatarMaxSize,
@@ -296,24 +341,22 @@ export default defineComponent({
       statusText,
       statusColor,
       isSuccessful,
-      isOnWarteliste,
       anmeldeID,
-      wList,
+      wartelistenPlatz,
       myStatus,
       copy2clip: copy,
-      type,
-    }
+    };
   },
   head() {
     return {
-      title: 'Anmelde-Bestätigung',
-      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
-    }
+      title: "Anmelde-Bestätigung",
+      meta: [{ hid: "seo:index", property: "robots", content: "noindex" }],
+    };
   },
-})
+});
 </script>
 <style lang="scss" scoped>
-@import '~vuetify/src/styles/settings/_variables';
+@import "~vuetify/src/styles/settings/_variables";
 
 .anmelde-id {
   padding: 2px 4px;
@@ -324,25 +367,39 @@ export default defineComponent({
   }
 }
 
+.pulsing-animation {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 1em rgba(0, 0, 0, 0);
+  }
+}
+
 .collapsable-square {
   display: flex;
   position: relative;
   overflow: hidden;
   max-width: 100%;
 
-  & > .collapsable-square__sizer {
+  &>.collapsable-square__sizer {
     flex: 1 0 0px;
     transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
     padding-bottom: 100%;
 
-    ~ .collapsable-square__content {
+    ~.collapsable-square__content {
       flex: 1 0 0px;
       max-width: 100%;
       margin-left: -100%;
     }
   }
 
-  & > .collapsable-square__content {
+  &>.collapsable-square__content {
     .v-card__title {
       justify-content: center;
     }
@@ -366,11 +423,11 @@ export default defineComponent({
   &.collapsed-xs-only,
   &.collapsed-sm-and-down,
   &.collapsed {
-    > .collapsable-square__sizer {
+    >.collapsable-square__sizer {
       padding-bottom: 0;
     }
 
-    & > .collapsable-square__content {
+    &>.collapsable-square__content {
       .v-card__title {
         justify-content: start;
       }
@@ -397,11 +454,11 @@ export default defineComponent({
 
   &.collapsed-xs-only {
     @media #{map-get($display-breakpoints, 'sm-and-up')} {
-      > .collapsable-square__sizer {
+      >.collapsable-square__sizer {
         padding-bottom: 100%;
       }
 
-      > .collapsable-square__content {
+      >.collapsable-square__content {
         .v-card__title {
           justify-content: center;
         }
@@ -429,11 +486,11 @@ export default defineComponent({
 
   &.collapsed-sm-and-down {
     @media #{map-get($display-breakpoints, 'md-and-up')} {
-      > .collapsable-square__sizer {
+      >.collapsable-square__sizer {
         padding-bottom: 100%;
       }
 
-      > .collapsable-square__content {
+      >.collapsable-square__content {
         .v-card__title {
           justify-content: center;
         }
