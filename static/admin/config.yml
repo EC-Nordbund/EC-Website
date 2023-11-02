@@ -215,6 +215,15 @@ collections:
               widget: 'boolean',
               default: false,
             }
+      - {
+          label: 'Anzahlung',
+          required: false,
+          name: 'anzahlung',
+          value_type: int,
+          min: 0,
+          max: 99999,
+          widget: 'number',
+        }
       - label: Preise
         label_singular: Preis
         name: preise
