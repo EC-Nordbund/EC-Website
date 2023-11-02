@@ -167,7 +167,7 @@ export default defineComponent({
         .fetch()
 
         const countdown = {
-          date: '2022-11-20T14:00:00Z',
+          date: '2023-11-05T14:00:00Z',
           show: false
         }
 
