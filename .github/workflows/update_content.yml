@@ -1,6 +1,7 @@
 name: Update on new content dispatch
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [merge-content]
 
