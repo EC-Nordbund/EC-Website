@@ -56,6 +56,6 @@
     "pug": "3.0.2",
     "pug-plain-loader": "1.1.0",
     "typescript": "4.6.3",
-    "webpack": "4.46.0"
+    "webpack": "5.94.0"
   }
 }
