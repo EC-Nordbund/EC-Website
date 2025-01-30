@@ -89,24 +89,20 @@
   .angle--both-left-right(style='background: #f5f5f5')
     v-container
       h2(id='über-uns') Über uns
-      //- p 
-        | Der EC-Nordbund ist einer von 18 Landesverbänden des Deutschen EC-Verbandes.
-        | EC bedeutet: „Entschieden für Christus“ und markiert die grundsätzlich evangelische Ausrichtung aller Aktivitäten.
-        | Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg.
       p
-        | Die EC-Arbeit in Deutschland hat den Auftrag,
-        | junge Menschen zu Jüngern zu machen
-        | und sie zu prägenden Persönlichkeiten heranzubilden,
-        | durch die wiederum Menschen ihrer Generation
-        | zu Jüngern werden.
+        | EC steht für „Entschieden für Christus“ und das sind wir. Der EC-Nordbund ist der nördlichste deutsche Landesverband dieser weltweiten Bewegung.
       p
-        | Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint.
+        | Die weltweite EC-Bewegung entstand am Ende des 19. Jahrhunderts in den USA und hat heute ca. 2.000.000 Mitglieder, die in etwa 50 Staaten aktiv sind.
       p
-        | EC bedeutet: „Entschieden für Christus“ und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.
+        | Seit 1904 engagieren wir uns als EC-Nordbund in der christlichen Kinder- und Jugendarbeit in Schleswig-Holstein und Hamburg.
+        | In wöchentlichen Gruppenstunden und durch überregionale Freizeiten, Workshops und Seminare werden dabei zurzeit weit über 1.500 Jugendliche erreicht.
       p
-        | Der EC-Nordbund arbeitet eng mit dem Verband der Gemeinschaften in der Evangelischen Kirche in Schleswig-Holstein e.V. (kurz VG) zusammen. Wir betreiben gemeinsam das Erholungs- und Bildungszentrum Wittensee (kurz EBZ) und unser Ferienlager in Karlsminde (bei Eckernförde).
+        | Im EC glauben wir, dass Gott jeden Menschen so sehr liebt, dass er uns durch seinen Sohn Jesus Christus eine Überlebensperspektive anbietet.
+        | Also eine Perspektive, die über unser irdisches Lebensende hinausreicht. Das ermöglicht uns, in großer Freiheit, angstfrei und liebevoll unser Leben schon jetzt zu gestalten.
+        | Deshalb möchten wir dieses große Geschenk auch mit anderen Menschen teilen. Wir wollen gemeinsam lernen, mit christlichen Werten zu leben und damit einladend für andere zu sein.
       p
-        | Der EC-Nordbund basiert als Gemeinnütziger Verein auf Ehrenamt wir haben nur 2 Hauptamtliche Mitarbeiter.
+        | Wir sind eine Mitmachbewegung und setzten stark auf die Beteiligung von Jugendlichen.
+        | Unter dem Motto „von Jugendlichen für Jugendliche“ vereinen sich allein im Nordbund mehr als 400 ehrenamtliche Mitarbeitende, die von lediglich zwei hauptamtlichen unterstützt werden.
       v-row
         v-col.person(align='center', @click='mail("referent@ec-nordbund.de")')
           v-img.hexagon-shape(
