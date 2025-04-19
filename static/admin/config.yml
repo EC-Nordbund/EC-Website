@@ -5,6 +5,7 @@ backend:
   gateway_url: https://gitnet.ec-nordbund.de
   squash_merges: true
 
+# Run `npx netlify-cms-proxy-server`
 # see https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 # only uncommet locally!
 # local_backend: true
@@ -90,21 +91,28 @@ collections:
     format: 'frontmatter'
     create: true
     delete: false
-    slug: '{{year}}{{slug}}'
+    slug: '{{slug}}'
     preview_path: 'veranstaltungen/{{slug}}'
     media_folder: '/static/veranstaltungen'
     public_folder: 'veranstaltungen'
     extension: md
     editor:
       preview: false
+    sortable_fields: ['begin', 'title', 'commit_date']
+    view_groups:
+      - label: Saison
+        field: begin
+        pattern: \d{4}
+      - label: Titel
+        field: title
+    summary: '{{title}}'
     fields:
       - {
           label: 'ID der Veranstaltung in der Verwaltung',
           name: 'veranstaltungsID',
           widget: 'readonly',
-          default: '',
           required: false,
-          placeholder: 'keine',
+          placeholder: 'Nicht in Verwaltung hinterlegt',
           hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'
         }
       - { label: 'Titel', name: 'title', widget: 'string' }
@@ -188,7 +196,6 @@ collections:
           min: 0,
           max: 99,
           widget: 'number',
-          default: false,
         }
       - {
           label: 'Höchstalter',
@@ -198,7 +205,6 @@ collections:
           min: 0,
           max: 99,
           widget: 'number',
-          default: false,
         }
         # TODO: make Tags a relational field or a selection of pre defined tags
       - label: Tags
@@ -233,6 +239,15 @@ collections:
               widget: 'boolean',
               default: false,
             }
+      - {
+          label: 'Anzahlung',
+          required: false,
+          name: 'anzahlung',
+          value_type: int,
+          min: 0,
+          max: 99999,
+          widget: 'number',
+        }
       - label: Preise
         label_singular: Preis
         name: preise

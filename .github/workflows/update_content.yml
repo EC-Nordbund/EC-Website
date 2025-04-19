@@ -1,6 +1,7 @@
 name: Update on new content dispatch
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [merge-content]
 
@@ -20,10 +21,9 @@ jobs:
 
       - name: Pull the content
         run: git pull
-        
+
       - name: Update submodules index
         uses: stefanzweifel/git-auto-commit-action@v4.14.0
         with:
           commit_message: apply automatic changed content
           # branch: static
-          

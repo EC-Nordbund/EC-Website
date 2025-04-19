@@ -44,9 +44,9 @@ export default defineComponent({
 
     const subtitle = (preis: { begin: string; ende: string }) => {
       if (preis.begin) {
-        return `ab dem ${preis.begin.split('-').reverse().join('.')}`
+        return `ab dem ${preis.begin.split('T')[0].split('-').reverse().join('.')}`
       } else if (preis.ende) {
-        return `bis zum ${preis.ende.split('-').reverse().join('.')}`
+        return `bis zum ${preis.ende.split('T')[0].split('-').reverse().join('.')}`
       }
       return ''
     }

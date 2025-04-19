@@ -2,7 +2,7 @@
 
 ## Build Setup
 
-```bash
+```bash 
 # install dependencies
 $ yarn
 
@@ -14,4 +14,5 @@ $ yarn generate
 $ yarn start
 ```
 
-bump for action 3
+bump for action 4
+
