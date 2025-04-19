@@ -12,6 +12,8 @@ backend:
 
 publish_mode: editorial_workflow
 site_url: https://www.ec-nordbund.de/
+# TODO: replace with SVG image
+logo_url: https://www.ec-nordbund.de/icon.png
 show_preview_links: true
 
 media_folder: static/img
@@ -24,8 +26,30 @@ slug:
   sanitize_replacement: _
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
+  - label: 'Seiten'
+    name: 'pages'
+    preview_path: '/'
+    editor:
+      preview: false
+    files:
+      - label: 'Startseite'
+        name: 'startpage'
+        file: 'content/pages/startseite.yml'
+        fields:
+          - label: 'Titelbild'
+            name: 'heroImage'
+            widget: 'image'
+            allow_multiple: false
+            choose_url: false
+          - label: 'Countdown'
+            name: 'countdown'
+            widget: 'object'
+            summary: '{{text.vor}}{{date}}'
+            fields:
+              - { label: 'Anzeigen', name: 'show', widget: 'boolean', default: false }
+              - { label: 'Datum', name: 'date', widget: 'datetime', date_format: true, time_format: true }
+  - label: 'Blog'
+    name: 'blog'
     label_singular: 'Beitrag'
     folder: 'content/blog'
     format: 'frontmatter'
@@ -60,8 +84,8 @@ collections:
           allow_multiple: false,
         }
       - { label: 'Beschreibung', name: 'body', widget: 'markdown' }
-  - name: 'veranstaltungen'
-    label: 'Veranstaltungen'
+  - label: 'Veranstaltungen'
+    name: 'veranstaltungen'
     label_singular: 'Veranstaltung'
     folder: 'content/veranstaltung'
     format: 'frontmatter'
