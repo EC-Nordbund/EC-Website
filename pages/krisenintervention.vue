@@ -16,12 +16,12 @@ v-container
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
               v-img.flex-grow-0.hexagon-shape(
-                :src='require("~/assets/img/thomas_seeger.jpg")',
+                :src='require("~/assets/img/kirke.jpg")',
                 :width='128',
                 :height='128'
               )
             v-col.px-sm-5
-              h4.text-h6 Thomas Seeger
+              h4.text-h6 Kirke Husberg
               p.subtitle-1 Teen- und Jugendreferent
 
               //- Telefon
@@ -31,12 +31,12 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='tel:004945322805703'
+                  href='tel:004943539988330'
                 )
                   v-icon.ki-icon mdi-phone
                 span.text-subtitle-2.font-weight-medium.pl-3
-                  a.text-decoration-none(href='tel:004945322805703', title='Thomas Seeger anrufen')
-                    | 04532 280 57 03
+                  a.text-decoration-none(href='tel:004943539988330', title='Kirke Husberg anrufen')
+                    | 04353 99 88 33 0
 
               //- E-Mail
               .d-flex.flex-row.align-center
@@ -45,15 +45,59 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='mailto:referent@ec-nordbund.de'
+                  href='mailto:k.husberg@ec-nordbund.de'
                 )
                   v-icon.ki-icon mdi-email
                 span.text-subtitle-2.font-weight-medium.pl-3
                   a.text-decoration-none(
-                    href='mailto:referent@ec-nordbund.de',
-                    title='Thomas Seeger eine E-Mail schreiben'
+                    href='mailto:k.husberg@ec-nordbund.de',
+                    title='Kirke Husberg eine E-Mail schreiben'
                   )
-                    | referent@ec-nordbund.de
+                    | k.husberg@ec-nordbund.de
+      //- Thomas
+      v-card.mb-4(tile, outlined)
+        v-col.py-0(cols='12')
+          v-row
+            v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
+              v-img.flex-grow-0.hexagon-shape(
+                :src='require("~/assets/img/tobias.jpg")',
+                :width='128',
+                :height='128'
+              )
+            v-col.px-sm-5
+              h4.text-h6 Tobias Krahe
+              p.subtitle-1 Teen- und Jugendreferent
+
+              //- Telefon
+              .d-flex.flex-row.align-center.mb-2
+                v-btn(
+                  fab,
+                  x-small,
+                  color='primary',
+                  depressed,
+                  href='tel:004915736763193'
+                )
+                  v-icon.ki-icon mdi-phone
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(href='tel:004915736763193', title='Tobias Krahe anrufen')
+                    | 01573 676 319 3
+
+              //- E-Mail
+              .d-flex.flex-row.align-center
+                v-btn(
+                  fab,
+                  x-small,
+                  color='primary',
+                  depressed,
+                  href='mailto:t.krahe@ec-nordbund.de'
+                )
+                  v-icon.ki-icon mdi-email
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(
+                    href='mailto:t.krahe@ec-nordbund.de',
+                    title='Tobias Krahe eine E-Mail schreiben'
+                  )
+                    | t.krahe@ec-nordbund.de
 
       //-  Dortje
       v-card.mb-4(tile, outlined)
@@ -84,7 +128,7 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='mailto:kinder-referent@ec-nordbund.de'
+                  href='mailto:d.gaertner@ec-nordbund.de'
                 )
                   v-icon.ki-icon mdi-email
                 span.text-subtitle-2.font-weight-medium.pl-3
@@ -92,7 +136,7 @@ v-container
                     href='mailto:kinder-referent@ec-nordbund.de',
                     title='Dortje Gaertner eine E-Mail schreiben'
                   )
-                    | kinder-referent@ec-nordbund.de
+                    | d.gaertner@ec-nordbund.de
 
       //-  Jutta
       v-card(tile, outlined)
