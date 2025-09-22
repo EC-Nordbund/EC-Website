@@ -106,7 +106,7 @@
       v-row
         v-col.person(align='center', @click='mail("k.husberg@ec-nordbund.de")')
           v-img.hexagon-shape(
-            :src='require("~/assets/img/thomas_seeger.jpg")',
+            :src='require("~/assets/img/kirke.jpg")',
             :width='128',
             :height='128'
           )
@@ -115,7 +115,7 @@
           | Jugendreferent
         v-col.person(align='center', @click='mail("t.krahe@ec-nordbund.de")')
           v-img.hexagon-shape(
-            :src='require("~/assets/img/thomas_seeger.jpg")',
+            :src='require("~/assets/img/tobias.jpg")',
             :width='128',
             :height='128'
           )
