@@ -104,7 +104,7 @@
         | Wir sind eine Mitmachbewegung und setzten stark auf die Beteiligung von Jugendlichen.
         | Unter dem Motto „von Jugendlichen für Jugendliche“ vereinen sich allein im Nordbund mehr als 400 ehrenamtliche Mitarbeitende, die von lediglich drei hauptamtlichen unterstützt werden.
       v-row
-        v-col.person(align='center', @click='mail("k.husberg@ec-nordbund.de")')
+        v-col.person(align='center', @click='mail("kike.husberg@ec-nordbund.de")')
           v-img.hexagon-shape(
             :src='require("~/assets/img/kirke.jpg")',
             :width='128',
@@ -113,7 +113,7 @@
             .hexa-image-overlay(v-ripple)
           .text-h6 Kirke Husberg
           | Jugendreferent
-        v-col.person(align='center', @click='mail("t.krahe@ec-nordbund.de")')
+        v-col.person(align='center', @click='mail("tobias.krahe@ec-nordbund.de")')
           v-img.hexagon-shape(
             :src='require("~/assets/img/tobias.jpg")',
             :width='128',
@@ -124,7 +124,7 @@
           | Jugendreferent
         v-col.person(
           align='center',
-          @click='mail("d.gaertner@ec-nordbund.de")'
+          @click='mail("dortje.gaertner@ec-nordbund.de")'
         )
           v-img.hexagon-shape(
             :src='require("~/assets/img/dortje_gaertner.jpg")',

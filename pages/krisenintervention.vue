@@ -45,15 +45,15 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='mailto:k.husberg@ec-nordbund.de'
+                  href='mailto:kirke.husberg@ec-nordbund.de'
                 )
                   v-icon.ki-icon mdi-email
                 span.text-subtitle-2.font-weight-medium.pl-3
                   a.text-decoration-none(
-                    href='mailto:k.husberg@ec-nordbund.de',
+                    href='mailto:kirke.husberg@ec-nordbund.de',
                     title='Kirke Husberg eine E-Mail schreiben'
                   )
-                    | k.husberg@ec-nordbund.de
+                    | kirke.husberg@ec-nordbund.de
       //- Thomas
       v-card.mb-4(tile, outlined)
         v-col.py-0(cols='12')
@@ -89,15 +89,15 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='mailto:t.krahe@ec-nordbund.de'
+                  href='mailto:tobias.krahe@ec-nordbund.de'
                 )
                   v-icon.ki-icon mdi-email
                 span.text-subtitle-2.font-weight-medium.pl-3
                   a.text-decoration-none(
-                    href='mailto:t.krahe@ec-nordbund.de',
+                    href='mailto:tobias.krahe@ec-nordbund.de',
                     title='Tobias Krahe eine E-Mail schreiben'
                   )
-                    | t.krahe@ec-nordbund.de
+                    | tobias.krahe@ec-nordbund.de
 
       //-  Dortje
       v-card.mb-4(tile, outlined)
@@ -128,15 +128,15 @@ v-container
                   x-small,
                   color='primary',
                   depressed,
-                  href='mailto:d.gaertner@ec-nordbund.de'
+                  href='mailto:dortje.gaertner@ec-nordbund.de'
                 )
                   v-icon.ki-icon mdi-email
                 span.text-subtitle-2.font-weight-medium.pl-3
                   a.text-decoration-none(
-                    href='mailto:kinder-referent@ec-nordbund.de',
+                    href='mailto:dortje.gaertner@ec-nordbund.de',
                     title='Dortje Gaertner eine E-Mail schreiben'
                   )
-                    | d.gaertner@ec-nordbund.de
+                    | dortje.gaertner@ec-nordbund.de
 
       //-  Jutta
       v-card(tile, outlined)
