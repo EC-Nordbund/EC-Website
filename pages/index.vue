@@ -27,8 +27,8 @@
       v-row(justify='center')
         v-col(cols='12', md='9')
           //- Hinweis zur Anmeldephase
-          v-alert.mt-3.mb-1(type='info', tile, dense, text, outlined, v-if='isCountdownFuture')
-            span.subtitle-2.secondary--text Die Anmeldephase beginnt anders als Angekündigt erst am #[strong Sonntag 01.12. um 15 Uhr]!
+          //- v-alert.mt-3.mb-1(type='info', tile, dense, text, outlined, v-if='isCountdownFuture')
+          //-  span.subtitle-2.secondary--text Die Anmeldephase beginnt anders als Angekündigt erst am #[strong Sonntag 01.12. um 15 Uhr]!
           //- Hinweis zu Preisen
           //- v-alert.mt-3.mb-1(type='warning', tile, dense, outlined, text, v-if='isCountdownFuture')
           //-   span.subtitle-2.secondary--text Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
