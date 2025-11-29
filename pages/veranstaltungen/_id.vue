@@ -142,6 +142,7 @@ div
       :minAlter='page.minAlter',
       :maxAlter='page.maxAlter',
       :veranstaltungsID='page.veranstaltungsID'
+      :disabled='page.begin > (new Date().toISOString().split('T')[0])'
     )
       v-alert(
         slot='disabled',
