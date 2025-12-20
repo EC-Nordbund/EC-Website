@@ -197,10 +197,13 @@ export default defineComponent({
       return new Date(countdown.date) > currentTime.value || false
     })
 
+    const hero_id = Math.floor(Math.random() * 3) + 1;
+
     return {
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
+      hero_immage: `heroo_immage.${hero_id}.jpg`
     }
   },
   head: {
