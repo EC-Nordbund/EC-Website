@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      src='hero-image.jpg',
+      :src='hero_image',
       min-height='400px',
       height='60vh',
       width='auto',
@@ -197,10 +197,13 @@ export default defineComponent({
       return new Date(countdown.date) > currentTime.value || false
     })
 
+    const hero_id = Math.floor(Math.random() * 3) + 1;
+
     return {
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
+      hero_image: `hero.${hero_id}.jpg`
     }
   },
   head: {
