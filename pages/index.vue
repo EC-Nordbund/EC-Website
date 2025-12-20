@@ -2,7 +2,7 @@
 .section-wrapper(v-if='pages')
   div
     v-img.hero-image.secondary.align-end.angle--bottom-right(
-      src='hero-image.jpg',
+      :src='hero_image',
       min-height='400px',
       height='60vh',
       width='auto',
@@ -203,7 +203,7 @@ export default defineComponent({
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
-      hero_immage: `heroo_immage.${hero_id}.jpg`
+      hero_image: `heroo_immage.${hero_id}.jpg`
     }
   },
   head: {
