@@ -203,7 +203,7 @@ export default defineComponent({
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
-      hero_image: `heroo_immage.${hero_id}.jpg`
+      hero_image: `hero.${hero_id}.jpg`
     }
   },
   head: {
