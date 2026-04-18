@@ -69,6 +69,9 @@
 
                   //- indicator
                   v-col(cols="12" lg="4" class="d-flex flex-wrap justify-md-end mb-1 ml-n2")
+                      v-chip(color="hellBlau" text-color="white" class="ml-2 mb-1 font-weight-medium" small v-if="item.minTN")
+                        v-icon(small class="ml-n1 mr-1") mdi-account-group
+                        | Mind. {{ item.minTN }} Teilnehmer
                       v-chip(color="warning" text-color="white" class="ml-2 mb-1 font-weight-medium" small v-for="wl in Object.keys(item.warteliste)" v-if="item.warteliste[wl]" :key="'wl-' + wl")
                         v-icon(small class="ml-n1 mr-1 ") mdi-alert-circle
                         | {{textWaitingQueue(wl)}}
@@ -241,6 +244,7 @@ export default defineComponent({
             'featuredImage',
             'warteliste',
             'tags',
+            'minTN',
           ])
           .sortBy('begin')
           .fetch()

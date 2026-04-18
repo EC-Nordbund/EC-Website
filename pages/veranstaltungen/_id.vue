@@ -94,6 +94,11 @@ div
           v-icon.mr-2 mdi-map-marker
           | {{ page.veranstaltungsort }}
 
+        //- Mindest-Teilnehmerzahl
+        .text-no-wrap(v-if='page.minTN')
+          v-icon.mr-2 mdi-account-group
+          | Mind. {{ page.minTN }} Teilnehmer
+
   //- description
   v-container.description.pt-5
     nuxt-content(:document='page')
@@ -132,6 +137,17 @@ div
       :marker='[{ ...page, marker: [page.lat, page.long], noMore: true }]',
       style='width: 100%; min-height: calc(400px + 3.492vw * 2); max-height: 100%; z-index: 0'
     )
+
+  //- hinweis mindest-teilnehmerzahl
+  v-container(v-if='page.minTN')
+    v-alert.mt-4(
+      type='info',
+      color='hellBlau',
+      dense,
+      outlined,
+      icon='mdi-account-group'
+    )
+      | Diese Veranstaltung findet ab einer Mindestteilnehmerzahl von #[strong {{ page.minTN }}] statt.
 
   //- anmeldung
   v-container#anmeldung.scroll-to-me(v-if='showAnmeldung')

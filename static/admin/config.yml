@@ -165,6 +165,15 @@ collections:
       - { label: 'PLZ', name: 'plz', widget: 'string', required: false }
       - { label: 'Ort', name: 'ort', widget: 'string', required: false }
       - {
+          label: 'Mindest-Teilnehmerzahl',
+          required: false,
+          name: 'minTN',
+          value_type: int,
+          min: 0,
+          widget: 'number',
+          hint: 'Minimale Anzahl an Teilnehmern, damit die Veranstaltung stattfindet.',
+        }
+      - {
           label: 'Mindestalter',
           required: false,
           name: 'minAlter',
