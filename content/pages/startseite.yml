@@ -1,0 +1,4 @@
+heroImage: img/hero-image.webp
+countdown:
+  date: 2024-12-01T14:00:00.000Z
+  show: false

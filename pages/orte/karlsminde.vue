@@ -1,12 +1,12 @@
 <template lang="pug">
 div
   v-img.align-end.angle--bottom-right(
-    :src='require("@/assets/img/karlsminde/karlsminde.jpg")',
+    :src='karlsmindeImg',
     height='400',
     width='auto',
     min-width='100%',
     gradient='180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.02) 16%, rgba(0,0,0,0.03) 64%, rgba(0,0,0,0.48) 100%')
-    v-container.pb-4.pb-sm-2.white--text
+    v-container.pb-4.pb-sm-2.text-white
       h2.text-h5.text-sm-h4.font-weight-bold.text-no-wrap EC-Ferienlager
       h1.text-h3.text-sm-h2.font-weight-black Karlsminde
 
@@ -34,18 +34,18 @@ div
 
         v-col(cols="12" md="6")
           v-carousel(cycle, hide-delimiters, show-arrows-on-hover)
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (1).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (2).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (3).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (4).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (5).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (6).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (7).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (8).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (9).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (10).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (11).jpg")')
-            v-carousel-item(:src='require("@/assets/img/karlsminde/diashow (12).jpg")')
+            v-carousel-item(:src='diashow1Img')
+            v-carousel-item(:src='diashow2Img')
+            v-carousel-item(:src='diashow3Img')
+            v-carousel-item(:src='diashow4Img')
+            v-carousel-item(:src='diashow5Img')
+            v-carousel-item(:src='diashow6Img')
+            v-carousel-item(:src='diashow7Img')
+            v-carousel-item(:src='diashow8Img')
+            v-carousel-item(:src='diashow9Img')
+            v-carousel-item(:src='diashow10Img')
+            v-carousel-item(:src='diashow11Img')
+            v-carousel-item(:src='diashow12Img')
 
   .angle--both-left-left
     v-container
@@ -81,41 +81,51 @@ div
           .text-body-1 Telefon: 04356 / 99 77 0
           .text-body-1 E-Mail : info(at)ec-karlsminde.de
           .text-body-1 Web:&nbsp;
-            a(href='https://www.ebz-wittensee.de', alt="https://www.ebz-wittensee.de" title="Zur Website" rel="noopener").secondary--text https://www.ebz-wittensee.de
+            a(href='https://www.ebz-wittensee.de', alt="https://www.ebz-wittensee.de" title="Zur Website" rel="noopener").text-secondary https://www.ebz-wittensee.de
 
 </template>
 <script>
-export default {
-  head() {
-    return {
+import { defineComponent } from 'vue'
+import karlsmindeImg from '~/assets/img/karlsminde/karlsminde.jpg'
+import diashow1Img from '~/assets/img/karlsminde/diashow (1).jpg'
+import diashow2Img from '~/assets/img/karlsminde/diashow (2).jpg'
+import diashow3Img from '~/assets/img/karlsminde/diashow (3).jpg'
+import diashow4Img from '~/assets/img/karlsminde/diashow (4).jpg'
+import diashow5Img from '~/assets/img/karlsminde/diashow (5).jpg'
+import diashow6Img from '~/assets/img/karlsminde/diashow (6).jpg'
+import diashow7Img from '~/assets/img/karlsminde/diashow (7).jpg'
+import diashow8Img from '~/assets/img/karlsminde/diashow (8).jpg'
+import diashow9Img from '~/assets/img/karlsminde/diashow (9).jpg'
+import diashow10Img from '~/assets/img/karlsminde/diashow (10).jpg'
+import diashow11Img from '~/assets/img/karlsminde/diashow (11).jpg'
+import diashow12Img from '~/assets/img/karlsminde/diashow (12).jpg'
+
+export default defineComponent({
+  setup() {
+    useHead({
       title: 'EC-Ferienlager Karlsminde',
       meta: [
         {
-          hid: 'description',
           name: 'description',
           content:
             'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
         // Open Graph
         {
-          hid: 'og:title',
           property: 'og:title',
           content: 'EC-Ferienlager Karlsminde',
         },
         {
-          hid: 'og:description',
           property: 'og:description',
           content:
             'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
         },
         // Twitter Card
         {
-          hid: 'twitter:title',
           name: 'twitter:title',
           content: 'EC-Ferienlager Karlsminde',
         },
         {
-          hid: 'twitter:description',
           name: 'twitter:description',
           content:
             'Ein Ort, an dem schon viele unvergessliche Tage verbracht wurden. Egal ob Boot fahren, im Wald spielen oder ... Für jeden ist auf dem Gelände mit spitzdach Bungalows was dabei!',
@@ -125,12 +135,27 @@ export default {
         {
           rel: 'canonical',
           href: 'https://www.ec-nordbund.de/orte/karlsminde',
-          hid: 'canonical',
         },
       ],
+    })
+
+    return {
+      karlsmindeImg,
+      diashow1Img,
+      diashow2Img,
+      diashow3Img,
+      diashow4Img,
+      diashow5Img,
+      diashow6Img,
+      diashow7Img,
+      diashow8Img,
+      diashow9Img,
+      diashow10Img,
+      diashow11Img,
+      diashow12Img,
     }
   },
-}
+})
 </script>
 <style lang="scss" scoped>
 .before-footer {
@@ -138,7 +163,7 @@ export default {
 }
 
 .v-parallax.with-gradient {
-  ::v-deep .v-parallax__image-container::before {
+  :deep(.v-parallax__image-container::before) {
     content: '';
     position: absolute;
     z-index: 2;

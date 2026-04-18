@@ -2,50 +2,47 @@
   v-container(class="text-center" v-if="page")
     v-row
       v-col
-        nuxt-content(:document="page")
+        ContentRenderer(:value="page")
 </template>
 
 <script lang="ts">
-import { defineComponent, useStatic, useContext, ref } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  setup() {
-    const { $content } = useContext()
+  async setup() {
+    const { data: page } = await useAsyncData('impressum', () =>
+      queryContent('impressum').findOne()
+    )
 
-    const page = useStatic(() => $content('impressum').fetch(), undefined, 'impressum')
+    useHead({
+      title: 'Impressum',
+      meta: [
+        {
+          name: 'description',
+          content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
+        },
+        // Open Graph
+        { property: 'og:title', content: 'Impressum' },
+        {
+          property: 'og:description',
+          content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
+        },
+        // Twitter Card
+        { name: 'twitter:title', content: 'Impressum' },
+        {
+          name: 'twitter:description',
+          content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/impressum',
+        },
+      ],
+    })
 
     return { page }
-  },
-  head: {
-    title: 'Impressum',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
-      },
-      // Open Graph
-      { hid: 'og:title', property: 'og:title', content: 'Impressum' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
-      },
-      // Twitter Card
-      { hid: 'twitter:title', name: 'twitter:title', content: 'Impressum' },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: 'Unser Impressum: Wer ist für diese Seite verantwortlich?',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://www.ec-nordbund.de/impressum',
-        hid: 'canonical',
-      },
-    ],
   },
 })
 </script>

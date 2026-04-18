@@ -12,13 +12,11 @@
 import {
   defineComponent,
   onMounted,
-  useMeta,
   toRefs,
   ref,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 
 export default defineComponent({
-  head: {},
   props: {
     shopName: {
       type: String,
@@ -47,35 +45,36 @@ export default defineComponent({
       setTimeout(() => (shopIsLoading.value = false), timeoutForLoadingShop)
     })
 
-    useMeta(() => {
-      // set spreadshirt-config only on client
-      if (process.browser) {
-        window.spread_shop_config = {
-          shopName: shopName.value,
-          locale: locale.value,
-          prefix: shopUrl.value,
-          baseId: 'shop',
-          swipeMenu: true,
-        }
-
-        shopConfigAvalable.value = true
+    // set spreadshirt-config only on client
+    if (import.meta.client) {
+      window.spread_shop_config = {
+        shopName: shopName.value,
+        locale: locale.value,
+        prefix: shopUrl.value,
+        baseId: 'shop',
+        swipeMenu: true,
       }
 
-      return {
-        script: [
-          {
-            vmid: 'spreadshirt',
-            src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
-            crossorigin: true,
-            body: true,
-            skip: !shopConfigAvalable.value,
-            callback: () =>
-              // stop loading animation with some delay after script has been loaded
-              setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded),
-          },
-        ],
-      }
-    })
+      shopConfigAvalable.value = true
+    }
+
+    useHead(() => ({
+      script: [
+        ...(shopConfigAvalable.value
+          ? [
+              {
+                key: 'spreadshirt',
+                src: 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js',
+                crossorigin: true,
+                tagPosition: 'bodyClose',
+                onload: () =>
+                  // stop loading animation with some delay after script has been loaded
+                  setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded),
+              },
+            ]
+          : []),
+      ],
+    }))
 
     return { shopIsLoading }
   },
@@ -83,25 +82,25 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-#shop::v-deep {
-  .SprdMain {
+#shop {
+  :deep(.SprdMain) {
     isolation: isolate;
   }
 
-  #sprd-container > * {
+  :deep(#sprd-container) > * {
     margin-left: 0;
   }
 
-  .sprd-social-bar,
-  .sprd-breadcrumb {
+  :deep(.sprd-social-bar),
+  :deep(.sprd-breadcrumb) {
     display: none;
   }
 
-  .sprd-header-container {
+  :deep(.sprd-header-container) {
     padding-bottom: 1em;
   }
 
-  .sprd-navigation {
+  :deep(.sprd-navigation) {
     border-top-width: 2px;
 
     .sprd-department-filter {
@@ -109,7 +108,7 @@ export default defineComponent({
     }
   }
 
-  .sprd-header {
+  :deep(.sprd-header) {
     justify-content: end;
     padding: 0 10px;
 
@@ -132,11 +131,11 @@ export default defineComponent({
     }
   }
 
-  .sprd-search .sprd-search-form {
+  :deep(.sprd-search) .sprd-search-form {
     background: #fff;
   }
 
-  .sprd-product-list {
+  :deep(.sprd-product-list) {
     gap: 20px;
 
     .sprd-product-list-item {
@@ -145,7 +144,7 @@ export default defineComponent({
     }
   }
 
-  .sprd-mobilefilter__modal {
+  :deep(.sprd-mobilefilter__modal) {
     //   Modal below the header
     top: 96px;
     height: unset;

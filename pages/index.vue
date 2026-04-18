@@ -15,23 +15,23 @@
         v-row(justify='center', no-gutters)
           v-col(cols='12', md='7')
             v-card.hero-panel.px-3.ec-gradient.text-center.pt-4.pb-8(tile)
-              span.text-h6.pb-5.white--text(v-if='isCountdownFuture') Die Anmeldephase beginnt in
-              span.text-h6.pb-5.white--text(v-else) Die Anmeldephase hat begonnen!
+              span.text-h6.pb-5.text-white(v-if='isCountdownFuture') Die Anmeldephase beginnt in
+              span.text-h6.pb-5.text-white(v-else) Die Anmeldephase hat begonnen!
               ec-countdown(:target='pages.countdown.date', keep-zeros)
                 template(v-slot:digits='slotProp')
-                  span.text-h4.font-weight-bold.white--text(slot='digits') {{ slotProp.digits }}
+                  span.text-h4.font-weight-bold.text-white {{ slotProp.digits }}
                 template(v-slot:units='slotProp')
-                  span.text-caption.text-uppercase.white--text(slot='units') {{ slotProp.unit }}
+                  span.text-caption.text-uppercase.text-white {{ slotProp.unit }}
 
     v-container.mt-n2.py-0
       v-row(justify='center')
         v-col(cols='12', md='9')
           //- Hinweis zur Anmeldephase
           //- v-alert.mt-3.mb-1(type='info', tile, dense, text, outlined, v-if='isCountdownFuture')
-          //-  span.subtitle-2.secondary--text Die Anmeldephase beginnt anders als Angekündigt erst am #[strong Sonntag 01.12. um 15 Uhr]!
+          //-  span.subtitle-2.text-secondary Die Anmeldephase beginnt anders als Angekündigt erst am #[strong Sonntag 01.12. um 15 Uhr]!
           //- Hinweis zu Preisen
           //- v-alert.mt-3.mb-1(type='warning', tile, dense, outlined, text, v-if='isCountdownFuture')
-          //-   span.subtitle-2.secondary--text Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
+          //-   span.subtitle-2.text-secondary Beachte, dass die angegeben Preise sich durch in Aussicht gestellte Fördergelder noch zum positiven verändern könnnen.
 
     v-container.mb-4
       .d-flex.flex-row.justify-space-between.align-end
@@ -106,7 +106,7 @@
       v-row
         v-col.person(align='center', @click='mail("kike.husberg@ec-nordbund.de")')
           v-img.hexagon-shape(
-            :src='require("~/assets/img/kirke.jpg")',
+            :src='kirkeImg',
             :width='128',
             :height='128'
           )
@@ -115,7 +115,7 @@
           | Jugendreferent
         v-col.person(align='center', @click='mail("tobias.krahe@ec-nordbund.de")')
           v-img.hexagon-shape(
-            :src='require("~/assets/img/tobias.jpg")',
+            :src='tobiasImg',
             :width='128',
             :height='128'
           )
@@ -127,7 +127,7 @@
           @click='mail("dortje.gaertner@ec-nordbund.de")'
         )
           v-img.hexagon-shape(
-            :src='require("~/assets/img/dortje_gaertner.jpg")',
+            :src='dortjeGaertnerImg',
             :width='128',
             :height='128'
           )
@@ -139,37 +139,40 @@ p(v-else) Loading...
 <script>
 import {
   defineComponent,
-  useContext,
-  useStatic,
   computed,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 import { useCurrentTime } from '~/helpers/current-time'
+import kirkeImg from '~/assets/img/kirke.jpg'
+import tobiasImg from '~/assets/img/tobias.jpg'
+import dortjeGaertnerImg from '~/assets/img/dortje_gaertner.jpg'
 export default defineComponent({
-  setup() {
-    const { $content } = useContext()
+  async setup() {
+    const { data: pages_loading } = await useAsyncData(
+      'homeData',
+      async () => {
+        const todayStr = new Date().toISOString().substring(0, 10);
 
-    const pages_loading = useStatic(async () => {
-      const todayStr = new Date().toISOString().substring(0, 10);
+        const upcomingEventsRaw = await queryContent('veranstaltung')
+          .only(['_path', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
+          .where({ 'ende': { $gte: new Date() } })
+          .sort({ begin: 1 })
+          .limit(3)
+          .find()
+        const upcomingEvents = upcomingEventsRaw.map(v => ({ ...v, slug: v._path.split('/').pop() }))
 
-      const upcomingEvents = await $content('veranstaltung')
-        .only(['slug', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
-        .where({ 'ende': { $gte: new Date() } })
-        .sortBy('begin')
-        .limit(3)
-        .fetch()
-
-      const recentPosts = await $content('blog')
-        .only([
-          'title',
-          'tags',
-          'description',
-          'featuredImage',
-          'slug',
-          'published',
-        ])
-        .sortBy('published', 'desc')
-        .limit(3)
-        .fetch()
+        const recentPostsRaw = await queryContent('blog')
+          .only([
+            'title',
+            'tags',
+            'description',
+            'featuredImage',
+            '_path',
+            'published',
+          ])
+          .sort({ published: -1 })
+          .limit(3)
+          .find()
+        const recentPosts = recentPostsRaw.map(v => ({ ...v, slug: v._path.split('/').pop() }))
 
         const countdown = {
           date: '2026-04-19T13:00:00Z',
@@ -177,7 +180,8 @@ export default defineComponent({
         }
 
         return { upcomingEvents, recentPosts, countdown }
-    }, undefined, 'homeData')
+      }
+    )
 
     const pages = computed(() =>
       pages_loading.value
@@ -199,60 +203,57 @@ export default defineComponent({
 
     const hero_id = Math.floor(Math.random() * 3) + 1;
 
+    useHead({
+      title: 'Startseite',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus" und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
+        },
+        // Open Graph
+        { property: 'og:title', content: 'EC-Nordbund' },
+        {
+          property: 'og:description',
+          content:
+            'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus" und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
+        },
+        // Twitter Card
+        {
+          name: 'twitter:title',
+          content: 'EC-Nordbund!',
+        },
+        {
+          name: 'twitter:description',
+          content:
+            'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus" und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de',
+        },
+      ],
+    })
+
     return {
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
-      hero_image: `hero.${hero_id}.jpg`
+      hero_image: `hero.${hero_id}.jpg`,
+      kirkeImg,
+      tobiasImg,
+      dortjeGaertnerImg,
     }
-  },
-  head: {
-    title: 'Startseite',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus“ und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
-      },
-      // Open Graph
-      { hid: 'og:title', property: 'og:title', content: 'EC-Nordbund' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content:
-          'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus“ und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
-      },
-      // Twitter Card
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: 'EC-Nordbund!',
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content:
-          'Die EC-Arbeit in Deutschland hat den Auftrag, junge Menschen zu Jüngern zu machen und sie zu prägenden Persönlichkeiten heranzubilden, durch die wiederum Menschen ihrer Generation zu Jüngern werden. Der EC-Nordbund ist einer der 18 Landesverbänden des Deutschen EC-Verbandes. Im EC-Nordbund sind alle EC-Kinder- und Jugendarbeiten aus Schleswig-Holstein und Hamburg vereint. EC bedeutet: „Entschieden für Christus“ und markiert die Aurichtung auf Jesus in allen unseren Aktivitäten.',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://www.ec-nordbund.de',
-        hid: 'canonical',
-      }
-    ],
   },
 })
 </script>
 <style lang="scss" scoped>
-@import '~vuetify/src/styles/settings/_variables';
-
 .hero-image {
   height: calc(100vh + 3.492vw - 96px);
 
-  @media #{map-get($display-breakpoints, 'md-and-up')} {
+  @media (min-width: 960px) {
     height: 400px;
   }
 }
@@ -281,7 +282,7 @@ export default defineComponent({
 
 .hexa-image-overlay {
   height: 128px;
-  background: var(--v-primary-base);
+  background: rgb(var(--v-theme-primary));
   opacity: 0;
   will-change: opacity;
   transition: opacity 0.3s;
@@ -292,7 +293,7 @@ export default defineComponent({
 
   // transition: background-color .3s;
   &:hover {
-    // background-color: var(--v-primary-base);
+    // background-color: rgb(var(--v-theme-primary));
 
     & .hexa-image-overlay {
       opacity: 0.7;
