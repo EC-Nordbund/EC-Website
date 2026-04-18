@@ -172,7 +172,7 @@ export default defineComponent({
         .fetch()
 
         const countdown = {
-          date: '2026-04-19T14:00:00Z',
+          date: '2026-04-19T13:00:00Z',
           show: true
         }
 
