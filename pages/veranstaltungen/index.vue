@@ -87,17 +87,16 @@
     p(v-else) Loading...
 </template>
 <script lang="ts">
+import { useDisplay } from 'vuetify'
 import {
   defineComponent,
-  useStatic,
-  useContext,
   computed,
   ref,
   watch
-} from '@nuxtjs/composition-api'
+} from 'vue'
 
 export default defineComponent({
-  setup(props, ctx) {
+  async setup(props, ctx) {
     enum Scope {
       TODAY = 'Heute',
       FUTURE = 'Zukünftige',
@@ -205,8 +204,9 @@ export default defineComponent({
         && filterByKeyword(veranstaltung, keyword);
     }
 
+    const { name: breakpointName } = useDisplay()
     const detailsMaxHeight = computed(() => {
-      switch (ctx.root.$vuetify.breakpoint.name) {
+      switch (breakpointName.value) {
         case 'md':
         case 'lg':
         case 'xl':
@@ -227,13 +227,12 @@ export default defineComponent({
       }
     }
 
-    const { $content } = useContext()
-
-    const vData = useStatic(
+    const { data: vData } = await useAsyncData(
+      'vDataPage',
       async () => {
-        const veranstaltungen = await $content('veranstaltung')
+        const raw = await queryContent('veranstaltung')
           .only([
-            'slug',
+            '_path',
             'title',
             'begin',
             'ende',
@@ -246,13 +245,10 @@ export default defineComponent({
             'tags',
             'minTN',
           ])
-          .sortBy('begin')
-          .fetch()
-
-        return veranstaltungen
-      },
-      undefined,
-      'vDataPage'
+          .sort({ begin: 1 })
+          .find()
+        return raw.map(v => ({ ...v, slug: v._path.split('/').pop() }))
+      }
     )
 
     const filterResultAmount = (scope: Scope, tags: string[], keyword: string) => {
@@ -276,6 +272,37 @@ export default defineComponent({
 
     const veranstaltungen = computed(() => vData.value?.filter((v: any) => filter(v)))
 
+    useHead({
+      title: 'Veranstaltungen',
+      meta: [
+        {
+          name: 'description',
+          content: 'Liste aller Veranstaltungen des EC-Nordbundes.',
+        },
+        // Open Graph
+        { property: 'og:title', content: 'Veranstaltungen' },
+        {
+          property: 'og:description',
+          content: 'Liste aller Veranstaltungen des EC-Nordbundes.',
+        },
+        // Twitter Card
+        {
+          name: 'twitter:title',
+          content: 'Veranstaltungen',
+        },
+        {
+          name: 'twitter:description',
+          content: 'Liste aller Veranstaltungen des EC-Nordbundes..',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/veranstaltungen',
+        },
+      ],
+    })
+
     return {
       detailsMaxHeight,
       textWaitingQueue,
@@ -294,41 +321,6 @@ export default defineComponent({
       keyword,
       onKeywordTyping
     }
-  },
-  head: {
-    title: 'Veranstaltungen',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Liste aller Veranstaltungen des EC-Nordbundes.',
-      },
-      // Open Graph
-      { hid: 'og:title', property: 'og:title', content: 'Veranstaltungen' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Liste aller Veranstaltungen des EC-Nordbundes.',
-      },
-      // Twitter Card
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: 'Veranstaltungen',
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: 'Liste aller Veranstaltungen des EC-Nordbundes..',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://www.ec-nordbund.de/veranstaltungen',
-        hid: 'canonical',
-      },
-    ],
   },
 })
 </script>

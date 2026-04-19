@@ -40,7 +40,7 @@ import {
   onUnmounted,
   watchEffect,
   ref,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 import { useCurrentTime } from '~/helpers/current-time'
 
 export default defineComponent({

@@ -28,13 +28,13 @@ import {
   ref,
   watchEffect,
   onMounted,
-} from '@nuxtjs/composition-api'
-import { mapper } from '../plugins/validate'
+} from 'vue'
+import { mapper } from '~/utils/validate'
 import { get } from '~/helpers/fetch'
 
 export default defineComponent({
   props: {
-    value: {
+    modelValue: {
       type: Object,
       required: true,
     },
@@ -43,7 +43,8 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props, ctx) {
+  emits: ['update:modelValue'],
+  setup(props, { emit }) {
     const orte = ref([])
     const plzs = ref([])
 
@@ -57,20 +58,20 @@ export default defineComponent({
     })
 
     watchEffect(() => {
-      localState.plz = props.value.plz
-      localState.ort = props.value.ort
+      localState.plz = props.modelValue.plz
+      localState.ort = props.modelValue.ort
     })
 
     const ortChange = (ort) => {
       localState.ort = ort
 
-      ctx.emit('input', localState)
+      emit('update:modelValue', localState)
     }
 
     const plzChange = async (plz) => {
       localState.plz = plz
       localState.ort = ''
-      ctx.emit('input', localState)
+      emit('update:modelValue', localState)
 
       const orteForPLZ = await get(`https://plz.ec-nordbund.de/${plz}.json`)
 
@@ -81,7 +82,7 @@ export default defineComponent({
       } else {
         orte.value = orteForPLZ
       }
-      ctx.emit('input', localState)
+      emit('update:modelValue', localState)
     }
 
     const errorData = mapper(localState, props.errorMap, ['plz', 'ort'])

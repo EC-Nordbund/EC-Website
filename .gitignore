@@ -65,10 +65,9 @@ typings/
 # next.js build output
 .next
 
-# nuxt.js build output
+# Nuxt build output
 .nuxt
-
-# Nuxt generate
+.output
 dist
 
 # vuepress build output
@@ -84,15 +83,18 @@ dist
 !.vscode/settings.json 
 *.code-workspace
 
+# Claude Code
+.claude/
+
 # macOS
 .DS_Store
 
 # Vim swap files
 *.swp
 
-static/plz
-static/downloads
-static/old
+public/plz
+public/downloads
+public/old
 content/downloadFiles.json
 slugs.json
 fileToDownload.json

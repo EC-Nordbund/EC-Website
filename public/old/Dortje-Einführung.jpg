@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+<link rel="profile" href="http://gmpg.org/xfn/11"/>
+
+<link rel="pingback" href="https://www.ec-nordbund.de/xmlrpc.php" /> 
+<title>Seite nicht gefunden &#8211; EC-Nordbund</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel='dns-prefetch' href='//jetpack.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//public-api.wordpress.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel="alternate" type="application/rss+xml" title="EC-Nordbund &raquo; Feed" href="https://www.ec-nordbund.de/feed/" />
+<link rel="alternate" type="application/rss+xml" title="EC-Nordbund &raquo; Kommentar-Feed" href="https://www.ec-nordbund.de/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.ec-nordbund.de\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.ec-nordbund.de/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.ec-nordbund.de/wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme-jquery-fdatepicker-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/fdatepicker/css/fdatepicker.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme-jquery-ui-css-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/css/jquery-ui-theme-smoothness-1.11.3/jquery-ui.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme-jquery-ui-autocomplete-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/css/jquery.autocomplete.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme-jquery-select2-css-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/jquery-select2/select2-4.1.0-beta.1/dist/css/select2.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme_stylesheet-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/css/eme.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme_stylesheet_extra-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer-child/eme.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eme-leaflet-css-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/leaflet-1.6.0/leaflet.css' type='text/css' media='all' />
+<link rel='stylesheet' id='megamenu-css'  href='https://www.ec-nordbund.de/wp-content/uploads/maxmegamenu/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://www.ec-nordbund.de/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-icon-css'  href='https://fonts.googleapis.com/icon?family=Material+Icons' type='text/css' media='all' />
+<link rel='stylesheet' id='optimizer-style-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer-child/style.css' type='text/css' media='all' />
+<style id='optimizer-style-inline-css' type='text/css'>
+#ast_bio_widget-5 .widget_wrap{ background-color: #dddddd;  }#ast_bio_widget-5 .widgettitle, #ast_bio_widget-5 .ast_biotxt h3{color: #8fb217;  } #ast_bio_widget-5 .ast_biotxt{color: #666666; }
+</style>
+<link rel='stylesheet' id='optimizer-style-core-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/style_core.css' type='text/css' media='all' />
+<link rel='stylesheet' id='icons-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/fonts/font-awesome.css' type='text/css' media='all' />
+<link rel='stylesheet' id='portfolio-style-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/css/portfolio.css' type='text/css' media='all' />
+<link rel='stylesheet' id='optimizer_google_fonts-css'  href='//fonts.googleapis.com/css?family=Cantarell%3Aregular%2Citalic%2C700%26subset%3Dlatin%2C' type='text/css' media='screen' />
+<link rel='stylesheet' id='parent-style-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://www.ec-nordbund.de/wp-content/plugins/jetpack/css/jetpack.css' type='text/css' media='all' />
+<link rel='stylesheet' id='emefs-leaflet-css-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/leaflet-1.6.0/leaflet.css' type='text/css' media='all' />
+<link rel='stylesheet' id='emefs-css'  href='https://www.ec-nordbund.de/wp-content/themes/optimizer-child/events-made-easy-frontend-submit/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='emefs-internal-css'  href='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy-frontend-submit/templates/style.internal.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/jquery.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/core.min.js' id='jquery-ui-core-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/widget.min.js' id='jquery-ui-widget-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/position.min.js' id='jquery-ui-position-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/jetpack/_inc/build/tiled-gallery/tiled-gallery/tiled-gallery.min.js' id='tiled-gallery-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/menu.min.js' id='jquery-ui-menu-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill.min.js' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+( 'fetch' in window ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://www.ec-nordbund.de/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/dist/dom-ready.min.js' id='wp-dom-ready-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/dist/i18n.min.js' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-a11y-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2020-09-23 11:09:31+0000","generator":"GlotPress\/3.0.0-alpha.2","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"de"},"Notifications":["Benachrichtigungen"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/dist/a11y.min.js' id='wp-a11y-js'></script>
+<script type='text/javascript' id='jquery-ui-autocomplete-js-extra'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"Es wurden keine Ergebnisse gefunden, die deinen Suchkriterien entsprechen.","oneResult":"1 Ergebnis gefunden. Benutze die Pfeiltasten zum Navigieren.","manyResults":"%d Ergebnisse gefunden. Benutze die Pfeiltasten zum Navigieren.","itemSelected":"Eintrag ausgew\u00e4hlt."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/autocomplete.min.js' id='jquery-ui-autocomplete-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/leaflet-1.6.0/leaflet.js' id='emefs-leaflet-maps-js'></script>
+<script type='text/javascript' id='emefs-js-extra'>
+/* <![CDATA[ */
+var emefs = {"firstDayOfWeek":"1","ajax_url":"https:\/\/www.ec-nordbund.de\/wp-admin\/admin-ajax.php","dateformat":"j. F Y","timeformat":"H:i","flanguage":"de","minutesStep":"5"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy-frontend-submit/js/emefs.js' id='emefs-js'></script>
+<link rel="https://api.w.org/" href="https://www.ec-nordbund.de/wp-json/" /><style type='text/css'>img#wpstats{display:none}</style><style type="text/css">
+
+/*Fixed Background*/
+
+	/*BOXED LAYOUT*/
+	.site_boxed .layer_wrapper, body.home.site_boxed #slidera {width: 90%;float: left;margin: 0 5%;
+	background-color: #ffffff;}
+	.site_boxed .stat_bg, .site_boxed .stat_bg_overlay, .site_boxed .stat_bg img, .site_boxed .is-sticky .header{width:90%;}
+	.site_boxed .social_buttons{background-color: #ffffff;}
+	.site_boxed .center {width: 95%;margin: 0 auto;}
+	.site_boxed .head_top .center{ width:95%;}
+	/*Left Sidebar*/
+	@media screen and (min-width: 960px){
+	.header_sidebar.site_boxed #slidera, .header_sidebar.site_boxed .home_wrap.layer_wrapper, .header_sidebar.site_boxed .footer_wrap.layer_wrapper, .header_sidebar.site_boxed .page_wrap.layer_wrapper, .header_sidebar.site_boxed .post_wrap.layer_wrapper, .header_sidebar.site_boxed .page_blog_wrap.layer_wrapper, .header_sidebar.site_boxed .page_contact_wrap.layer_wrapper, .header_sidebar.site_boxed .page_fullwidth_wrap.layer_wrapper, .header_sidebar.site_boxed .category_wrap.layer_wrapper, .header_sidebar.site_boxed .search_wrap.layer_wrapper, .header_sidebar.site_boxed .fofo_wrap.layer_wrapper, .header_sidebar .site_boxed .author_wrap.layer_wrapper, .header_sidebar.site_boxed .head_top{width: calc(90% - 300px)!important;margin-left: calc(300px + 5%)!important;}
+	.header_sidebar.site_boxed .stat_bg_overlay, .header_sidebar.site_boxed .stat_bg{width: calc(90% - 300px)!important;left: 300px;}
+	
+	}
+
+
+
+/*Site Content Text Style*/
+body, input, textarea{ 
+	font-family:Cantarell; 	font-size:16px; 	font-weight:400; }
+
+.single_metainfo, .single_post .single_metainfo a, a:link, a:visited, .single_post_content .tabs li a{ color:#666666;}
+body .listing-item .lt_cats a{ color:#666666;}
+
+.sidr-class-header_s.sidr-class-head_search i:before {font-family: 'FontAwesome', Cantarell; ;}
+
+/*LINK COLOR*/
+.org_comment a, .thn_post_wrap a:not(.wp-block-button__link):link, .thn_post_wrap a:not(.wp-block-button__link):visited, .lts_lightbox_content a:link, .lts_lightbox_content a:visited, .athor_desc a:link, .athor_desc a:visited, .product_meta a:hover{color:#8fb217;}
+.org_comment a:hover, .thn_post_wrap a:not(.wp-block-button__link):link:hover, .lts_lightbox_content a:link:hover, .lts_lightbox_content a:visited:hover, .athor_desc a:link:hover, .athor_desc a:visited:hover{color:#ac1637;}
+
+
+
+
+
+
+
+
+/*-----------------------------Static Slider Content box------------------------------------*/
+.stat_content_inner .center{width:100%;}
+.stat_content_inner{bottom:0%; color:#ffffff;}
+
+/*SLIDER HEIGHT RESTRICT*/
+.static_gallery.nivoSlider, #zn_nivo{ max-height: 66vh!important;}
+#stat_img.stat_has_vid { max-height: 66vh!important; overflow: hidden;}
+.stat_bg img, .stat_bg, .stat_bg_img, .stat_bg_overlay{ height: 66vh!important; }
+
+
+
+/*SLIDER FONT SIZE*/
+#accordion h3 a, #zn_nivo h3 a{font-size:36px; line-height:1.3em}
+/*STATIC SLIDE CTA BUTTONS COLORS*/
+.static_cta1.cta_hollow, .static_cta1.cta_hollow_big, .static_cta1.cta_hollow_small, .static_cta1.cta_square_hollow, .static_cta1.cta_square_hollow_big, .static_cta1.cta_square_hollow_small{ background:transparent!important; color:#ffffff;}
+.static_cta1.cta_flat, .static_cta1.cta_flat_big, .static_cta1.cta_flat_small, .static_cta1.cta_rounded, .static_cta1.cta_rounded_big, .static_cta1.cta_rounded_small, .static_cta1.cta_hollow:hover, .static_cta1.cta_hollow_big:hover, .static_cta1.cta_hollow_small:hover, .static_cta1.cta_square, .static_cta1.cta_square_small, .static_cta1.cta_square_big, .static_cta1.cta_square_hollow:hover, .static_cta1.cta_square_hollow_small:hover, .static_cta1.cta_square_hollow_big:hover{ background:#8fb217!important; color:#ffffff; border-color:#8fb217!important;}
+
+
+.static_cta2.cta_hollow, .static_cta2.cta_hollow_big, .static_cta2.cta_hollow_small, .static_cta2.cta_square_hollow, .static_cta2.cta_square_hollow_big, .static_cta2.cta_square_hollow_small{ background:transparent!important; color:#ffffff;}
+.static_cta2.cta_flat, .static_cta2.cta_flat_big, .static_cta2.cta_flat_small, .static_cta2.cta_rounded, .static_cta2.cta_rounded_big, .static_cta2.cta_rounded_small, .static_cta2.cta_hollow:hover, .static_cta2.cta_hollow_big:hover, .static_cta2.cta_hollow_small:hover, .static_cta2.cta_square, .static_cta2.cta_square_small, .static_cta2.cta_square_big, .static_cta2.cta_square_hollow:hover, .static_cta2.cta_square_hollow_small:hover, .static_cta2.cta_square_hollow_big:hover{ background:#812d3f!important; color:#ffffff; border-color:#812d3f!important;}
+
+/*------------------------SLIDER HEIGHT----------------------*/
+/*Slider Height*/
+#accordion, #slide_acord, .accord_overlay{ height:500px;}
+.kwicks li{ max-height:500px;min-height:500px;}
+
+
+
+/*-----------------------------COLORS------------------------------------*/
+		/*Header Color*/
+		.header{ position:relative!important; background-color:#8fb217; 
+				}
+		
+				.home.has_trans_header .header_wrap {float: left; position:relative;width: 100%;}
+		.home.has_trans_header .header{position: absolute!important;z-index: 999;}
+		
+		.home.has_trans_header .header, .home.has_trans_header.page.page-template-page-frontpage_template .header{ background-color:transparent!important; background-image:none;}
+		.home.has_trans_header .head_top{background-color: rgba(0, 0, 0, 0.3);}
+				
+		.header_sidebar .head_inner{background-color:#8fb217; }
+		
+				
+		/*Boxed Header should have boxed width*/
+		body.home.site_boxed .header_wrap.layer_wrapper{width: 90%;float: left;margin: 0 5%;}
+
+		.home.has_trans_header.page .header, .home.has_trans_header.page-template-page-frontpage_template .is-sticky .header{ background-color:#8fb217!important;}
+		@media screen and (max-width: 480px){
+		.home.has_trans_header .header{ background-color:#8fb217!important;}
+		}
+		
+				/*Sticky Header*/
+		.header{z-index: 9999;}
+		body .is-sticky .header{position: fixed!important;box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); z-index:999!important;}
+				
+		.home .is-sticky .header, .page_header_transparent .is-sticky .header{ position:fixed!important; background-color:#8fb217!important;box-shadow: 0 0 4px rgba(0, 0, 0, 0.2)!important; transition-delay:0.3s; -webkit-transition-delay:0.3s; -moz-transition-delay:0.3s;}
+		
+		/*TOPBAR COLORS*/
+		.head_top, #topbar_menu ul li a{ font-size:15px;}
+		.head_top, .page_header_transparent .is-sticky .head_top, #topbar_menu #optimizer_minicart {background-color:#333333;}
+		#topbar_menu #optimizer_minicart{color:#ffffff;}
+		.page_header_transparent .head_top {  background: rgba(0, 0, 0, 0.3);}
+		.head_search, .top_head_soc a, .tophone_on .head_phone, .tophone_on .head_phone span, .tophone_on .head_phone i, .tophone_on .head_phone a, .topsearch_on .head_phone a, .topsearch_on .head_search i, #topbar_menu ul li a, body.has_trans_header.home .is-sticky .head_top a, body.page_header_transparent .is-sticky .head_top a, body.has_trans_header.home .is-sticky #topbar_menu ul li a, body.page_header_transparent .is-sticky #topbar_menu ul li a, #topbar-hamburger-menu{color:#ffffff;}
+		.head_top .social_bookmarks.bookmark_hexagon a:before {border-bottom-color: rgba(255,255,255, 0.3)!important;}
+		.head_top .social_bookmarks.bookmark_hexagon a i {background-color:rgba(255,255,255, 0.3)!important;}
+		.head_top .social_bookmarks.bookmark_hexagon a:after { border-top-color:rgba(255,255,255, 0.3)!important;}
+		
+		/*LOGO*/
+				.logo h2, .logo h1, .logo h2 a, .logo h1 a{ 
+			font-family:'sans-serif'; 						color:#ffffff;
+      }
+
+            
+		span.desc{font-size: 12px;}
+		body.has_trans_header.home .header .logo h2, body.has_trans_header.home .header .logo h1, body.has_trans_header.home .header .logo h2 a, body.has_trans_header.home .header .logo h1 a, body.has_trans_header.home span.desc, body.page_header_transparent .header .logo h2, body.page_header_transparent .header .logo h1, body.page_header_transparent .header .logo h2 a, body.page_header_transparent .header .logo h1 a, body.page_header_transparent span.desc, body.has_trans_header.home .head_top a{ color:#ffffff;}
+		body.has_trans_header .is-sticky .header .logo h2 a, body.has_trans_header .is-sticky .header .logo h1 a, body.page_header_transparent .is-sticky .header .logo h2 a, body.page_header_transparent .is-sticky .header .logo h1 a{color:#ffffff;}
+		#simple-menu, body.home.has_trans_header .is-sticky #simple-menu{color:#ffffff;}
+		body.home.has_trans_header #simple-menu{color:#ffffff;}
+		span.desc{color:#ffffff;}
+		body.has_trans_header.home .is-sticky span.desc, body.page_header_transparent .is-sticky span.desc{color:#ffffff;}
+		
+		body.has_trans_header.home .is-sticky .header .logo h2 a, body.has_trans_header.home .is-sticky .header .logo h1 a, body.page_header_transparent .is-sticky .header .logo h2 a, body.page_header_transparent .is-sticky .header .logo h1 a{color:#ffffff;}
+				
+		/*MENU Text Color*/
+		#topmenu ul li a, .header_s.head_search i{color:#ffffff;}
+		body.has_trans_header.home #topmenu ul li a, body.page_header_transparent #topmenu ul li a, body.page_header_transparent .head_top a, body.has_trans_header.home #topbar_menu ul li a, body.page_header_transparent #topbar_menu ul li a, .home.has_trans_header .head_soc .social_bookmarks a, .page_header_transparent .head_soc .social_bookmarks a{ color:#ffffff;}
+		body.header_sidebar.home #topmenu ul li a, #topmenu #optimizer_minicart{color:#ffffff;}
+      
+      #topmenu ul li ul:not(.mega-sub-menu){background-color:rgba(0,0,0, 0.5);}
+      
+		#topmenu ul li ul li a:hover{ background-color:#8fb217; color:#ffffff;}
+		.head_soc .social_bookmarks a, .home.has_trans_header .is-sticky .head_soc .social_bookmarks a, .page_header_transparent .is-sticky .head_soc .social_bookmarks a{color:#ffffff;}
+		.head_soc .social_bookmarks.bookmark_hexagon a:before {border-bottom-color: rgba(255,255,255, 0.3)!important;}
+		.head_soc .social_bookmarks.bookmark_hexagon a i {background-color:rgba(255,255,255, 0.3)!important;}
+		.head_soc .social_bookmarks.bookmark_hexagon a:after { border-top-color:rgba(255,255,255, 0.3)!important;}
+		body.has_trans_header.home .is-sticky #topmenu ul li a, body.page_header_transparent .is-sticky #topmenu ul li a{color:#ffffff;}
+      
+      /*SUBMENU Text Color*/
+      #topmenu ul li ul li a, body.has_trans_header.home #topbar_menu ul li ul li a, body.page_header_transparent #topbar_menu ul li ul li a, body.header_sidebar.home #topmenu ul li a{color:#ffffff;}
+
+		/*Menu Highlight*/
+		#topmenu li.menu_highlight_slim{ border-color:#ffffff;}
+		#topmenu li.menu_highlight_slim:hover{ background-color:#8fb217;border-color:#8fb217;}
+		#topmenu li.menu_highlight_slim:hover>a{ color:#ffffff!important;}
+		#topmenu li.menu_highlight{ background-color:#8fb217; border-color:#8fb217;}
+		#topmenu li.menu_highlight a, #topmenu li.menu_highlight_slim a{color:#ffffff!important;}
+		#topmenu li.menu_highlight:hover{border-color:#8fb217; background-color:transparent;}
+		#topmenu li.menu_highlight:hover>a{ color:#8fb217!important;}
+		
+		#topmenu ul li.menu_hover a{border-color:#ffffff;}
+		#topmenu ul.menu>li:hover:after{background-color:#ffffff;}
+		#topmenu ul li.menu_hover>a, body.has_trans_header.home #topmenu ul li.menu_hover>a, #topmenu ul li.current-menu-item>a[href*="#"]:hover{color:#ffffff;}
+		#topmenu ul li.current-menu-item>a, body.header_sidebar #topmenu ul li.current-menu-item>a, body.has_trans_header.header_sidebar .is-sticky #topmenu ul li.current-menu-item>a, body.page_header_transparent.header_sidebar .is-sticky #topmenu ul li.current-menu-item>a{color:#d0044d;}
+		#topmenu ul li.current-menu-item.onepagemenu_highlight>a, body.header_sidebar #topmenu ul li.menu_hover>a{color:#ffffff!important;}
+		#topmenu ul li ul li.current-menu-item.onepagemenu_highlight a { color: #FFFFFF!important;}
+		#topmenu ul li ul{border-color:#ffffff transparent transparent transparent;}
+
+		.logo_center_left #topmenu, .logo_center #topmenu{background-color:;}
+		.left_header_content, .left_header_content a{color:#ffffff;}
+
+
+		/*BASE Color*/
+		.widget_border, .heading_border, #wp-calendar #today, .thn_post_wrap .more-link:hover, .moretag:hover, .search_term #searchsubmit, .error_msg #searchsubmit, #searchsubmit, .optimizer_pagenav a:hover, .nav-box a:hover .left_arro, .nav-box a:hover .right_arro, .pace .pace-progress, .homeposts_title .menu_border, span.widget_border, .ast_login_widget #loginform #wp-submit, .prog_wrap, .lts_layout1 a.image, .lts_layout2 a.image, .lts_layout3 a.image, .rel_tab:hover .related_img, .wpcf7-submit, .nivoinner .slide_button_wrap .lts_button, #accordion .slide_button_wrap .lts_button, .img_hover, p.form-submit #submit, .contact_form_wrap, .style2 .contact_form_wrap .contact_button, .style3 .contact_form_wrap .contact_button, .style4 .contact_form_wrap .contact_button, .optimizer_front_slider #opt_carousel .slidee li .acord_text .slide_button_wrap a, .hover_topborder .midrow_block:before, .acord_text p a{background-color:#8fb217;} 
+		
+		.share_active, .comm_auth a, .logged-in-as a, .citeping a, .lay3 h2 a:hover, .lay4 h2 a:hover, .lay5 .postitle a:hover, .nivo-caption p a, .org_comment a, .org_ping a, .no_contact_map .contact_submit input, .contact_submit input:hover, .widget_calendar td a, .ast_biotxt a, .ast_bio .ast_biotxt h3, .lts_layout2 .listing-item h2 a:hover, .lts_layout3 .listing-item h2 a:hover, .lts_layout4 .listing-item h2 a:hover, .lts_layout5 .listing-item h2 a:hover, .rel_tab:hover .rel_hover, .post-password-form input[type~=submit], .bio_head h3, .blog_mo a:hover, .ast_navigation a:hover, .lts_layout4 .blog_mo a:hover{color:#8fb217;}
+		#home_widgets .widget .thn_wgt_tt, #sidebar .widget .thn_wgt_tt, #footer .widget .thn_wgt_tt, .astwt_iframe a, .ast_bio .ast_biotxt h3, .ast_bio .ast_biotxt a, .nav-box a span{color:#8fb217;}
+		.pace .pace-activity{border-top-color: #8fb217!important;border-left-color: #8fb217!important;}
+		.pace .pace-progress-inner{box-shadow: 0 0 10px #8fb217, 0 0 5px #8fb217;
+		  -webkit-box-shadow: 0 0 10px #8fb217, 0 0 5px #8fb217;
+		  -moz-box-shadow: 0 0 10px #8fb217, 0 0 5px #8fb217;}
+		
+		.fotorama__thumb-border, .ast_navigation a:hover{ border-color:#8fb217!important;}
+		
+		.hover_colorbg .midrow_block:before{ background-color:rgba(143,178,23, 0.3);}
+		
+		/*Text Color on BASE COLOR Element*/
+		.icon_round a, #wp-calendar #today, .moretag:hover, .search_term #searchsubmit, .error_msg #searchsubmit, .optimizer_pagenav a:hover, .ast_login_widget #loginform #wp-submit, #searchsubmit, .prog_wrap, .rel_tab .related_img i, .lay1 h2.postitle a, .nivoinner .slide_button_wrap .lts_button, #accordion .slide_button_wrap .lts_button, .lts_layout1 .icon_wrap a, .lts_layout2 .icon_wrap a, .lts_layout3 .icon_wrap a, .lts_layout1 .icon_wrap a:hover, .lts_layout2 .icon_wrap a:hover, .lts_layout3 .icon_wrap a:hover, .optimizer_front_slider #opt_carousel .slidee li .acord_text .slide_button_wrap a{color:#ffffff!important;}
+		.thn_post_wrap .listing-item .moretag:hover, body .lts_layout1 .listing-item .title, .lts_layout2 .img_wrap .optimizer_plus, .img_hover .icon_wrap a, #footer .widgets .widget .img_hover .icon_wrap a, body .thn_post_wrap .lts_layout1 .icon_wrap a, .wpcf7-submit, p.form-submit #submit, .optimposts .type-product span.onsale, .style2 .contact_form_wrap .contact_button, .style3 .contact_form_wrap .contact_button, .style4 .contact_form_wrap .contact_button, .lay3.portfolio_wrap .post_content .catag_list, .lay3.portfolio_wrap .post_content .catag_list a, .lay3.portfolio_wrap h2 a{color:#ffffff!important;}
+		.hover_colorbg .midrow_block:before, .hover_colorbg .midrow_block:hover .block_content, .hover_colorbg .midrow_block:hover h2, .hover_colorbg .midrow_block:hover h3, .hover_colorbg .midrow_block:hover h4, .hover_colorbg .midrow_block:hover a, .contact_form_wrap .contact_button, .contact_buttn_spinner, .acord_text p a{color:#ffffff!important;}		
+		
+
+
+
+
+/*Sidebar Widget Background Color */
+#sidebar .widget{ background-color:#eeeeee;}
+/*Widget Title Color */
+#sidebar .widget .widgettitle, #sidebar .widget .widgettitle a{color:#ffffff;}
+#sidebar .widget li a, #sidebar .widget, #sidebar .widget .widget_wrap{ color:#ffffff;}
+#sidebar .widget .widgettitle, #sidebar .widget .widgettitle a, #sidebar .home_title{font-size:20px;}
+
+#footer .widgets .widgettitle, #copyright a{color:#ffffff;}
+
+/*FOOTER WIDGET COLORS*/
+#footer{background-color: #222222; }
+#footer .widgets .widget a, #footer .widgets{color:#666666;}
+#footer .widgets .ast_scoial.social_style_round_text a span{color:#666666;}
+/*COPYRIGHT COLORS*/
+#copyright{background-color: #333333;  background-size: cover;}
+#copyright a, #copyright{color: #999999;}
+.foot_soc .social_bookmarks a{color:#999999}
+.foot_soc .social_bookmarks.bookmark_hexagon a:before {border-bottom-color: rgba(153,153,153, 0.3);}
+.foot_soc .social_bookmarks.bookmark_hexagon a i {background-color:rgba(153,153,153, 0.3);}
+.foot_soc .social_bookmarks.bookmark_hexagon a:after { border-top-color:rgba(153,153,153, 0.3);}
+
+
+
+/*-------------------------------------TYPOGRAPHY--------------------------------------*/
+
+
+/*Post Titles, headings and Menu Font*/
+h1, h2, h3, h4, h5, h6, #topmenu ul li a, .postitle, .product_title{ 
+   font-family:Cantarell;  
+   font-weight:600; }
+
+
+#topmenu ul li a{font-size:16px;}
+#topmenu ul li {line-height: 16px;}
+
+.single .single_post_content .postitle, .single-product h1.product_title, .single-product h2.product_title{font-size:34px;}
+
+.page .page_head .postitle, .page .single_post .postitle, .archive .single_post .postitle{font-size:28px;}
+
+
+
+/*Body Text Color*/
+body, .home_cat a, .comment-form-comment textarea, .single_post_content .tabs li a, .thn_post_wrap .listing-item .moretag{ color:#666666;}
+	
+	
+
+/*Post Title */
+.postitle, .postitle a, .nav-box a, h3#comments, h3#comments_ping, .comment-reply-title, .related_h3, .nocomments, .lts_layout2 .listing-item h2 a, .lts_layout3 .listing-item h2 a, .lts_layout4 .listing-item h2 a, .lts_layout5 .listing-item h2 a, .author_inner h5, .product_title, .woocommerce-tabs h2, .related.products h2, .lts_layout4 .blog_mo a, .optimposts .type-product h2.postitle a, .woocommerce ul.products li.product h3, .portfolio_wrap .hover_style_5 h2 a, .portfolio_wrap .hover_style_5 .post_content .catag_list a, .portfolio_wrap .hover_style_5 .post_content .catag_list{ text-decoration:none; color:#72852e;}
+
+/*Headings Color in Post*/
+.thn_post_wrap h1, .thn_post_wrap h2, .thn_post_wrap h3, .thn_post_wrap h4, .thn_post_wrap h5, .thn_post_wrap h6{color:#425600;}
+
+
+
+
+
+
+
+
+
+
+.lay4 .ast_navigation .alignleft i:after, .lay5 .ast_navigation .alignleft i:after {content: "Previous Posts";}
+.lay4 .ast_navigation .alignright i:after, .lay5 .ast_navigation .alignright i:after {content: "Next Posts";}
+.lay4 .ast_navigation .alignleft i:after, .lay5 .ast_navigation .alignleft i:after , .lay4 .ast_navigation .alignright i:after, .lay5 .ast_navigation .alignright i:after{ font-family:Cantarell;}
+
+
+.sidr{ background-color:#35681a}
+
+
+@media screen and (max-width: 480px){
+body.home.has_trans_header .header .logo h1 a, body.home.has_trans_header .header .desc{ color:#ffffff!important;}
+body.home.has_trans_header .header #simple-menu, body.has_trans_header.home #topmenu ul li a{color:#ffffff!important;}
+}
+
+
+
+@media screen and (max-width: 1024px) and (min-width: 481px){.logobefore, .logoafter{width: calc(50% - 257px);} }
+
+
+/*CUSTOM FONT---------------------------------------------------------*/
+/*CUSTOM CSS*/
+.events_menu lu li {
+    display: inline;
+    padding: 12px;
+   width: 32px;
+}
+
+.events_menu lu li:hover {
+color: #ffffff;
+}
+
+.sidr-class-menu_arrow,
+a.sidr-class-dashicons-search.sidr-class-mega-menu-link { 
+display: none;
+}
+
+input#sidr-id-s,
+input#sidr-id-searchsubmit {
+display: none;
+}
+
+.frontpage_sidebar .widget_search #s {
+width: 70%;
+padding: 15px 0 15px 15px;
+z-index: 10001;
+}
+
+.frontpage_sidebar .widget_search #searchsubmit {
+width: 25%;
+float: right;
+padding: 17px 17px 0 17px 17px;
+z-index: 10001;
+}
+
+.eme-past-event  {
+display: none;
+}
+
+.eme-ongoing-event {
+    background-color: #f5f5f5 !important;
+    border: #812D3F solid 3px;
+    border-radius: 3px;
+}
+
+.eme-ongoing-event p i {
+    visibility: hidden;
+}
+
+.wp-block-columns.no-margin {
+  margin: 0;
+}
+
+.wp-block-separator.is-style-default {
+	max-width: 100px;
+	height: 2px;
+	margin: 24px auto;
+}</style>
+
+<!--[if IE 9]>
+<style type="text/css">
+.text_block_wrap, .postsblck .center, .home_testi .center, #footer .widgets, .clients_logo img{opacity:1!important;}
+#topmenu ul li.megamenu{ position:static!important;}
+</style>
+<![endif]-->
+<!--[if IE]>
+#searchsubmit{padding-top:12px;}
+<![endif]-->
+    
+            
+<link rel="icon" href="https://www.ec-nordbund.de/wp-content/uploads/2017/03/cropped-favicon-2-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.ec-nordbund.de/wp-content/uploads/2017/03/cropped-favicon-2-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.ec-nordbund.de/wp-content/uploads/2017/03/cropped-favicon-2-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.ec-nordbund.de/wp-content/uploads/2017/03/cropped-favicon-2-270x270.png" />
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+</head>
+
+<body class="error404 mega-menu-primary site_full has_trans_header soc_pos_footer has_sticky_header not_frontpage">
+
+
+<!--HEADER-->
+	        <div class="header_wrap layer_wrapper">
+            
+<!--HEADER STARTS-->
+    <div class="header logo_left has_mobile_hamburger " >
+    
+    
+    <!--TOP HEADER-->
+        <!--TOP HEADER END-->
+        
+    
+        <div class="center">
+            <div class="head_inner">
+            <!--LOGO START-->
+                                                    <div class="logo hide_sitetitle hide_sitetagline">
+                	
+					                    	                        <a class="logoimga" title="EC-Nordbund" href="https://www.ec-nordbund.de/"><img src="https://www.ec-nordbund.de/wp-content/uploads/ec_nordbund_logo-e1492253450299.png" alt="EC-Nordbund" width="237" height="58" /></a>
+                                                <span class="desc logoimg_desc"></span>
+                        
+                                    </div>
+               
+            <!--LOGO END-->
+            
+            <!--MENU START--> 
+                            <!--MOBILE MENU START-->
+                                	<a id="simple-menu" class="" href="#sidr"><i class="fa fa-bars"></i></a>                	                                <!--MOBILE MENU END--> 
+                
+                
+                
+                
+                <div id="topmenu" class="menu_style_1 mobile_hamburger "  >
+                <div id="mega-menu-wrap-primary" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-block mega-toggle-block-1' id='mega-toggle-block-1' tabindex='0'><span class='mega-toggle-label' role='button' aria-expanded='false'><span class='mega-toggle-label-closed'></span><span class='mega-toggle-label-open'></span></span></div><div class='mega-toggle-block mega-spacer-block mega-toggle-block-2' id='mega-toggle-block-2'></div></div></div><ul id="mega-menu-primary" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover_intent" data-effect="disabled" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="0" data-mobile-force-width="false" data-second-click="close" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="915" data-unbind="true" data-hover-intent-timeout="300" data-hover-intent-interval="100"><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-265' id='mega-menu-item-265'><a class="dashicons-admin-home mega-menu-link" href="https://www.ec-nordbund.de/" tabindex="0">Home</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-18' id='mega-menu-item-18'><a class="dashicons-admin-comments mega-menu-link" href="https://www.ec-nordbund.de/news/" tabindex="0">News</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-21' id='mega-menu-item-21'><a class="dashicons-location-alt mega-menu-link" href="https://www.ec-nordbund.de/standorte/" aria-haspopup="true" aria-expanded="false" tabindex="0">Orte<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1295' id='mega-menu-item-1295'><a class="mega-menu-link" href="http://www.ec-karlsminde.de">Ferienlager Karlsminde</a></li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-20' id='mega-menu-item-20'><a class="dashicons-calendar mega-menu-link" href="https://www.ec-nordbund.de/veranstaltung/" aria-haspopup="true" aria-expanded="false" tabindex="0">Veranstaltungen<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1684' id='mega-menu-item-1684'><a class="mega-menu-link" href="https://www.ec-nordbund.de/ec-chor/">EC Chor</a></li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-hide-sub-menu-on-mobile mega-menu-item-566' id='mega-menu-item-566'><a class="dashicons-cloud mega-menu-link" href="https://www.ec-nordbund.de/downloads/" tabindex="0">Downloads</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-home mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-right mega-menu-megamenu mega-hide-arrow mega-has-icon mega-icon-left mega-hide-text mega-item-align-right mega-hide-on-mobile mega-hide-sub-menu-on-mobile mega-disable-link mega-menu-item-663' id='mega-menu-item-663'><a class="dashicons-search mega-menu-link" tabindex="0" aria-haspopup="true" aria-expanded="false" role="button" aria-label="Startseite"><span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_search mega-menu-columns-1-of-1 mega-menu-item-search-7' id='mega-menu-item-search-7'><form role="search" method="get" id="searchform" action="https://www.ec-nordbund.de/" >
+    <div>
+    <input placeholder="Suchen &hellip;" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Suchen" />
+    </div>
+    </form></li></ul>
+</li></ul></div>                
+                
+                <!--LOAD THE HEADR SOCIAL LINKS-->
+					<div class="head_soc">
+						                    </div>
+                    
+              <!--Header SEARCH-->
+                <div class="header_s head_search headrsearch_off">
+                    <form role="search" method="get" action="https://www.ec-nordbund.de/" >
+                        <input placeholder="Suchen..." type="text" value="" name="s" id="head_s" />
+                    </form>
+                    <i class="fa fa-search"></i>
+                </div>
+                
+                </div>
+                
+                
+                
+			            <!--MENU END-->
+            
+            <!--LEFT HEADER CONTENT-->
+                        
+            
+            </div>
+    </div>
+    </div>
+<!--HEADER ENDS-->        </div>
+        
+    
+<!--Header END-->
+
+	<!--Slider START-->
+	
+		 
+	
+      <!--Slider END-->
+<div class="fofo_wrap layer_wrapper">
+    	    	<!--404 Page Title-->
+            <div class="page_tt">
+                <div class="center">
+                    <div class="fourofour">
+                        <label><a>404</a></label>
+                     </div>
+                        <h2 class="postitle">Seite nicht gefunden</h2>
+                    </div>
+                </div> 
+
+		<!--404 Description-->                   
+            <div id="content">
+                <div class="center">
+                    <div class="single_wrap no_sidebar">
+                        <div class="single_post">
+							<div id="content_wrap" class="error_page">
+                                    <div class="post">
+                                        <div class="error_msg">
+                                            <p>
+                                            <label>Der Server kann die angeforderte Datei nicht finden. Die Seite wurde entweder verschoben oder
+gelöscht, oder Sie haben die falsche URL oder Dokumenten Namen eingetragen. Prüfen Sie die URL. Wenn 
+ein Wort falsch geschrieben ist, dann korrigieren Sie es und versuchen es erneut. Wenn das
+nicht funktioniert können Sie unsere Such Option verwenden, um zu finden, was Sie suchen.</label>
+                                            </p>
+                                        <form role="search" method="get" id="searchform" action="https://www.ec-nordbund.de/" >
+    <div>
+    <input placeholder="Suchen &hellip;" type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="Suchen" />
+    </div>
+    </form>                                        </div>
+                                </div>     
+                                        
+                              </div>
+                          </div>
+                      </div>
+				</div>
+			</div>
+		</div><!--layer_wrapper class END-->
+
+		
+    <a class="to_top "><i class="fa-angle-up fa-2x"></i></a>
+    
+
+<!--Footer Start-->
+<div class="footer_wrap layer_wrapper ">
+
+    <div id="footer" >
+        <div class="center">
+          
+	</div>
+            <!--Copyright Footer START-->
+                <div id="copyright" class="soc_right">
+                    <div class="center">
+                    
+                        <!--Site Copyright Text START-->
+                                <div class="copytext"><p><strong><em>Spenden:</em><br /></strong>Bank: Sparkasse Südholstein<br /> IBAN: DE47 2305 1030 0510 8336 43<br /> BIC: NOLADE21SHO</p><p>© by EC-Nordbund</p></div>
+                            
+                        <!--Site Copyright Text END-->
+                   
+                   <div class="foot_right_wrap">  
+                        <!--FOOTER MENU START-->   
+                                                <div id="footer_menu" class=""><div class="menu-footer"><ul id="menu-footer_kontakt" class="menu"><li id="menu-item-267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-267"><a href="https://www.ec-nordbund.de/">Startseite</a></li>
+<li id="menu-item-1797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-1797"><a href="https://www.ec-nordbund.de/datenschutzerklaerung/">Datenschutzerklärung</a></li>
+<li id="menu-item-788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-788"><a target="_blank" rel="noopener noreferrer" href="https://www.ec-nordbund.de/impressum/">Impressum</a></li>
+</ul></div></div>
+                                                <!--FOOTER MENU END-->
+                        
+                        <!--SOCIAL ICONS START-->
+                            
+                            <div class="foot_soc">
+<div class="social_bookmarks bookmark_simple bookmark_size_normal">
+	  	        	<a target="_blank" class="ast_fb" href="https://www.facebook.com/ECNordbund/"><i class="fab fa-facebook"></i></a>
+                  	<a target="_blank" class="ast_twt" href="https://www.youtube.com/channel/UC0kn9I7w4sCwl7IJ6ZOTF0w"><i class="fab fa-twitter"></i></a>                                                        
+            </div></div>
+                            
+                        <!--SOCIAL ICONS END-->
+                    </div>
+                    
+                    </div><!--Center END-->
+    
+                </div>
+            <!--Copyright Footer END-->
+    </div>
+
+
+</div><!--layer_wrapper class END-->
+<!--Footer END-->
+
+
+
+
+
+		<script>jQuery(".stat_content_inner").find("p").last().css({"marginBottom":"0"});</script>
+
+<script type="text/javascript">
+	jQuery(window).on('load', function(){
+        if (jQuery("body").hasClass('admin-bar')) {
+			if (jQuery(window).width() > 601) {  
+				jQuery(".header").sticky({topSpacing:27}); 
+				resizeStickyLogo()
+			}else{  
+				jQuery(".header").sticky({topSpacing:0});
+				resizeStickyLogo() 
+			}
+		}else {
+			jQuery(".header").sticky({topSpacing:0});
+			resizeStickyLogo()
+		}
+		jQuery('body.site_boxed .header, body .header_wrap .sticky-wrapper .header').css({"width":jQuery('.header_wrap').width()});
+    });
+	jQuery(window).on('resize',optimizerStickyResize);
+
+	 function optimizerStickyResize(){
+			//Sticky Header width for Boxed Layout
+			jQuery('body.site_boxed .header, body .header_wrap .sticky-wrapper .header').css({"width":jQuery('.header_wrap').width()});		
+	 }
+	 function resizeStickyLogo(){
+            var logoInitHeight = jQuery('.logo img').innerHeight();
+      if(logoInitHeight > 60){
+			jQuery('.header').on('sticky-start', function() { jQuery('.logo img').animate({"height": "60px"}, 300 ) }); 
+			jQuery('.header').on('sticky-end', function() { jQuery('.logo img').animate({"height": logoInitHeight+"px"}, 300 ) });  
+      }
+			}
+	 
+</script>
+
+
+
+<script type="text/javascript">
+
+//Hide Slider until its loaded
+jQuery('#zn_nivo, .nivo-controlNav').css({"display":"none"});	
+
+	//Midrow Blocks Equal Width
+	if(jQuery('.midrow_block').length == 4){ jQuery('.midrow_blocks').addClass('fourblocks'); }
+	if(jQuery('.midrow_block').length == 3){ jQuery('.midrow_blocks').addClass('threeblocks'); }
+	if(jQuery('.midrow_block').length == 2){ jQuery('.midrow_blocks').addClass('twoblocks'); }
+	if(jQuery('.midrow_block').length == 1){ jQuery('.midrow_blocks').addClass('oneblock'); }
+
+
+
+	
+
+
+
+					
+
+jQuery(window).on('load', function(){
+	jQuery('.stat_has_slideshow').css({"maxHeight":"none"});
+	jQuery('.static_gallery').nivoSlider({effect: 'fade', directionNav: false, controlNav: false, pauseOnHover:false, slices:6, pauseTime:6000});
+});
+
+jQuery(document).ready(function() {
+	jQuery('.pd_flick_gallery li img').addClass('hasimg');
+});
+
+
+
+</script> 			
+
+
+        		<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.ec-nordbund.de\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/contact-form-7/includes/js/scripts.js' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/fdatepicker/js/fdatepicker.min.js' id='eme-jquery-fdatepicker-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/fdatepicker/js/i18n/fdatepicker.de.js' id='eme-jquery-fdatepick-locale-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/jquery-select2/select2-4.1.0-beta.1/dist/js/select2.min.js' id='eme-select2-js'></script>
+<script type='text/javascript' id='eme-basic-js-extra'>
+/* <![CDATA[ */
+var emebasic = {"translate_plugin_url":"https:\/\/www.ec-nordbund.de\/wp-content\/plugins\/events-made-easy\/","translate_ajax_url":"https:\/\/www.ec-nordbund.de\/wp-admin\/admin-ajax.php","translate_selectstate":"Provinz","translate_selectcountry":"Land","translate_frontendnonce":"abee4eafaa","translate_error":"Es ist ein Fehler aufgetreten","translate_clear":"Leeren","translate_mailingpreferences":"Mailing Pr\u00e4ferenzen","translate_yessure":"Ja, ich bin mir sicher","translate_iwantmails":"Ich m\u00f6chte Nachrichten erhalten","translate_firstDayOfWeek":"1","translate_flanguage":"de","translate_fdateformat":"j. F Y","translate_ftimeformat":"H:i"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer="defer" src='https://www.ec-nordbund.de/wp-content/plugins/events-made-easy/js/eme.js' id='eme-basic-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/mouse.min.js' id='jquery-ui-mouse-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/resizable.min.js' id='jquery-ui-resizable-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/draggable.min.js' id='jquery-ui-draggable-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/button.min.js' id='jquery-ui-button-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/jquery/ui/dialog.min.js' id='jquery-ui-dialog-js'></script>
+<script type='text/javascript' id='jetpack-carousel-js-extra'>
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"de","ajaxurl":"https:\/\/www.ec-nordbund.de\/wp-admin\/admin-ajax.php","nonce":"ff850cb10a","display_exif":"0","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Kommentar","post_comment":"Kommentar absenden","write_comment":"Verfasse einen Kommentar\u00a0\u2026","loading_comments":"Lade Kommentare\u00a0\u2026","download_original":"Bild in Originalgr\u00f6\u00dfe anschauen <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Stelle bitte sicher, das du mit deinem Kommentar ein bisschen Text \u00fcbermittelst.","no_comment_email":"Bitte eine E-Mail-Adresse angeben, um zu kommentieren.","no_comment_author":"Bitte deinen Namen angeben, um zu kommentieren.","comment_post_error":"Dein Kommentar konnte leider nicht abgeschickt werden. Bitte versuche es sp\u00e4ter erneut.","comment_approved":"Dein Kommentar wurde genehmigt.","comment_unapproved":"Dein Kommentar wartet auf Freischaltung.","camera":"Kamera","aperture":"Blende","shutter_speed":"Verschlusszeit","focal_length":"Brennweite","copyright":"Copyright","comment_registration":"0","require_name_email":"0","login_url":"https:\/\/www.ec-nordbund.de\/wp-login.php?redirect_to=https%3A%2F%2Fwww.ec-nordbund.de%2Fso-einfach-kannst-du-uns-unterstuetzen%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">E-Mail<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js' id='jetpack-carousel-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/js/optimizer.js' id='optimizer_js-js'></script>
+<script type='text/javascript' id='optimizer_otherjs-js-extra'>
+/* <![CDATA[ */
+var optimo = {"smoothscroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/js/other.js' id='optimizer_otherjs-js'></script>
+<script type='text/javascript' id='optimizer_core-js-extra'>
+/* <![CDATA[ */
+var optim = {"ajaxurl":"https:\/\/www.ec-nordbund.de\/wp-admin\/admin-ajax.php","sent":"Nachricht erfolgreich gesendet!","day":"Tage","hour":"Stunden","mins":"Min","sec":"Sek","redirect":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/js/core.js' id='optimizer_core-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/js/magnific-popup.js' id='optimizer_lightbox-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/themes/optimizer_pro/assets/js/portfolio.js' id='portfolio-js-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/hoverIntent.min.js' id='hoverIntent-js'></script>
+<script type='text/javascript' id='megamenu-js-extra'>
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-content/plugins/megamenu/js/maxmegamenu.js' id='megamenu-js'></script>
+<script type='text/javascript' src='https://www.ec-nordbund.de/wp-includes/js/wp-embed.min.js' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-202044.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9',blog:'127434655',post:'0',tz:'1',srv:'www.ec-nordbund.de'} ]);
+	_stq.push([ 'clickTrackerInit', '127434655', '0' ]);
+</script>
+</body>
+</html>
