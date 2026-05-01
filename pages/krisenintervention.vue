@@ -22,7 +22,7 @@ v-container
               )
             v-col.px-sm-5
               h4.text-h6 Kirke Husberg
-              p.subtitle-1 Teen- und Jugendreferent
+              p.subtitle-1 Teen- und Jugendreferentin
 
               //- Telefon
               .d-flex.flex-row.align-center.mb-2
@@ -39,7 +39,7 @@ v-container
                     | 04353 99 88 33 0
 
               //- E-Mail
-              .d-flex.flex-row.align-center
+              .d-flex.flex-row.align-center 
                 v-btn(
                   fab,
                   x-small,
