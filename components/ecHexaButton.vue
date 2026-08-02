@@ -3,7 +3,7 @@
     v-icon(:style="`transform: rotate(-${rotate}deg);`" :size="icon_size") {{icon}}
 </template>
 <script lang="ts">
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   props: {

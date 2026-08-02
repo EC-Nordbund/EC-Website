@@ -1,6 +1,4 @@
-@import '~vuetify/src/styles/settings/_variables';
-
-.nuxt-content {
+.prose {
   & > *:first-child {
     margin-top: 0 !important;
   }
@@ -14,7 +12,7 @@
       padding-top: 0.125em;
       padding-bottom: 0.333em;
 
-      @media #{map-get($display-breakpoints, 'md-and-up')} {
+      @media (min-width: 960px) {
         > a {
           float: left;
           margin-left: -1em;
@@ -103,7 +101,7 @@
 
     $max-media-width: 720;
 
-    @media #{map-get($display-breakpoints, 'md-and-up')} {
+    @media (min-width: 960px) {
       max-width: #{$max-media-width}px;
       margin-left: calc((100% - #{$max-media-width}px) / 2);
       margin-right: calc((100% - #{$max-media-width}px) / 2);

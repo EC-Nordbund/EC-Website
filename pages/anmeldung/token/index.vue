@@ -20,26 +20,26 @@
 <script lang="ts">
 import {
   defineComponent,
-  useContext,
   ref,
   computed,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 export default defineComponent({
-  layout: 'minimal',
-  setup(_, vueCtx) {
+  setup() {
+    definePageMeta({ layout: 'minimal' })
+
     const token = ref('')
-    const ctx = useContext()
-    const error = computed(() => ctx.query.value.error)
+    const route = useRoute()
+    const router = useRouter()
+    const error = computed(() => route.query.error)
+
+    useHead({
+      meta: [{ property: 'robots', content: 'noindex' }],
+    })
 
     return {
       token,
       error,
-      verify: () => vueCtx.root.$router.push(`/anmeldung/token/${token.value}`),
-    }
-  },
-  head() {
-    return {
-      meta: [{ hid: 'seo:index', property: 'robots', content: 'noindex' }],
+      verify: () => router.push(`/anmeldung/token/${token.value}`),
     }
   },
 })

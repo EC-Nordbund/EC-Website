@@ -1,0 +1,4 @@
+Grundlagen unserer Arbeit im EC-Nordbund sind, neben der Beziehung zu Gott, vertrauensvolle Beziehungen von Menschen untereinander. Diese vertrauensvollen Beziehungen sollen tragfähig werden und bleiben. Sie dürfen nicht zum Schaden von Kindern und Jugendlichen ausgenutzt werden. Darum geben Mitarbeiterinnen und Mitarbeiter in Gruppen und Maßnahmen des Nordbundes nachfolgende Selbstverpflichtung ab, die die Leitlinien des Deutschen EC-Verbandes „Sexuelle Gewalt verhindern“ ergänzen.
+
+Wir im EC-Nordbund gehen mit uns anvertrauten Menschen verantwortungsvoll um. Deshalb nehmen unsere Mitarbeiter im Ernstfall Grenzüberschreitungen war und vertuschen sie nicht. Damit unsere Mitarbeiter im konkreten Anlass kompetente Hilfe und Unterstützung für Betroffene bekommen, stehen hier auch Krisenpläne zum Download bereit.
+

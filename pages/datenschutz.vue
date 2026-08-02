@@ -13,34 +13,30 @@ v-container(v-if='pages')
         v-tab EC-Mitglieder + EC-Mitarbeiter
       v-tabs-items(v-model='tab')
         v-tab-item(title='Website')
-          nuxt-content(:document='pages.website')
+          ContentRenderer(:value='pages.website')
         v-tab-item(title='Veranstaltungs Teilnehmer')
-          nuxt-content(:document='pages.teilnehmer')
+          ContentRenderer(:value='pages.teilnehmer')
         v-tab-item(title='Veranstaltungs Mitarbeiter')
-          nuxt-content(:document='pages.mitarbeiter')
+          ContentRenderer(:value='pages.mitarbeiter')
         v-tab-item(title='EC-Mitglieder + EC-Mitarbeiter')
-          nuxt-content(:document='pages.mitglieder')
+          ContentRenderer(:value='pages.mitglieder')
   v-row
     v-col
-      nuxt-content(:document='pages.kontakt')
+      ContentRenderer(:value='pages.kontakt')
 v-container(v-else)
   p Lade Inhalt...
 </template>
 <script lang="ts">
 import {
   defineComponent,
-  useStatic,
-  useMeta,
   ref,
-  useContext,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 
 export default defineComponent({
-  setup() {
+  async setup() {
     const tab = ref(0)
-    const { $content } = useContext()
 
-    const pages = useStatic(async () => {
+    const { data: pages } = await useAsyncData('datenschutz', async () => {
       const [
         kontakt,
         mitarbeiter,
@@ -48,11 +44,11 @@ export default defineComponent({
         teilnehmer,
         website,
       ] = await Promise.all([
-        $content('datenschutz/kontakt').fetch(),
-        $content('datenschutz/mitarbeiter').fetch(),
-        $content('datenschutz/mitglieder').fetch(),
-        $content('datenschutz/teilnehmer').fetch(),
-        $content('datenschutz/website').fetch(),
+        queryContent('datenschutz/kontakt').findOne(),
+        queryContent('datenschutz/mitarbeiter').findOne(),
+        queryContent('datenschutz/mitglieder').findOne(),
+        queryContent('datenschutz/teilnehmer').findOne(),
+        queryContent('datenschutz/website').findOne(),
       ])
 
       return {
@@ -62,43 +58,40 @@ export default defineComponent({
         teilnehmer,
         website,
       }
-    }, undefined, 'datenschutz')
+    })
+
+    useHead({
+      title: 'Datenschutz',
+      meta: [
+        {
+          name: 'description',
+          content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
+        },
+        // Open Graph
+        { property: 'og:title', content: 'Datenschutz' },
+        {
+          property: 'og:description',
+          content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
+        },
+        // Twitter Card
+        { name: 'twitter:title', content: 'Datenschutz' },
+        {
+          name: 'twitter:description',
+          content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/datenschutz',
+        },
+      ],
+    })
 
     return {
       tab,
       pages,
     }
-  },
-  head: {
-    title: 'Datenschutz',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
-      },
-      // Open Graph
-      { hid: 'og:title', property: 'og:title', content: 'Datenschutz' },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
-      },
-      // Twitter Card
-      { hid: 'twitter:title', name: 'twitter:title', content: 'Datenschutz' },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: 'Unsere Datenschutzerklärung für alle Personengruppen.',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://www.ec-nordbund.de/datenschutz',
-        hid: 'canonical',
-      },
-    ],
   },
 })
 </script>

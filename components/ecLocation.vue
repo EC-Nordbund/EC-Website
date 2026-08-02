@@ -1,5 +1,5 @@
 <template lang="pug">
-client-only
+ClientOnly
   l-map(
     :zoom='zoom',
     :center='marker[0].marker',
@@ -24,10 +24,10 @@ client-only
           br(v-if='m.email')
           a(v-if='m.email', :href='`mailto:${m.email}`') {{ m.email }}
           br(v-if='!m.noMore')
-          nuxt-link(v-if='!m.noMore', :to='m.more', style='cursor: pointer') mehr...       
+          NuxtLink(v-if='!m.noMore', :to='m.more', style='cursor: pointer') mehr...       
 </template>
 <script>
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   props: {

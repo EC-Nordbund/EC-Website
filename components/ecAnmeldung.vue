@@ -6,7 +6,7 @@
     v-text-field(v-model="data.vorname" required label="Vorname" counter="50" @change="vornameEvent" :error-messages="vornameErrors")
     v-text-field(v-model="data.nachname" required label="Nachname" counter="50" @change="nachnameEvent" :error-messages="nachnameErrors")
     ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required isBirthdayPicker @change="gebDatEvent" :error-messages="gebDatErrors")
-    v-alert(v-if="zuJung||zuAlt" type="warning" icon="mdi-information").secondary--text
+    v-alert(v-if="zuJung||zuAlt" type="warning" icon="mdi-information" class="text-secondary")
       template(v-if="zuJung")
         p(v-if="minAlter!==-1").font-weight-medium.mb-2 Du bist jünger als das vorgesehene Mindesalter von {{minAlter}} Jahren für diese Veranstaltung.
         template(v-else-if="jahrgangMax!==2100")
@@ -79,7 +79,7 @@
           | Ich erkläre mich bereit meine Anschrift zum Zweck der Bildung von Fahrgemeinschaften an die anderen Teilnehmer weitergegeben werden darf.
     
     v-row(no-gutters justify="end")
-      v-btn(@click="submit" :disabled="!valid" color="primary" depressed tile).align-self-end Absenden
+      v-btn(@click="submit" :disabled="!valid" color="primary" variant="flat" rounded="0").align-self-end Absenden
       //- v-btn(@click="submit") Absenden2
 
     v-alert(type="error" v-if="error")
@@ -88,14 +88,14 @@
           br
           | {{e}}
   div(v-else-if="success")
-    v-alert(type="success" tile) Daten erfolgreich übertragen.
+    v-alert(type="success" rounded="0") Daten erfolgreich übertragen.
     
-    v-alert(type="warning" tile icon="mdi-information").secondary--text
+    v-alert(type="warning" rounded="0" icon="mdi-information" class="text-secondary")
       p.font-weight-bold Anmmeldung noch nicht fertig!
       p Wir haben dir eine E-Mail zum bestätigen deiner Anmeldung geschickt.
 
     v-row(no-gutters justify="end")
-      v-btn(@click="reload()" tile depressed) Noch jemanden anmelden?
+      v-btn(@click="reload()" rounded="0" variant="flat") Noch jemanden anmelden?
   div(v-else-if="disabled" class="anmeldung-disabled")
     slot(name="disabled")
       p Die Anmeldung ist gesperrt.
@@ -113,10 +113,9 @@ import {
   watchEffect,
   toRefs,
   ref,
-  useContext,
-} from '@nuxtjs/composition-api'
-import { useValidation, ruleLib } from '../plugins/validate'
-import { useAlter } from '../plugins/alter'
+} from 'vue'
+import { useValidation, ruleLib } from '~/utils/validate'
+import { useAlter } from '~/utils/alter'
 import { post } from '~/helpers/fetch'
 function useExtraFields(extraFields) {
   const extra = {}
@@ -358,7 +357,7 @@ export default defineComponent({
       sending,
       success,
       error,
-      force: !!useContext().query.value.anmeldung,
+      force: !!useRoute().query.anmeldung,
       reload: () => location.reload(),
     }
   },

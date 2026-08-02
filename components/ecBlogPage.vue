@@ -15,7 +15,7 @@ v-container
           //-  @click="$router.push(`/blog/${item.slug}`)"
           v-col.hellGrau(cols='12', sm='6', md='5', lg='4')
             //- image
-            v-img.white--text(
+            v-img.text-white(
               :src='item.featuredImage',
               height='300',
               aspectRatio='1',
@@ -36,11 +36,11 @@ v-container
             lg='8',
             :style='detailsMaxHeight'
           )
-            v-flex
+            v-col
               //- title
-              .ec-gradient.white--text
+              .ec-gradient.text-white
                 v-card-title.d-block.pt-2.font-weight-bold.text-truncate {{ item.title }}
-                v-card-subtitle.pb-2.secondary--text.d-flex.justify-space-between
+                v-card-subtitle.pb-2.text-secondary.d-flex.justify-space-between
                   span Vom {{ item.published.split("T")[0].split("-").reverse().join(".") }}
               v-card-text.full-heigth.overflow-hidden.py-0.hidden-xs-only
                 //- labels
@@ -71,36 +71,15 @@ v-container
                 :aria-label='`Zum Beitrag: ${item.title}`'
               )
   v-pagination(
-    :value="currPage"
-    :length="pageCount || Math.min(page, 10)", 
+    :model-value="currPage"
+    :length="pageCount || Math.min(page, 10)",
     :total-visible="7"
-    @input="pageChange"
+    @update:model-value="pageChange"
   )
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRouter, computed } from '@nuxtjs/composition-api'
-
-const pagination = {
-  getPostsOfPage($content, page) {
-    return $content('blog')
-      .only([
-        'title',
-        'tags',
-        'description',
-        'featuredImage',
-        'slug',
-        'published',
-      ])
-      .sortBy('published', 'desc')
-      .skip(10 * (page - 1))
-      .limit(10)
-      .fetch()
-  },
-
-  async getNumberOfPages($content) {
-    return Math.ceil((await $content('blog').only([]).fetch()).length / 10)
-  },
-}
+import { defineComponent, computed } from 'vue'
+import { useDisplay } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -108,12 +87,37 @@ export default defineComponent({
       type: Number
     }
   },
-  setup(props) {
-    const { $content } = useContext()
-
+  async setup(props) {
     const currPage = computed(() => props.page)
-    const posts = useStatic(page => pagination.getPostsOfPage($content, parseInt(page)), currPage, 'blog-page')
-    const pageCount = useStatic(() => pagination.getNumberOfPages($content), undefined, 'blog-page-count')
+
+    const { data: posts } = await useAsyncData(
+      `blog-page-${currPage.value}`,
+      async () => {
+        const raw = await queryContent('blog')
+          .only([
+            'title',
+            'tags',
+            'description',
+            'featuredImage',
+            '_path',
+            'published',
+          ])
+          .sort({ published: -1 })
+          .skip(10 * (currPage.value - 1))
+          .limit(10)
+          .find()
+        return raw.map(v => ({ ...v, slug: v._path.split('/').pop() }))
+      },
+      { watch: [() => props.page] }
+    )
+
+    const { data: pageCount } = await useAsyncData(
+      'blog-page-count',
+      async () => {
+        const allPosts = await queryContent('blog').only([]).find()
+        return Math.ceil(allPosts.length / 10)
+      }
+    )
 
     const router = useRouter()
 
@@ -121,35 +125,32 @@ export default defineComponent({
       router.push('/blog/' + newPage)
     }
 
-    return { posts, pageCount, pageChange, currPage }
-  },
-  computed: {
-    detailsMaxHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-        case 'sm':
-          return ''
-        default:
+    const { name: breakpointName } = useDisplay()
+    const detailsMaxHeight = computed(() => {
+      switch (breakpointName.value) {
+        case 'md': case 'lg': case 'xl': case 'xxl':
           return 'max-height: 300px;'
-      }
-    },
-    imgHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-        case 'sm':
-          return undefined
         default:
-          return 300
+          return ''
       }
-    },
-  },
-  methods: {
-    getDescription(item) {
+    })
+
+    const imgHeight = computed(() => {
+      switch (breakpointName.value) {
+        case 'xl': case 'xxl': return 500
+        case 'lg': return 400
+        default: return 300
+      }
+    })
+
+    const getDescription = (item) => {
       if (typeof item.description === 'string' && item.description.length > 0) {
         return item.description
       }
       return 'Klicke auf "Mehr Anzeigen", um den Betrag zu vollständig zu lesen.'
-    },
+    }
+
+    return { posts, pageCount, pageChange, currPage, detailsMaxHeight, imgHeight, getDescription }
   },
 })
 </script>
