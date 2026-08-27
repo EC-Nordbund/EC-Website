@@ -3,16 +3,13 @@
 @import './markdown.scss';
 @import './angle.scss';
 
-@import '~vuetify/src/styles/settings/_variables';
-
 // Definiere Gradient
-.ec-gradient,
-.nuxt-progress:not(.nuxt-progress-failed) {
-  background: var(--v-gradient-left-base) !important;
+.ec-gradient {
+  background: rgb(var(--v-theme-gradient-left)) !important;
   background-image: linear-gradient(
     90deg,
-    var(--v-gradient-left-base) 0%,
-    var(--v-gradient-right-base) 100%
+    rgb(var(--v-theme-gradient-left)) 0%,
+    rgb(var(--v-theme-gradient-right)) 100%
   ) !important;
 }
 
@@ -23,14 +20,14 @@
 .v-main,
 footer {
   .container:not(.container--fluid):not(.container--wide) {
-    @media #{map-get($display-breakpoints, 'lg-and-up')} {
+    @media (min-width: 1280px) {
       max-width: 1028px;
     }
   }
 }
 
 
-.v-application--is-ltr .v-window__next {
+.v-locale--is-ltr .v-window__next {
   right: 0;
 }
 

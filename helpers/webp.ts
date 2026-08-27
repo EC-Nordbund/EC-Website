@@ -1,6 +1,6 @@
 function support_format_webp()
 {
-  if(!process.browser) {
+  if(import.meta.server) {
     return true
   }
 

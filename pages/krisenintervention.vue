@@ -16,7 +16,7 @@ v-container
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
               v-img.flex-grow-0.hexagon-shape(
-                :src='require("~/assets/img/kirke.jpg")',
+                :src='kirkeImg',
                 :width='128',
                 :height='128'
               )
@@ -60,7 +60,7 @@ v-container
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
               v-img.flex-grow-0.hexagon-shape(
-                :src='require("~/assets/img/tobias.jpg")',
+                :src='tobiasImg',
                 :width='128',
                 :height='128'
               )
@@ -105,7 +105,7 @@ v-container
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
               v-img.flex-grow-0.hexagon-shape(
-                :src='require("~/assets/img/dortje_gaertner.jpg")',
+                :src='dortjeGaertnerImg',
                 :width='128',
                 :height='128'
               )
@@ -144,7 +144,7 @@ v-container
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
               v-img.flex-grow-0.hexagon-shape(
-                :src='require("~/assets/img/Jutta-Nordsiek_1301x974[1].jpg")',
+                :src='juttaNordsiekImg',
                 :width='128',
                 :height='128'
               )
@@ -179,7 +179,7 @@ v-container
 
     //- Explanation
     v-col(cols='12', sm='10', md='8')
-      nuxt-content(:document='explanation')
+      ContentRenderer(:value='explanation')
 
     //- Downloads
     v-col.pb-0(cols='12', sm='10', md='8')
@@ -189,32 +189,34 @@ v-container
         v-list-item.px-1(
           v-for='file in data.files',
           :key='"file_" + file.filename',
-          :href='`${file.filename}`'
+          :href='`${file.filename}`',
+          :title='file.title',
+          :subtitle='file.description'
         )
-          v-list-item-avatar
+          template(#prepend)
             v-icon(size='32') {{ { pdf: 'mdi-file-pdf-outline', docx: 'mdi-file-word', jpg: 'mdi-file-image', png: 'mdi-file-image' }[file.filename.split(".")[1].toLowerCase()] || 'mdi-file' }}
-          v-list-item-content
-            v-list-item-title {{ file.title }}
-            v-list-item-subtitle {{ file.description }}
 </template>
 <script lang="ts">
 import {
   defineComponent,
-  useContext,
-  useStatic,
   computed,
-} from '@nuxtjs/composition-api'
+} from 'vue'
+import kirkeImg from '~/assets/img/kirke.jpg'
+import tobiasImg from '~/assets/img/tobias.jpg'
+import dortjeGaertnerImg from '~/assets/img/dortje_gaertner.jpg'
+import juttaNordsiekImg from '~/assets/img/Jutta-Nordsiek_1301x974[1].jpg'
 
 export default defineComponent({
-  layout: 'minimal',
-  setup() {
-    const { $content } = useContext()
+  async setup() {
+    definePageMeta({ layout: 'minimal' })
 
-    const explanation = useStatic(() =>
-      $content('krisenintervention/explanation').fetch<any>()
-    , undefined, 'kriesen-1')
+    const { data: explanation } = await useAsyncData('kriesen-1', () =>
+      queryContent('krisenintervention/explanation').findOne()
+    )
 
-    const fileData = useStatic(() => $content('downloads').fetch<any>(), undefined, 'kriesen-2')
+    const { data: fileData } = await useAsyncData('kriesen-2', () =>
+      queryContent('downloads').findOne()
+    )
 
     const data = computed(() => {
       if (fileData.value === null) {
@@ -229,53 +231,51 @@ export default defineComponent({
       }
     })
 
+    useHead({
+      title: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
+        },
+        // Open Graph
+        {
+          property: 'og:title',
+          content: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+        },
+        {
+          property: 'og:description',
+          content:
+            'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
+        },
+        // Twitter Card
+        {
+          name: 'twitter:title',
+          content: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+        },
+        {
+          name: 'twitter:description',
+          content:
+            'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.ec-nordbund.de/krisenintervention',
+        },
+      ],
+    })
+
     return {
       explanation,
-      data
+      data,
+      kirkeImg,
+      tobiasImg,
+      dortjeGaertnerImg,
+      juttaNordsiekImg,
     }
-  },
-
-  head: {
-    title: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
-      },
-      // Open Graph
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content:
-          'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
-      },
-      // Twitter Card
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content:
-          'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://www.ec-nordbund.de/krisenintervention',
-        hid: 'canonical',
-      },
-    ],
   },
 })
 </script>

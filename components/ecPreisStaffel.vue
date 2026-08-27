@@ -1,15 +1,17 @@
 <template lang="pug">
   v-timeline(:dense="dense")
     v-timeline-item(v-for="preis in myPreise" :key="preis.preis" small :fill-dot="fillDot" :color="preis.active ? 'primary' : dotColor") 
-      span(slot="opposite") {{subtitle(preis)}}
-      v-card(tile :class="{'elevation-5': preis.active}")
-        v-card-title(class="ec-gradient white--text pb-2 pt-3" :class="{'font-weight-bold': preis.active}") {{preis.label}}
+      template(#opposite)
+        span {{subtitle(preis)}}
+      v-card(rounded="0" :class="{'elevation-5': preis.active}")
+        v-card-title(class="ec-gradient text-white pb-2 pt-3" :class="{'font-weight-bold': preis.active}") {{preis.label}}
         v-card-text(class="py-3")
-          p(class="text-center text-h4 font-weight-light mb-0" :class="{'font-weight-bold primary--text': preis.active}") {{preis.preis}} EUR
+          p(class="text-center text-h4 font-weight-light mb-0" :class="{'font-weight-bold text-primary': preis.active}") {{preis.preis}} EUR
           p(class="hidden-sm-and-up text-right") {{subtitle(preis)}}
 </template>
 <script lang="ts">
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { defineComponent, computed } from 'vue'
+import { useDisplay } from 'vuetify'
 // TODO: highlight current price
 // TODO: display alerts when the next category is in a few days
 export default defineComponent({
@@ -36,10 +38,10 @@ export default defineComponent({
       required: false,
     },
   },
-  setup(props, ctx) {
+  setup(props) {
+    const display = useDisplay()
     const dense = computed(
-      // @ts-expect-error
-      () => ctx.root.$vuetify.breakpoint[props.denseBreakpoint] || false
+      () => display[props.denseBreakpoint]?.value || false
     )
 
     const subtitle = (preis: { begin: string; ende: string }) => {

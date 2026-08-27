@@ -1,13 +1,15 @@
-import { defineNuxtPlugin } from '@nuxtjs/composition-api'
+export default defineNuxtPlugin((nuxtApp) => {
+  if (import.meta.server) return
 
-export default defineNuxtPlugin((ctx) => {
+  const config = useRuntimeConfig()
+
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(ctx.$config.EC_BASE + 'sw.js')
+    navigator.serviceWorker.register(config.public.EC_BASE + 'sw.js')
   }
 
   onUpdate((doUpdate) => {
     if (
-      ctx.isDev ||
+      import.meta.dev ||
       window.confirm(
         'Eine neue Version dieser Seite ist verfügbar willst du sie laden? - Es dauert keine 5 Sekunden :D'
       )

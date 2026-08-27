@@ -18,7 +18,7 @@ v-dialog(
     )
   v-date-picker(
     v-model='date',
-    :active-picker.sync='activePicker',
+    v-model:active-picker='activePicker',
     no-title,
     @input='menu = false'
   )
@@ -30,7 +30,7 @@ import {
   ref,
   Ref,
   watchEffect,
-} from '@nuxtjs/composition-api'
+} from 'vue'
 
 export function formatDate(date: string | null) {
   if (!date) return ''

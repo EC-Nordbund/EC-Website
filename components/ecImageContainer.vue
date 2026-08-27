@@ -45,7 +45,8 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { defineComponent, computed } from 'vue'
+import { useDisplay } from 'vuetify'
 
 export default defineComponent({
   props: {
@@ -54,17 +55,18 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(_, ctx) {
+  setup() {
+    const { xs, mdAndDown } = useDisplay()
 
     const trimImgExt = (path: string) => path.replace(/\.(webp|jpg)$/, "")
-    
+
 
     const height = computed(() => {
-      if (ctx.root.$vuetify.breakpoint.xsOnly) {
+      if (xs.value) {
         return 300
       }
 
-      if (ctx.root.$vuetify.breakpoint.mdAndDown) {
+      if (mdAndDown.value) {
         return 400
       }
 
