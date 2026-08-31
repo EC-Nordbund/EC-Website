@@ -214,20 +214,28 @@ v-app
         v-col.px-4(md='6')
           h2 Spenden
           v-list(color='transparent px-0')
-            v-list-item.ml-n4(@click='copy2clip("Sparkasse Südholstein")')
+            v-list-item.ml-n4(
+              @click='copy2clip("Sparkasse Südholstein", "Bank")'
+            )
               v-list-item-content
                 v-list-item-title Sparkasse Südholstein
                 v-list-item-subtitle Bank
+              v-list-item-action
+                v-icon(small, title='Bank kopieren') mdi-content-copy
             v-list-item.ml-n4(
-              @click='copy2clip("DE47 2305 1030 0510 8336 43")'
+              @click='copy2clip("DE47 2305 1030 0510 8336 43", "IBAN")'
             )
               v-list-item-content
                 v-list-item-title DE47 2305 1030 0510 8336 43
                 v-list-item-subtitle IBAN
-            v-list-item.ml-n4(@click='copy2clip("NOLADE21SHO")')
+              v-list-item-action
+                v-icon(small, title='IBAN kopieren') mdi-content-copy
+            v-list-item.ml-n4(@click='copy2clip("NOLADE21SHO", "BIC")')
               v-list-item-content
                 v-list-item-title NOLADE21SHO
                 v-list-item-subtitle BIC
+              v-list-item-action
+                v-icon(small, title='BIC kopieren') mdi-content-copy
         v-col.links.px-4(md='6')
           h2 Links
           v-list(color='transparent px-0 white--text')
@@ -254,6 +262,8 @@ v-app
 
       v-row.pt-1
         v-col.text-center © by EC-Nordbund
+  v-snackbar(v-model='copySnackbar', timeout='2500')
+    | {{ copyMessage }}
 </template>
 <script>
 import {
@@ -360,6 +370,15 @@ export default defineComponent({
       btt.value = top > 128
     }
 
+    const copySnackbar = ref(false)
+    const copyMessage = ref('')
+
+    function copy2clip(text, label) {
+      copy(text)
+      copyMessage.value = `${label} in die Zwischenablage kopiert`
+      copySnackbar.value = true
+    }
+
     return {
       losungen,
       btt,
@@ -368,7 +387,9 @@ export default defineComponent({
       lehrtext,
       marqueeContentLength,
       drawer,
-      copy2clip: copy,
+      copy2clip,
+      copySnackbar,
+      copyMessage,
       isDev,
       isStartPage,
     }
@@ -451,5 +472,9 @@ footer::v-deep * {
 }
 footer::v-deep .v-list-item:hover {
   background: rgba(1, 1, 1, 0.2);
+}
+footer::v-deep .v-list-item__title,
+footer::v-deep .v-list-item__subtitle {
+  user-select: text;
 }
 </style>

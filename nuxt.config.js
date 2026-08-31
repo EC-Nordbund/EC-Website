@@ -270,6 +270,10 @@ export default {
   },
 
   build: {
+    // ESM-Pakete müssen für den SSR-Build transpiliert werden, sonst
+    // scheitert der Dev-Server mit "Cannot use import statement outside a module"
+    transpile: [/^@ec-nordbund\//],
+
     extend(config, ctx) {
       config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
 
