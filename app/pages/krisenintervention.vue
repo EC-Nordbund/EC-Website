@@ -1,0 +1,278 @@
+<template lang="pug">
+v-container
+  v-row(justify='center')
+    v-col(cols='12', sm='10', md='8')
+      h1 Kinder- und Jugendschutz
+      h4.text-subtitle-1 Jugendschutz, Kindeswohl und Krisenintervention – Diese Seite bietet erste Hilfe für alle Notfälle.
+
+  //- Ansprechpartner
+  v-row(justify='center')
+    v-col.pb-0(cols='12', sm='10', md='8')
+      h2.text-h5 Ansprechpartner
+    v-col(cols='12', sm='10', md='8')
+      //- Thomas
+      v-card.mb-4(rounded='0', variant='outlined')
+        v-col.py-0(cols='12')
+          v-row
+            v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
+              v-img.flex-grow-0.hexagon-shape(
+                :src='kirkeImg',
+                :width='128',
+                :height='128'
+              )
+            v-col.px-sm-5
+              h4.text-h6 Kirke Husberg
+              p.text-subtitle-1 Teen- und Jugendreferentin
+
+              //- Telefon
+              .d-flex.flex-row.align-center.mb-2
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='tel:004943539988330'
+                )
+                  v-icon.ki-icon(:icon='mdiPhone')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(href='tel:004943539988330', title='Kirke Husberg anrufen')
+                    | 04353 99 88 33 0
+
+              //- E-Mail
+              .d-flex.flex-row.align-center
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='mailto:kirke.husberg@ec-nordbund.de'
+                )
+                  v-icon.ki-icon(:icon='mdiEmail')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(
+                    href='mailto:kirke.husberg@ec-nordbund.de',
+                    title='Kirke Husberg eine E-Mail schreiben'
+                  )
+                    | kirke.husberg@ec-nordbund.de
+      //- Thomas
+      v-card.mb-4(rounded='0', variant='outlined')
+        v-col.py-0(cols='12')
+          v-row
+            v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
+              v-img.flex-grow-0.hexagon-shape(
+                :src='tobiasImg',
+                :width='128',
+                :height='128'
+              )
+            v-col.px-sm-5
+              h4.text-h6 Tobias Krahe
+              p.text-subtitle-1 Teen- und Jugendreferent
+
+              //- Telefon
+              .d-flex.flex-row.align-center.mb-2
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='tel:004915736763193'
+                )
+                  v-icon.ki-icon(:icon='mdiPhone')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(href='tel:004915736763193', title='Tobias Krahe anrufen')
+                    | 01573 676 319 3
+
+              //- E-Mail
+              .d-flex.flex-row.align-center
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='mailto:tobias.krahe@ec-nordbund.de'
+                )
+                  v-icon.ki-icon(:icon='mdiEmail')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(
+                    href='mailto:tobias.krahe@ec-nordbund.de',
+                    title='Tobias Krahe eine E-Mail schreiben'
+                  )
+                    | tobias.krahe@ec-nordbund.de
+
+      //-  Dortje
+      v-card.mb-4(rounded='0', variant='outlined')
+        v-col.py-0(cols='12')
+          v-row
+            v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
+              v-img.flex-grow-0.hexagon-shape(
+                :src='dortjeImg',
+                :width='128',
+                :height='128'
+              )
+            v-col.px-sm-5
+              h4.text-h6 Dortje Gaertner
+              p.text-subtitle-1 Kinder- und Jungscharreferentin
+
+              //- Telefon
+              .d-flex.flex-row.align-center.mb-2
+                v-btn(icon, size='x-small', color='primary', variant='flat', href='tel:???')
+                  v-icon.ki-icon(:icon='mdiPhone')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(href='tel:00494122489036', title='Dortje Gaertner anrufen')
+                    | 04122 48 90 36
+
+              //- E-Mail
+              .d-flex.flex-row.align-center
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='mailto:dortje.gaertner@ec-nordbund.de'
+                )
+                  v-icon.ki-icon(:icon='mdiEmail')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(
+                    href='mailto:dortje.gaertner@ec-nordbund.de',
+                    title='Dortje Gaertner eine E-Mail schreiben'
+                  )
+                    | dortje.gaertner@ec-nordbund.de
+
+      //-  Jutta
+      v-card(rounded='0', variant='outlined')
+        v-col.py-0(cols='12')
+          v-row
+            v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
+              v-img.flex-grow-0.hexagon-shape(
+                :src='juttaImg',
+                :width='128',
+                :height='128'
+              )
+            v-col.px-sm-5
+              h4.text-h6 Jutta Nordsiek
+              p.text-subtitle-1 Seelsorge und Beratungsstelle des VG
+
+              //- Telefon
+              .d-flex.flex-row.align-center.mb-2
+                v-btn(icon, size='x-small', color='primary', variant='flat', href='tel:???')
+                  v-icon.ki-icon(:icon='mdiPhone')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(href='tel:004941224048694', title='Jutta Nordsiek anrufen')
+                    | 04122 404 86 94
+
+              //- E-Mail
+              .d-flex.flex-row.align-center
+                v-btn(
+                  icon,
+                  size='x-small',
+                  color='primary',
+                  variant='flat',
+                  href='mailto:jutta.nordsiek@vg-sh.de'
+                )
+                  v-icon.ki-icon(:icon='mdiEmail')
+                span.text-subtitle-2.font-weight-medium.pl-3
+                  a.text-decoration-none(
+                    href='mailto:jutta.nordsiek@vg-sh.de',
+                    title='Jutta Nordsiek eine E-Mail schreiben'
+                  )
+                    | jutta.nordsiek@vg-sh.de
+
+    //- Explanation
+    v-col(cols='12', sm='10', md='8')
+      ContentRenderer(v-if='explanation', :value='explanation')
+
+    //- Downloads
+    v-col.pb-0(cols='12', sm='10', md='8')
+      h2.text-h5 Downloads
+    v-col(cols='12', sm='10', md='8')
+      v-list.py-0(bg-color='#eee')
+        v-list-item.px-1(
+          v-for='file in data.files',
+          :key='"file_" + file.filename',
+          :href='`${file.filename}`'
+        )
+          template(#prepend)
+            v-avatar
+              v-icon(size='32', :icon='fileIcon(file.filename)')
+          v-list-item-title {{ file.title }}
+          v-list-item-subtitle {{ file.description }}
+</template>
+<script setup lang="ts">
+import { computed } from 'vue'
+import {
+  mdiEmail,
+  mdiFile,
+  mdiFileImage,
+  mdiFilePdfBox,
+  mdiFileWord,
+  mdiPhone,
+} from '@mdi/js'
+import kirkeImg from '~/assets/img/kirke.jpg'
+import tobiasImg from '~/assets/img/tobias.jpg'
+import dortjeImg from '~/assets/img/dortje_gaertner.jpg'
+import juttaImg from '~/assets/img/jutta-nordsiek.jpg'
+
+definePageMeta({
+  layout: 'minimal',
+})
+
+// Alt: useStatic-Keys 'kriesen-1'/'kriesen-2' (Tippfehler bleibt), kein Param.
+const { data: explanation } = await useAsyncData('kriesen-1', () =>
+  queryCollection('krisenintervention').where('stem', '=', 'explanation').first(),
+)
+
+const { data: fileData } = await useAsyncData('kriesen-2', () =>
+  queryCollection('downloads').first(),
+)
+
+const data = computed(() => {
+  if (!fileData.value) {
+    return { files: [], folders: [] }
+  } else {
+    return (
+      fileData.value.folders?.Krisenintervention || {
+        files: [],
+        folders: [],
+      }
+    )
+  }
+})
+
+// Alt: Icon-Strings im Template ('mdi-file-pdf-outline' …) → SVG-Pfade aus
+// @mdi/js. 'mdi-file-pdf-outline' existiert in MDI 7 nicht mehr →
+// mdiFilePdfBox als nächster Ersatz. Endungs-Logik (split('.')[1]) 1:1.
+const fileIcons: Record<string, string> = {
+  pdf: mdiFilePdfBox,
+  docx: mdiFileWord,
+  jpg: mdiFileImage,
+  png: mdiFileImage,
+}
+const fileIcon = (filename: string) =>
+  fileIcons[filename.split('.')[1]!.toLowerCase()] || mdiFile
+
+const description =
+  'Jugendschutz, Kindeswohl und Krisenintervention – hier findest du für alle Notfälle Ansprechpartner und weitere Informationen'
+
+useHead({
+  title: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://www.ec-nordbund.de/krisenintervention',
+    },
+  ],
+})
+
+useSeoMeta({
+  description,
+  ogTitle: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+  ogDescription: description,
+  twitterTitle: 'Kinder- und Jugendschutz – gibt es einen Notfall?',
+  twitterDescription: description,
+})
+</script>
+<style lang="scss" scoped>
+.ki-icon {
+  padding: 3px;
+}
+</style>

@@ -11,29 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
       - name: Install dependencies
         run: npm ci
       - name: Build
         run: npm run generate
       - name: Symlinks
+        # Content-Static-Dateien (Bilder etc.) aus dem Submodule in die generierte Site MERGEN.
+        # Wichtig: nicht loeschen/ersetzen — .output/public/blog/<slug>/index.html usw. sind die
+        # von Nuxt vorgerenderten Routen und duerfen nicht verloren gehen.
         run: |
-          cp -r ./cms-content/static/blog ./_blog
-          cp -r ./cms-content/static/veranstaltungen ./_veranstaltungen
-          cp -r ./cms-content/static/download ./_download
-          cp -r ./cms-content/static/old ./_old
-          rm -r ./dist/blog
-          rm -r ./dist/veranstaltungen
-          rm -r ./dist/download
-          cp -r ./_blog ./dist/blog
-          cp -r ./_veranstaltungen ./dist/veranstaltungen
-          cp -r ./_download ./dist/download
-          cp -r ./_old ./dist/old
+          rsync -r --exclude='*.html' --exclude='_payload.json' ./cms-content/static/ ./.output/public/
+          cp -r ./cms-content/static/old/. ./.output/public/old/
 
       - name: Setup deploy
         run: |
@@ -44,7 +38,7 @@ jobs:
         run: |
           rsync -chrvz --stats --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-            ./dist/ deployer@ec-nordbund.de:/webpage/lighthouse.ec-nordbund.de
+            ./.output/public/ deployer@ec-nordbund.de:/webpage/lighthouse.ec-nordbund.de
 
       - name: Lighthouse Audits
         run: npx lhci autorun

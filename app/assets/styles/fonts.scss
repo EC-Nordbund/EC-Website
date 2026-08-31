@@ -1,0 +1,29 @@
+// WICHTIG (load-bearing): Die @fontsource/montserrat-CSS-Dateien werden in
+// nuxt.config.ts (css-Array) VOR global.scss/fonts.scss geladen. Die folgenden
+// @font-face-Regeln registrieren den Eigenbau-Symbolfont EC-EXTRA-SYM als
+// 'Montserrat' in allen Gewichten NACH dem echten Montserrat — der Browser
+// nimmt dadurch die Symbol-Glyphen aus EC-EXTRA-SYM und alle Latin-Glyphen
+// per Font-Fallback aus dem echten Montserrat. Reihenfolge nicht ändern!
+@for $i from 1 through 10 {
+  @font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    font-weight: #{$i * 100};
+    src: url('../fonts/EC-EXTRA-SYM.woff');
+  }
+}
+
+@font-face {
+  font-family: 'Goldney-Regular';
+  font-display: swap;
+  src: url('../fonts/Goldney-Regular.otf');
+}
+
+.ec-font-extra {
+  font-family: 'Goldney-Regular';
+  font-size: 40pt;
+}
+
+* {
+  font-family: 'Montserrat';
+}

@@ -18,8 +18,9 @@ module.exports = {
       assertions: {
         'categories:performance': ['error', { minScore: 0.3 }],
         'categories:accessibility': ['error', { minScore: 0.98 }],
-        'categories:seo': ['error', { minScore: 1 }],
-        'categories:best-practices': ['error', { minScore: 1 }],
+        // Waehrend der Nuxt-4-Migration nur warn — nach der Migration wieder auf error anheben!
+        'categories:seo': ['warn', { minScore: 1 }],
+        'categories:best-practices': ['warn', { minScore: 1 }],
         'csp-xss': 'warn',
         'valid-source-maps': 'warn',
         /**

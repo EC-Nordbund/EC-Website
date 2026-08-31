@@ -1,0 +1,94 @@
+// Official EC colors
+@use './fonts.scss';
+@use './markdown.scss';
+@use './angle.scss';
+
+@use 'sass:map';
+@use 'vuetify/settings' as v;
+
+// Definiere Gradient
+.ec-gradient {
+  background: rgb(var(--v-theme-gradientLeft)) !important;
+  background-image: linear-gradient(
+    90deg,
+    rgb(var(--v-theme-gradientLeft)) 0%,
+    rgb(var(--v-theme-gradientRight)) 100%
+  ) !important;
+}
+
+.hexagon-shape {
+  clip-path: polygon(50% 100%, 5% 75%, 5% 25%, 50% 0%, 95% 25%, 95% 75%);
+}
+
+.v-main,
+footer {
+  .v-container:not(.v-container--fluid):not(.container--wide) {
+    @media #{map.get(v.$display-breakpoints, 'lg-and-up')} {
+      max-width: 1028px;
+    }
+  }
+}
+
+.scroll-to-me {
+  scroll-margin-top: 64px;
+}
+
+// Vuetify-2-Kompatibilität: Die hidden-*-Helferklassen wurden in Vuetify 3/4
+// entfernt, werden hier aber aus den Breakpoints regeneriert (site-weit in
+// Templates genutzt; d-none/d-*-Utilities würden das native display der
+// Vuetify-Komponenten überschreiben).
+@each $bp in ('xs', 'sm', 'md', 'lg', 'xl', 'xxl') {
+  @media #{map.get(v.$display-breakpoints, $bp)} {
+    .hidden-#{$bp}-only {
+      display: none !important;
+    }
+  }
+}
+@each $bp in ('sm', 'md', 'lg', 'xl') {
+  @media #{map.get(v.$display-breakpoints, '#{$bp}-and-up')} {
+    .hidden-#{$bp}-and-up {
+      display: none !important;
+    }
+  }
+  @media #{map.get(v.$display-breakpoints, '#{$bp}-and-down')} {
+    .hidden-#{$bp}-and-down {
+      display: none !important;
+    }
+  }
+}
+
+// --- CSS-Anteil aus der alten variables-vuetify.scss ---
+
+// Vuetify 4: Die Pagination-Optik (eckige Kacheln mit Rahmen) sitzt jetzt auf
+// den v-btn-Elementen innerhalb der Items (DOM-Struktur geändert).
+.v-pagination {
+  &__item,
+  &__first,
+  &__prev,
+  &__next,
+  &__last {
+    .v-btn {
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: thin solid rgba(0, 0, 0, 0.12);
+
+      &:hover {
+        box-shadow:
+          0 5px 5px -3px rgba(0, 0, 0, 0.2),
+          0 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+      }
+    }
+  }
+}
+
+// Markdown-Überschriften fett (alte $headings-Anpassung h1–h5)
+.nuxt-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: bold;
+  }
+}

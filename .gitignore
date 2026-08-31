@@ -67,6 +67,8 @@ typings/
 
 # nuxt.js build output
 .nuxt
+.output
+.data
 
 # Nuxt generate
 dist
@@ -90,9 +92,9 @@ dist
 # Vim swap files
 *.swp
 
-static/plz
-static/downloads
-static/old
+public/plz
+public/downloads
+public/old
 content/downloadFiles.json
 slugs.json
 fileToDownload.json
