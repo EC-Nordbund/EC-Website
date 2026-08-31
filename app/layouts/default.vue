@@ -121,7 +121,8 @@ v-app
               rounded='0',
               variant='text',
               to='/blog/',
-              color='primary'
+              color='primary',
+              :active='navActive("/blog")'
             )
               span.text-subtitle-1.text-capitalize.font-weight-medium Blog
 
@@ -130,7 +131,8 @@ v-app
               rounded='0',
               variant='text',
               to='/veranstaltungen/',
-              color='primary'
+              color='primary',
+              :active='navActive("/veranstaltungen")'
             )
               span.text-subtitle-1.text-capitalize.font-weight-medium Veranstaltungen
 
@@ -139,7 +141,8 @@ v-app
               rounded='0',
               variant='text',
               to='/downloads/',
-              color='primary'
+              color='primary',
+              :active='navActive("/downloads")'
             )
               span.text-subtitle-1.text-capitalize.font-weight-medium Downloads
 
@@ -148,7 +151,8 @@ v-app
               rounded='0',
               variant='text',
               to='/shop/',
-              color='primary'
+              color='primary',
+              :active='navActive("/shop")'
             )
               span.text-subtitle-1.text-capitalize.font-weight-medium Shop
 
@@ -157,7 +161,8 @@ v-app
               rounded='0',
               variant='text',
               to='/orte/karlsminde/',
-              color='primary'
+              color='primary',
+              :active='navActive("/orte/karlsminde")'
             )
               span.text-subtitle-1.text-capitalize.font-weight-medium Karlsminde
 
@@ -271,6 +276,11 @@ interface Losungen {
 const drawer = ref(false)
 const btt = ref(false)
 
+// vue-router 4 wertet Geschwister-Routen (/blog/ vs. /blog/[id]) nicht mehr
+// als aktiv — Nav-Hervorhebung wie im Alt-Stand daher per Pfad-Präfix
+const route = useRoute()
+const navActive = (prefix: string) => route.path.startsWith(prefix)
+
 const { mdAndUp } = useDisplay()
 const goTo = useGoTo()
 
@@ -339,12 +349,14 @@ const lehrtext = computed(
 )
 const marqueeContentLength = computed(
   () =>
-    losungen.value &&
-    losungen.value.Losungstext.length +
-      losungen.value.Losungsvers.length +
-      losungen.value.Lehrtext.length +
-      losungen.value.Lehrtextvers.length +
-      140,
+    (losungen.value &&
+      losungen.value.Losungstext.length +
+        losungen.value.Losungsvers.length +
+        losungen.value.Lehrtext.length +
+        losungen.value.Lehrtextvers.length +
+        140) ||
+    // 0 nur solange die Losungen noch nicht geladen sind (Marquee ist dann per v-if ausgeblendet)
+    0,
 )
 
 function onScroll(e: Event) {

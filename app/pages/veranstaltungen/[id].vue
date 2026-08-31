@@ -23,13 +23,13 @@ div(v-if='page')
         //- display indicators
         v-col.d-flex.flex-column(cols='auto')
           v-row.text-right(
-            v-if='Object.values(page.warteliste).some((e) => e)'
+            v-if='Object.values(page.warteliste ?? {}).some((e) => e)'
           )
             v-col
               v-chip.ml-auto.mb-1.elevation-8.font-weight-medium.text-white(
                 color='warning',
                 size='small',
-                v-if='page.warteliste.männlich'
+                v-if='page.warteliste?.männlich'
               )
                 v-icon.ml-n1.mr-1(size='small', :icon='mdiAlertCircle')
                 | Für Männer nur noch Warteliste
@@ -37,7 +37,7 @@ div(v-if='page')
               v-chip.ml-auto.mb-1.elevation-8.font-weight-medium.text-white(
                 color='warning',
                 size='small',
-                v-if='page.warteliste.weiblich'
+                v-if='page.warteliste?.weiblich'
               )
                 v-icon.ml-n1.mr-1(size='small', :icon='mdiAlertCircle')
                 | Für Frauen nur noch Warteliste
@@ -45,7 +45,7 @@ div(v-if='page')
               v-chip.ml-auto.mb-1.elevation-8.font-weight-medium.text-white(
                 color='warning',
                 size='small',
-                v-if='page.warteliste.allgemein'
+                v-if='page.warteliste?.allgemein'
               )
                 v-icon.ml-n1.mr-1(size='small', :icon='mdiAlertCircle')
                 | Nur noch Warteliste
@@ -74,7 +74,8 @@ div(v-if='page')
             v-for='tag in page.tags',
             :key='tag'
           )
-            | {{ (typeof tag === 'object') ? tag.tag : tag }}
+            //- KEIN TS im Pug-Template (Vite strippt as-Casts hier nicht)
+            | {{ tagLabel(tag) }}
 
   //- hardfacts
   .ec-gradient.text-subtitle-1.font-weight-normal
@@ -83,7 +84,7 @@ div(v-if='page')
         //- Datum
         .text-no-wrap(v-if='page.begin || page.ende')
           v-icon.mr-2(:icon='mdiCalendar')
-          | Vom {{ page.begin.split('T')[0].split("-").reverse().join(".") }} bis {{ page.ende.split('T')[0].split("-").reverse().join(".") }}
+          | Vom {{ page.begin?.split('T')[0]?.split("-").reverse().join(".") }} bis {{ page.ende?.split('T')[0]?.split("-").reverse().join(".") }}
 
         //- Ort
         .text-no-wrap(v-if='page.veranstaltungsort')
@@ -150,11 +151,11 @@ div(v-if='page')
     h2.mb-2.text-center Anmeldung
     ec-anmeldung(
       v-bind='page.anmeldung',
-      :veranstaltungsBegin='page.begin',
+      :veranstaltungsBegin='page.begin ?? ""',
       :minAlter='page.minAlter',
       :maxAlter='page.maxAlter',
-      :veranstaltungsID='page.veranstaltungsID'
-      :disabled='page.begin < (new Date().toISOString().split("T")[0])'
+      :veranstaltungsID='page.veranstaltungsID ?? 0'
+      :disabled='(page.begin ?? "") < (new Date().toISOString().split("T")[0] ?? "")'
     )
       template(#disabled)
         v-alert(
@@ -169,7 +170,9 @@ div(v-if='page')
             v-card.ec-gradient
               v-card-title.text-body-1.text-md-h6.text-lg-h6.text-xl-h6.text-medium-emphasis.d-flex.justify-center.pb-2 Die Anmeldung wird freigeschaltet in:
               v-card-text
-                ec-countdown(:target='page.anmeldung.startAt')
+                //- startAt ist im toleranten Schema untypisiert (unknown), de facto ein ISO-String
+                //- KEIN TS im Pug-Template (Vite strippt as-Casts hier nicht)
+                ec-countdown(:target='anmeldungStartAt')
                   template(#digits='slotProp')
                     span.text-h4.font-weight-bold.text-white {{ slotProp.digits }}
                   template(#units='slotProp')
@@ -219,8 +222,13 @@ const showAnmeldung = computed(() => {
   return false
 })
 
+// Schema-typlos (unknown) — Cast gehört ins Script, nicht ins Pug-Template
+const anmeldungStartAt = computed(
+  () => page.value?.anmeldung?.startAt as string | undefined,
+)
+
 const formatDate = (d?: string) =>
-  (d ?? '').split('T')[0].split('-').reverse().join('.')
+  (d ?? '').split('T')[0]?.split('-').reverse().join('.') ?? ''
 
 const metaTitle = computed(() =>
   page.value

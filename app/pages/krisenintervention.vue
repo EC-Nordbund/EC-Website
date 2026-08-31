@@ -230,7 +230,11 @@ const data = computed(() => {
     return { files: [], folders: [] }
   } else {
     return (
-      fileData.value.folders?.Krisenintervention || {
+      // Ordner-Werte sind im toleranten Schema untypisiert (unknown) —
+      // Cast auf die de facto vorhandene Struktur aus downloads.yml
+      (fileData.value.folders?.Krisenintervention as
+        | { files: Record<string, any>[] }
+        | undefined) || {
         files: [],
         folders: [],
       }

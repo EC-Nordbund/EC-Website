@@ -17,10 +17,6 @@ const props = defineProps<{
 }>()
 
 const resolvedSrc = computed(() => assetUrl(props.src))
+// Keine eigenen Styles: die img-Regeln (width/max-width 720px/Zentrierung)
+// kommen aus markdown.scss über die .nuxt-content-Klasse des ContentRenderer
 </script>
-
-<style scoped>
-img {
-  max-width: 100%;
-}
-</style>

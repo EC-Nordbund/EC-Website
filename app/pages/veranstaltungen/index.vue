@@ -49,7 +49,7 @@ v-container
       v-card(variant="outlined" rounded="0" hover class="overflow-hidden" color="offWhite" :to="`/veranstaltungen/${item.slug}`")
         v-row(no-gutters)
           v-col(cols="12" md="6" lg="4")
-            ec-image-item(:image="item.featuredImage" :title="item.title" :subTitle="`Vom ${item.begin.split('T')[0].split('-').reverse().join('.')} bis ${item.ende.split('T')[0].split('-').reverse().join('.')}`")
+            ec-image-item(:image="item.featuredImage" :title="item.title ?? ''" :subTitle="`Vom ${item.begin?.split('T')[0]?.split('-').reverse().join('.')} bis ${item.ende?.split('T')[0]?.split('-').reverse().join('.')}`")
 
           //- white-area (bottom/right part)
           v-col(cols="12" md="6" lg="8" class="d-flex flex-column justify-space-between" :style="detailsMaxHeight")
@@ -59,9 +59,12 @@ v-container
                 //- categories
                 v-col(cols="12" lg="8" class="d-flex flex-wrap justify-md-end justify-lg-start mt-n1 mb-1")
                   //- TODO: colored tags
-                  v-chip(color="secondary" class="ml-2 mb-1 font-weight-medium text-primary" variant="outlined" size="small" v-for="tag in item.tags" :key="tag")
-                    | {{ (typeof tag === 'object') ? tag.tag : tag }}
-                  v-chip(color="secondary" class="ml-2 mb-1 font-weight-medium text-primary" variant="outlined" size="small" v-if="item.juleica")
+                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-for="tag in item.tags" :key="tag")
+                    //- KEIN TS im Pug-Template (Vite strippt as-Casts hier nicht)
+                    | {{ tagLabel(tag) }}
+                  //- Alt-Stand 1:1: juleica ist bewusst NICHT im select() — der
+                  //- Chip erschien auch alt nie (das Tag deckt ihn inhaltlich ab)
+                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-if="'juleica' in item && item.juleica")
                     | JuLeiCa-Fortbildung
 
                 //- indicator
@@ -69,8 +72,8 @@ v-container
                     v-chip(color="hellBlau" variant="flat" class="ml-2 mb-1 font-weight-medium text-white" size="small" v-if="item.minTN")
                       v-icon(size="small" class="ml-n1 mr-1" :icon="mdiAccountGroup")
                       | Mind. {{ item.minTN }} Teilnehmer
-                    template(v-for="wl in Object.keys(item.warteliste)" :key="'wl-' + wl")
-                      v-chip(color="warning" variant="flat" class="ml-2 mb-1 font-weight-medium text-white" size="small" v-if="item.warteliste[wl]")
+                    template(v-for="wl in Object.keys(item.warteliste ?? {})" :key="'wl-' + wl")
+                      v-chip(color="warning" variant="flat" class="ml-2 mb-1 font-weight-medium text-white" size="small" v-if="item.warteliste?.[wl]")
                         v-icon(size="small" class="ml-n1 mr-1 " :icon="mdiAlertCircle")
                         | {{textWaitingQueue(wl)}}
 
@@ -81,7 +84,9 @@ v-container
             //- actions/buttons
             v-card-actions(class="pa-4")
               v-spacer
-              ec-hexa-button(:to="`/veranstaltungen/${item.slug}`" :icon="mdiArrowRight" :aria-label="`Zur Veranstaltung: ${item.title}`")
+              //- tag=div statt :to — die Karte selbst ist der Link; ein <a> im
+              //- <a> wird vom HTML-Parser umgebaut und bricht die Hydration
+              ec-hexa-button(tag="div" :icon="mdiArrowRight")
   p(v-else='') Loading...
 </template>
 <script setup lang="ts">
@@ -180,13 +185,13 @@ const closeScopeMenu = (scope: Scope) => {
 function filterByScope(veranstaltung: any, scope?: Scope) {
   scope = scope || filterScope.value
 
-  const today = new Date().toISOString().split('T')[0]
+  const today = new Date().toISOString().split('T')[0] ?? ''
 
   switch (scope) {
     case Scope.CUSTOM:
       return (
-        veranstaltung.begin > customDateRange.value[0] &&
-        veranstaltung.ende < customDateRange.value[1]
+        veranstaltung.begin > (customDateRange.value[0] ?? '') &&
+        veranstaltung.ende < (customDateRange.value[1] ?? '')
       )
 
     case Scope.ALL:

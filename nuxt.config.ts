@@ -20,6 +20,11 @@ function contentStems(subDir: string): string[] {
 
 const vuetifyThemeColors = {
   primary: '#92c355',
+  // Vuetify 2 setzte auf farbigen Flächen immer weißen Text; Vuetify 4
+  // errechnet sonst Kontrastfarben (schwarz auf dem hellen Grün)
+  'on-primary': '#ffffff',
+  'on-error': '#ffffff',
+  'on-success': '#ffffff',
   dunkelGrau: '#282925',
   neonOrange: '#fac189',
   offWihte: '#f8f5f4',
@@ -112,10 +117,15 @@ export default defineNuxtConfig({
   },
 
   css: [
+    // 300/900 werden von font-weight-light/-black gebraucht: der Symbolfont
+    // ist als 'Montserrat' in JEDEM Gewicht registriert — fehlt das echte
+    // Face, fallen Buchstaben auf die Browser-Serifenschrift zurück
+    '@fontsource/montserrat/latin-300.css',
     '@fontsource/montserrat/latin-400.css',
     '@fontsource/montserrat/latin-500.css',
     '@fontsource/montserrat/latin-600.css',
     '@fontsource/montserrat/latin-700.css',
+    '@fontsource/montserrat/latin-900.css',
     '~/assets/styles/global.scss',
   ],
 
@@ -145,6 +155,15 @@ export default defineNuxtConfig({
       icons: {
         defaultSet: 'mdi-svg',
       },
+      // Vuetify 2 renderte Eingabefelder 'underlined'; Vuetify-4-Default
+      // wäre 'filled' (graue Boxen) — Alt-Optik für alle Formulare erhalten
+      defaults: {
+        VTextField: { variant: 'underlined' },
+        VTextarea: { variant: 'underlined' },
+        VSelect: { variant: 'underlined' },
+        VAutocomplete: { variant: 'underlined' },
+        VCombobox: { variant: 'underlined' },
+      },
       // Alt-Setup registrierte alle Vuetify-Direktiven global (v-ripple, v-scroll in Verwendung)
       directives: true,
       // vuetify-nuxt-module lädt die Vuetify-Locale-Messages anhand des Namens
@@ -169,6 +188,10 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/'],
+      // Alt-Content enthält tote interne Links (uraltes /veranstaltung/<id>/…-
+      // Schema, 'www.…' ohne Protokoll). Nuxt 2 generate hat die toleriert;
+      // Content-Repo wird nicht bereinigt → nur warnen, Build nicht abbrechen.
+      failOnError: false,
     },
   },
 
@@ -208,6 +231,9 @@ export default defineNuxtConfig({
         '/krisenintervention',
         '/shop',
         '/404',
+        // Alt-Build hatte nur /anmeldung/token statisch; die tokenlose
+        // Mitarbeiter-Anmeldung lief über den SPA-Fallback — jetzt statisch
+        '/anmeldung/mitarbeiter',
       ]) {
         ctx.routes.add(route)
       }

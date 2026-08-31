@@ -1,5 +1,7 @@
 <template lang="pug">
-.ec-countdown
+//- SSG: Server-Stand ist die Buildzeit, der Client tickt sofort weiter —
+//- die Abweichung ist hier gewollt, kein Hydration-Fehler
+.ec-countdown(data-allow-mismatch)
   //- days
   .counter-days(v-if='days > 0 || keepZeros')
     slot(name='digits', :digits='formatDigits(days)')

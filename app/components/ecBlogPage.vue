@@ -23,12 +23,9 @@ v-container
             )
               v-card-actions.pa-3.d-sm-none
                 v-spacer
-                ec-hexa-button(
-                  :to='`/blog/${item.slug}`',
-                  :icon='mdiArrowRight',
-                  :aria-label='`Zum Beitrag: ${item.title}`',
-                  :size='64'
-                )
+                //- tag=div statt :to — die Karte selbst ist der Link; ein <a> im
+                //- <a> wird vom HTML-Parser umgebaut und bricht die Hydration
+                ec-hexa-button(tag='div', :icon='mdiArrowRight', :size='64')
           v-col.d-flex.flex-column.justify-space-between(
             cols='12',
             sm='6',
@@ -41,14 +38,16 @@ v-container
               .ec-gradient.text-white
                 v-card-title.d-block.pt-2.font-weight-bold.text-truncate {{ item.title }}
                 v-card-subtitle.pb-2.text-secondary.d-flex.justify-space-between
-                  span Vom {{ item.published.split("T")[0].split("-").reverse().join(".") }}
+                  span Vom {{ item.published?.split("T")[0]?.split("-").reverse().join(".") }}
               v-card-text.full-heigth.overflow-hidden.py-0.d-none.d-sm-block
                 //- labels
                 v-row(no-gutters)
                   //- categories
                   v-col.d-flex.flex-wrap.mb-n1.ml-n2.mt-3(cols='12', lg='8')
-                    v-chip.ml-2.mb-1.font-weight-medium.text-primary(
-                      color='secondary',
+                    //- Vuetify 2: outlined-Rahmen folgte der text--primary-Klasse
+                    //- (alles grün) — in v4 direkt color=primary
+                    v-chip.ml-2.mb-1.font-weight-medium(
+                      color='primary',
                       variant='outlined',
                       size='small',
                       v-for='tag in item.tags',
@@ -62,16 +61,11 @@ v-container
             //- actions/buttons
             v-card-actions.pa-4.d-none.d-sm-flex
               v-spacer
-              ec-hexa-button(
-                :to='`/blog/${item.slug}`',
-                exact,
-                :icon='mdiArrowRight',
-                :rotate='30',
-                :aria-label='`Zum Beitrag: ${item.title}`'
-              )
+              //- tag=div statt :to — siehe oben (kein <a> im <a>)
+              ec-hexa-button(tag='div', :icon='mdiArrowRight', :rotate='30')
   v-pagination(
     :model-value='currPage',
-    :length='pageCount || Math.min(page, 10)',
+    :length='pageCount || Math.min(page ?? 1, 10)',
     :total-visible='7',
     @update:model-value='pageChange'
   )

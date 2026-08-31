@@ -9,36 +9,36 @@
     margin-bottom: 0 !important;
   }
 
+  // @nuxt/content 3 umschließt den GESAMTEN Heading-Text mit dem Anchor-<a>
+  // (alt: eigenes kleines #-Icon-<a> neben dem Text) — Anchor wie normalen
+  // Heading-Text darstellen, das #-Zeichen nur beim Hover davor einblenden
   @for $i from 1 to 6 {
     h#{$i} {
       line-height: 1.125em;
       padding-top: 0.125em;
       padding-bottom: 0.333em;
 
+      > a {
+        color: inherit;
+        text-decoration: none;
+      }
+
       @media #{map.get(v.$display-breakpoints, 'md-and-up')} {
-        > a {
-          float: left;
+        > a::before {
+          content: '#';
+          display: inline-block;
+          width: 1em;
           margin-left: -1em;
           opacity: 0;
           will-change: opacity;
           transition: opacity 100ms ease-in-out;
-
-          .icon-link::before {
-            padding-right: 0;
-          }
         }
 
-        &:hover > a {
+        &:hover > a::before {
           opacity: 1;
         }
       }
     }
-  }
-
-  .icon-link::before {
-    content: '#';
-    display: inline-block;
-    padding-right: 6px;
   }
 
   ol li ul:first-of-type {

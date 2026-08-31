@@ -4,7 +4,7 @@ ClientOnly
     v-if='ready',
     v-bind='$attrs',
     :zoom='zoom',
-    :center='marker[0].marker',
+    :center='marker[0]?.marker',
     :use-global-leaflet='true',
     :options='mapOptions'
   )

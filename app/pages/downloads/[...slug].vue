@@ -19,7 +19,7 @@ v-container
     v-list-item(
       v-for='el in data.files',
       :key='route.fullPath + el.filename',
-      :href='`${el.filename}`',
+      :href='assetUrl(el.filename)',
       lines='two'
     )
       template(#prepend)
@@ -29,7 +29,7 @@ v-container
     v-list-item(
       v-for='key in Object.keys(data.folders)',
       :key='route.fullPath + key',
-      :to='key + "/"',
+      :to='`/downloads/${[...fileRoute, key].join("/")}`',
       lines='two'
     )
       template(#prepend)
@@ -77,7 +77,7 @@ const data = computed<any>(() => {
     let pointer: any = fileData.value
 
     for (let i = 0; i < fileRoute.value.length; i++) {
-      pointer = pointer?.folders?.[fileRoute.value[i]]
+      pointer = pointer?.folders?.[fileRoute.value[i] ?? '']
 
       if (!pointer) {
         return { files: [], folders: [] }
@@ -89,7 +89,7 @@ const data = computed<any>(() => {
 })
 
 function toBreadcrumb(key = '', depth = 0) {
-  const item: { title?: string; href?: string } = {
+  const item: { title: string; href?: string } = {
     title: key,
     href: '/downloads/',
   }
@@ -97,9 +97,9 @@ function toBreadcrumb(key = '', depth = 0) {
 
   // add title to subpath
   for (let i = 0; i < depth; i++) {
-    curr = curr?.folders?.[fileRoute.value[i]]
+    curr = curr?.folders?.[fileRoute.value[i] ?? '']
   }
-  item.title = curr?.title
+  item.title = curr?.title ?? ''
 
   // add link to subpath
   if (fileRoute.value.length > depth) {
@@ -123,7 +123,7 @@ const fileIcons: Record<string, string> = {
 }
 
 function fileIcon(filename: string): string {
-  return fileIcons[filename.split('.')[1].toLowerCase()] || mdiFile
+  return fileIcons[filename.split('.')[1]?.toLowerCase() ?? ''] || mdiFile
 }
 
 useHead({

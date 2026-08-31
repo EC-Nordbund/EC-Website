@@ -11,8 +11,10 @@
 // text-caption). Die MD2-Definitionen (Werte aus Vuetify 2) werden hier in die
 // $typography-Map gemerged, sodass Vuetify die gewohnten Klassen wieder
 // erzeugt — inklusive der alten $headings-Anpassung (h1–h5 bold).
+// $color-pack MUSS an bleiben: die Templates nutzen durchgängig Palette-
+// Utilities wie text-white — ohne Pack existieren nur Theme-Farbklassen
 @use 'vuetify/settings' with (
-  $color-pack: false,
+  $color-pack: true,
   $body-font-family: (
     'Montserrat',
     sans-serif,

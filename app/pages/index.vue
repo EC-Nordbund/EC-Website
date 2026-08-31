@@ -56,8 +56,8 @@
           v-card(rounded='0', hover, variant='outlined', :to='`/blog/${item.slug}`')
             ec-image-item(
               :image='item.featuredImage',
-              :title='item.title',
-              :subTitle='`Vom ${item.published.split("T")[0].split("-").reverse().join(".")}`'
+              :title='item.title ?? ""',
+              :subTitle='`Vom ${item.published?.split("T")[0]?.split("-").reverse().join(".")}`'
             )
       .d-flex.flex-row.justify-space-between.align-end
         h2(id='nächste-veranstaltungen') Nächste Veranstaltungen
@@ -86,8 +86,8 @@
           )
             ec-image-item(
               :image='item.featuredImage',
-              :title='item.title',
-              :subTitle='`Vom ${item.begin.substring(0, 10).split("-").reverse().join(".")} bis ${item.ende.substring(0, 10).split("-").reverse().join(".")}`'
+              :title='item.title ?? ""',
+              :subTitle='`Vom ${item.begin?.substring(0, 10).split("-").reverse().join(".")} bis ${item.ende?.substring(0, 10).split("-").reverse().join(".")}`'
             )
   .angle--both-left-right(style='background: #f5f5f5')
     v-container

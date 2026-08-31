@@ -2,9 +2,9 @@
 v-app
   v-app-bar(color='white', flat)
     v-toolbar-title.mx-auto
-      NuxtLink.d-flex.align-center.mr-auto.no-underline(to='/')
+      NuxtLink.d-flex.align-center.justify-center.no-underline(to='/')
         ec-logo(size='42px', alt='EC')
-        h1 Nordbund
+        h1.text-primary Nordbund
   v-main.flex-fill.fill-height
     slot
   footer.bg-secondary.text-white.angle--top-left.pb-4

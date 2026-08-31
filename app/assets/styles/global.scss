@@ -92,3 +92,33 @@ footer {
     font-weight: bold;
   }
 }
+
+// Vuetify 2 lieferte eine bg-transparent-Utility-Klasse, Vuetify 4 nicht mehr
+// (Footer-Listen würden sonst weiß auf weißem Grund rendern)
+.bg-transparent {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+// Vuetify 2 färbte Anker global in der Primärfarbe — Vuetify 4 nicht mehr.
+// Vuetify-Komponenten-Anker (Buttons/Karten/Listen/Tabs) sind ausgenommen:
+// deren Farbklassen liegen in einem CSS-Layer und würden sonst überstimmt.
+a:not(.v-btn):not(.v-card):not(.v-list-item):not(.v-tab):not(.v-breadcrumbs-item--link) {
+  color: rgb(var(--v-theme-primary));
+}
+
+// Vuetify 2 brachte den ress-Reset mit (Live-Alt gemessen: Heading-Margins 0,
+// p 0 0 16px) — Vuetify 4 hat keinen Element-Reset mehr; ohne dies rücken
+// Browser-Default-Margins alle Überschriften auseinander (z. B. Karlsminde-Hero)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0 0 16px;
+}

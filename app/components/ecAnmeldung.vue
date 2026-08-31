@@ -105,16 +105,17 @@ div(v-else class="anmeldung-locked")
       h3(class="text-center") Die Anmeldung wird freigeschaltet in:
       ec-countdown(:target="startAt")
 </template>
-<script>
+<script lang="ts">
 import { defineComponent, reactive, computed, watchEffect, toRefs, ref } from 'vue'
+import type { PropType, SlotsType } from 'vue'
 import { mdiInformation } from '@mdi/js'
 import { useRoute } from '#imports'
 import { useValidation, ruleLib } from '~/composables/validate'
 import { useAlter } from '~/composables/alter'
 import { post } from '~/helpers/fetch'
-function useExtraFields(extraFields) {
-  const extra = {}
-  const extraRules = {}
+function useExtraFields(extraFields: any[]) {
+  const extra: Record<string, string> = {}
+  const extraRules: Record<string, ((v: unknown) => true | string)[]> = {}
   for (let i = 0; i < extraFields.length; i++) {
     const el = extraFields[i]
     extra[el.name] = ''
@@ -129,7 +130,7 @@ function useExtraFields(extraFields) {
     extraRules,
   }
 }
-function useData(extra) {
+function useData(extra: Record<string, string>) {
   const data = reactive({
     vorname: '',
     nachname: '',
@@ -159,8 +160,11 @@ function useData(extra) {
   })
   return { data }
 }
-function handleFreizeitleitung(data, props) {
-  let oldHatFreizeitleitung = null
+function handleFreizeitleitung(
+  data: { freizeitLeitung: boolean },
+  props: { hatFreizeitleitung: boolean },
+) {
+  let oldHatFreizeitleitung: boolean | null = null
   watchEffect(() => {
     if (oldHatFreizeitleitung !== props.hatFreizeitleitung) {
       data.freizeitLeitung = !props.hatFreizeitleitung
@@ -169,6 +173,12 @@ function handleFreizeitleitung(data, props) {
   })
 }
 export default defineComponent({
+  // Nur für die Typen (Wert wird von Vue ignoriert): ohne slots-Option
+  // wären die benannten Slots für vue-tsc als '{}' typisiert
+  slots: Object as SlotsType<{
+    disabled?: Record<string, never>
+    countdown?: Record<string, never>
+  }>,
   props: {
     hatEssen: Boolean,
     hatGesundheit: Boolean,
@@ -192,7 +202,8 @@ export default defineComponent({
       default: 999,
     },
     extraFields: {
-      type: Array,
+      // any[] statt Array: die Feld-Definitionen kommen untypisiert aus dem CMS
+      type: Array as PropType<any[]>,
       default: () => [],
     },
     veranstaltungsID: {
@@ -222,7 +233,7 @@ export default defineComponent({
     )
     const sending = ref(false)
     const success = ref(false)
-    const error = ref(null) // as null | string[] | string)
+    const error = ref<null | string[] | string>(null)
     const { extraData, extraRules } = useExtraFields(props.extraFields)
     const { data } = useData(extraData)
     handleFreizeitleitung(data, props)
@@ -255,7 +266,7 @@ export default defineComponent({
         alter: alterData.falschesAlter.value,
       }
       try {
-        const ret = await post(
+        const ret = await post<{ status: string; context: string | string[] }>(
           '/anmeldung/tn/' + props.veranstaltungsID,
           submitData,
         )
@@ -266,7 +277,7 @@ export default defineComponent({
           success.value = true
         }
         // console.log('testANMELDUNG1', ret)
-      } catch (e) {
+      } catch (e: any) {
         error.value = e
         // console.log('testANMELDUNG_FEHLER_2')
       }
@@ -314,24 +325,27 @@ export default defineComponent({
       toRefs(data).gebDat,
       props.veranstaltungsBegin,
     )
+    // Eigene consts statt Selbstbezug über alterData (zirkuläre Typinferenz)
+    const zuJung = computed(
+      () =>
+        alter.value < props.minAlter ||
+        (data.gebDat &&
+          parseInt(data.gebDat.split('-')[0] ?? '') > props.jahrgangMax),
+    )
+    const zuAlt = computed(
+      () =>
+        alter.value > props.maxAlter ||
+        (data.gebDat &&
+          parseInt(data.gebDat.split('-')[0] ?? '') < props.jahrgangMin),
+    )
     const alterData = {
       under18,
-      zuJung: computed(
-        () =>
-          alter.value < props.minAlter ||
-          (data.gebDat &&
-            parseInt(data.gebDat.split('-')[0]) > props.jahrgangMax),
-      ),
-      zuAlt: computed(
-        () =>
-          alter.value > props.maxAlter ||
-          (data.gebDat &&
-            parseInt(data.gebDat.split('-')[0]) < props.jahrgangMin),
-      ),
-      falschesAlter: computed(
-        () => !(alterData.zuJung.value || alterData.zuAlt.value),
-      ),
+      zuJung,
+      zuAlt,
+      falschesAlter: computed(() => !(zuJung.value || zuAlt.value)),
     }
+    // Cast statt any: der any-Spread von rootMapper würde sonst den gesamten
+    // Komponententyp (inkl. der oben deklarierten Slots) zu any machen
     return {
       ...validation.rootMapper,
       ...alterData,
@@ -348,14 +362,15 @@ export default defineComponent({
       data,
       submit,
       hatErlaubnisse,
-      countdown: new Date().getTime() < new Date(props.startAt).getTime(),
+      // NaN-Fallback = identisches Verhalten von new Date(undefined) (Invalid Date)
+      countdown: new Date().getTime() < new Date(props.startAt ?? NaN).getTime(),
       sending,
       success,
       error,
       force: !!route.query.anmeldung,
       reload: () => location.reload(),
       mdiInformation,
-    }
+    } as Record<string, any>
   },
 })
 </script>
