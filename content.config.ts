@@ -9,7 +9,14 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
  */
 
 const looseString = z.coerce.string()
-const looseNumber = z.coerce.number()
+// NaN-sicher: Number('abc')/Number(undefined) => NaN würde als unquoted
+// Literal in die SQLite-Dump-INSERTs geschrieben ("no such column: NaN")
+// und JEDE Query zum Absturz bringen — daher auf undefined abbilden.
+const looseNumber = z.preprocess((v) => {
+  if (v === undefined || v === null || v === '') return undefined
+  const n = Number(v)
+  return Number.isNaN(n) ? undefined : n
+}, z.number().optional())
 
 const blog = defineCollection({
   type: 'page',
@@ -41,18 +48,26 @@ const veranstaltung = defineCollection({
       strasse: looseString.optional(),
       plz: looseString.optional(),
       ort: looseString.optional(),
-      lat: looseNumber.optional(),
-      long: looseNumber.optional(),
+      // Als String-Spalte: Alt-Daten enthalten kaputte Werte wie
+      // '54.782.670' — als number-Spalte landet NaN unquoted im SQL-Dump
+      lat: looseString.optional(),
+      long: looseString.optional(),
       // Umlaut-Keys (allgemein/männlich/weiblich) → offenes Record
       warteliste: z.record(z.string(), z.any()).optional(),
-      juleica: z.any().optional(),
+      // WICHTIG: z.any()-Spalten werden von @nuxt/content mit String()
+      // serialisiert ('[object Object]') — strukturierte Felder MÜSSEN
+      // als z.array/z.record typisiert sein, damit sie JSON-Spalten werden.
+      juleica: z.preprocess(
+        (v) => v === true || v === 'true',
+        z.boolean()
+      ).optional(),
       tags: z.array(z.string()).optional(),
-      preise: z.any().optional(),
-      anzahlung: z.any().optional(),
+      preise: z.array(z.record(z.string(), z.any())).optional(),
+      anzahlung: looseNumber.optional(),
       minAlter: looseNumber.optional(),
       maxAlter: looseNumber.optional(),
       minTN: looseNumber.optional(),
-      anmeldung: z.any().optional(),
+      anmeldung: z.record(z.string(), z.any()).optional(),
     })
     .passthrough(),
 })
@@ -66,10 +81,12 @@ const ort = defineCollection({
       strasse: looseString.optional(),
       plz: looseString.optional(),
       ort: looseString.optional(),
-      lat: looseNumber.optional(),
-      long: looseNumber.optional(),
-      personen: z.any().optional(),
-      veranstaltungen: z.any().optional(),
+      // Als String-Spalte: Alt-Daten enthalten kaputte Werte wie
+      // '54.782.670' — als number-Spalte landet NaN unquoted im SQL-Dump
+      lat: looseString.optional(),
+      long: looseString.optional(),
+      personen: z.array(z.record(z.string(), z.any())).optional(),
+      veranstaltungen: z.array(z.record(z.string(), z.any())).optional(),
     })
     .passthrough(),
 })
@@ -106,8 +123,8 @@ const downloads = defineCollection({
     .object({
       title: z.string().optional(),
       description: z.string().optional(),
-      files: z.any().optional(),
-      folders: z.any().optional(),
+      files: z.array(z.record(z.string(), z.any())).optional(),
+      folders: z.record(z.string(), z.any()).optional(),
     })
     .passthrough(),
 })

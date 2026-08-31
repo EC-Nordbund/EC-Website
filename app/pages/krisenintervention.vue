@@ -15,7 +15,7 @@ v-container
         v-col.py-0(cols='12')
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
-              v-img.flex-grow-0.hexagon-shape(
+              v-img.flex-grow-0.hexagon-shape(cover, 
                 :src='kirkeImg',
                 :width='128',
                 :height='128'
@@ -59,7 +59,7 @@ v-container
         v-col.py-0(cols='12')
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
-              v-img.flex-grow-0.hexagon-shape(
+              v-img.flex-grow-0.hexagon-shape(cover, 
                 :src='tobiasImg',
                 :width='128',
                 :height='128'
@@ -104,7 +104,7 @@ v-container
         v-col.py-0(cols='12')
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
-              v-img.flex-grow-0.hexagon-shape(
+              v-img.flex-grow-0.hexagon-shape(cover, 
                 :src='dortjeImg',
                 :width='128',
                 :height='128'
@@ -143,7 +143,7 @@ v-container
         v-col.py-0(cols='12')
           v-row
             v-col.d-flex.flex-column.justify-center.align-center.ec-gradient.pa-3(cols='12', sm='auto')
-              v-img.flex-grow-0.hexagon-shape(
+              v-img.flex-grow-0.hexagon-shape(cover, 
                 :src='juttaImg',
                 :width='128',
                 :height='128'
@@ -179,7 +179,7 @@ v-container
 
     //- Explanation
     v-col(cols='12', sm='10', md='8')
-      ContentRenderer(v-if='explanation', :value='explanation')
+      ContentRenderer.nuxt-content(v-if='explanation', :value='explanation')
 
     //- Downloads
     v-col.pb-0(cols='12', sm='10', md='8')
@@ -218,7 +218,7 @@ definePageMeta({
 
 // Alt: useStatic-Keys 'kriesen-1'/'kriesen-2' (Tippfehler bleibt), kein Param.
 const { data: explanation } = await useAsyncData('kriesen-1', () =>
-  queryCollection('krisenintervention').where('stem', '=', 'explanation').first(),
+  queryCollection('krisenintervention').where('stem', '=', 'krisenintervention/explanation').first(),
 )
 
 const { data: fileData } = await useAsyncData('kriesen-2', () =>

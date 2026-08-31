@@ -1,7 +1,7 @@
 <template lang="pug">
 ecBlogPage(:page="pageNum" v-if="isPagination")
 v-container(v-else-if="page")
-  ContentRenderer(:value='page')
+  ContentRenderer.nuxt-content(:value='page')
 </template>
 <script setup lang="ts">
 const route = useRoute()
@@ -13,10 +13,12 @@ const isPagination = computed(() => /^\d+$/.test(id.value))
 const { data: page } = await useAsyncData(`blog-post-${id.value}`, async () => {
   if (isPagination.value) return null
 
-  const post = await queryCollection('blog').where('stem', '=', id.value).first()
+  const post = await queryCollection('blog')
+    .where('stem', '=', `blog/${id.value}`)
+    .first()
   if (!post) return null
 
-  return { ...post, slug: post.stem }
+  return { ...post, slug: stemToSlug(post.stem) }
 })
 
 /**

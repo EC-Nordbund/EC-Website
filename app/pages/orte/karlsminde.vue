@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  v-img.align-end.angle--bottom-right(
+  v-img.align-end.angle--bottom-right(cover, 
     :src='karlsmindeImg',
     height='400',
     width='auto',

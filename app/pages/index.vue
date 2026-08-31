@@ -1,7 +1,7 @@
 <template lang="pug">
 .section-wrapper(v-if='pages')
   div
-    v-img.hero-image.bg-secondary.align-end.angle--bottom-right(
+    v-img.hero-image.bg-secondary.align-end.angle--bottom-right(cover, 
       :src='hero_image',
       min-height='400px',
       height='60vh',
@@ -108,12 +108,12 @@
         | Unter dem Motto „von Jugendlichen für Jugendliche“ vereinen sich allein im Nordbund mehr als 400 ehrenamtliche Mitarbeitende, die von lediglich drei hauptamtlichen unterstützt werden.
       v-row
         v-col.person(align='center', @click='mail("kirke.husberg@ec-nordbund.de")')
-          v-img.hexagon-shape(:src='kirkeImg', :width='128', :height='128')
+          v-img.hexagon-shape(cover, :src='kirkeImg', :width='128', :height='128')
             .hexa-image-overlay(v-ripple)
           .text-h6 Kirke Husberg
           | Jugendreferentin
         v-col.person(align='center', @click='mail("tobias.krahe@ec-nordbund.de")')
-          v-img.hexagon-shape(:src='tobiasImg', :width='128', :height='128')
+          v-img.hexagon-shape(cover, :src='tobiasImg', :width='128', :height='128')
             .hexa-image-overlay(v-ripple)
           .text-h6 Tobias Krahe
           | Jugendreferent
@@ -121,7 +121,7 @@
           align='center',
           @click='mail("dortje.gaertner@ec-nordbund.de")'
         )
-          v-img.hexagon-shape(:src='dortjeImg', :width='128', :height='128')
+          v-img.hexagon-shape(cover, :src='dortjeImg', :width='128', :height='128')
             .hexa-image-overlay(v-ripple)
           .text-h6 Dortje Gaertner
           | Kinder- und Jungschararbeit
@@ -147,7 +147,11 @@ const { data: pagesLoading } = await useAsyncData('homeData', async () => {
       .order('begin', 'ASC')
       .limit(3)
       .all()
-  ).map((d) => ({ ...d, slug: d.stem }))
+  ).map((d) => ({
+    ...d,
+    slug: stemToSlug(d.stem),
+    featuredImage: assetUrl(d.featuredImage),
+  }))
 
   const recentPosts = (
     await queryCollection('blog')
@@ -155,7 +159,11 @@ const { data: pagesLoading } = await useAsyncData('homeData', async () => {
       .order('published', 'DESC')
       .limit(3)
       .all()
-  ).map((d) => ({ ...d, slug: d.stem }))
+  ).map((d) => ({
+    ...d,
+    slug: stemToSlug(d.stem),
+    featuredImage: assetUrl(d.featuredImage),
+  }))
 
   // Hartkodierung 1:1 (wird zur Generate-Zeit eingebacken, täglicher CI-Rebuild)
   const countdown = {

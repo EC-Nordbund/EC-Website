@@ -13,16 +13,16 @@ v-container(v-if='pages')
         v-tab(:value='3') EC-Mitglieder + EC-Mitarbeiter
       v-tabs-window(v-model='tab')
         v-tabs-window-item(:value='0', title='Website')
-          ContentRenderer(:value='pages.website')
+          ContentRenderer.nuxt-content(:value='pages.website')
         v-tabs-window-item(:value='1', title='Veranstaltungs Teilnehmer')
-          ContentRenderer(:value='pages.teilnehmer')
+          ContentRenderer.nuxt-content(:value='pages.teilnehmer')
         v-tabs-window-item(:value='2', title='Veranstaltungs Mitarbeiter')
-          ContentRenderer(:value='pages.mitarbeiter')
+          ContentRenderer.nuxt-content(:value='pages.mitarbeiter')
         v-tabs-window-item(:value='3', title='EC-Mitglieder + EC-Mitarbeiter')
-          ContentRenderer(:value='pages.mitglieder')
+          ContentRenderer.nuxt-content(:value='pages.mitglieder')
   v-row
     v-col
-      ContentRenderer(:value='pages.kontakt')
+      ContentRenderer.nuxt-content(:value='pages.kontakt')
 v-container(v-else)
   p Lade Inhalt...
 </template>

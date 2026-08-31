@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container(v-if="page")
-  ContentRenderer(:value="page")
+  ContentRenderer.nuxt-content(:value="page")
 </template>
 
 <script setup lang="ts">

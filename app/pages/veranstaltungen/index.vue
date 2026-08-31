@@ -296,7 +296,11 @@ const { data: vData } = await useAsyncData('vDataPage', async () => {
     .all()
 
   // stem = Dateiname ohne Endung = alter Slug; Templates nutzen weiter `slug`
-  return veranstaltungen.map((d) => ({ ...d, slug: d.stem }))
+  return veranstaltungen.map((d) => ({
+    ...d,
+    slug: stemToSlug(d.stem),
+    featuredImage: assetUrl(d.featuredImage),
+  }))
 })
 
 const filterResultAmount = (scope: Scope, tags: string[], keyword?: string) => {

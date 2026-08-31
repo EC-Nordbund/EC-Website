@@ -15,7 +15,7 @@ v-container
           //-  @click="$router.push(`/blog/${item.slug}`)"
           v-col.bg-hellGrau(cols='12', sm='6', md='5', lg='4')
             //- image
-            v-img.text-white(
+            v-img.text-white(cover, 
               :src='item.featuredImage',
               height='300',
               aspect-ratio='1',
@@ -103,7 +103,11 @@ const { data: posts } = await useAsyncData(
       .all()
 
     // stem = Dateiname ohne Endung = alter Slug; Templates nutzen weiter `slug`
-    return items.map((d) => ({ ...d, slug: d.stem }))
+    return items.map((d) => ({
+      ...d,
+      slug: stemToSlug(d.stem),
+      featuredImage: assetUrl(d.featuredImage),
+    }))
   },
 )
 

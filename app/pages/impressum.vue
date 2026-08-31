@@ -2,7 +2,7 @@
 v-container(class="text-center" v-if="page")
   v-row
     v-col
-      ContentRenderer(:value="page")
+      ContentRenderer.nuxt-content(:value="page")
 </template>
 
 <script setup lang="ts">

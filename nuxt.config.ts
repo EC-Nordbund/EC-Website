@@ -61,6 +61,8 @@ const vuetifyThemeColors = {
   youtube: '#f00',
 }
 
+const BASE_URL = process.env.EC_SET_BASE ?? '/'
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-08-31',
 
@@ -98,9 +100,11 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#92c355' },
       ],
       link: [
-        { rel: 'icon', href: 'favicon_512.png' },
-        { rel: 'manifest', href: 'manifest.webmanifest' },
-        { rel: 'apple-touch-icon', href: 'apple-icon.png' },
+        // absolut zur Base: relative hrefs brachen auf verschachtelten
+        // Routen (/orte/karlsminde/favicon_512.png -> 404)
+        { rel: 'icon', href: `${BASE_URL}favicon_512.png` },
+        { rel: 'manifest', href: `${BASE_URL}manifest.webmanifest` },
+        { rel: 'apple-touch-icon', href: `${BASE_URL}apple-icon.png` },
         { rel: 'preconnect', href: 'https://losungen.ec-nordbund.de' },
         { rel: 'preconnect', href: 'https://api.ec-nordbund.de' },
       ],

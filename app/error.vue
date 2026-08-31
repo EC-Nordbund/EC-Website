@@ -1,8 +1,11 @@
 <template lang="pug">
-v-app
-  h1(v-if='error?.statusCode === 404') {{ pageNotFound }}
-  h1(v-else) {{ otherError }}
-  nuxt-link(to='/') Home page
+//- Wie im Alt-Stand rendert die Fehlerseite im normalen Seitenrahmen
+//- (das alte error-Layout referenzierte 'empty', fiel damit auf default zurück)
+NuxtLayout(name='default')
+  v-container
+    h1(v-if='error?.statusCode === 404') {{ pageNotFound }}
+    h1(v-else) {{ otherError }}
+    nuxt-link(to='/') Home page
 </template>
 
 <script setup lang="ts">

@@ -88,7 +88,7 @@ v-app
                     | .
                   | )
           v-spacer
-          v-col(cols='1')
+          v-col(cols='auto')
             v-btn(
               style='float: right; text-transform: none',
               to='/krisenintervention/',
@@ -114,7 +114,7 @@ v-app
               aria-label='Zur Startseite'
             )
               ec-logo(size='42px', alt='EC')
-              span(style='display: block; font-size: 2em; font-weight: bold') Nordbund
+              span.text-primary(style='display: block; font-size: 2em; font-weight: bold') Nordbund
 
             //- 1. Blog
             v-btn.hidden-sm-and-down.mr-2(

@@ -1,10 +1,10 @@
 <template lang="pug">
 v-container(v-if='page')
   ec-location(
-    :marker='[{ ...page, marker: [page.lat, page.long], noMore: true }]',
+    :marker='[{ ...page, marker: [Number(page.lat), Number(page.long)], noMore: true }]',
     style='width: 100%; height: 500px; z-index: 0;'
   )
-  ContentRenderer(:value='page')
+  ContentRenderer.nuxt-content(:value='page')
 </template>
 <script setup lang="ts">
 const route = useRoute()
@@ -12,7 +12,7 @@ const id = route.params.id as string
 
 // stem = Dateiname ohne Endung = alter Slug
 const { data: page } = await useAsyncData(`orte-${id}`, () =>
-  queryCollection('ort').where('stem', '=', id).first(),
+  queryCollection('ort').where('stem', '=', `ort/${id}`).first(),
 )
 
 if (!page.value) {

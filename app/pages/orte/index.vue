@@ -1,9 +1,9 @@
 <template lang="pug">
 v-container(v-if='page && orte')
   //- p {{ orte }}
-  ContentRenderer(:value='page')
+  ContentRenderer.nuxt-content(:value='page')
   ec-location(
-    :marker="orte.map(v => ({ ...v, marker: [v.lat, v.long], more: `/orte/${v.slug}` }))",
+    :marker='orteMarker',
     style='width: 100%; height: 500px; z-index: 0;'
   )
   ul
@@ -21,7 +21,7 @@ const { data: orte } = await useAsyncData('orte-liste', async () => {
     .select('title', 'strasse', 'plz', 'ort', 'lat', 'long', 'stem')
     .order('stem', 'ASC')
     .all()
-  return docs.map((d) => ({ ...d, slug: d.stem }))
+  return docs.map((d) => ({ ...d, slug: stemToSlug(d.stem) }))
 })
 
 useHead({
@@ -41,4 +41,15 @@ useSeoMeta({
   twitterTitle: 'EC-Kreise',
   twitterDescription: 'Überblick über alle EC Standorte.',
 })
+
+const orteMarker = computed(() =>
+  (orte.value ?? [])
+    .map((v) => ({
+      ...v,
+      marker: [Number(v.lat), Number(v.long)] as [number, number],
+      more: `/orte/${v.slug}`,
+    }))
+    // kaputte Koordinaten (z. B. '54.782.670') nicht an Leaflet geben
+    .filter((v) => !Number.isNaN(v.marker[0]) && !Number.isNaN(v.marker[1])),
+)
 </script>

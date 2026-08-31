@@ -1,7 +1,7 @@
 <template lang="pug">
 div(v-if='page')
   //- cover
-  v-img.text-white(
+  v-img.text-white(cover, 
     :src='page.featuredImage',
     height='420',
     gradient='180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.02) 32%, rgba(0,0,0,0.02) 48%, rgba(0,0,0,0.72) 96%'
@@ -53,7 +53,7 @@ div(v-if='page')
           //- JuLeiCa Fortbildung
           v-row(v-if='page.juleica', no-gutters)
             v-col
-              v-img(
+              v-img(cover, 
                 max-height='160',
                 max-width='160',
                 width='auto',
@@ -97,12 +97,12 @@ div(v-if='page')
 
   //- description
   v-container.description.pt-5
-    ContentRenderer(:value='page')
+    ContentRenderer.nuxt-content(:value='page')
 
   //- bilder
   ec-image-container#gallerie.scroll-to-me(
     v-if='page.images',
-    :class='"angle--both-left-" + (page.preise || !(page.lat == 0 && page.long == 0) ? "left" : "right") + " clip-angle"',
+    :class='"angle--both-left-" + (page.preise || hatKarte ? "left" : "right") + " clip-angle"',
     :images='page.images.map(v=>(typeof v === "object") ? v.image : v)'
   )
 
@@ -124,13 +124,13 @@ div(v-if='page')
 
   //- standort
   #ort.scroll-to-me(
-    v-if='!(page.lat == 0 && page.long == 0)',
+    v-if='hatKarte',
     :class='"angle--both-right-right" + " clip-angle"'
   )
     ec-location(
-      v-if='!(page.lat == 0 && page.long == 0)',
+      v-if='hatKarte',
       :zoom='12',
-      :marker='[{ ...page, marker: [page.lat, page.long], noMore: true }]',
+      :marker='[{ ...page, marker: [Number(page.lat), Number(page.long)], noMore: true }]',
       style='width: 100%; min-height: calc(400px + 3.492vw * 2); max-height: 100%; z-index: 0'
     )
 
@@ -192,10 +192,18 @@ const { data: page } = await useAsyncData(
   `veranstaltung-${id.value}`,
   async () => {
     const doc = await queryCollection('veranstaltung')
-      .where('stem', '=', id.value)
+      .where('stem', '=', `veranstaltung/${id.value}`)
       .first()
     // slug-Kompatibilität: stem = Dateiname ohne Endung = alter Slug
-    return doc ? { ...doc, slug: doc.stem } : null
+    if (!doc) return null
+    return {
+      ...doc,
+      slug: stemToSlug(doc.stem),
+      featuredImage: assetUrl(doc.featuredImage),
+      images: (doc.images ?? []).map((img: any) =>
+        typeof img === 'string' ? assetUrl(img) : img,
+      ),
+    }
   },
 )
 
@@ -241,6 +249,17 @@ useSeoMeta({
   twitterTitle: () => metaTitle.value,
   twitterDescription: () => page.value?.description,
   twitterImage: () => page.value?.featuredImage,
+})
+
+// Alt: !(lat == 0 && long == 0); zusätzlich kaputte Werte ('54.782.670')
+// abfangen, die als NaN Leaflet crashen würden
+const hatKarte = computed(() => {
+  const p = page.value
+  if (!p) return false
+  const lat = Number(p.lat)
+  const long = Number(p.long)
+  if (Number.isNaN(lat) || Number.isNaN(long)) return false
+  return !(lat === 0 && long === 0)
 })
 </script>
 <style scoped>
