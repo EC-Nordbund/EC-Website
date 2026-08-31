@@ -40,29 +40,28 @@ export default defineComponent({
     const tab = ref(0)
     const { $content } = useContext()
 
-    const pages = useStatic(async () => {
-      const [
-        kontakt,
-        mitarbeiter,
-        mitglieder,
-        teilnehmer,
-        website,
-      ] = await Promise.all([
-        $content('datenschutz/kontakt').fetch(),
-        $content('datenschutz/mitarbeiter').fetch(),
-        $content('datenschutz/mitglieder').fetch(),
-        $content('datenschutz/teilnehmer').fetch(),
-        $content('datenschutz/website').fetch(),
-      ])
+    const pages = useStatic(
+      async () => {
+        const [kontakt, mitarbeiter, mitglieder, teilnehmer, website] =
+          await Promise.all([
+            $content('datenschutz/kontakt').fetch(),
+            $content('datenschutz/mitarbeiter').fetch(),
+            $content('datenschutz/mitglieder').fetch(),
+            $content('datenschutz/teilnehmer').fetch(),
+            $content('datenschutz/website').fetch(),
+          ])
 
-      return {
-        kontakt,
-        mitarbeiter,
-        mitglieder,
-        teilnehmer,
-        website,
-      }
-    }, undefined, 'datenschutz')
+        return {
+          kontakt,
+          mitarbeiter,
+          mitglieder,
+          teilnehmer,
+          website,
+        }
+      },
+      undefined,
+      'datenschutz',
+    )
 
     return {
       tab,

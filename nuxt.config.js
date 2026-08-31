@@ -1,3 +1,4 @@
+import { join } from 'path'
 import de from 'vuetify/es5/locale/de'
 
 const createSitemapRoutes = async () => {
@@ -13,11 +14,11 @@ const createSitemapRoutes = async () => {
       lastmod: post.slug.startsWith('20') ? post.updatedAt : '2020-01-01',
     })
   }
-  
-  for (let i=1;i<=Math.ceil(posts.length/10); i++) {
+
+  for (let i = 1; i <= Math.ceil(posts.length / 10); i++) {
     routes.push({
       url: `blog/${i}`,
-      lastmod: posts[0].updatedAt
+      lastmod: posts[0].updatedAt,
     })
   }
 
@@ -80,8 +81,6 @@ const vuetifyTheme = {
   instagram: '#c32aa3',
   youtube: '#f00',
 }
-
-import { join } from 'path'
 
 const useCustomPath = !!process.env.EC_NUXT_CONTENT
 
@@ -212,7 +211,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/analytics.ts', mode: 'client' },
-    //{ src: '~/plugins/swUpdate.ts', mode: 'client' },
+    // { src: '~/plugins/swUpdate.ts', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -221,17 +220,17 @@ export default {
     '@nuxtjs/composition-api/module',
     '@ec-nordbund/typescript-module',
     '@ec-nordbund/vuetify-module',
-    'nuxt-build-optimisations'
+    'nuxt-build-optimisations',
     // '@nuxtjs/stylelint-module',
   ],
   buildOptimisations: {
-    profile: 'expiremental'
+    profile: 'expiremental',
   },
   // '@nuxtjs/pwa',
   modules: [
     '@nuxt/content',
     '@ec-nordbund/nuxt-vue2-leaflet',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
   vuetify: {
     customVariables: ['~/assets/styles/variables-vuetify.scss'],
@@ -265,8 +264,8 @@ export default {
       icons: {},
       components: {
         'ec-hexa-button': ['icon'],
-      }
-    }
+      },
+    },
   },
 
   build: {
@@ -295,8 +294,8 @@ export default {
             // automaticNameDelimiter: '~',
             // automaticNameMaxLength: 30,
             cacheGroups: {
-              default: false
-            }
+              default: false,
+            },
           },
         }
 
@@ -304,7 +303,7 @@ export default {
       }
     },
     // Es sollte getestet werden ob true oder false hier besser ist. (default: false)
-    extractCSS: false
+    extractCSS: false,
   },
   render: {
     bundleRenderer: {
@@ -313,15 +312,15 @@ export default {
   },
   generate: {
     routes: async () => {
-      const res = (await createSitemapRoutes()).map(v=>v.url)
+      const res = (await createSitemapRoutes()).map((v) => v.url)
       console.log(res.join('\n'))
       return res
-    }
+    },
   },
   router: {
-    base: process.env.EC_SET_BASE ?? '/'
+    base: process.env.EC_SET_BASE ?? '/',
   },
   publicRuntimeConfig: {
-    EC_BASE: process.env.EC_SET_BASE ?? '/'
-  }
+    EC_BASE: process.env.EC_SET_BASE ?? '/',
+  },
 }

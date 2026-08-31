@@ -210,11 +210,17 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const explanation = useStatic(() =>
-      $content('krisenintervention/explanation').fetch<any>()
-    , undefined, 'kriesen-1')
+    const explanation = useStatic(
+      () => $content('krisenintervention/explanation').fetch<any>(),
+      undefined,
+      'kriesen-1',
+    )
 
-    const fileData = useStatic(() => $content('downloads').fetch<any>(), undefined, 'kriesen-2')
+    const fileData = useStatic(
+      () => $content('downloads').fetch<any>(),
+      undefined,
+      'kriesen-2',
+    )
 
     const data = computed(() => {
       if (fileData.value === null) {
@@ -231,7 +237,7 @@ export default defineComponent({
 
     return {
       explanation,
-      data
+      data,
     }
   },
 

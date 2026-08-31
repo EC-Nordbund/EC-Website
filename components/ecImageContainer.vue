@@ -17,6 +17,35 @@
           source(:srcset="trimImgExt(img) + '.jpg'" type="image/jpg")
           img(:src="trimImgExt(img) + '.jpg'" :alt="img" class="responsive-image")
 </template>
+<script lang="ts">
+import { defineComponent, computed } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  props: {
+    images: {
+      type: Array,
+      required: true,
+    },
+  },
+  setup(_, ctx) {
+    const trimImgExt = (path: string) => path.replace(/\.(webp|jpg)$/, '')
+
+    const height = computed(() => {
+      if (ctx.root.$vuetify.breakpoint.xsOnly) {
+        return 300
+      }
+
+      if (ctx.root.$vuetify.breakpoint.mdAndDown) {
+        return 400
+      }
+
+      return 500
+    })
+
+    return { height, trimImgExt }
+  },
+})
+</script>
 <style lang="scss" scoped>
 // TODO: if sloped -> adjust prev & next btn
 
@@ -44,34 +73,3 @@
   max-height: 600px;
 }
 </style>
-<script lang="ts">
-import { defineComponent, computed } from '@nuxtjs/composition-api'
-
-export default defineComponent({
-  props: {
-    images: {
-      type: Array,
-      required: true,
-    },
-  },
-  setup(_, ctx) {
-
-    const trimImgExt = (path: string) => path.replace(/\.(webp|jpg)$/, "")
-    
-
-    const height = computed(() => {
-      if (ctx.root.$vuetify.breakpoint.xsOnly) {
-        return 300
-      }
-
-      if (ctx.root.$vuetify.breakpoint.mdAndDown) {
-        return 400
-      }
-
-      return 500
-    })
-
-    return { height, trimImgExt }
-  },
-})
-</script>

@@ -78,7 +78,13 @@ v-container
   )
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRouter, computed } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useStatic,
+  useContext,
+  useRouter,
+  computed,
+} from '@nuxtjs/composition-api'
 
 const pagination = {
   getPostsOfPage($content, page) {
@@ -105,15 +111,23 @@ const pagination = {
 export default defineComponent({
   props: {
     page: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   setup(props) {
     const { $content } = useContext()
 
     const currPage = computed(() => props.page)
-    const posts = useStatic(page => pagination.getPostsOfPage($content, parseInt(page)), currPage, 'blog-page')
-    const pageCount = useStatic(() => pagination.getNumberOfPages($content), undefined, 'blog-page-count')
+    const posts = useStatic(
+      (page) => pagination.getPostsOfPage($content, parseInt(page)),
+      currPage,
+      'blog-page',
+    )
+    const pageCount = useStatic(
+      () => pagination.getNumberOfPages($content),
+      undefined,
+      'blog-page-count',
+    )
 
     const router = useRouter()
 

@@ -162,7 +162,7 @@ import {
   defineComponent,
   useContext,
   ref,
-  computed
+  computed,
 } from '@nuxtjs/composition-api'
 import { post } from '~/helpers/fetch'
 import copy from '~/helpers/copy'
@@ -234,7 +234,7 @@ export default defineComponent({
     const avatarMaxSize = computed(() =>
       ctx.root.$vuetify.breakpoint.xsOnly
         ? 'calc(100vw * .75)'
-        : 'calc(100vw * .2)'
+        : 'calc(100vw * .2)',
     )
 
     const iconSize = computed(() => (isMobile.value ? 48 : 96))
@@ -242,7 +242,7 @@ export default defineComponent({
     const myStatus = ref(null as any)
 
     if (process.browser) {
-      (async () => {
+      ;(async () => {
         const res = await post<{
           status: 'OK' | 'ERROR'
           context: string
@@ -262,7 +262,7 @@ export default defineComponent({
 
           if (res.wList && res.wList < 0) {
             ctx.root.$router.push(
-              '/anmeldung/token?error=Fehler beim Senden an API. Bitte kontaktiere uns unter app@ec-nordbund.de.'
+              '/anmeldung/token?error=Fehler beim Senden an API. Bitte kontaktiere uns unter app@ec-nordbund.de.',
             )
             return
           }

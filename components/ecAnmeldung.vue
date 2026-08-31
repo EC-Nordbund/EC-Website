@@ -223,7 +223,7 @@ export default defineComponent({
         props.hatErlaubnisKlettern ||
         props.hatErlaubnisFahrrad ||
         props.hatErlaubnisSchwimmen ||
-        props.hatErlaubnisSichEntfernen
+        props.hatErlaubnisSichEntfernen,
     )
     const sending = ref(false)
     const success = ref(false)
@@ -263,7 +263,7 @@ export default defineComponent({
       try {
         const ret = await post(
           '/anmeldung/tn/' + props.veranstaltungsID,
-          submitData
+          submitData,
         )
         if (ret.status !== 'OK') {
           error.value = ret.context
@@ -314,11 +314,11 @@ export default defineComponent({
         'lebensmittelallergien',
         'bemerkungen',
         'gesundheit',
-      ]
+      ],
     )
     const { alter, under18 } = useAlter(
       toRefs(data).gebDat,
-      props.veranstaltungsBegin
+      props.veranstaltungsBegin,
     )
     const alterData = {
       under18,
@@ -326,16 +326,16 @@ export default defineComponent({
         () =>
           alter.value < props.minAlter ||
           (data.gebDat &&
-            parseInt(data.gebDat.split('-')[0]) > props.jahrgangMax)
+            parseInt(data.gebDat.split('-')[0]) > props.jahrgangMax),
       ),
       zuAlt: computed(
         () =>
           alter.value > props.maxAlter ||
           (data.gebDat &&
-            parseInt(data.gebDat.split('-')[0]) < props.jahrgangMin)
+            parseInt(data.gebDat.split('-')[0]) < props.jahrgangMin),
       ),
       falschesAlter: computed(
-        () => !(alterData.zuJung.value || alterData.zuAlt.value)
+        () => !(alterData.zuJung.value || alterData.zuAlt.value),
       ),
     }
     return {

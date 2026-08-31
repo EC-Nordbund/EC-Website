@@ -65,7 +65,7 @@ export default defineComponent({
     })
 
     const minDate = computed(() =>
-      props.isBirthdayPicker ? '1950-01-01' : undefined
+      props.isBirthdayPicker ? '1950-01-01' : undefined,
     )
 
     watchEffect(() => {

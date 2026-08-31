@@ -6,7 +6,7 @@ module.exports = {
         'https://lighthouse.ec-nordbund.de/datenschutz/',
         'https://lighthouse.ec-nordbund.de/blog/',
         'https://lighthouse.ec-nordbund.de/veranstaltungen/',
-      ]
+      ],
     },
     upload: {
       target: 'lhci',
@@ -33,7 +33,7 @@ module.exports = {
         // Sollte bald wieder rein
         'uses-optimized-images': 'warn',
         'content-width': 'warn',
-        'non-composited-animations': 'warn'
+        'non-composited-animations': 'warn',
       },
     },
   },

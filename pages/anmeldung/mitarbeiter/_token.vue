@@ -198,7 +198,7 @@ export default defineComponent({
         'telefon',
         'lebensmittelallergien',
         'bemerkungen',
-      ]
+      ],
     )
 
     const ort = ref(false)
@@ -209,12 +209,9 @@ export default defineComponent({
       }
 
       const valid = (
-        await post<{ ok: boolean; ort: boolean }>(
-          '/anmeldung/ma/checkToken',
-          {
-            token: ctx.parent?.$route.params.token,
-          }
-        ).then((v) => {
+        await post<{ ok: boolean; ort: boolean }>('/anmeldung/ma/checkToken', {
+          token: ctx.parent?.$route.params.token,
+        }).then((v) => {
           ort.value = v.ort
           return v
         })
@@ -222,7 +219,7 @@ export default defineComponent({
 
       if (!valid) {
         ctx.parent?.$router.push(
-          '/anmeldung/mitarbeiter/veranstaltung?notvalid=1'
+          '/anmeldung/mitarbeiter/veranstaltung?notvalid=1',
         )
       }
     })()

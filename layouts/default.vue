@@ -289,21 +289,19 @@ export default defineComponent({
     const losungen = ref(null)
 
     onMounted(() => {
-      const RIC = ('requestIdleCallback' in window) ? requestIdleCallback : (cb) => setTimeout(cb, 5000)
-      
+      const RIC =
+        'requestIdleCallback' in window
+          ? requestIdleCallback
+          : (cb) => setTimeout(cb, 5000)
+
       RIC(() => {
         const n = new Date()
-        const today = `${n.getFullYear()}-${n.getMonth() + 1 < 10
-            ? '0' + (n.getMonth() + 1)
-            : n.getMonth() + 1
-        }-${
-          n.getDate() < 10
-            ? '0' + n.getDate()
-            : n.getDate()
-        }`
+        const today = `${n.getFullYear()}-${
+          n.getMonth() + 1 < 10 ? '0' + (n.getMonth() + 1) : n.getMonth() + 1
+        }-${n.getDate() < 10 ? '0' + n.getDate() : n.getDate()}`
 
         get(`https://losungen.ec-nordbund.de/${today}.json`).then(
-          (v) => (losungen.value = v)
+          (v) => (losungen.value = v),
         )
       })
     })
@@ -313,8 +311,7 @@ export default defineComponent({
     const losung = computed(
       () =>
         losungen.value &&
-        losungen.value.Losungstext
-          .split('/')
+        losungen.value.Losungstext.split('/')
           .join('<b><i>')
           .split(':<b><i>')
           .join(':</i></b>')
@@ -330,13 +327,12 @@ export default defineComponent({
               return '<i>' + v
             }
           })
-          .join('')
+          .join(''),
     )
     const lehrtext = computed(
       () =>
         losungen.value &&
-        losungen.value.Lehrtext
-          .split('/')
+        losungen.value.Lehrtext.split('/')
           .join('<i>')
           .split(':<i>')
           .join(':</i>')
@@ -352,7 +348,7 @@ export default defineComponent({
               return '<i>' + v
             }
           })
-          .join('')
+          .join(''),
     )
     const marqueeContentLength = computed(
       () =>
@@ -361,7 +357,7 @@ export default defineComponent({
           losungen.value.Losungsvers.length +
           losungen.value.Lehrtext.length +
           losungen.value.Lehrtextvers.length +
-          140
+          140,
     )
 
     function onScroll(e) {
@@ -436,8 +432,10 @@ export default defineComponent({
   right: 16px;
   position: fixed !important;
   opacity: 0.95 !important;
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+  box-shadow:
+    0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
 
   &.hexagon-shape {
     border-radius: 0 !important;

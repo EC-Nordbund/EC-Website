@@ -60,26 +60,26 @@ export default defineComponent({
     const target = new Date(props.target)
 
     const diff = computed(() =>
-      Math.trunc((target.getTime() - now.value.getTime()) / 1000)
+      Math.trunc((target.getTime() - now.value.getTime()) / 1000),
     )
     const days = computed(() =>
-      Math.max(Math.trunc(diff.value / 60 / 60 / 24), 0)
+      Math.max(Math.trunc(diff.value / 60 / 60 / 24), 0),
     )
     const hours = computed(() =>
-      Math.max(Math.trunc(diff.value / 60 / 60) % 24, 0)
+      Math.max(Math.trunc(diff.value / 60 / 60) % 24, 0),
     )
     const minutes = computed(() =>
-      Math.max(Math.trunc(diff.value / 60) % 60, 0)
+      Math.max(Math.trunc(diff.value / 60) % 60, 0),
     )
     const seconds = computed(() => Math.max(Math.trunc(diff.value) % 60, 0))
 
     const dayLabel = computed(() => (days.value !== 1 ? 'Tagen' : 'Tag'))
     const hourLabel = computed(() => (hours.value !== 1 ? 'Stunden' : 'Stunde'))
     const minuteLabel = computed(() =>
-      minutes.value !== 1 ? 'Minuten' : 'Minute'
+      minutes.value !== 1 ? 'Minuten' : 'Minute',
     )
     const secondLabel = computed(() =>
-      seconds.value !== 1 ? 'Sekunden' : 'Sekunde'
+      seconds.value !== 1 ? 'Sekunden' : 'Sekunde',
     )
 
     const ended = computed(() => diff.value < 0)

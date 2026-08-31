@@ -18,7 +18,6 @@ import {
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  head: {},
   props: {
     shopName: {
       type: String,
@@ -79,6 +78,7 @@ export default defineComponent({
 
     return { shopIsLoading }
   },
+  head: {},
 })
 </script>
 
@@ -153,7 +153,6 @@ export default defineComponent({
   }
 }
 </style>
-
 
 <style lang="scss">
 // Highlight rejection button like acception button

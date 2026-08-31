@@ -58,7 +58,9 @@ export default defineComponent({
       .filter((v) => v !== '')
 
     const fileData = useStatic(
-      async () => await $content('downloads').fetch<any>(), undefined, 'downloads'
+      async () => await $content('downloads').fetch<any>(),
+      undefined,
+      'downloads',
     )
 
     const data = computed(() => {
@@ -100,7 +102,7 @@ export default defineComponent({
       } else if (fileRoute.length === depth) {
         item.href += fileRoute.join('/')
       } else {
-        item.href = (undefined as unknown) as string
+        item.href = undefined as unknown as string
       }
 
       return item
@@ -109,7 +111,7 @@ export default defineComponent({
     return {
       fileRoute,
       data,
-      toBreadcrumb
+      toBreadcrumb,
     }
   },
   head() {

@@ -148,36 +148,40 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const pages_loading = useStatic(async () => {
-      const todayStr = new Date().toISOString().substring(0, 10);
+    const pages_loading = useStatic(
+      async () => {
+        const todayStr = new Date().toISOString().substring(0, 10)
 
-      const upcomingEvents = await $content('veranstaltung')
-        .only(['slug', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
-        .where({ 'ende': { $gte: new Date() } })
-        .sortBy('begin')
-        .limit(3)
-        .fetch()
+        const upcomingEvents = await $content('veranstaltung')
+          .only(['slug', 'title', 'begin', 'ende', 'featuredImage', 'tags'])
+          .where({ ende: { $gte: new Date() } })
+          .sortBy('begin')
+          .limit(3)
+          .fetch()
 
-      const recentPosts = await $content('blog')
-        .only([
-          'title',
-          'tags',
-          'description',
-          'featuredImage',
-          'slug',
-          'published',
-        ])
-        .sortBy('published', 'desc')
-        .limit(3)
-        .fetch()
+        const recentPosts = await $content('blog')
+          .only([
+            'title',
+            'tags',
+            'description',
+            'featuredImage',
+            'slug',
+            'published',
+          ])
+          .sortBy('published', 'desc')
+          .limit(3)
+          .fetch()
 
         const countdown = {
           date: '2026-09-20T13:00:00Z',
-          show: true
+          show: true,
         }
 
         return { upcomingEvents, recentPosts, countdown }
-    }, undefined, 'homeData')
+      },
+      undefined,
+      'homeData',
+    )
 
     const pages = computed(() =>
       pages_loading.value
@@ -186,7 +190,7 @@ export default defineComponent({
             upcomingEvents: [],
             recentPosts: [],
             countdown: { date: undefined, show: false },
-          }
+          },
     )
 
     const { currentTime } = useCurrentTime()
@@ -197,13 +201,13 @@ export default defineComponent({
       return new Date(countdown.date) > currentTime.value || false
     })
 
-    const hero_id = Math.floor(Math.random() * 3) + 1;
+    const hero_id = Math.floor(Math.random() * 3) + 1
 
     return {
       pages,
       mail: (m) => (location.href = `mailto:${m}`),
       isCountdownFuture,
-      hero_image: `hero.${hero_id}.jpg`
+      hero_image: `hero.${hero_id}.jpg`,
     }
   },
   head: {
@@ -241,7 +245,7 @@ export default defineComponent({
         rel: 'canonical',
         href: 'https://www.ec-nordbund.de',
         hid: 'canonical',
-      }
+      },
     ],
   },
 })
@@ -272,9 +276,12 @@ export default defineComponent({
   margin-bottom: -3.493vw;
 
   .hero-panel.v-sheet {
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-      0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    box-shadow:
+      0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 5px 0px rgba(0, 0, 0, 0.12),
+      0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14),
       0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;
   }
 }

@@ -15,8 +15,8 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 export default defineComponent({
   props: {
     anzahlung: {
-      type: [Number,  Boolean],
-      default: 0
+      type: [Number, Boolean],
+      default: 0,
     },
     preise: {
       type: Array,
@@ -39,7 +39,7 @@ export default defineComponent({
   setup(props, ctx) {
     const dense = computed(
       // @ts-expect-error
-      () => ctx.root.$vuetify.breakpoint[props.denseBreakpoint] || false
+      () => ctx.root.$vuetify.breakpoint[props.denseBreakpoint] || false,
     )
 
     const subtitle = (preis: { begin: string; ende: string }) => {

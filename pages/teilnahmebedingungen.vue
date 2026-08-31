@@ -10,11 +10,15 @@ export default defineComponent({
   setup() {
     const { $content } = useContext()
 
-    const page = useStatic(async () => {
-      const page = await $content('teilnahmebedingungen').fetch()
+    const page = useStatic(
+      async () => {
+        const page = await $content('teilnahmebedingungen').fetch()
 
-      return page
-    }, undefined, 'TN-Bedingungen')
+        return page
+      },
+      undefined,
+      'TN-Bedingungen',
+    )
 
     return { page }
   },

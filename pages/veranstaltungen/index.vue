@@ -93,7 +93,7 @@ import {
   useContext,
   computed,
   ref,
-  watch
+  watch,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -121,9 +121,11 @@ export default defineComponent({
 
       // date range
       if (scope === Scope.CUSTOM) {
-        scope = customDateRange.value
-          .map((d: string) => new Date(d).toLocaleDateString())
-          .join(' – ') + ` (${filterResultAmount(Scope.CUSTOM, filterTags.value, filterKeyword.value)})`
+        scope =
+          customDateRange.value
+            .map((d: string) => new Date(d).toLocaleDateString())
+            .join(' – ') +
+          ` (${filterResultAmount(Scope.CUSTOM, filterTags.value, filterKeyword.value)})`
       }
 
       return `${scope} (${filterResultAmount(filterScope.value, filterTags.value, filterKeyword.value)})`
@@ -131,8 +133,8 @@ export default defineComponent({
 
     const onKeywordTyping = (str: string) => {
       clearTimeout(keywordDelayTimer.value)
-      keywordDelayTimer.value = setTimeout(function() {
-          filterKeyword.value = str          
+      keywordDelayTimer.value = setTimeout(function () {
+        filterKeyword.value = str
       }, 333)
     }
 
@@ -147,10 +149,12 @@ export default defineComponent({
 
       const today = new Date().toISOString().split('T')[0]
 
-      switch(scope) {
+      switch (scope) {
         case Scope.CUSTOM:
-          return veranstaltung.begin > customDateRange.value[0] &&
+          return (
+            veranstaltung.begin > customDateRange.value[0] &&
             veranstaltung.ende < customDateRange.value[1]
+          )
 
         case Scope.ALL:
           return true
@@ -169,15 +173,17 @@ export default defineComponent({
 
     function filterByTags(veranstaltung: any, tags?: string[]) {
       tags = tags || filterTags.value
-      
+
       // has tags to filter with
-      if ((tags||[]).length > 0) {
+      if ((tags || []).length > 0) {
         if (Array.isArray(veranstaltung.tags)) {
-          return veranstaltung.tags
-            .filter((tag: string) => tags?.includes(tag)).length > 0
+          return (
+            veranstaltung.tags.filter((tag: string) => tags?.includes(tag))
+              .length > 0
+          )
         }
 
-        return false;
+        return false
       }
 
       return true
@@ -189,20 +195,28 @@ export default defineComponent({
       const searchIn = [
         veranstaltung.title,
         veranstaltung.description,
-        ...(veranstaltung.tags||[])]
+        ...(veranstaltung.tags || []),
+      ]
 
       // has keyword
       if (keyword.length > 0) {
-        return searchIn.join(' ').toLowerCase().indexOf(keyword) != -1
+        return searchIn.join(' ').toLowerCase().includes(keyword)
       }
 
       return true
     }
 
-    function filter(veranstaltung: any, scope?: Scope, tags?: string[], keyword?: string) {
-      return filterByScope(veranstaltung, scope)
-        && filterByTags(veranstaltung, tags)
-        && filterByKeyword(veranstaltung, keyword);
+    function filter(
+      veranstaltung: any,
+      scope?: Scope,
+      tags?: string[],
+      keyword?: string,
+    ) {
+      return (
+        filterByScope(veranstaltung, scope) &&
+        filterByTags(veranstaltung, tags) &&
+        filterByKeyword(veranstaltung, keyword)
+      )
     }
 
     const detailsMaxHeight = computed(() => {
@@ -252,29 +266,45 @@ export default defineComponent({
         return veranstaltungen
       },
       undefined,
-      'vDataPage'
+      'vDataPage',
     )
 
-    const filterResultAmount = (scope: Scope, tags: string[], keyword: string) => {
-      const filtered = vData.value?.filter((v: any) => filter(v, scope, tags, keyword))
+    const filterResultAmount = (
+      scope: Scope,
+      tags: string[],
+      keyword: string,
+    ) => {
+      const filtered = vData.value?.filter((v: any) =>
+        filter(v, scope, tags, keyword),
+      )
 
-      return (filtered||[]).length
+      return (filtered || []).length
     }
-
 
     const vDates = computed(() => vData.value.map((v: any) => v.begin))
     const vTags = computed(() => {
-      const tags = [...new Set(vData.value.flatMap((v: any) => (v.tags||[])))]
-        .sort((a: any, b: any) =>  `${a}`.toLowerCase().localeCompare(`${b}`.toLowerCase()))
+      const tags = [
+        ...new Set(vData.value.flatMap((v: any) => v.tags || [])),
+      ].sort((a: any, b: any) =>
+        `${a}`.toLowerCase().localeCompare(`${b}`.toLowerCase()),
+      )
 
-      return tags.map((tag: any) => {
-        const results = filterResultAmount(filterScope.value, [tag], filterKeyword.value)
+      return tags
+        .map((tag: any) => {
+          const results = filterResultAmount(
+            filterScope.value,
+            [tag],
+            filterKeyword.value,
+          )
 
-        return { value: tag, results, text: `${tag} (${results})`}
-        }).filter((tag: any) => tag.results > 0)
+          return { value: tag, results, text: `${tag} (${results})` }
+        })
+        .filter((tag: any) => tag.results > 0)
     })
 
-    const veranstaltungen = computed(() => vData.value?.filter((v: any) => filter(v)))
+    const veranstaltungen = computed(() =>
+      vData.value?.filter((v: any) => filter(v)),
+    )
 
     return {
       detailsMaxHeight,
@@ -292,7 +322,7 @@ export default defineComponent({
       filterTags,
       filterKeyword,
       keyword,
-      onKeywordTyping
+      onKeywordTyping,
     }
   },
   head: {

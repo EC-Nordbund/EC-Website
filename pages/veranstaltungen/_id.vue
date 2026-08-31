@@ -180,18 +180,27 @@ div
                   span.text-caption.text-uppercase(slot='units') {{ slotProp.unit }}
 </template>
 <script>
-import { defineComponent, useStatic, useContext, useRoute, computed } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useStatic,
+  useContext,
+  useRoute,
+  computed,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const {$content} = useContext()
+    const { $content } = useContext()
     const route = useRoute()
 
-    const page = useStatic(id => {
-      return $content('veranstaltung', id).fetch()
-    }, computed(() => route.value.params.id), 'veranstaltung')
+    const page = useStatic(
+      (id) => {
+        return $content('veranstaltung', id).fetch()
+      },
+      computed(() => route.value.params.id),
+      'veranstaltung',
+    )
 
-  
     const showAnmeldung = computed(() => {
       // Anmeldung ist vorhanden
       if (page.value.anmeldung) {
@@ -206,7 +215,7 @@ export default defineComponent({
 
     return {
       page,
-      showAnmeldung
+      showAnmeldung,
     }
   },
   head() {
@@ -224,10 +233,13 @@ export default defineComponent({
           property: 'og:title',
           content:
             this.page.title +
-            ` (${this.page.begin.split('T')[0]
+            ` (${this.page.begin
+              .split('T')[0]
               .split('-')
               .reverse()
-              .join('.')} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
+              .join(
+                '.',
+              )} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
         },
         {
           hid: 'og:description',
@@ -240,10 +252,13 @@ export default defineComponent({
           name: 'twitter:title',
           content:
             this.page.title +
-            ` (${this.page.begin.split('T')[0]
+            ` (${this.page.begin
+              .split('T')[0]
               .split('-')
               .reverse()
-              .join('.')} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
+              .join(
+                '.',
+              )} - ${this.page.ende.split('T')[0].split('-').reverse().join('.')})`,
         },
         {
           hid: 'twitter:description',

@@ -48,7 +48,7 @@ export default defineComponent({
     const plzs = ref([])
 
     onMounted(() =>
-      get('https://plz.ec-nordbund.de/plz.json').then((d) => (plzs.value = d))
+      get('https://plz.ec-nordbund.de/plz.json').then((d) => (plzs.value = d)),
     )
 
     const localState = reactive({
