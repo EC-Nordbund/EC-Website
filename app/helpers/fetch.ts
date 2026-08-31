@@ -1,6 +1,6 @@
 const base = 'https://api.ec-nordbund.de/nuxt'
 
-export async function get<T = {}>(url: string): Promise<T> {
+export async function get<T = unknown>(url: string): Promise<T> {
   if (url[0] === '/') url = base + url
 
   const res = await fetch(url)
@@ -9,7 +9,7 @@ export async function get<T = {}>(url: string): Promise<T> {
   return json
 }
 
-export async function post<T = {}>(url: string, data: any): Promise<T> {
+export async function post<T = unknown>(url: string, data: any): Promise<T> {
   if (url[0] === '/') url = base + url
 
   const res = await fetch(url, {

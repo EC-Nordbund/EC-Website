@@ -173,12 +173,6 @@ function handleFreizeitleitung(
   })
 }
 export default defineComponent({
-  // Nur für die Typen (Wert wird von Vue ignoriert): ohne slots-Option
-  // wären die benannten Slots für vue-tsc als '{}' typisiert
-  slots: Object as SlotsType<{
-    disabled?: Record<string, never>
-    countdown?: Record<string, never>
-  }>,
   props: {
     hatEssen: Boolean,
     hatGesundheit: Boolean,
@@ -221,6 +215,12 @@ export default defineComponent({
     disabled: Boolean,
     startAt: String,
   },
+  // Nur für die Typen (Wert wird von Vue ignoriert): ohne slots-Option
+  // wären die benannten Slots für vue-tsc als '{}' typisiert
+  slots: Object as SlotsType<{
+    disabled?: Record<string, never>
+    countdown?: Record<string, never>
+  }>,
   setup(props) {
     const route = useRoute()
     const hatErlaubnisse = computed(

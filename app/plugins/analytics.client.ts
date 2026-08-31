@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // @ts-expect-error no import types (pending PR DefinitelyTyped/DefinitelyTyped #50817)
 import { attributes, create } from 'ackee-tracker'
 import { onCLS, onFCP, onINP, onLCP, onTTFB } from 'web-vitals'
@@ -27,7 +26,7 @@ export default defineNuxtPlugin(() => {
     return
   }
 
-  // eslint-disable-next-line eqeqeq
+
   const DO_TRACKING = navigator.doNotTrack != '1'
 
   if (!DO_TRACKING) {

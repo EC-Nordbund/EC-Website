@@ -18,6 +18,7 @@ v-dialog(v-model='menu', transition='scale-transition', width='auto')
   )
 </template>
 <script lang="ts">
+// Benannter Export neben <script setup>: wird auch von Formular-Seiten importiert
 export function formatDate(date: string | null | undefined) {
   if (!date) return ''
 

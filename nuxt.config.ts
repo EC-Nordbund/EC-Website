@@ -76,6 +76,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/sitemap',
     '@nuxtjs/leaflet',
+    '@nuxt/eslint',
   ],
 
   app: {
