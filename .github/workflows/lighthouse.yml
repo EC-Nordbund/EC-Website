@@ -18,9 +18,9 @@ jobs:
         with:
           submodules: true
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       - name: Build
-        run: yarn generate
+        run: npm run generate
       - name: Symlinks
         run: |
           cp -r ./cms-content/static/blog ./_blog
@@ -47,7 +47,7 @@ jobs:
             ./dist/ deployer@ec-nordbund.de:/webpage/lighthouse.ec-nordbund.de
 
       - name: Lighthouse Audits
-        run: yarn lhci autorun
+        run: npx lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
           LHCI_TOKEN: ${{secrets.LHCI_TOKEN}}

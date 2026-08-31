@@ -39,7 +39,7 @@ jobs:
         run: echo "EC_DEPLOY_PATH=/webpage/${{ env.EC_DEPLOY_SUBDOMAIN }}.ec-nordbund.de${{ env.EC_SET_BASE }}" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
       - uses: actions/checkout@v3
         with:
           submodules: ${{ github.event_name != 'repository_dispatch' }}
@@ -47,11 +47,11 @@ jobs:
         if: github.event_name == 'repository_dispatch'
         run: git clone --depth 1 --branch ${{ github.event.client_payload.branch }} --single-branch https://github.com/EC-Nordbund/EC-Website-Content.git cms-content
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Generate
-        run: yarn generate
+        run: npm run generate
       - name: Symlinks
         run: |
           cp -r ./cms-content/static/blog ./_blog
