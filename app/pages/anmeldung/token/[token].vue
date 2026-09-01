@@ -291,7 +291,13 @@ if (import.meta.client) {
         anmeldeID.value = res.anmeldeID
       }
     } else {
-      router.push('/anmeldung/token?error=' + res.context)
+      // context kann auch ein Fehler-Objekt/-Array der API sein — als
+      // String konkateniert stand sonst '[object Object]' auf der Seite
+      const msg =
+        typeof res.context === 'string' && res.context
+          ? res.context
+          : 'Unerwarteter Fehler. Bitte kontaktiere uns unter app@ec-nordbund.de.'
+      router.push('/anmeldung/token?error=' + encodeURIComponent(msg))
     }
   })()
 }
