@@ -68,6 +68,10 @@ const veranstaltung = defineCollection({
       maxAlter: looseNumber.optional(),
       minTN: looseNumber.optional(),
       anmeldung: z.record(z.string(), z.any()).optional(),
+      // Verwaltungs-Sync-Abschnitt (kurzBezeichnung, Plätze, briefID …) —
+      // wird von der Website nicht gerendert, muss aber typisiert sein,
+      // sonst serialisiert @nuxt/content das Objekt als '[object Object]'
+      verwaltung: z.record(z.string(), z.any()).optional(),
     })
     .passthrough(),
 })
