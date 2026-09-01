@@ -16,7 +16,7 @@ v-timeline(:density="dense ? 'compact' : 'default'")
         p.d-sm-none.text-right {{ subtitle(preis) }}
 </template>
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, onMounted, shallowRef } from 'vue'
 import type { PropType, Ref } from 'vue'
 import { useDisplay } from 'vuetify'
 
@@ -59,7 +59,16 @@ export default defineComponent({
 
     // Alt: ctx.root.$vuetify.breakpoint[denseBreakpoint]. In Vuetify 4 heißen
     // die alten `*Only`-Keys schlicht `xs`/`sm`/…/`xl` — Prop-Vertrag bleibt.
+    // SSR-Gate: beim Prerender ist die Breite 0 (xs wäre true) und Vuetify 4
+    // rendert bei density=compact den opposite-Slot GAR NICHT ins DOM — die
+    // "ab dem …"-Angaben fehlten dann im statischen HTML (Alt hatte sie immer
+    // im DOM und versteckte sie nur per CSS). Daher erst nach mount dense.
+    const isMounted = shallowRef(false)
+    onMounted(() => {
+      isMounted.value = true
+    })
     const dense = computed(() => {
+      if (!isMounted.value) return false
       const key = props.denseBreakpoint.replace(/Only$/, '')
       const flag = (display as unknown as Record<string, Ref<boolean> | undefined>)[key]
       return flag?.value || false

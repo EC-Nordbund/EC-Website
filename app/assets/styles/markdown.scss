@@ -45,6 +45,21 @@
     margin-top: 0;
   }
 
+  // GFM-Fußnoten: remark erzeugt eine h2.sr-only "Footnotes" und erwartet,
+  // dass die Seite die Klasse definiert — sonst steht die englische
+  // Überschrift sichtbar über den Fußnoten (Alt zeigte nur hr + Liste)
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   ul,
   ol {
     padding-left: 30px;

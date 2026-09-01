@@ -6,7 +6,9 @@ v-carousel(
   show-arrows,
   hide-delimiters
 )
-  v-carousel-item.bg-secondary(v-for='(img, i) in images', :key='i')
+  //- eager: sonst prerendert Vuetify 4 die Bilder nicht ins statische HTML
+  //- (Alt-SSG enthielt das erste Galeriebild; SEO/no-JS)
+  v-carousel-item.bg-secondary(eager, v-for='(img, i) in images', :key='i')
     .image-overlay
       picture
         source(:srcset="trimImgExt(img) + '.webp'", type='image/webp')

@@ -30,6 +30,14 @@ const isPost = computed(() => !isPagination.value)
 const defaultDescription =
   'Blog des EC-Nordbundes mit allen wichtigen Informationen, Veranstaltungsberichten etc.'
 
+// OG/Twitter verlangen absolute Bild-URLs. Alt überschrieb das card.png-
+// Default effektiv nie (der relative Pfad kam im generierten Head nicht an);
+// mit absoluter URL funktioniert das Post-Bild beim Teilen jetzt wirklich.
+const ogImageUrl = computed(() => {
+  const img = page.value?.featuredImage
+  return img ? `https://www.ec-nordbund.de${assetUrl(img)}` : undefined
+})
+
 useSeoMeta({
   title: () =>
     isPost.value ? page.value?.title : 'Blog | Seite ' + pageNum.value,
@@ -39,12 +47,12 @@ useSeoMeta({
   ogTitle: () => (isPost.value ? page.value?.title : defaultDescription),
   ogDescription: () =>
     isPost.value ? page.value?.description : defaultDescription,
-  ogImage: () => (isPost.value ? page.value?.featuredImage : undefined),
+  ogImage: () => (isPost.value ? ogImageUrl.value : undefined),
   // Twitter Card
   twitterTitle: () => (isPost.value ? page.value?.title : defaultDescription),
   twitterDescription: () =>
     isPost.value ? page.value?.description : defaultDescription,
-  twitterImage: () => (isPost.value ? page.value?.featuredImage : undefined),
+  twitterImage: () => (isPost.value ? ogImageUrl.value : undefined),
 })
 
 useHead({

@@ -28,7 +28,9 @@ v-container
                     v-icon(:icon="mdiCalendarEdit")
                   v-list-item-title {{ Scope.CUSTOM }} ({{ filterResultAmount(Scope.CUSTOM, filterTags), filterKeyword }})
 
-              v-date-picker(:model-value="pickerDates" multiple="range" hide-header @update:model-value="onPickerUpdate")
+              //- :events wie im Alt-Stand (Punkte an Veranstaltungs-Terminen);
+              //- Vuetify 4 vergleicht ISO-Tagesstrings, daher T-Anteil kappen
+              v-date-picker(:model-value="pickerDates" multiple="range" hide-header :events="vDates" event-color="primary" @update:model-value="onPickerUpdate")
 
     v-col(cols="12" sm="6" md="4")
       v-select(
@@ -307,6 +309,14 @@ const { data: vData } = await useAsyncData('vDataPage', async () => {
     featuredImage: assetUrl(d.featuredImage),
   }))
 })
+
+// Terminpunkte im Benutzerdefiniert-Datepicker (Alt: :events="vDates").
+// Vuetify 4 matcht per includes() auf 'YYYY-MM-DD' — Zeitanteil kappen.
+const vDates = computed(() =>
+  (vData.value ?? [])
+    .map((v) => String(v.begin ?? '').split('T')[0])
+    .filter((d): d is string => !!d),
+)
 
 const filterResultAmount = (scope: Scope, tags: string[], keyword?: string) => {
   const filtered = vData.value?.filter((v: any) =>

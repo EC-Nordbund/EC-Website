@@ -181,7 +181,18 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/anmeldung/**', '/404', '/blog/all', '/empty', '/orte', '/admin'],
+    exclude: [
+      '/anmeldung/**',
+      '/404',
+      '/blog/all',
+      '/empty',
+      '/orte',
+      '/admin',
+      // Ziele toter Alt-Content-Links: werden vom Crawler als leere Seiten
+      // prerendert und würden sonst in der Sitemap landen (Alt hatte sie nicht)
+      '/blog/veranstaltung',
+      '/veranstaltungen/teilnahmebedingungen',
+    ],
     sources: ['/api/__sitemap__/urls'],
   },
 
