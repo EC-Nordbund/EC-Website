@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
+  <!-- Cache-Bust für die CMS-Konfiguration: Browser/Proxies cachen
+       config.yml aggressiv. Bei JEDER config.yml-Änderung hier die
+       Versionsnummer hochzählen, dann laden alle Clients frisch. -->
+  <link href="config.yml?v=2" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
