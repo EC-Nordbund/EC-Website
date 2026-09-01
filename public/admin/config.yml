@@ -88,9 +88,84 @@ collections:
           name: 'veranstaltungsID',
           widget: 'readonly',
           required: false,
-          placeholder: 'Nicht in Verwaltung hinterlegt',
-          hint: 'Nicht veränderbar über das CMS. Kann nur von *Sebastian* oder *Tobias* angepasst werden.'
+          placeholder: 'Wird beim Veröffentlichen automatisch vergeben',
+          hint: 'Nicht veränderbar über das CMS. Wird vom automatischen Verwaltungs-Sync beim Veröffentlichen gesetzt (Voraussetzung: Abschnitt „Verwaltung" ist ausgefüllt).'
         }
+      # Verwaltungs-Sync: Diese Felder werden beim Veröffentlichen automatisch
+      # in die Verwaltungs-Datenbank übertragen (CMS ist die einzige Quelle).
+      # Ohne ausgefüllten Abschnitt wird eine neue Veranstaltung NICHT in der
+      # Verwaltung angelegt (z. B. gewollt bei Turnieren ohne Online-Anmeldung).
+      - label: 'Verwaltung'
+        name: 'verwaltung'
+        widget: 'object'
+        collapsed: true
+        required: false
+        fields:
+          - {
+              label: 'Kurzbezeichnung (max. 4 Zeichen)',
+              name: 'kurzBezeichnung',
+              widget: 'string',
+              required: false,
+              pattern: ['^[A-Za-z0-9]{1,4}$', 'max. 4 Zeichen, nur Buchstaben/Ziffern'],
+              hint: 'Pflicht für neue Veranstaltungen — ohne dieses Feld wird die Veranstaltung nicht in der Verwaltung angelegt. Geht in die Anmelde-ID ein, nachträglich nicht ändern!'
+            }
+          - {
+              label: 'Anzahl Plätze (gesamt)',
+              name: 'anzahlPlaetze',
+              widget: 'number',
+              value_type: 'int',
+              min: 0,
+              required: false
+            }
+          - {
+              label: 'Anzahl Plätze (weiblich)',
+              name: 'anzahlPlaetzeWeiblich',
+              widget: 'number',
+              value_type: 'int',
+              min: 0,
+              required: false,
+              hint: 'Geschlechtsspezifische Platzbegrenzung für die Wartelisten-Logik.'
+            }
+          - {
+              label: 'Anzahl Plätze (männlich)',
+              name: 'anzahlPlaetzeMaennlich',
+              widget: 'number',
+              value_type: 'int',
+              min: 0,
+              required: false
+            }
+          - {
+              label: 'Warteliste aktiv (Anmeldelogik)',
+              name: 'hatGWarteliste',
+              widget: 'boolean',
+              default: true,
+              required: false,
+              hint: 'Echte Wartelisten-Logik der Anmeldung (gegen die Platzzahlen). Nicht zu verwechseln mit den Wartelisten-HINWEISEN weiter oben, die nur angezeigt werden.'
+            }
+          - {
+              label: 'Kann vor Ort bezahlt werden',
+              name: 'kannVorortBezahltWerden',
+              widget: 'boolean',
+              default: false,
+              required: false
+            }
+          - label: 'Kontaktperson (Bestätigungsbrief)'
+            name: 'briefID'
+            widget: 'select'
+            required: false
+            hint: 'Bestimmt Absender/Text des Bestätigungsbriefs. Die Info-Mailadresse wird automatisch daraus abgeleitet.'
+            options:
+              - { label: 'Birgit (Eltern-Anschreiben)', value: 2 }
+              - { label: 'Kirke', value: 3 }
+              - { label: 'Tobi', value: 4 }
+              - { label: 'Dortje', value: 5 }
+          - {
+              label: 'Info-Mail an (optional)',
+              name: 'informAnmeldecenter',
+              widget: 'string',
+              required: false,
+              hint: 'Leer lassen = automatisch aus der Kontaktperson. Nur ausfüllen für abweichende Empfänger (mehrere mit ; trennen).'
+            }
       - { label: 'Titel', name: 'title', widget: 'string' }
       - {
           label: 'Beginn',
