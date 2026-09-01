@@ -19,7 +19,10 @@
       padding-bottom: 0.333em;
 
       > a {
-        color: inherit;
+        // !important: die globale Anker-Primärfarbe in global.scss trägt
+        // durch ihre :not()-Kette Spezifität (0,5,1) und würde sonst alle
+        // Markdown-Überschriften grün färben (Anchor umschließt den Titel)
+        color: inherit !important;
         text-decoration: none;
       }
 

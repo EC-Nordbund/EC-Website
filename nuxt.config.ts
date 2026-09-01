@@ -180,6 +180,53 @@ export default defineNuxtConfig({
     url: 'https://www.ec-nordbund.de',
   },
 
+  content: {
+    build: {
+      markdown: {
+        // 118 Alt-Content-Dateien enthalten rohes HTML (<img>, YouTube-
+        // <iframe>, <video> …). CommonMark zieht den Fließtext hinter so
+        // einem Tag mit in den HTML-Block; rehype-raw (MDC-Default) parst
+        // ihn zu einem Root-Text-Node — und MDCs Compiler VERWIRFT Text-
+        // Nodes auf Root-Ebene. nuxt-content v1 renderte diesen Text (z. B.
+        // fehlte sonst der halbe Post 'der-nordbund-sagt-danke'). Der
+        // post-Hook läuft nach rehype-raw und vor dem Compiler und wickelt
+        // Root-Text in <p>, damit er überlebt. (mdc.config.ts wird von
+        // @nuxt/content ohne das eigenständige MDC-Modul nicht eingesammelt,
+        // daher inline via configs.)
+        // 'configs' fehlt im deklarierten Options-Typ, wird aber vom
+        // markdown-Transformer wörtlich an parseMarkdown durchgereicht
+        // (inlineOptions.configs) — daher der Spread-Cast
+        ...({
+          configs: [
+            {
+              unified: {
+                post: (processor: {
+                  use: (plugin: () => unknown) => unknown
+                }) =>
+                  processor.use(function wrapRootTextNodes() {
+                    return (tree: {
+                      children: Array<{ type: string; value?: string }>
+                    }) => {
+                      tree.children = tree.children.map((node) =>
+                        node.type === 'text' && node.value?.trim()
+                          ? {
+                              type: 'element',
+                              tagName: 'p',
+                              properties: {},
+                              children: [node],
+                            }
+                          : node,
+                      )
+                    }
+                  }),
+              },
+            },
+          ],
+        } as Record<string, unknown>),
+      },
+    },
+  },
+
   sitemap: {
     exclude: [
       '/anmeldung/**',
