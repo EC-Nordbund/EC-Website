@@ -1,0 +1,170 @@
+<template lang="pug">
+.ec-shop-container(style='min-height: 50vh')
+  #shop
+    slot
+      v-container
+        v-row(justify='center', v-if='shopIsLoading')
+          v-progress-circular.mt-10(:size='50', indeterminate, color='primary')
+        v-alert(v-else, type='info', align='center', prominent)
+          h2 Der Shop steht zur Zeit nicht zur Verfügung.
+</template>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+const props = defineProps({
+  shopName: {
+    type: String,
+    required: true,
+  },
+  shopUrl: {
+    type: String,
+    required: true,
+  },
+  locale: {
+    type: String,
+    default: 'de_DE',
+  },
+})
+
+const shopIsLoading = ref(true)
+
+const timeoutForLoadingShop = 5000
+const delayAfterLoaded = 500
+
+// Alt: vue-meta-Script-Deskriptor mit vmid/skip/callback — unhead kennt das
+// nicht. Stattdessen: Config VOR der Script-Injektion setzen (das Spreadshirt-
+// Script liest window.spread_shop_config beim Laden), onload ersetzt callback.
+onMounted(() => {
+  // Fallback: nach 5s Lade-Animation beenden (zeigt die Info-Alert)
+  setTimeout(() => (shopIsLoading.value = false), timeoutForLoadingShop)
+
+  ;(window as unknown as { spread_shop_config: Record<string, unknown> }).spread_shop_config = {
+    shopName: props.shopName,
+    locale: props.locale,
+    prefix: props.shopUrl,
+    baseId: 'shop',
+    swipeMenu: true,
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://nordbund.myspreadshop.net/js/shopclient.nocache.js'
+  script.setAttribute('crossorigin', '')
+  script.onload = () =>
+    // stop loading animation with some delay after script has been loaded
+    setTimeout(() => (shopIsLoading.value = false), delayAfterLoaded)
+  document.body.appendChild(script)
+})
+</script>
+
+<style lang="scss" scoped>
+#shop {
+  :deep(.SprdMain) {
+    isolation: isolate;
+  }
+
+  :deep(#sprd-container > *) {
+    margin-left: 0;
+  }
+
+  :deep(.sprd-social-bar),
+  :deep(.sprd-breadcrumb) {
+    display: none;
+  }
+
+  :deep(.sprd-header-container) {
+    padding-bottom: 1em;
+  }
+
+  :deep(.sprd-navigation) {
+    border-top-width: 2px;
+
+    .sprd-department-filter {
+      padding-left: 0;
+    }
+  }
+
+  :deep(.sprd-header) {
+    justify-content: end;
+    padding: 0 10px;
+
+    .sprd-header__title {
+      padding-left: 0;
+    }
+
+    .sprd-header__actions > * {
+      > :not(.sprd-search-form) {
+        padding-top: 6px;
+        padding-bottom: 10px;
+      }
+
+      > [class$='__button--open'],
+      > .sprd-search__button--open,
+      > .sprd-basket-indicator__button--open,
+      > :focus {
+        padding-bottom: 7px;
+      }
+    }
+  }
+
+  :deep(.sprd-search .sprd-search-form) {
+    background: #fff;
+  }
+
+  :deep(.sprd-product-list) {
+    gap: 20px;
+
+    .sprd-product-list-item {
+      margin: 0;
+      border: thin solid rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  :deep(.sprd-mobilefilter__modal) {
+    //   Modal below the header
+    top: 96px;
+    height: unset;
+    height: calc(100% - 96px);
+  }
+}
+</style>
+
+<style lang="scss">
+// Highlight rejection button like acception button
+#onetrust-consent-sdk #onetrust-banner-sdk {
+  #consent-settings,
+  #consent-reject {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 12px 32px;
+    letter-spacing: 0.02rem;
+  }
+
+  #consent-reject {
+    color: #fff !important;
+    background: #333;
+    &:hover {
+      background: #222;
+    }
+  }
+
+  #consent-settings {
+    border: 1px solid #333;
+    box-shadow: inset 0 0 0 1px #333;
+
+    &:hover {
+      background: #eee;
+      box-shadow: inset 0 0 0 1px #222;
+    }
+  }
+
+  #onetrust-policy-text {
+    position: relative;
+    top: 0;
+    max-height: 50vh;
+  }
+}
+</style>

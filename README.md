@@ -2,16 +2,18 @@
 
 ## Build Setup
 
+Requires Node 22 (see `.nvmrc`). Content lives in a git submodule — run `git submodule update --init` after cloning.
+
 ```bash 
 # install dependencies
-$ yarn
+$ npm install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ npm run dev
 
-# build for production and launch preview server
-$ yarn generate
-$ yarn start
+# generate static site (output in .output/public/) and launch preview server
+$ npm run generate
+$ npm run preview
 ```
 
 bump for action 6
