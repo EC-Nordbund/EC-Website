@@ -135,12 +135,12 @@ collections:
               required: false
             }
           - {
-              label: 'Warteliste aktiv (Anmeldelogik)',
+              label: 'Warteliste Geschlechtergetrennt (Anmeldelogik)',
               name: 'hatGWarteliste',
               widget: 'boolean',
               default: true,
               required: false,
-              hint: 'Echte Wartelisten-Logik der Anmeldung (gegen die Platzzahlen). Nicht zu verwechseln mit den Wartelisten-HINWEISEN weiter oben, die nur angezeigt werden.'
+              hint: 'Hat eine Warteliste für Jungs und eine für Mädchen'
             }
           - {
               label: 'Kann vor Ort bezahlt werden',
