@@ -5,20 +5,20 @@ v-form(v-if="(force || (!disabled && !countdown)) && !success")
     v-radio(value="w" label="Weiblich")
   v-text-field(v-model="data.vorname" required label="Vorname" counter="50" @change="vornameEvent" :error-messages="vornameErrors")
   v-text-field(v-model="data.nachname" required label="Nachname" counter="50" @change="nachnameEvent" :error-messages="nachnameErrors")
-  ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required isBirthdayPicker @change="gebDatEvent" :error-messages="gebDatErrors")
+  ec-datepicker(v-model="data.gebDat" label="Geburtsdatum" required isBirthdayPicker @update:model-value="gebDatEvent" :error-messages="gebDatErrors")
   v-alert(v-if="zuJung||zuAlt" type="warning" :icon="mdiInformation").text-secondary
     template(v-if="zuJung")
-      p(v-if="minAlter!==-1").font-weight-medium.mb-2 Du bist jünger als das vorgesehene Mindesalter von {{minAlter}} Jahren für diese Veranstaltung.
-      template(v-else-if="jahrgangMax!==2100")
+      p(v-if="minAlterVal!==-1").font-weight-medium.mb-2 Du bist jünger als das vorgesehene Mindesalter von {{minAlterVal}} Jahren für diese Veranstaltung.
+      template(v-else-if="jahrgangMaxVal!==2100")
         p.font-weight-medium.mb-1 Du bist noch zu jung!
-        p.mb-2 Diese Veranstaltung ist für Teilnehmer der Jahrgänge {{jahrgangMin}} - {{jahrgangMax}}.
+        p.mb-2 Diese Veranstaltung ist für Teilnehmer der Jahrgänge {{jahrgangMinVal}} - {{jahrgangMaxVal}}.
       p(v-else).font-weight-medium.mb-2 Du bist zu jung für diese Veranstaltung.
 
     template(v-if="zuAlt")
-      p(v-if="maxAlter!==999").font-weight-medium.mb-2 Du bist älter als das vorgesehende Maximalealter von {{maxAlter}} Jahren für diese Veranstaltung.
-      template(v-else-if="jahrgangMin!==1900")
+      p(v-if="maxAlterVal!==999").font-weight-medium.mb-2 Du bist älter als das vorgesehende Maximalealter von {{maxAlterVal}} Jahren für diese Veranstaltung.
+      template(v-else-if="jahrgangMinVal!==1900")
         p.font-weight-medium.mb-1 Du bist zu alt!
-        p.mb-2 Diese Veranstaltung ist für Teilnehmer der Jahrgänge {{jahrgangMin}} - {{jahrgangMax}}.
+        p.mb-2 Diese Veranstaltung ist für Teilnehmer der Jahrgänge {{jahrgangMinVal}} - {{jahrgangMaxVal}}.
       p(v-else).font-weight-medium.mb-2 Du bist zu alt für diese Veranstaltung.
 
     p.font-italic.mb-1 Du kannst dich trotzdem anmelden.
@@ -187,12 +187,16 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    // Nuxt Content 3 legt jedes Schema-Feld als SQLite-Spalte an: nicht
+    // gesetzte Frontmatter-Werte kommen als NULL an, nicht als undefined —
+    // und ein prop-default greift in Vue nur bei undefined. Darum null
+    // erlauben und unten in *Val auf die Defaults normalisieren.
     minAlter: {
-      type: Number,
+      type: Number as PropType<number | null>,
       default: -1,
     },
     maxAlter: {
-      type: Number,
+      type: Number as PropType<number | null>,
       default: 999,
     },
     extraFields: {
@@ -205,11 +209,11 @@ export default defineComponent({
       required: true,
     },
     jahrgangMin: {
-      type: Number,
+      type: Number as PropType<number | null>,
       default: 1900,
     },
     jahrgangMax: {
-      type: Number,
+      type: Number as PropType<number | null>,
       default: 2100,
     },
     disabled: Boolean,
@@ -263,6 +267,8 @@ export default defineComponent({
         freizeitLeitung: data.freizeitLeitung,
         tnBedingungen: data.tnBedingungen,
         fahrgemeinschaften: data.fahrgemeinschaften,
+        // Trotz des Namens: true = Alter passt. Die API wertet `alter`
+        // genau so aus (`if (!data.alter)` -> Hinweis + Alarm-Mail).
         alter: alterData.falschesAlter.value,
       }
       try {
@@ -325,23 +331,35 @@ export default defineComponent({
       toRefs(data).gebDat,
       props.veranstaltungsBegin,
     )
+    // null (= Feld im CMS nicht gesetzt) auf die Prop-Defaults abbilden.
+    // Ohne das war `alter > null` -> `alter > 0` und damit JEDE Anmeldung
+    // "zu alt": falsche Warnung im Formular, falscher Hinweis in der
+    // Bestätigungsmail und eine Alarm-Mail pro Anmeldung.
+    const minAlterVal = computed(() => props.minAlter ?? -1)
+    const maxAlterVal = computed(() => props.maxAlter ?? 999)
+    const jahrgangMinVal = computed(() => props.jahrgangMin ?? 1900)
+    const jahrgangMaxVal = computed(() => props.jahrgangMax ?? 2100)
     // Eigene consts statt Selbstbezug über alterData (zirkuläre Typinferenz)
     const zuJung = computed(
       () =>
-        alter.value < props.minAlter ||
+        alter.value < minAlterVal.value ||
         (data.gebDat &&
-          parseInt(data.gebDat.split('-')[0] ?? '') > props.jahrgangMax),
+          parseInt(data.gebDat.split('-')[0] ?? '') > jahrgangMaxVal.value),
     )
     const zuAlt = computed(
       () =>
-        alter.value > props.maxAlter ||
+        alter.value > maxAlterVal.value ||
         (data.gebDat &&
-          parseInt(data.gebDat.split('-')[0] ?? '') < props.jahrgangMin),
+          parseInt(data.gebDat.split('-')[0] ?? '') < jahrgangMinVal.value),
     )
     const alterData = {
       under18,
       zuJung,
       zuAlt,
+      minAlterVal,
+      maxAlterVal,
+      jahrgangMinVal,
+      jahrgangMaxVal,
       falschesAlter: computed(() => !(zuJung.value || zuAlt.value)),
     }
     // Cast statt any: der any-Spread von rootMapper würde sonst den gesamten

@@ -25,14 +25,15 @@ v-container.page-wrapper
       @change='nachnameEvent',
       :error-messages='nachnameErrors'
     )
+    //- isBirthdayPicker setzt min/max (1950-01-01 bis heute) und die
+    //- Jahres-Startansicht; die früheren :max/min-Attribute kannte der
+    //- Vue-3-Datepicker nicht mehr und landeten wirkungslos am Textfeld.
     ec-datepicker(
       v-model='data.gebDat',
       label='Geburtsdatum',
       required,
-      gebDat,
-      :max='new Date().toISOString().substr(0, 10)',
-      min='1950-01-01',
-      @change='gebDatEvent',
+      isBirthdayPicker,
+      @update:model-value='gebDatEvent',
       :error-messages='gebDatErrors'
     )
     v-text-field(
