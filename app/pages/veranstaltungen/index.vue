@@ -64,10 +64,9 @@ v-container
                   v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-for="tag in item.tags" :key="tag")
                     //- KEIN TS im Pug-Template (Vite strippt as-Casts hier nicht)
                     | {{ tagLabel(tag) }}
-                  //- Alt-Stand 1:1: juleica ist bewusst NICHT im select() — der
-                  //- Chip erschien auch alt nie (das Tag deckt ihn inhaltlich ab)
-                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-if="'juleica' in item && item.juleica")
-                    | JuLeiCa-Fortbildung
+                  //- gefuellt in Koralle, der Farbe des JuLeiCa-Sechsecks
+                  v-chip(color="#ea4c60" class="ml-2 mb-1 font-weight-medium text-white" variant="flat" size="small" v-if="item.juleica")
+                    | JuLeiCa Fortbildung
                   //- gefuellt in der Logofarbe des Bereichs — die Tags daneben
                   //- bleiben umrandet, dadurch bleiben beide unterscheidbar
                   v-chip(:color="bereich.color" :class="['ml-2', 'mb-1', 'font-weight-medium', bereich.textClass]" variant="flat" size="small" v-for="bereich in aktiveAltersbereiche(item.altersbereiche)" :key="'ab-' + bereich.key")
@@ -301,6 +300,9 @@ const { data: vData } = await useAsyncData('vDataPage', async () => {
       'featuredImage',
       'warteliste',
       'altersbereiche',
+      // frueher bewusst ausgelassen; ohne das Feld blieb der JuLeiCa-Chip
+      // unsichtbar, weil `item.juleica` in der Liste gar nicht ankam
+      'juleica',
       'tags',
       'minTN',
     )
