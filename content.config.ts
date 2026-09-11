@@ -54,6 +54,10 @@ const veranstaltung = defineCollection({
       long: looseString.optional(),
       // Umlaut-Keys (allgemein/männlich/weiblich) → offenes Record
       warteliste: z.record(z.string(), z.any()).optional(),
+      // Altersbereiche (kids/teens/jugend/je/seminare) — wie warteliste ein
+      // Record: nicht gesetzte Schlüssel fehlen dann einfach, statt als NULL
+      // anzukommen wie bei den flachen Spalten (siehe minAlter/maxAlter).
+      altersbereiche: z.record(z.string(), z.any()).optional(),
       // WICHTIG: z.any()-Spalten werden von @nuxt/content mit String()
       // serialisiert ('[object Object]') — strukturierte Felder MÜSSEN
       // als z.array/z.record typisiert sein, damit sie JSON-Spalten werden.

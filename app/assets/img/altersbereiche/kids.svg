@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Kids">
+  <!-- PLATZHALTER. Ersetzen durch das echte Badge (quadratisch, wie juLeiCa.png). -->
+  <rect width="300" height="300" rx="24" fill="#4eb3d8"/>
+  <rect x="8" y="8" width="284" height="284" rx="18" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="14 10" opacity=".85"/>
+  <text x="150" y="165" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-weight="900" font-size="52" fill="#ffffff"><tspan x="150" dy="0">Kids</tspan></text>
+  <text x="150" y="252" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-weight="700" font-size="20" fill="#ffffff" opacity=".75" letter-spacing="2">PLATZHALTER</text>
+</svg>

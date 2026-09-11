@@ -61,6 +61,22 @@ div(v-if='page')
                 :src='juLeiCaImg'
               )
 
+          //- Altersbereiche
+          v-row(v-if='altersbereiche.length', no-gutters, justify='end')
+            v-col.pl-2(
+              v-for='bereich in altersbereiche',
+              :key='bereich.key',
+              cols='auto'
+            )
+              v-img(cover,
+                :max-height='badgeGroesse',
+                :max-width='badgeGroesse',
+                width='auto',
+                height='auto',
+                :src='bereich.img',
+                :alt='bereich.label'
+              )
+
       v-row.flex-grow-0.mb-n1(no-gutters, align='end')
         //- title
         v-col.order-last.order-md-0(cols='12', md='6')
@@ -186,7 +202,22 @@ import {
   mdiMapMarker,
   mdiAccountGroup,
 } from '@mdi/js'
+import { useDisplay } from 'vuetify'
 import juLeiCaImg from '~/assets/img/juLeiCa.png'
+import kidsImg from '~/assets/img/altersbereiche/kids.svg'
+import teensImg from '~/assets/img/altersbereiche/teens.svg'
+import jugendImg from '~/assets/img/altersbereiche/jugend.svg'
+import jeImg from '~/assets/img/altersbereiche/je.svg'
+import seminareImg from '~/assets/img/altersbereiche/seminare.svg'
+
+// Schlüssel = Feldname im CMS, siehe app/utils/altersbereiche.ts
+const ALTERSBEREICH_BILD: Record<string, string> = {
+  kids: kidsImg,
+  teens: teensImg,
+  jugend: jugendImg,
+  je: jeImg,
+  seminare: seminareImg,
+}
 
 const route = useRoute()
 const id = computed(() => route.params.id as string)
@@ -209,6 +240,22 @@ const { data: page } = await useAsyncData(
     }
   },
 )
+
+const altersbereiche = computed(() =>
+  aktiveAltersbereiche(page.value?.altersbereiche).map((bereich) => ({
+    ...bereich,
+    img: ALTERSBEREICH_BILD[bereich.key],
+  })),
+)
+
+// Mehrere Bereiche nebeneinander sollen das Titelbild nicht zupflastern —
+// auf schmalen Displays sonst zwei Reihen quer über das halbe Bild.
+const { smAndDown } = useDisplay()
+const badgeGroesse = computed(() => {
+  const mehrere = altersbereiche.value.length > 1
+  if (smAndDown.value) return mehrere ? 76 : 112
+  return mehrere ? 112 : 160
+})
 
 const showAnmeldung = computed(() => {
   // Anmeldung ist vorhanden

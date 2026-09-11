@@ -68,6 +68,8 @@ v-container
                   //- Chip erschien auch alt nie (das Tag deckt ihn inhaltlich ab)
                   v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-if="'juleica' in item && item.juleica")
                     | JuLeiCa-Fortbildung
+                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="flat" size="small" v-for="bereich in aktiveAltersbereiche(item.altersbereiche)" :key="'ab-' + bereich.key")
+                    | {{ bereich.label }}
 
                 //- indicator
                 v-col(cols="12" lg="4" class="d-flex flex-wrap justify-md-end mb-1 ml-n2")
@@ -296,6 +298,7 @@ const { data: vData } = await useAsyncData('vDataPage', async () => {
       'maxAlter',
       'featuredImage',
       'warteliste',
+      'altersbereiche',
       'tags',
       'minTN',
     )
