@@ -50,12 +50,12 @@ v-form(v-if="(force || (!disabled && !countdown)) && !success")
         v-radio(:value="1" class="ml-2" label="Erlaubt - nicht Schwimmer")
         v-radio(:value="2" class="ml-2" label="Erlaubt - mittlmäßiger Schwimmer")
         v-radio(:value="3" class="ml-2" label="Erlaubt - guter Schwimmer")
-  div(v-if="extraFields.length > 0")
-    template(v-for="el in extraFields" :key="el.name")
-      v-autocomplete(v-if="el.type==='autocomplete'" :label="el.label" v-model="data.extra[el.name]" :items="el.items")
-      v-select(v-if="el.type==='select'" :label="el.label" v-model="data.extra[el.name]" :items="el.items")
-      v-text-field(v-if="el.type==='text'" :label="el.label" type="text" v-model="data.extra[el.name]" v-bind="el")
-      v-checkbox(v-if="el.type==='checkbox'" density="compact" :label="el.label" v-model="data.extra[el.name]" v-bind="el")
+  div(v-if="nutzbareExtraFields.length > 0")
+    template(v-for="el in nutzbareExtraFields" :key="el.name")
+      v-autocomplete(v-if="el.type==='autocomplete'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :error-messages="extraErrors[el.name]" @update:model-value="extraEvents[el.name]")
+      v-select(v-if="el.type==='select'" :label="el.label" v-model="data.extra[el.name]" :items="el.items" :error-messages="extraErrors[el.name]" @update:model-value="extraEvents[el.name]")
+      v-text-field(v-if="el.type==='text'" :label="el.label" type="text" v-model="data.extra[el.name]" v-bind="el" :error-messages="extraErrors[el.name]" @change="extraEvents[el.name]")
+      v-checkbox(v-if="el.type==='checkbox'" density="compact" :label="el.label" v-model="data.extra[el.name]" v-bind="el" :error-messages="extraErrors[el.name]" @update:model-value="extraEvents[el.name]")
   v-checkbox(required v-model="data.datenschutz" @update:model-value="datenschutzEvent" :error-messages="datenschutzErrors")
     template(v-slot:label)
       p Ich nehme zur Kenntnis, dass meine eingegebenen Daten vorerst für&nbsp;
@@ -113,17 +113,27 @@ import { useRoute } from '#imports'
 import { useValidation, ruleLib } from '~/composables/validate'
 import { useAlter } from '~/composables/alter'
 import { post } from '~/helpers/fetch'
+/**
+ * Im CMS ist an einem Spezialfeld jedes Feld optional. Ein Eintrag ohne
+ * technischen Namen ist damit halb angelegt und wird ueberall ignoriert,
+ * statt als `extra[undefined]` durchzuschlagen.
+ */
+function istNutzbar(el: any): boolean {
+  return !!el && typeof el.name === 'string' && el.name.trim() !== ''
+}
+
 function useExtraFields(extraFields: any[]) {
   const extra: Record<string, string> = {}
   const extraRules: Record<string, ((v: unknown) => true | string)[]> = {}
   for (let i = 0; i < extraFields.length; i++) {
     const el = extraFields[i]
+    if (!istNutzbar(el)) continue
     extra[el.name] = ''
-    if (el.required) {
-      extraRules[el.name] = [
-        (v) => (!v ? el.err || 'Du musst ein Element auswählen!' : true),
-      ]
-    }
+    // Auch ohne Pflicht ein (leeres) Regel-Array: sonst fehlt der Eintrag
+    // in der errorMap und die Fehler-Bindung im Template liefe ins Leere.
+    extraRules[el.name] = el.required
+      ? [(v) => (!v ? el.err || 'Dieses Feld ist erforderlich!' : true)]
+      : []
   }
   return {
     extraData: extra,
@@ -327,6 +337,24 @@ export default defineComponent({
         'gesundheit',
       ],
     )
+    // Die Spezialfelder haengen unter `extra` und tauchen deshalb nicht im
+    // rootMapper auf, der nur flache Feldnamen kennt. Ohne das hier blieb
+    // ein leeres Pflichtfeld unkommentiert: Absenden war deaktiviert, aber
+    // am Feld stand nichts.
+    // reactive statt {}: Vue packt Refs nur auf oberster Ebene der
+    // setup-Rueckgabe aus, nicht in einem verschachtelten Objekt. Als
+    // einfaches Objekt landete im Template das Ref selbst am
+    // :error-messages und es wurde nie etwas angezeigt.
+    const extraErrors = reactive<Record<string, any>>({})
+    const extraEvents: Record<string, () => void> = {}
+    for (const el of props.extraFields.filter(istNutzbar)) {
+      const { errMSG, listener } = validation.createPropsAndListeners(
+        `extra.${el.name}`,
+      )
+      extraErrors[el.name] = errMSG
+      extraEvents[el.name] = listener
+    }
+
     const { alter, under18 } = useAlter(
       toRefs(data).gebDat,
       props.veranstaltungsBegin,
@@ -385,6 +413,9 @@ export default defineComponent({
       sending,
       success,
       error,
+      extraErrors,
+      extraEvents,
+      nutzbareExtraFields: props.extraFields.filter(istNutzbar),
       force: !!route.query.anmeldung,
       reload: () => location.reload(),
       mdiInformation,
