@@ -469,3 +469,171 @@ collections:
               widget: 'number',
               required: false,
             }
+          - label: 'Spezialfelder in der Anmeldung'
+            name: extraFields
+            widget: list
+            required: false
+            collapsed: true
+            label_singular: 'Spezialfeld'
+            summary: '{{fields.label}}'
+            hint: 'Zusätzliche Fragen, die nur bei dieser Veranstaltung gestellt werden. Die Antworten stehen anschließend in der Bestätigungsmail, in der Verwaltung unter Anmeldung > Sonstiges und in den TN-Listen.'
+            types:
+              - label: 'Textfeld'
+                name: text
+                widget: object
+                summary: '{{fields.label}}'
+                fields:
+                - {
+                    label: 'Beschriftung',
+                    name: 'label',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Steht im Formular am Feld.'
+                  }
+                - {
+                    label: 'Feldname (technisch)',
+                    name: 'name',
+                    widget: 'string',
+                    required: false,
+                    pattern: ['^[a-zA-Z][a-zA-Z0-9_]*$', 'Buchstabe am Anfang, danach nur Buchstaben, Ziffern und _ — keine Leerzeichen und keine Umlaute.'],
+                    hint: 'Unter diesem Namen taucht die Antwort in der Verwaltung und in den TN-Listen auf. Nachträglich nicht mehr ändern, sonst passen alte Anmeldungen nicht mehr dazu.'
+                  }
+                - {
+                    label: 'Pflichtfeld',
+                    name: 'required',
+                    widget: 'boolean',
+                    default: false,
+                    required: false
+                  }
+                - {
+                    label: 'Eigene Fehlermeldung',
+                    name: 'err',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Optional. Wird angezeigt, wenn das Pflichtfeld leer bleibt.'
+                  }
+                - {
+                    label: 'Platzhalter',
+                    name: 'placeholder',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Blasser Beispieltext im leeren Feld.'
+                  }
+              - label: 'Ankreuzfeld'
+                name: checkbox
+                widget: object
+                summary: '{{fields.label}}'
+                fields:
+                - {
+                    label: 'Beschriftung',
+                    name: 'label',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Steht im Formular am Feld.'
+                  }
+                - {
+                    label: 'Feldname (technisch)',
+                    name: 'name',
+                    widget: 'string',
+                    required: false,
+                    pattern: ['^[a-zA-Z][a-zA-Z0-9_]*$', 'Buchstabe am Anfang, danach nur Buchstaben, Ziffern und _ — keine Leerzeichen und keine Umlaute.'],
+                    hint: 'Unter diesem Namen taucht die Antwort in der Verwaltung und in den TN-Listen auf. Nachträglich nicht mehr ändern, sonst passen alte Anmeldungen nicht mehr dazu.'
+                  }
+                - {
+                    label: 'Pflichtfeld',
+                    name: 'required',
+                    widget: 'boolean',
+                    default: false,
+                    required: false
+                  }
+                - {
+                    label: 'Eigene Fehlermeldung',
+                    name: 'err',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Optional. Wird angezeigt, wenn das Pflichtfeld leer bleibt.'
+                  }
+              - label: 'Auswahlliste'
+                name: select
+                widget: object
+                summary: '{{fields.label}}'
+                fields:
+                - {
+                    label: 'Beschriftung',
+                    name: 'label',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Steht im Formular am Feld.'
+                  }
+                - {
+                    label: 'Feldname (technisch)',
+                    name: 'name',
+                    widget: 'string',
+                    required: false,
+                    pattern: ['^[a-zA-Z][a-zA-Z0-9_]*$', 'Buchstabe am Anfang, danach nur Buchstaben, Ziffern und _ — keine Leerzeichen und keine Umlaute.'],
+                    hint: 'Unter diesem Namen taucht die Antwort in der Verwaltung und in den TN-Listen auf. Nachträglich nicht mehr ändern, sonst passen alte Anmeldungen nicht mehr dazu.'
+                  }
+                - {
+                    label: 'Pflichtfeld',
+                    name: 'required',
+                    widget: 'boolean',
+                    default: false,
+                    required: false
+                  }
+                - {
+                    label: 'Eigene Fehlermeldung',
+                    name: 'err',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Optional. Wird angezeigt, wenn das Pflichtfeld leer bleibt.'
+                  }
+                - {
+                    label: 'Auswahlmöglichkeiten',
+                    name: 'items',
+                    widget: 'list',
+                    required: false,
+                    field: { label: 'Eintrag', name: 'item', widget: 'string' },
+                    hint: 'Die Einträge, unter denen gewählt werden kann.'
+                  }
+              - label: 'Auswahlliste mit Suchfeld'
+                name: autocomplete
+                widget: object
+                summary: '{{fields.label}}'
+                fields:
+                - {
+                    label: 'Beschriftung',
+                    name: 'label',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Steht im Formular am Feld.'
+                  }
+                - {
+                    label: 'Feldname (technisch)',
+                    name: 'name',
+                    widget: 'string',
+                    required: false,
+                    pattern: ['^[a-zA-Z][a-zA-Z0-9_]*$', 'Buchstabe am Anfang, danach nur Buchstaben, Ziffern und _ — keine Leerzeichen und keine Umlaute.'],
+                    hint: 'Unter diesem Namen taucht die Antwort in der Verwaltung und in den TN-Listen auf. Nachträglich nicht mehr ändern, sonst passen alte Anmeldungen nicht mehr dazu.'
+                  }
+                - {
+                    label: 'Pflichtfeld',
+                    name: 'required',
+                    widget: 'boolean',
+                    default: false,
+                    required: false
+                  }
+                - {
+                    label: 'Eigene Fehlermeldung',
+                    name: 'err',
+                    widget: 'string',
+                    required: false,
+                    hint: 'Optional. Wird angezeigt, wenn das Pflichtfeld leer bleibt.'
+                  }
+                - {
+                    label: 'Auswahlmöglichkeiten',
+                    name: 'items',
+                    widget: 'list',
+                    required: false,
+                    field: { label: 'Eintrag', name: 'item', widget: 'string' },
+                    hint: 'Die Einträge, unter denen gewählt werden kann.'
+                  }
