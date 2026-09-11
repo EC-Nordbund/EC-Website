@@ -68,7 +68,9 @@ div(v-if='page')
               :key='bereich.key',
               cols='auto'
             )
-              v-img(cover,
+              //- kein `cover`: die Logos sind nicht quadratisch (246x226) und
+              //- wuerden sonst auf das Quadrat beschnitten
+              v-img(
                 :max-height='badgeGroesse',
                 :max-width='badgeGroesse',
                 width='auto',
@@ -204,10 +206,10 @@ import {
 } from '@mdi/js'
 import { useDisplay } from 'vuetify'
 import juLeiCaImg from '~/assets/img/juLeiCa.png'
-import kidsImg from '~/assets/img/altersbereiche/kids.svg'
-import teensImg from '~/assets/img/altersbereiche/teens.svg'
-import jugendImg from '~/assets/img/altersbereiche/jugend.svg'
-import jeImg from '~/assets/img/altersbereiche/je.svg'
+import kidsImg from '~/assets/img/altersbereiche/kids.png'
+import teensImg from '~/assets/img/altersbereiche/teens.png'
+import jugendImg from '~/assets/img/altersbereiche/jugend.png'
+import jeImg from '~/assets/img/altersbereiche/je.png'
 import seminareImg from '~/assets/img/altersbereiche/seminare.svg'
 
 // Schlüssel = Feldname im CMS, siehe app/utils/altersbereiche.ts
