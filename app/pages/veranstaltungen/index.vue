@@ -68,7 +68,9 @@ v-container
                   //- Chip erschien auch alt nie (das Tag deckt ihn inhaltlich ab)
                   v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-if="'juleica' in item && item.juleica")
                     | JuLeiCa-Fortbildung
-                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="flat" size="small" v-for="bereich in aktiveAltersbereiche(item.altersbereiche)" :key="'ab-' + bereich.key")
+                  //- gefuellt in der Logofarbe des Bereichs — die Tags daneben
+                  //- bleiben umrandet, dadurch bleiben beide unterscheidbar
+                  v-chip(:color="bereich.color" :class="['ml-2', 'mb-1', 'font-weight-medium', bereich.textClass]" variant="flat" size="small" v-for="bereich in aktiveAltersbereiche(item.altersbereiche)" :key="'ab-' + bereich.key")
                     | {{ bereich.label }}
 
                 //- indicator

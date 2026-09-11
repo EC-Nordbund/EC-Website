@@ -210,7 +210,6 @@ import kidsImg from '~/assets/img/altersbereiche/kids.png'
 import teensImg from '~/assets/img/altersbereiche/teens.png'
 import jugendImg from '~/assets/img/altersbereiche/jugend.png'
 import jeImg from '~/assets/img/altersbereiche/je.png'
-import seminareImg from '~/assets/img/altersbereiche/seminare.svg'
 
 // Schlüssel = Feldname im CMS, siehe app/utils/altersbereiche.ts
 const ALTERSBEREICH_BILD: Record<string, string> = {
@@ -218,7 +217,6 @@ const ALTERSBEREICH_BILD: Record<string, string> = {
   teens: teensImg,
   jugend: jugendImg,
   je: jeImg,
-  seminare: seminareImg,
 }
 
 const route = useRoute()
