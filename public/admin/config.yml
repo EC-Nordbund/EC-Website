@@ -221,13 +221,12 @@ collections:
         collapsed: true
         widget: object
         required: false
-        hint: 'Blendet je Bereich das passende Bild auf der Veranstaltungsseite und einen Chip in der Übersicht ein. Mehrfachauswahl ist erlaubt — siehe Blogbeitrag "Unsere Altersbereiche".'
+        hint: 'Blendet je Bereich das Logo auf der Veranstaltungsseite und einen Chip in der Übersicht ein. Mehrfachauswahl ist erlaubt — siehe Blogbeitrag "Unsere Altersbereiche". Seminare ist kein Bereich, dafür gibt es den Tag "Seminar".'
         fields:
           - { label: 'Kids', name: 'kids', widget: 'boolean', default: false }
           - { label: 'Teens', name: 'teens', widget: 'boolean', default: false }
           - { label: 'Jugend', name: 'jugend', widget: 'boolean', default: false }
           - { label: 'Junge Erwachsene', name: 'je', widget: 'boolean', default: false }
-          - { label: 'Seminare', name: 'seminare', widget: 'boolean', default: false }
       - {
           label: 'Veranstaltungsort',
           name: 'veranstaltungsort',
