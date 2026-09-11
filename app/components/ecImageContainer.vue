@@ -11,11 +11,23 @@ v-carousel(
   v-carousel-item.bg-secondary(eager, v-for='(img, i) in images', :key='i')
     .image-overlay
       picture
-        source(:srcset="trimImgExt(img) + '.webp'", type='image/webp')
-        source(:srcset="trimImgExt(img) + '.jpg'", type='image/jpg')
-        img.responsive-image(:src="trimImgExt(img) + '.jpg'", :alt='img')
+        //- Bei <picture> faellt der Browser NICHT von selbst auf <img>
+        //- zurueck, wenn die gewaehlte <source> 404t. Schlaegt das webp
+        //- fehl, nehmen wir die source deshalb raus und laden das Original.
+        source(
+          v-if='!webpFehlt[i]',
+          :srcset='webpQuelle(img)',
+          type='image/webp'
+        )
+        img.responsive-image(
+          :ref='(el) => merkeBild(i, el)',
+          :src='originalQuelle(img)',
+          :alt='img',
+          @error='webpFehlt[i] = true'
+        )
 </template>
 <script setup lang="ts">
+import { onMounted, reactive } from 'vue'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -25,7 +37,33 @@ defineProps({
   },
 })
 
-const trimImgExt = (path: string) => path.replace(/\.(webp|jpg)$/, '')
+// Galeriepfade kommen in zwei Formen aus dem CMS: mit Endung
+// ('veranstaltungen/bild.jpeg') und ohne (Alt-Konvention, 'TC/TC2').
+// compress.mjs legt zu jedem Bild ein .webp gleichen Stamms.
+const BILD_ENDUNG = /\.(webp|jpe?g|png)$/i
+
+const webpQuelle = (pfad: string) => pfad.replace(BILD_ENDUNG, '') + '.webp'
+
+// Ohne Endung ist per Alt-Konvention .jpg die Originaldatei. Vorher wurde
+// hier IMMER '.jpg' angehaengt, nachdem nur '.webp' und '.jpg' abgeschnitten
+// wurden — aus 'bild.jpeg' wurde so 'bild.jpeg.jpg' und die Galerie blieb leer.
+const originalQuelle = (pfad: string) =>
+  BILD_ENDUNG.test(pfad) ? pfad : pfad + '.jpg'
+
+const webpFehlt = reactive<boolean[]>([])
+
+// @error allein reicht nicht: das prerenderte HTML laedt die Bilder, bevor
+// Vue hydriert — ein Fehler davor geht verloren. Deshalb beim Mounten
+// nachsehen, ob ein Bild schon fertig und trotzdem leer ist.
+const bildEl: (HTMLImageElement | null)[] = []
+const merkeBild = (i: number, el: unknown) => {
+  bildEl[i] = (el as HTMLImageElement | null) ?? null
+}
+onMounted(() => {
+  bildEl.forEach((el, i) => {
+    if (el && el.complete && el.naturalWidth === 0) webpFehlt[i] = true
+  })
+})
 </script>
 <style lang="scss" scoped>
 // TODO: if sloped -> adjust prev & next btn
