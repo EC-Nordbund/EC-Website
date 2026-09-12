@@ -89,8 +89,8 @@ collections:
                           name: 'filename',
                           widget: 'file',
                           required: false,
-                          media_folder: '/static/download',
-                          public_folder: 'download',
+                          media_folder: '/static/download/Corona-Infos',
+                          public_folder: 'download/Corona-Infos',
                         }
                       - { label: 'Titel', name: 'title', widget: 'string', required: false }
                       - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
@@ -114,8 +114,8 @@ collections:
                           name: 'filename',
                           widget: 'file',
                           required: false,
-                          media_folder: '/static/download',
-                          public_folder: 'download',
+                          media_folder: '/static/download/Design und Vorlagen',
+                          public_folder: 'download/Design und Vorlagen',
                         }
                       - { label: 'Titel', name: 'title', widget: 'string', required: false }
                       - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
@@ -139,8 +139,8 @@ collections:
                           name: 'filename',
                           widget: 'file',
                           required: false,
-                          media_folder: '/static/download',
-                          public_folder: 'download',
+                          media_folder: '/static/download/Dokumente',
+                          public_folder: 'download/Dokumente',
                         }
                       - { label: 'Titel', name: 'title', widget: 'string', required: false }
                       - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
@@ -169,8 +169,8 @@ collections:
                                 name: 'filename',
                                 widget: 'file',
                                 required: false,
-                                media_folder: '/static/download',
-                                public_folder: 'download',
+                                media_folder: '/static/download/Dokumente/Karlsminde',
+                                public_folder: 'download/Dokumente/Karlsminde',
                               }
                             - { label: 'Titel', name: 'title', widget: 'string', required: false }
                             - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
@@ -194,8 +194,8 @@ collections:
                           name: 'filename',
                           widget: 'file',
                           required: false,
-                          media_folder: '/static/download',
-                          public_folder: 'download',
+                          media_folder: '/static/download/FlyerundProspekte',
+                          public_folder: 'download/FlyerundProspekte',
                         }
                       - { label: 'Titel', name: 'title', widget: 'string', required: false }
                       - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
@@ -219,8 +219,8 @@ collections:
                           name: 'filename',
                           widget: 'file',
                           required: false,
-                          media_folder: '/static/download',
-                          public_folder: 'download',
+                          media_folder: '/static/download/Krisenintervention',
+                          public_folder: 'download/Krisenintervention',
                         }
                       - { label: 'Titel', name: 'title', widget: 'string', required: false }
                       - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
