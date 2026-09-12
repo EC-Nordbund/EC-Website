@@ -124,6 +124,18 @@ const orte = defineCollection({
   source: 'orte.md',
 })
 
+// Countdown auf der Startseite. Als offenes Record wie warteliste: nicht
+// gesetzte Schluessel fehlen dann einfach, statt als NULL anzukommen.
+const anmeldephase = defineCollection({
+  type: 'data',
+  source: 'anmeldephase.yml',
+  schema: z
+    .object({
+      countdown: z.record(z.string(), z.any()).optional(),
+    })
+    .passthrough(),
+})
+
 const downloads = defineCollection({
   type: 'data',
   source: 'downloads.yml',
@@ -138,7 +150,7 @@ const downloads = defineCollection({
 })
 
 // NICHT aufgenommen (bewusst, kein Glob trifft sie): api/**, packages.json,
-// old-news-slugs.json, startseite.yml, pages/**, anmeldephase.yml
+// old-news-slugs.json, startseite.yml, pages/**
 export default defineContentConfig({
   collections: {
     blog,
@@ -150,5 +162,6 @@ export default defineContentConfig({
     teilnahmebedingungen,
     orte,
     downloads,
+    anmeldephase,
   },
 })

@@ -165,10 +165,12 @@ const { data: pagesLoading } = await useAsyncData('homeData', async () => {
     featuredImage: assetUrl(d.featuredImage),
   }))
 
-  // Hartkodierung 1:1 (wird zur Generate-Zeit eingebacken, täglicher CI-Rebuild)
+  // Aus dem CMS (content/anmeldephase.yml). Wird zur Generate-Zeit
+  // eingebacken; der taegliche CI-Rebuild haelt ihn aktuell.
+  const anmeldephase: any = await queryCollection('anmeldephase').first()
   const countdown = {
-    date: '2026-09-20T13:00:00Z',
-    show: true,
+    date: anmeldephase?.countdown?.date as string | undefined,
+    show: anmeldephase?.countdown?.show === true,
   }
 
   return { upcomingEvents, recentPosts, countdown }

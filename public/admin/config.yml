@@ -24,6 +24,37 @@ slug:
   sanitize_replacement: _
 
 collections:
+  - name: 'einstellungen'
+    label: 'Einstellungen'
+    files:
+      - name: 'anmeldephase'
+        label: 'Countdown zur Anmeldephase'
+        file: 'content/anmeldephase.yml'
+        description: 'Der Countdown oben auf der Startseite. Ist der Zeitpunkt erreicht, steht dort "Die Anmeldephase hat begonnen!" — zum Ausblenden den Schalter umlegen.'
+        fields:
+          - label: 'Countdown'
+            name: 'countdown'
+            widget: 'object'
+            fields:
+              - {
+                  label: 'Countdown auf der Startseite anzeigen',
+                  name: 'show',
+                  widget: 'boolean',
+                  default: false,
+                  required: false,
+                }
+              - {
+                  label: 'Start der Anmeldephase',
+                  name: 'date',
+                  widget: 'datetime',
+                  date_format: 'DD.MM.YYYY',
+                  time_format: 'HH:mm',
+                  default: '',
+                  required: false,
+                  format: 'YYYY-MM-DDTHH:mm:SSZ',
+                  picker_utc: false,
+                }
+
   - name: 'blog'
     label: 'Blog'
     label_singular: 'Beitrag'
