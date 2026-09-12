@@ -27,7 +27,7 @@ v-container
       v-list-item-title {{ el.title }}
       v-list-item-subtitle {{ el.description }}
     v-list-item(
-      v-for='key in Object.keys(data.folders)',
+      v-for='key in Object.keys(data.folders ?? {})',
       :key='route.fullPath + key',
       :to='`/downloads/${[...fileRoute, key].join("/")}`',
       lines='two'

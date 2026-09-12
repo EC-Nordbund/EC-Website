@@ -55,6 +55,176 @@ collections:
                   picker_utc: false,
                 }
 
+  - name: 'downloads'
+    label: 'Downloads'
+    files:
+      - name: 'downloads'
+        label: 'Download-Bereich'
+        file: 'content/downloads.yml'
+        description: 'Die Dateien unter www.ec-nordbund.de/downloads. Ordner koennen hier nicht angelegt werden — dafuer bitte melden.'
+        fields:
+          - { label: 'Ueberschrift', name: 'title', widget: 'string', required: false }
+          - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+          - label: 'Ordner'
+            name: 'folders'
+            widget: 'object'
+            fields:
+              - label: 'Corona Informationen'
+                name: 'Corona-Infos'
+                widget: 'object'
+                collapsed: true
+                fields:
+                  - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                  - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Dateien'
+                    name: 'files'
+                    widget: 'list'
+                    required: false
+                    collapsed: true
+                    label_singular: 'Datei'
+                    summary: '{{fields.title}}'
+                    fields:
+                      - {
+                          label: 'Datei',
+                          name: 'filename',
+                          widget: 'file',
+                          required: false,
+                          media_folder: '/static/download',
+                          public_folder: 'download',
+                        }
+                      - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                      - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+              - label: 'Design und Vorlagen'
+                name: 'DesignundVorlagen'
+                widget: 'object'
+                collapsed: true
+                fields:
+                  - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                  - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Dateien'
+                    name: 'files'
+                    widget: 'list'
+                    required: false
+                    collapsed: true
+                    label_singular: 'Datei'
+                    summary: '{{fields.title}}'
+                    fields:
+                      - {
+                          label: 'Datei',
+                          name: 'filename',
+                          widget: 'file',
+                          required: false,
+                          media_folder: '/static/download',
+                          public_folder: 'download',
+                        }
+                      - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                      - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+              - label: 'Dokumente'
+                name: 'Dokumente'
+                widget: 'object'
+                collapsed: true
+                fields:
+                  - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                  - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Dateien'
+                    name: 'files'
+                    widget: 'list'
+                    required: false
+                    collapsed: true
+                    label_singular: 'Datei'
+                    summary: '{{fields.title}}'
+                    fields:
+                      - {
+                          label: 'Datei',
+                          name: 'filename',
+                          widget: 'file',
+                          required: false,
+                          media_folder: '/static/download',
+                          public_folder: 'download',
+                        }
+                      - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                      - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Unterordner'
+                    name: 'folders'
+                    widget: 'object'
+                    collapsed: true
+                    fields:
+                    - label: 'EC-Ferienlager'
+                      name: 'Karlsminde'
+                      widget: 'object'
+                      collapsed: true
+                      fields:
+                        - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                        - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                        - label: 'Dateien'
+                          name: 'files'
+                          widget: 'list'
+                          required: false
+                          collapsed: true
+                          label_singular: 'Datei'
+                          summary: '{{fields.title}}'
+                          fields:
+                            - {
+                                label: 'Datei',
+                                name: 'filename',
+                                widget: 'file',
+                                required: false,
+                                media_folder: '/static/download',
+                                public_folder: 'download',
+                              }
+                            - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                            - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+              - label: 'Flyer und Prospekte'
+                name: 'FlyerundProspekte'
+                widget: 'object'
+                collapsed: true
+                fields:
+                  - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                  - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Dateien'
+                    name: 'files'
+                    widget: 'list'
+                    required: false
+                    collapsed: true
+                    label_singular: 'Datei'
+                    summary: '{{fields.title}}'
+                    fields:
+                      - {
+                          label: 'Datei',
+                          name: 'filename',
+                          widget: 'file',
+                          required: false,
+                          media_folder: '/static/download',
+                          public_folder: 'download',
+                        }
+                      - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                      - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+              - label: 'Krisenintervention'
+                name: 'Krisenintervention'
+                widget: 'object'
+                collapsed: true
+                fields:
+                  - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                  - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+                  - label: 'Dateien'
+                    name: 'files'
+                    widget: 'list'
+                    required: false
+                    collapsed: true
+                    label_singular: 'Datei'
+                    summary: '{{fields.title}}'
+                    fields:
+                      - {
+                          label: 'Datei',
+                          name: 'filename',
+                          widget: 'file',
+                          required: false,
+                          media_folder: '/static/download',
+                          public_folder: 'download',
+                        }
+                      - { label: 'Titel', name: 'title', widget: 'string', required: false }
+                      - { label: 'Beschreibung', name: 'description', widget: 'string', required: false }
+
   - name: 'blog'
     label: 'Blog'
     label_singular: 'Beitrag'
