@@ -522,6 +522,9 @@ useHead({ title: 'Kalender' })
   margin-bottom: 3px;
 }
 
+/* Monats- und Jahresbeschriftung in der normalen Textfarbe: Gruen steht in
+   diesem Planer fuer Inhalte (Balken, Wochenenden) und soll nicht nebenbei
+   auch die Beschriftung einfaerben. */
 .jp-monatsname {
   grid-column: 1;
   grid-row: 1 / -1;
@@ -530,7 +533,7 @@ useHead({ title: 'Kalender' })
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: rgb(var(--v-theme-primary));
+  color: rgba(var(--v-theme-on-surface), 0.87);
 }
 
 .jp-kopf-ecke {
