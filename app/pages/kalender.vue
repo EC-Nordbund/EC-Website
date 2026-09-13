@@ -1,5 +1,9 @@
 <template lang="pug">
-v-container(fluid)
+//- v-container mit `container--wide`: global.scss deckelt Container in v-main
+//- auf 1028px Textbreite -- fuer 31 Tagesspalten ist das zu eng, und die
+//- Seite stand dadurch deutlich weiter innen als die Kopfzeile. Die Klasse ist
+//- die dafuer vorgesehene Ausnahme (global.scss, Zeile 25).
+v-container.container--wide
   h1.mb-1 Kalender
   p.text-medium-emphasis.mb-4
     | Alle Freizeiten und Veranstaltungen am Stück — ab {{ fensterText }}.
@@ -83,7 +87,7 @@ v-container(fluid)
               :to="`/veranstaltungen/${seg.termin.slug}`"
               :title="seg.tooltip"
               :style="{ gridColumn: `${seg.von + 1} / span ${seg.span}`, gridRow: seg.spur + 2, background: seg.termin.farbe }"
-              :class="{ 'jp-balken--offen-links': !seg.beginntHier, 'jp-balken--offen-rechts': !seg.endetHier, 'jp-balken--hell': seg.termin.hellerText }")
+              :class="{ 'jp-balken--offen-links': !seg.beginntHier, 'jp-balken--offen-rechts': !seg.endetHier }")
               span.jp-balken-text(v-if="seg.beschriftung") {{ seg.beschriftung }}
 
 
@@ -163,7 +167,6 @@ interface Termin {
   bereiche: readonly AltersbereichKey[]
   bereichNamen: string
   farbe: string
-  hellerText: boolean
   anmeldestart: Date | null
   anmeldestartText: string
 }
@@ -284,9 +287,6 @@ const termine = computed<Termin[]>(() => {
       bereiche: bereiche.map((b) => b.key),
       bereichNamen: bereiche.map((b) => b.label).join(', '),
       farbe: bereiche[0]?.color ?? (d.juleica === true ? KORALLE : NEUTRAL),
-      // Teens-Violett ist so hell, dass weiße Schrift darauf nicht mehr lesbar
-      // ist — dieselbe Entscheidung wie bei den Chips (utils/altersbereiche).
-      hellerText: bereiche[0]?.textClass === 'text-dunkelGrau',
       anmeldestart: gueltig ? anmeldestart : null,
       anmeldestartText: gueltig ? `${zeitFormat.format(anmeldestart!)} Uhr` : '',
     })
@@ -616,12 +616,16 @@ useHead({ title: 'Kalender' })
   align-items: center;
   min-width: 0;
   text-decoration: none;
-  color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
-.jp-balken--hell {
-  color: #2f2f2f;
+/* !important, weil global.scss jedem <a> die Primaerfarbe gibt
+   (a:not(.v-btn):not(.v-card)… — fuenf Pseudoklassen, dagegen kommt eine
+   Klasse im Scoped-Style nicht an). Ohne das steht in jedem Balken gruene
+   Schrift statt weisser. */
+.jp-balken,
+.jp-balken .jp-balken-text {
+  color: #fff !important;
 }
 
 /* Läuft der Termin über den Monatsrand hinaus, bleibt die Kante offen —
