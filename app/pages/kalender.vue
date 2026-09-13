@@ -351,22 +351,32 @@ interface Segment {
 }
 
 /**
- * Letzter Monat des Planers: zwölf Monate ab dem Fenstermonat, aber nicht
- * weiter als bis zur spätesten Veranstaltung.
+ * Länge des Planers in Monaten: so weit wie die späteste Veranstaltung
+ * reicht, mindestens 13 und höchstens 24 Monate.
  *
- * Die Obergrenze hält das Blatt beieinander — im Content stehen vereinzelt
- * Termine zwei Jahre im Voraus, und dafür dann zwölf leere Monatszeilen zu
+ * Die Untergrenze sorgt dafür, dass immer mehr als ein ganzes Jahr zu sehen
+ * ist — auch im Frühjahr, wenn der nächste Herbst noch nicht eingetragen ist.
+ * Die Obergrenze hält das Blatt beieinander: im Content stehen vereinzelt
+ * Termine weit im Voraus, und dafür ein Dutzend leerer Monatszeilen zu
  * zeichnen, macht den Planer nur länger, nicht nützlicher.
  */
-const letzterMonat = computed(() => {
+const monatsAnzahl = computed(() => {
   let spaetester = new Date(fensterStart)
   for (const t of gefiltert.value) if (t.bis > spaetester) spaetester = t.bis
 
-  const grenze = new Date(fensterStart)
-  grenze.setMonth(grenze.getMonth() + 11)
+  const monate =
+    (spaetester.getFullYear() - fensterStart.getFullYear()) * 12 +
+    (spaetester.getMonth() - fensterStart.getMonth()) +
+    1
 
-  const ende = spaetester < grenze ? spaetester : grenze
-  return new Date(ende.getFullYear(), ende.getMonth(), 1)
+  return Math.max(13, Math.min(24, monate))
+})
+
+/** Letzter Monat, der noch gezeichnet wird. */
+const letzterMonat = computed(() => {
+  const ende = new Date(fensterStart)
+  ende.setMonth(ende.getMonth() + monatsAnzahl.value - 1)
+  return ende
 })
 
 const jahresbloecke = computed(() => {
