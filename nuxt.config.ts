@@ -239,6 +239,9 @@ export default defineNuxtConfig({
       // prerendert und würden sonst in der Sitemap landen (Alt hatte sie nicht)
       '/blog/veranstaltung',
       '/veranstaltungen/teilnahmebedingungen',
+      // Nicht verlinkt und (noch) nicht beworben -- dann gehoert die Seite
+      // auch nicht in die Sitemap.
+      '/kalender',
     ],
     sources: ['/api/__sitemap__/urls'],
   },
@@ -281,6 +284,10 @@ export default defineNuxtConfig({
       for (const stem of contentStems('ort')) {
         ctx.routes.add(`/orte/${stem}`)
       }
+
+      // Jahreskalender: bewusst nicht im Menü verlinkt, deshalb findet der
+      // Crawler ihn nicht.
+      ctx.routes.add('/kalender')
 
       // Statische Seiten explizit (Crawler-unabhängig)
       for (const route of [
