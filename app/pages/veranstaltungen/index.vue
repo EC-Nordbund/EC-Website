@@ -64,9 +64,11 @@ v-container
                   v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="outlined" size="small" v-for="tag in item.tags" :key="tag")
                     //- KEIN TS im Pug-Template (Vite strippt as-Casts hier nicht)
                     | {{ tagLabel(tag) }}
-                  //- gefuellt im Primaergruen; die weisse Schrift kommt ueber
-                  //- on-primary aus dem Theme
-                  v-chip(color="primary" class="ml-2 mb-1 font-weight-medium" variant="flat" size="small" v-if="item.juleica")
+                  //- gefuellt in Koralle, der Farbe des JuLeiCa-Sechsecks.
+                  //- War kurzzeitig Primaergruen (8685d9f) -- das steht auf der
+                  //- Karte aber schon fuer die Tags daneben und liess den Badge
+                  //- wie eine weitere Kategorie aussehen.
+                  v-chip(color="#ea4c60" class="ml-2 mb-1 font-weight-medium text-white" variant="flat" size="small" v-if="item.juleica")
                     | JuLeiCa Fortbildung
                   //- gefuellt in der Logofarbe des Bereichs — die Tags daneben
                   //- bleiben umrandet, dadurch bleiben beide unterscheidbar
