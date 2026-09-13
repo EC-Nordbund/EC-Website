@@ -273,6 +273,11 @@ export default defineNuxtConfig({
         ctx.routes.add(`/veranstaltungen/${stem}`)
       }
 
+      // Kalender-Abo als statische Datei: /kalender.ics wird mitgerendert und
+      // liegt danach in .output/public. Muss hier stehen, weil nichts auf der
+      // Seite darauf verlinkt -- der Crawler findet die Route also nicht.
+      ctx.routes.add('/kalender.ics')
+
       for (const stem of contentStems('ort')) {
         ctx.routes.add(`/orte/${stem}`)
       }
