@@ -87,7 +87,7 @@ v-container.container--wide
               :to="`/veranstaltungen/${seg.termin.slug}`"
               :title="seg.tooltip"
               :style="{ gridColumn: `${seg.von + 1} / span ${seg.span}`, gridRow: seg.spur + 2, background: seg.termin.farbe }"
-              :class="{ 'jp-balken--offen-links': !seg.beginntHier, 'jp-balken--offen-rechts': !seg.endetHier }")
+              :class="{ 'jp-balken--offen-links': !seg.beginntHier, 'jp-balken--offen-rechts': !seg.endetHier, 'jp-balken--schmal': seg.span < 3 }")
               span.jp-balken-text(v-if="seg.beschriftung") {{ seg.beschriftung }}
 
 
@@ -460,9 +460,12 @@ function baueMonat(j: number, m: number) {
 
     // Beschriftung im Balken: ab fünf Tagen mit Datum davor, ab drei nur der
     // Titel, darunter steht sie daneben.
+    // Beschriftung: ab fuenf Tagen mit Datum davor, sonst der Titel. Auch
+    // eintaegige Termine bekommen ihn -- viel ist bei einer Spaltenbreite
+    // nicht zu sehen, aber ein Balken ganz ohne Text sieht aus wie ein Fehler.
+    // Vollstaendig steht alles im Tooltip.
     const datumKurz = von === bis ? `${von}.` : `${von}.–${bis}.`
-    const beschriftung =
-      span >= 5 ? `${datumKurz} ${t.titel}` : span >= 2 ? t.titel : ''
+    const beschriftung = span >= 5 ? `${datumKurz} ${t.titel}` : t.titel
 
     const segment: Segment = {
       termin: t,
@@ -643,6 +646,14 @@ useHead({ title: 'Kalender' })
 /* min-width: 0 an beiden Ebenen ist der Punkt, an dem es sonst bricht: ein
    Flex-Kind waechst sonst auf seine Textbreite und schiebt den Titel ueber den
    Balkenrand hinaus. */
+/* Schmale Balken: weniger Innenabstand und eine Spur kleiner, damit von
+   einem Eintagestermin ueberhaupt Buchstaben zu sehen sind. */
+.jp-balken--schmal .jp-balken-text {
+  padding: 0 2px;
+  font-size: 0.58rem;
+  letter-spacing: -0.01em;
+}
+
 .jp-balken-text {
   min-width: 0;
   max-width: 100%;
