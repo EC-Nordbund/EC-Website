@@ -13,7 +13,7 @@ $ npm run dev
 
 # generate static site (output in .output/public/) and launch preview server
 $ npm run generate
-$ npm run preview
+$ npm run preview 
 ```
 
 bump for action 6
