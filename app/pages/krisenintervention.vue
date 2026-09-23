@@ -189,7 +189,7 @@ v-container
         v-list-item.px-1(
           v-for='file in data.files',
           :key='"file_" + file.filename',
-          :href='`${file.filename}`'
+          :href='`/${file.filename}`'
         )
           template(#prepend)
             v-avatar
